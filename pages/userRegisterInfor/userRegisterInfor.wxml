@@ -1,0 +1,60 @@
+<view class="input_list1 flexCenter">
+	<view class="color8 font28">状态</view>
+	<view class="color_b font28" style="margin-left:20rpx;">已通过</view>
+</view>
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8">店铺名称:</view>
+	<view class="input">店铺名称</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">负责人姓名:</view>
+	<view class="input">李思思</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">手机号:</view>
+	<view class="input">156464654644</view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">银行卡号:</view>
+	<view class="input">156464654644</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">银行卡开户行:</view>
+	<view class="input">中国银行</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">行业类型:</view>
+	<view class="input">
+      餐饮行业
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">省市县:</view>
+	<view class="input">
+     	陕西省西安市雁塔区
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">详细地址:</view>
+	<view class="input avoidOverflow">
+     	陕西省西安市雁塔区
+    </view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;border:0;">
+	<view class="input_before font28 color8">营业执照:</view>
+	<view class="upload_img">
+		<image src="/images/img1.jpg"></image>
+	</view>
+</view>
+<view class="upload flex1 w690">
+	<view class="upload_left font28 color8">
+		身份证正反两面
+	</view>
+	<view class="upload_right">
+		<image src="/images/banner.jpg"></image>
+		<image src="/images/banner.jpg"></image>
+	</view>
+</view>
+
+

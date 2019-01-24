@@ -1,0 +1,31 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before">店铺名称:</view>
+	<view class="input">西安纯粹</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">省市:</view>
+	<view class="input">陕西省西安市</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">知条数:</view>
+	<view class="input">212121</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">会员数:</view>
+	<view class="input">212121</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">联系人:</view>
+	<view class="input">刘女士</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">联系电话:</view>
+	<view class="input">212121</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">时间:</view>
+	<view class="input">2018-9</view>
+</view>
+
+

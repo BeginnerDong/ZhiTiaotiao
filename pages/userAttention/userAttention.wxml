@@ -1,0 +1,31 @@
+<!--index1.wxml-->
+<view class="w690">
+    <view class="stroe bg1 w710 flex shadow1" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
+        <view class="store_left">
+            <view class="store_name font28 color2 avoidOverflow2">
+                标题标题标题标题标题标题标 标题标题标题标题标题标题标题标题标 标题标题
+            </view>
+            <view class="store_infor flex ">
+                <view class="store_item flex">
+                    <image src="/images/index_icon4.png"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/index_icon5.jpg"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/index_icon6.jpg"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/position_icon2.png"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+            </view>  
+        </view>
+        <view class="store_right">
+            <image src="/images/banner.jpg"></image>
+        </view>
+    </view>
+</view>

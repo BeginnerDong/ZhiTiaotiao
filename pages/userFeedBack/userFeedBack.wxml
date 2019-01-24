@@ -1,0 +1,33 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color2">留言标题:</view>
+	<input placeholder="请输入标题"></input>
+</view>
+<view class="message flex1 w690">
+	<view class="message_left font28 color2">
+		内容描述
+	</view>
+	<view class="message_right">
+		<textarea></textarea>
+	</view>
+</view>
+<view class="message flex1 w690">
+	<view class="message_left font28 color2">
+		上传图片
+	</view>
+	<view class="message_upload flex">
+		<view class="uolode_item">
+			<image src="/images/members-img.png"></image>
+		</view>
+		<view class="uplode_add">+</view>
+		
+	</view>
+</view>
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color2">联系人电话:</view>
+	<input placeholder="请输入联系人电话"></input>
+</view>
+<button class="submit_info bg1">提交</button>
+
+
+

@@ -1,0 +1,31 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8">商品名称:</view>
+	<input placeholder="请输入商品名称"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">商品价格:</view>
+	<input placeholder="请输入商品价格"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">知条价格:</view>
+	<input placeholder="请输入知条价格"></input>
+</view>
+<view class="message flex1 w690">
+	<view class="message_left font28 color2">
+		商品详情
+	</view>
+	<view class="message_right">
+		<textarea></textarea>
+	</view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8">商品图片:</view>
+	<view class="input">
+		<image src="/images/Upload-icon.png"></image>
+	</view>
+</view>
+<button class="submit_info bg2">提交</button>
+
+
+

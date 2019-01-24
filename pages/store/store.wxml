@@ -1,0 +1,74 @@
+<!--index1.wxml-->
+<view class="w690">
+    <view class="stroe_search flex">
+        <view class="stroe_search_left flex">
+            <image src="/images/store_icon8.png"></image>
+            <view class="font28 color2">分类</view>
+        </view>
+        <view class="stroe_search_right">
+            <view class="search flex">
+                <input placeholder="请搜索相关产品" class="font28 color9"></input> 
+                <view class="search_btn">
+                    <image src="/images/store_icon9.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="stroe bg1 w710 flex shadow1" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
+        <view class="store_left">
+            <view class="store_name font28 color2 avoidOverflow2">
+                标题标题标题标题标题标题标 标题标题标题标题标题标题标题标题标 标题标题
+            </view>
+            <view class="store_infor flex ">
+                <view class="store_item flex">
+                    <image src="/images/index_icon4.png"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/index_icon5.jpg"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/index_icon6.jpg"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+                <view class="store_item flex">
+                    <image src="/images/position_icon2.png"></image>
+                    <view class="font24 color5">8545</view>
+                </view>
+            </view>  
+        </view>
+        <view class="store_right">
+            <image src="/images/banner.jpg"></image>
+        </view>
+    </view>
+</view>
+<view class="space_bottom"></view>
+<view class="navbar">
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/index/index">
+        <view class="nav_img">
+          <image src="/images/navbar1.png"></image>
+        </view>
+        <view class="text">首页</view>
+    </view>
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/store/store">
+        <view class="nav_img">
+           <image src="/images/navbar2-a.png"></image>
+        </view>
+        <view class="text this-text">附近</view>
+    </view>
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/status/status">
+        <view class="nav_img">
+           <image src="/images/navbar3.png"></image>
+        </view>
+        <view class="text">动态</view>
+    </view>
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/user/user">
+        <view class="nav_img">
+            <image src="/images/navbar4.png"></image>
+        </view>
+        <view class="text">我的</view>
+    </view>
+</view>
+
+

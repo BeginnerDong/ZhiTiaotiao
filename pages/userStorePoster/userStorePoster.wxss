@@ -1,0 +1,15 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+page{
+	overflow:hidden;
+}
+.poster image{
+	width:300rpx;
+	height:300rpx;
+
+}
+.poster{
+	width:100%;
+	text-align:center;
+}

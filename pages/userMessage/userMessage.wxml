@@ -1,0 +1,21 @@
+<view class="message_top flex bg1">
+    <view class="submit_info font24 coolr1" bindtap="intoPath" data-path="/pages/userMessageNew/userMessageNew">系统通知</view>
+</view>
+<view class="w690 message">
+    <view class="message_tlt font26 color2">
+        交易消息
+    </view>
+    <view class="font24 color5">
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内
+    </view>
+    <view class="font22 color5 message_time">2015-9-9</view>
+</view>
+<view class="w690 message ">
+    <view class="message_tlt font26 color2">
+        交易消息
+    </view>
+    <view class="font24 color5">
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内
+    </view>
+    <view class="font22 color5 message_time">2015-9-9</view>
+</view>

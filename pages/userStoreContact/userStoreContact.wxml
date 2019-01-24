@@ -1,0 +1,19 @@
+<view class="w690">
+	<view class="contact flex">
+    	<view class="contact_left">
+    		<image src="/images/kefu-icon.png"></image>
+    		<view class="contact_left_word font30 color8">
+    			客服电话
+    		</view>
+    		<input placeholder="请输入电话"></input>
+    	</view>
+    	<view class="contact_left">
+    		<image src="/images/kefu-icon1.png"></image>
+    		<view class="contact_left_word font30 color8">
+    			客服微信
+    		</view>
+    		<input placeholder="请输入微信"></input>
+    	</view>
+	</view>
+</view>
+<button class="submit_info bg2">确认</button>

@@ -1,0 +1,92 @@
+<!--index3.wxml-->
+<view class="piece_top flex">
+    <view style="width:100%;text-align: center;">
+        <view class="piece_row flexCenter">
+            <view class="color8 font30">总金额</view>
+        </view>
+        <view class="font28 color_b" style="text-align:center;margin-top:16rpx;">¥898</view>
+    </view>
+</view>
+<view class="date font30">
+    <view class="date_item">
+        <view style="width:45%;display:flex;align-items:center;">
+            <view class="date_left" style="color:#00c6f7;width:100%;">
+                <picker  mode="date"  bindchange="bindTimeChange" >
+                    <view style="display:flex;align-items:center;width:100%;height:100%;">
+                        <view style="width:85%;height:70rpx;">
+                            <view class="picker text">
+                              起始日期
+                            </view>
+                            <view class="text  font22" >{{time}}</view>
+                        </view>
+                        <view style="width:15%;height:70rpx;align-items:center;">
+                            <image src="/images/up.jpg"></image>
+                        </view>
+                    </view> 
+                </picker>
+                
+            </view>
+            
+        </view> 
+    </view>
+    <view class="date_item">
+        <view style="width:45%;display:flex;align-items:center;">
+            <view class="date_left" style="color:#00c6f7;width:100%;">
+                <picker  mode="date" bindchange="bindTimeChange" >
+                    <view style="display:flex;align-items:center;width:100%;height:100%;">
+                        <view style="width:85%;height:70rpx;">
+                            <view class="picker text">
+                              截至日期
+                            </view>
+                            <view class="text font22">{{time}}</view>
+                        </view>
+                        <view style="width:15%;height:70rpx;">
+                            <image src="/images/up.jpg"></image>
+                        </view>
+                    </view>
+                </picker>
+            </view>
+            
+        </view> 
+    </view>     
+</view>
+<view>
+    <view class="credit_cont">
+        <view class="credit_list">
+            <view class="credit_item">
+                <view class="credit_img flex">
+                    <image src="/images/bill-icon.png"></image>
+                </view>
+                <view class="credit_left">
+                    <view class="credit_reson font28">
+                        永得利副食超市
+                    </view>
+                    <view class="credit_dates font24 color9">
+                        0000-0-0
+                    </view>
+                </view>
+                <view class="credit_right font28">
+                     +70.0
+                </view>
+            </view>
+        </view>
+        <view class="credit_list">
+            <view class="credit_item">
+                <view class="credit_img flex">
+                    <image src="/images/bill-icon.png"></image>
+                </view>
+                <view class="credit_left">
+                    <view class="credit_reson font28">
+                        永得利副食超市
+                    </view>
+                    <view class="credit_dates font24 color9">
+                        0000-0-0
+                    </view>
+                </view>
+                <view class="credit_right font28">
+                    +70.0
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

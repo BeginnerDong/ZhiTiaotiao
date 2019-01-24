@@ -1,0 +1,10 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+.piece_list{
+	height:106rpx;
+	border-bottom:solid 1px #f4f4f4;
+}
+.piece_item{
+	width:50%;
+}

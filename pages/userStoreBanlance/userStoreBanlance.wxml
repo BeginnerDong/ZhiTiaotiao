@@ -1,0 +1,14 @@
+<view class="w690">
+	<view class="shadow1 w710 bg1 balance flex" bindtap="intoPath" data-path="/pages/userStroePayment/userStroePayment">
+		<view class="balance_left font28 color8">货款</view>
+		<view class="balance_right">
+			<image src="/images/next_page.jpg"></image>
+		</view>
+	</view>
+	<view class="shadow1 w710  bg1 balance flex"  bindtap="intoPath" data-path="/pages/userStroeCooperation/userStroeCooperation">
+		<view class="balance_left font28 color8">联盟金</view>
+		<view class="balance_right">
+			<image src="/images/next_page.jpg"></image>
+		</view>
+	</view>
+</view>

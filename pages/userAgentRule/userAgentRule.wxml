@@ -1,0 +1,14 @@
+<view class="w690">
+	<view class="w710 shadow1 bg1 rule">
+		<view class="rule_tlt font28 color8">标题标题标题标题标题标题标题标题</view>
+		<view class="font26 color8">1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；</view>
+	</view>
+	<view class="w710 shadow1 bg1 rule">
+		<view class="rule_tlt font28 color8">标题标题标题标题标题标题标题标题</view>
+		<view class="font26 color8">1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；1.内容内容内容内容内容内容内容内容内容内容内内容 内容内容内容让女人内容；</view>
+	</view>
+</view>
+<view class="applacation" bindtap="intoPath" data-path="/pages/userAgentRegister/userAgentRegister">
+	<image src="/images/rules-icon.png"></image>
+	<view class="font28 color_b">申请代理</view>
+</view>

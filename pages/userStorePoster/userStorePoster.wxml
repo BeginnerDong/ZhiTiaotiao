@@ -1,0 +1,6 @@
+<view class="flex" style="width:100%;height:90vh">
+    <view class="poster">
+        <image src="/images/Qrcode-img.jpg"></image>
+        <view class="font30 color7" style="margin-top:30rpx;">保存到本地</view>
+    </view>
+</view>

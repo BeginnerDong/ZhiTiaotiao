@@ -1,0 +1,47 @@
+<!--index3.wxml-->
+<view class="w690 logout font24 color7">
+    <view class="agent_code font28 color8">代理商编码：001</view>
+    <view class="logout_page" bindtap="intoPath" data-path="/pages/user/user">退出</view>
+</view>
+<view class="sort flex shadow1 bg1">
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentInfor/userAgentInfor">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/agency-icon.png"></image>
+                <view class="font28 color3">代理信息</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentStore/userAgentStore">
+        <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+            <view style="width:100%;">
+                <image src="/images/agency-icon1.png"></image>
+                <view class="font28 color3">服务店铺</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentService/userAgentService">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/agency-icon2.png"></image>
+                <view class="font28 color3">服务代理</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/agency-icon3.png"></image>
+                <view class="font28 color3">账单</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentPayment/userAgentPayment">
+        <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+            <view style="width:100%;">
+                <image src="/images/agency-icon4.png"></image>
+                <view class="font28 color3">我的余额</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+page{
+	overflow:hidden;
+}
+.rule{
+	padding:3%;
+	margin-top:30rpx;
+}
+.rule_tlt{
+	height:108rpx;
+	line-height:120rpx;
+	overflow:hidden;
+	width:100%;
+	text-align:center;
+}
+.applacation{
+	width:120rpx;
+	position:fixed;
+	right:4%;
+	bottom:20%;
+	text-align:center;
+}
+.applacation image{
+	width:90rpx;
+	height:90rpx;
+}

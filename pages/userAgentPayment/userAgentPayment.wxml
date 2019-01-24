@@ -1,0 +1,19 @@
+<view class="piece_top flex">
+    <view style="width:100%;text-align: center;">
+        <view class="piece_row flexCenter">
+            <view class="color8 font30">余额</view>
+        </view>
+        <view class="font28 color_r" style="text-align:center;margin-top:16rpx;">¥898</view>
+    </view>
+</view>
+<view class="piece_list w690 flex">
+    <view class="piece_item font28 color8" style="text-align:left;">2018-9-9</view>
+    <view class="piece_item font26 color8" style="text-align:right;">+12.8</view>
+</view>
+<view class="piece_list w690 flex">
+    <view class="piece_item font28 color8" style="text-align:left;">2018-9-9</view>
+    <view class="piece_item font26 color8" style="text-align:right;">+12.8</view>
+</view>
+<view class="blank">
+    <image src="/images/members-img.png"></image>
+</view>

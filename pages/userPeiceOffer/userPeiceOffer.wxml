@@ -1,0 +1,27 @@
+<view class="w690">
+	<view class="index_product flexRowBetween">
+	  <view class="recommend_left bg1 shadow1" bindtap="intoPath" data-path="/pages/userStoreEdit/userStoreEdit">
+	    <view class="recommend_top">
+	      <image src="/images/img1.jpg"></image>
+	    </view>
+	    <view class="product_name font28 color2 avoidOverflow">名称名称名称名称</view>
+	    <view class="product_pro  flex avoidOverflow">
+	       <view class="font24 color_r">¥434/</view>
+	       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
+	    </view>
+	  </view>
+	  <view class="recommend_left  bg1 shadow1"  bindtap="intoPath" data-path="/pages/userStoreEdit/userStoreEdit">
+	    <view class="recommend_top">
+	      <image src="/images/img1.jpg"></image>
+	    </view>
+	    <view class="product_name font28 color2 avoidOverflow">名称名称名称名称</view>
+	    <view class="product_pro  flex avoidOverflow">
+	       <view class="font24 color_r">¥434/</view>
+	       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
+	    </view>
+	  </view>
+	</view>
+</view>
+<view class="register flex bg2" bindtap="intoPath" data-path="/pages/userStoreAdd/userStoreAdd">
+  <view class="add color1">+</view>
+</view>

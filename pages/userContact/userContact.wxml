@@ -1,0 +1,21 @@
+<view class="w690">
+	<view class="contact flex">
+    	<view class="contact_left">
+    		<image src="/images/phone.png"></image>
+    		<view class="contact_left_word font30 color8 color2">
+    			客服电话
+    		</view>
+    		<view class="font24">15587575</view>
+    	</view>
+	</view>
+</view>
+<view class="w690">
+    <view class="feedBack shadow1 flex bg1 w710" bindtap="intoPath" data-path="/pages/userFeedBack/userFeedBack">
+        <view class="feed_left font30 color2">
+            意见反馈
+        </view>
+        <view class="feed_right">
+            <image src="/images/next_page.jpg"></image>
+        </view>
+    </view>
+</view>

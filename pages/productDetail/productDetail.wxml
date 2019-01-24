@@ -1,0 +1,21 @@
+<view class="banner">
+	<image src="/images/banner.jpg"></image>
+</view>
+<view class="store_introduce w690 bg1">
+	<view class="store_tlt font28 color2 avoidOverflow">
+		标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题
+	</view>
+	<view class="font24 color8">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</view>
+	<view class="product_pro  flex avoidOverflow">
+       <view class="font24 color_r">¥434 /</view>
+       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
+    </view>
+</view>
+<view class="w690 bg1 store_product">
+	<view class="font28 color2" style="height:60rpx;line-height:60rpx;">
+	商品图片
+	</view>
+	<view class="condition">
+		<image src="/images/banner.jpg"></image>
+	</view>
+</view>

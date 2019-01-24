@@ -1,0 +1,22 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+page{
+	overflow:hidden;
+}
+.input_list1{
+	height:98rpx;
+	line-height:98rpx;
+	border-bottom:solid 1px #f4f4f4;
+}
+.input_list1 .input_before{
+	width:22%;
+	color:#04132c;
+}
+.input_list1 .input{
+	width:76%;
+	padding-left:2%;
+	height:100%;
+	border-radius:16rpx;
+}
+

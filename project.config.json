@@ -1,0 +1,178 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.2",
+	"appid": "wx212611f012b9cf1d",
+	"projectname": "%E7%9F%A5%E6%9D%A1%E6%9D%A1",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 22,
+			"list": [
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/index1/index1",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分附近",
+					"pathName": "pages/store/store",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "动态",
+					"pathName": "pages/status/status",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的消息",
+					"pathName": "pages/userMessage/userMessage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的知条",
+					"pathName": "pages/userPiece/userPiece",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "zhifu ",
+					"pathName": "pages/userPayment/userPayment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的店铺",
+					"pathName": "pages/userStore/userStore",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的会员",
+					"pathName": "pages/userStoreMember/userStoreMember",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的账单",
+					"pathName": "pages/userStroeBill/userStroeBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的余额",
+					"pathName": "pages/userStoreBanlance/userStoreBanlance",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺知条",
+					"pathName": "pages/userStorePiece/userStorePiece",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺提现",
+					"pathName": "pages/userStoreCash/userStoreCash",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加商品",
+					"pathName": "pages/userStoreAdd/userStoreAdd",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "代理",
+					"pathName": "pages/userAgent/userAgent",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "服务店铺",
+					"pathName": "pages/userAgentStore/userAgentStore",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的反馈",
+					"pathName": "pages/userFeedBack/userFeedBack",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "店铺详情",
+					"pathName": "pages/storeDetail/storeDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺信息",
+					"pathName": "pages/userStoreDetail/userStoreDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺注册",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传营业执照",
+					"pathName": "pages/userStoreUpload/userStoreUpload",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺注册信息",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,30 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8">商品名称:</view>
+	<input class="product_cont" disabled="{{is_edit}}" value="商品名称"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">商品价格:</view>
+	<input class="product_cont" disabled="{{is_edit}}" value="5265"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">知条价格:</view>
+	<input class="product_cont" disabled="{{is_edit}}" value="2232"></input>
+</view>
+<view class="font28 font28 color8 w690" style="height:80rpx;line-height:80rpx;">
+	商品详情
+</view>
+<view class="message_right w690">
+	<textarea class="font24 color6" disabled="{{is_edit}}" value="内容内容内容内容内容内容内容内容内容内容内容内容内 容内容内容内容内容内容你内容内容内容内容内容内容内 容内容内容你内容内容内"></textarea>
+</view>
+<view class="input_list1 flex font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before font28 scolor8">商品图片:</view>
+	<view class="input">
+		<image src="/images/img1.jpg"></image>
+		<view class="input_edit" wx:if="{{!is_edit}}" bindtap="uoload"></view>
+	</view>
+</view>
+<button class="submit_info bg2" bindtap="edit">{{is_edit?'编辑':'提交'}}</button>
+
+
+

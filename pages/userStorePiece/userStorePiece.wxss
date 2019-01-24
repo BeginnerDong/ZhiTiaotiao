@@ -1,0 +1,29 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+page{
+
+}
+.piece_row image{
+	width:42rpx;
+	height:40rpx;
+	margin-right:20rpx;
+}
+.piece_list{
+	height:96rpx;
+	border-top:solid 1px #f4f4f4;
+}
+.piece_item{
+	width:33.33%;
+	height:100%;
+}
+.piece_top{
+	height:186rpx;
+}
+.submit_info{
+	width:140rpx;
+	height:46rpx;
+	line-height:46rpx;
+	margin:20rpx auto;
+	font-size:24rpx;
+}

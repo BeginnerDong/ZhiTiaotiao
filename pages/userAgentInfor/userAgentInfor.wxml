@@ -1,0 +1,29 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before">代理编号:</view>
+	<input placeholder="请输入编号" value="1222"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">姓名:</view>
+	<input placeholder="请输入姓名"  value="耶耶"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">手机号码:</view>
+	<input placeholder="请输入手机号码" value="464666"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">省市区(县):</view>
+	<input placeholder="请输入省市区(县)"  value="陕西省西安市雁塔区"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">银行卡号:</view>
+	<input placeholder="请输入银行卡号" value="464666"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before" style="width:26%;">银行卡开户行:</view>
+	<input placeholder="请输入银行卡开户行" value="中国银行"></input>
+</view>
+<button class="submit_info bg2">提交</button>
+
+
+

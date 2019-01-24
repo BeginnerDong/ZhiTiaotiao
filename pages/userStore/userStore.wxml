@@ -1,0 +1,71 @@
+<!--index3.wxml-->
+<view class="w690 logout font24 color7" bindtap="intoPath" data-path="/pages/user/user">
+    退出
+</view>
+<view class="sort flex shadow1 bg1">
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreDetail/userStoreDetail">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/store-icon.png"></image>
+                <view class="font28 color3">店铺信息</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStorePoster/userStorePoster">
+        <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+            <view style="width:100%;">
+                <image src="/images/store-icon1.png"></image>
+                <view class="font28 color3">我的二维码</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userPeiceOffer/userPeiceOffer">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/store-icon2.png"></image>
+                <view class="font28 color3">知条特惠</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreMember/userStoreMember">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/store-icon3.png"></image>
+                <view class="font28 color3">我的会员</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStroeBill/userStroeBill">
+        <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+            <view style="width:100%;">
+                <image src="/images/store-icon4.png"></image>
+                <view class="font28 color3">账单</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreBanlance/userStoreBanlance">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/store-icon5.png"></image>
+                <view class="font28 color3">余额</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStorePiece/userStorePiece">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/store-icon6.png"></image>
+                <view class="font28 color3">店铺知条</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreContact/userStoreContact">
+        <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+            <view style="width:100%;">
+                <image src="/images/store-icon7.png"></image>
+                <view class="font28 color3">我的客服</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,35 @@
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8">上传营业执照:</view>
+	<view class="input">
+		<image src="/images/Upload-icon.png"></image>
+	</view>
+</view>
+<view class="upload flex">
+	<view class="upload_left font28 color8">
+		法人身份证正反面
+	</view>
+	<view class="upload_right">
+		<view class="upload_item">
+			<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+		</view>
+		<view class="upload_item">
+			<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+		</view>
+	</view>
+</view>
+<view class="w690 agree flex">
+	<image src="{{is_select?'/images/qualification-ico.png':'/images/circle.jpg'}}" bindtap="select"></image>
+	<view class="font28 color8 flex">我已阅读，<view class="font28 color8" bindtap="rule">《商家入驻协议》</view></view>
+</view>
+<button class="submit_info bg2" bindtap="{{is_select?'intoPath':''}}" data-path="/pages/userRegisterInfor/userRegisterInfor">保存</button>
+<view class="mask" wx:if="{{is_rule}}">
+    <view class="rule bg1">
+        <view class="rule_cont">
+            <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+            <view class="font28 color2 rule_tlt">奖励规则</view>
+            <view class="font24 color2 w690">奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则</view>
+        </view>
+    </view>
+</view>
+
+

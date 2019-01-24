@@ -1,0 +1,22 @@
+
+<view class="login">
+    <image src="/images/img7.jpg"></image>
+    <view class="w690 flex login_cont">
+        <view class="login_box bg1">
+            <view class="login_input">
+                <view class="list_input">
+                    <input placeholder="请输入手机号"  data-key="login_name" bindinput="bindInputChange"></input>
+                </view>
+                <view class="list_input flexRowBetween">
+                    <input placeholder="请输入验证码" style="width:60%"  data-key="password" bindinput="bindInputChange"></input>
+                    <button class="get_check">获取验证码</button>
+                </view>
+                <button class="submit_info bg2"  bindtap="intoPath" data-path="/pages/userStore/userStore">登录</button>
+                <view class="font24 color7 flex" style="margin-top:30rpx;">
+                    <view class="font24 color7">没有账号，</view>
+                    <view class="font24 color7" bindtap="intoPath" data-path="/pages/userStoreRegister/userStoreRegister">去注册</view></view>
+            </view>
+        </view>
+
+    </view>
+</view>

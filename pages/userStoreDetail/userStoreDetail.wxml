@@ -1,0 +1,29 @@
+<view class="banner">
+	<image src="/images/banner.jpg"></image>
+</view>
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8">店铺名称:</view>
+	<input value="高新店" disabled="{{is_edit}}"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">店铺地址:</view>
+	<input  value="陕西省西安市" disabled="{{is_edit}}"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">负责人姓名:</view>
+	<input   value="姓名" disabled="{{is_edit}}"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">联系方式:</view>
+	<input  value="198182192" disabled="{{is_edit}}"></input>
+</view>
+<view class="font28 color8 w690" style="height:80rpx;line-height:80rpx;">
+		店铺详情
+</view>
+<view class="message_right w690">
+	<textarea class="font24 color8" disabled="{{is_edit}}" value="内容内容内容内容内容内容内容内容内容内容内容内容内 容内容内容内容内容内容你内容内容内容内容内容内容内 容内容内容你内容内容内"></textarea>
+</view>
+<button class="submit_info bg2" bindtap="edit">{{is_edit?'编辑':'提交'}}</button>
+
+
+

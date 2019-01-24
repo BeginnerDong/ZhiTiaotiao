@@ -1,0 +1,59 @@
+<view class="piece_top flex">
+    <view style="width:100%;text-align: center;">
+        <view class="piece_row flexCenter">
+            <image src="/images/store-icon6.png"></image>
+            <view class="font28 color2">知条金额</view>
+        </view>
+        <view class="font28 color2" style="text-align:center;margin-top:16rpx;">¥898</view>
+        <view class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
+    </view>
+</view>
+<view class="piece_list w690 flexRowBetween">
+    <view class="piece_item  flex font28 color2" style="text-align:left;">
+        <view style="width:100%;">
+            <view class="font22">提现</view>
+            <view class="font20 color2">2018-9-9</view>
+        </view>
+    </view>
+    <view class="piece_item font26 color_r" style="text-align:center;line-height:98rpx;">未通过</view>
+    <view class="piece_item font26 color5" style="text-align:right;line-height:98rpx;">-12.8</view>
+</view>
+<view class="piece_list w690 flexRowBetween">
+    <view class="piece_item  flex font28 color2" style="text-align:left;">
+        <view style="width:100%;">
+            <view class="font22">购买商品</view>
+            <view class="font20 color2">2018-9-9</view>
+        </view>
+    </view>
+    <view class="piece_item font26 color2" style="text-align:center;line-height:98rpx;">已通过</view>
+    <view class="piece_item font26 color5" style="text-align:right;line-height:98rpx;">-12.8</view>
+</view>
+<view class="piece_list w690 flexRowBetween">
+    <view class="piece_item  flex font28 color2" style="text-align:left;">
+        <view style="width:100%;">
+            <view class="font22">提现</view>
+            <view class="font20 color2">2018-9-9</view>
+        </view>
+    </view>
+    <view class="piece_item font26 color_b" style="text-align:center;line-height:98rpx;">待审核</view>
+    <view class="piece_item font26 color5" style="text-align:right;line-height:98rpx;">-12.8</view>
+</view>
+<view class="piece_list w690 flexRowBetween">
+    <view class="piece_item  flex font28 color2" style="text-align:left;">
+        <view style="width:100%;">
+            <view class="font22">提现</view>
+            <view class="font20 color2">2018-9-9</view>
+        </view>
+    </view>
+    <view class="piece_item font26 color_b" style="text-align:right;line-height:98rpx;">+12.8</view>
+</view>
+<view class="piece_list w690 flexRowBetween">
+    <view class="piece_item  flex font28 color2" style="text-align:left;">
+        <view style="width:100%;">
+            <view class="font22">提现</view>
+            <view class="font20 color2">2018-9-9</view>
+        </view>
+    </view>
+    <view class="piece_item font26 color_b" style="text-align:right;line-height:98rpx;">+12.8</view>
+</view>
+

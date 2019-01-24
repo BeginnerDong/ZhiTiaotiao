@@ -1,0 +1,41 @@
+/**index.wxss**/
+
+@import "../../wxParse/wxParse.wxss"; 
+page{
+	overflow:hidden;
+}
+.contact_left{
+	width:50%;
+	text-align: center;
+}
+.contact_left image{
+	width:186rpx;
+	height:186rpx;
+}
+.contact_left_word{
+	width:100%;
+	height:108rpx;
+	line-height:112rpx;
+}
+.contact_left input{
+	width:80%;
+	height:80rpx;
+	line-height:80rpx;
+	border:solid 1px #e0e0e0;
+	font-size:24rpx;
+	border-radius:10rpx;
+	margin:0 auto;
+}
+.contact{
+	margin-top:180rpx;
+}
+.submit_info{
+	width:100%;
+	height:80rpx;
+	line-height:80rpx;
+	position:fixed;
+	left:0;
+	bottom:0;
+	border-radius:0;
+	margin:0 auto;
+}
