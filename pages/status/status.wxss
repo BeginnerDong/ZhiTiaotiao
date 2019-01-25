@@ -26,6 +26,7 @@ page{
 	width:13%;
 	height:100%;
 	position:relative;
+	text-align:center;
 }
 .status_number image{
 	width:68rpx;
@@ -108,4 +109,9 @@ page{
 	height:100rpx;
 	line-height: 100rpx;
 	text-align: center;
+}
+.status_number{
+	font-size:50rpx;
+	line-height:200rpx;
+	text-align:center;
 }

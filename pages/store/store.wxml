@@ -7,7 +7,7 @@
         </view>
         <view class="stroe_search_right">
             <view class="search flex">
-                <input placeholder="请搜索相关产品" class="font28 color9"></input> 
+                <input placeholder="请搜索相关店铺" class="font28 color9"></input> 
                 <view class="search_btn">
                     <image src="/images/store_icon9.png"></image>
                 </view>

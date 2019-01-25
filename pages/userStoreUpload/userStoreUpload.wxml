@@ -24,11 +24,13 @@
 <button class="submit_info bg2" bindtap="{{is_select?'intoPath':''}}" data-path="/pages/userRegisterInfor/userRegisterInfor">保存</button>
 <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1">
-        <view class="rule_cont">
-            <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
-            <view class="font28 color2 rule_tlt">奖励规则</view>
-            <view class="font24 color2 w690">奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则</view>
-        </view>
+        <scroll-view scroll-y style="height:80vh">
+            <view class="rule_cont">
+                <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+                <view class="font28 color2 rule_tlt">奖励规则</view>
+                <view class="font24 color2 w690">奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则奖励规则</view>
+            </view>
+        </scroll-view>
     </view>
 </view>
 
