@@ -69,11 +69,11 @@
         </view>
         <view class="text this-text">附近</view>
     </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/status/status">
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/userLogin/userLogin">
         <view class="nav_img">
-           <image src="/images/navbar3.png"></image>
+           <image src="../../images/navbar3.png"></image>
         </view>
-        <view class="text">动态</view>
+        <view class="text">知条</view>
     </view>
     <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/user/user">
         <view class="nav_img">

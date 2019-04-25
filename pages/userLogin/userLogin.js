@@ -13,7 +13,14 @@ var token = new Token();
 			submitData: {
 				phone: '',
 			},
-			isShow:false
+			is_rule:false
+		},
+		rule(e){
+			const self=this;
+			self.data.is_rule=!self.data.is_rule;
+			self.setData({
+				is_rule:self.data.is_rule
+			})
 		},
 		//事件处理函数
 		preventTouchMove: function(e) {
@@ -22,9 +29,7 @@ var token = new Token();
 	
 		onLoad(options) {
 			const self = this;
-			api.commonInit(self);
-	
-			self.getMainData()
+		
 		},
 	
 	
@@ -105,6 +110,13 @@ var token = new Token();
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
+	bindInputChange(e){
+	  const self = this;
+	  api.fillChange(e,self,'sForm');
+	  self.setData({
+	    web_sForm:self.data.sForm,
+	  });
+	},
   
 })
 

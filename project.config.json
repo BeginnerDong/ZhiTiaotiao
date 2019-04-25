@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
-	"appid": "wx6729ffd7b8e225d9",
+	"appid": "wx6383f282db9db7ac",
 	"projectname": "%E7%9F%A5%E6%9D%A1%E6%9D%A1",
 	"isGameTourist": false,
 	"condition": {
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 27,
 			"list": [
 				{
 					"id": -1,
@@ -199,7 +199,13 @@
 					"id": -1,
 					"name": "店铺纸条",
 					"pathName": "pages/userStorePiece/userStorePiece",
+					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/user"
 				}
 			]
 		}

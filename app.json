@@ -43,14 +43,15 @@
     "pages/userRegisterInfor/userRegisterInfor",
     "pages/userAgentRule/userAgentRule",
     "pages/userAgentRegister/userAgentRegister",
-    "pages/productDetail/productDetail"
+    "pages/productDetail/productDetail",
+	"pages/checkDetail/checkDetail"
 
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#DE5D1C",
+    "navigationBarTitleText": "知条条",
+    "navigationBarTextStyle": "#fff"
   },
 	"permission": {
 		"scope.userLocation": {

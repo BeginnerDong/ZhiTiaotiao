@@ -6,9 +6,24 @@ const token = new Token();
 
 Page({
   data: {
+		num:1,
     select_data:2019-1-12,
     is_rule:false,
   },
+	onLoad(){
+		const self = this;
+		self.setData({
+			web_num:self.data.num
+		})
+	},
+	 
+	changeNav(e){
+		const self = this;
+		self.data.num = api.getDataSet(e,'num');
+		self.setData({
+			web_num:self.data.num
+		})
+	},
  
   intoPath(e){
     const self = this;
@@ -23,7 +38,7 @@ Page({
   },
   rule(e){
     const self = this;
-    self.data.is_rule = !self.data.is_rule
+    self.data.is_rule = !self.data.is_rule;
     self.setData({
       is_rule:self.data.is_rule
     })
