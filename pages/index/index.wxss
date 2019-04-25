@@ -4,10 +4,10 @@
 	height:68rpx;
 } 
 .position_left{
-	width:30%;
+	width:100%;
 }
 .position_right{
-	width:30%;
+	
 }
 .position_right image{
 	width:26rpx;
@@ -137,3 +137,8 @@ swiper{
 	height:22rpx;
 	margin-right:10rpx;
 }
+.swiper_container {
+    height: 55rpx;
+    width: 80vw;
+	line-height:55rpx
+ }

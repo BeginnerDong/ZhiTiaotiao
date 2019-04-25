@@ -1,27 +1,39 @@
 <view class="w690">
+	<view class="font28 color2" style="text-align:right;height:50rpx;line-height: 50rpx;" bindtap="showDelete">
+	{{web_showDelete?'完成':'删除'}}
+	</view>
 	<view class="index_product flexRowBetween">
-	  <view class="recommend_left bg1 shadow1" bindtap="intoPath" data-path="/pages/userStoreEdit/userStoreEdit">
-	    <view class="recommend_top">
-	      <image src="/images/img1.jpg"></image>
-	    </view>
-	    <view class="product_name font28 color2 avoidOverflow">名称名称名称名称</view>
-	    <view class="product_pro  flex avoidOverflow">
-	       <view class="font24 color_r">¥434/</view>
-	       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
-	    </view>
-	  </view>
-	  <view class="recommend_left  bg1 shadow1"  bindtap="intoPath" data-path="/pages/userStoreEdit/userStoreEdit">
-	    <view class="recommend_top">
-	      <image src="/images/img1.jpg"></image>
-	    </view>
-	    <view class="product_name font28 color2 avoidOverflow">名称名称名称名称</view>
-	    <view class="product_pro  flex avoidOverflow">
-	       <view class="font24 color_r">¥434/</view>
-	       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
-	    </view>
-	  </view>
+		<block wx:for="{{web_mainData}}" wx:key="id">
+			<view class="recommend_left bg1 shadow1" style="position:relative" bindtap="{{web_showDelete?'':'intoPath'}}" data-path="/pages/userStoreEdit/userStoreEdit?id={{item.id}}">
+				<view class="recommend_top">
+					<image src="{{item.mainImg[0].url}}"></image>
+				</view>
+				<view class="product_name font28 color2 avoidOverflow">{{item.title}}</view>
+				<view class="product_pro  flex avoidOverflow">
+					<view class="font24 color_r">¥{{item.price}}/</view>
+					<view class="font24 color_r" style="margin-left:20rpx;">知条:{{item.score}}</view>
+				</view>
+				<image src="{{item.isSelect?'/images/circle_a.jpg':'/images/circle.jpg'}}" data-index="{{index}}" bindtap="choose" wx:if="{{web_showDelete}}" style="position:absolute;width:30rpx;height:30rpx;top:10rpx;right:10rpx"></image>
+			</view>
+		</block>
+	</view>
+</view>
+<view class="total" style="display:flex;" wx:if="{{web_showDelete}}">
+	<view class="all_select" style="width:10%;text-align:center;overflow:hidden;">
+		<image src="{{web_isChooseAll?'/images/circle_a.jpg':'/images/circle.jpg'}}" 
+		 wx:if="{{web_showDelete}}" style="width:30rpx;height:30rpx;"></image>
+	</view>
+	<view class="select_c" style="width:10%;text-align:left;overflow:hidden;" bindtap="chooseAll">全选</view>
+	
+
+	<view class="" style="align-items:center;width:35%;text-align:center;">
+		<view class="submit_shopping">
+			<view class="submit_shopping" bindtap="deleteIndex">
+				<button>删除</button>
+			</view>
+		</view>
 	</view>
 </view>
 <view class="register flex bg2" bindtap="intoPath" data-path="/pages/userStoreAdd/userStoreAdd">
-  <view class="add color1">+</view>
+	<view class="add color1">+</view>
 </view>

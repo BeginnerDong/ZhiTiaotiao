@@ -1,29 +1,72 @@
-<view class="banner">
-	<image src="/images/banner.jpg"></image>
-</view>
+
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">店铺名称:</view>
-	<input value="高新店" disabled="{{is_edit}}"></input>
+	<input value="高新店" disabled="{{is_edit}}" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"  ></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">店铺地址:</view>
-	<input  value="陕西省西安市" disabled="{{is_edit}}"></input>
+	<input  value="陕西省西安市" disabled="{{is_edit}}" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">营业时间:</view>
+	<input  value="陕西省西安市" disabled="{{is_edit}}" value="{{web_submitData.description}}"  data-key="description" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">主营商品:</view>
+	<input  value="陕西省西安市" disabled="{{is_edit}}" value="{{web_submitData.keyswords}}"  data-key="keyswords" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">负责人姓名:</view>
-	<input   value="姓名" disabled="{{is_edit}}"></input>
+	<input   value="姓名" disabled="{{is_edit}}" value="{{web_submitData.owner}}"  data-key="owner" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">联系方式:</view>
-	<input  value="198182192" disabled="{{is_edit}}"></input>
+	<view class="input_before color8">联系电话:</view>
+	<input  value="198182192" disabled="{{is_edit}}" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">客服电话:</view>
+	<input  value="198182192" disabled="{{is_edit}}" value="{{web_submitData.csphone}}"  data-key="csphone" bindblur="changeBind"></input>
 </view>
 <view class="font28 color8 w690" style="height:80rpx;line-height:80rpx;">
-		店铺详情
+		店铺环境
 </view>
-<view class="message_right w690">
-	<textarea class="font24 color8" disabled="{{is_edit}}" value="内容内容内容内容内容内容内容内容内容内容内容内容内 容内容内容内容内容内容你内容内容内容内容内容内容内 容内容内容你内容内容内"></textarea>
+<view class="w710"  style="display:flex;margin-top:20rpx;" >
+	<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
+		<view class="upload_box" style="border:2px solid #E5E5E5">
+			<view class="uploader_item c"  style="position:relative">
+				<image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill" />
+				<image  src="/images/Uploadqualification-icon.png" 
+				wx:if="{{!is_edit}}" 
+				style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx" 
+				 bindtap="deleteImg" data-type="bannerImg" data-index="{{index}}"/>
+			</view> 
+		</view>
+	</block>
+	<view  class="uploader_item" bindtap="upLoadBannerImg" wx:if="{{!is_edit}}">
+		<image src="/images/Upload-icon.png"></image>
+	</view>
 </view>
-<button class="submit_info bg2" bindtap="edit">{{is_edit?'编辑':'提交'}}</button>
+<view class="font28 color8 w690" style="height:80rpx;line-height:80rpx;">
+		店铺主图
+</view>
+<view class="w710"  style="display:flex;margin-top:20rpx;" >
+	<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
+		<view class="upload_box" style="border:2px solid #E5E5E5">
+			<view class="uploader_item c"  style="position:relative">
+				<image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill" />
+				<image  src="/images/Uploadqualification-icon.png" 
+				wx:if="{{!is_edit}}" 
+				style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
+				bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
+			</view> 
+		</view>
+	</block>
+	<view  class="uploader_item" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg==0}}">
+		<image src="/images/Upload-icon.png"></image>
+	</view>
+</view>
+<view style="height:80rpx"></view>
+<button class="submit_info bg2" bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>
 
 
 

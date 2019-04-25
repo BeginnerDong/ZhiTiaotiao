@@ -14,16 +14,16 @@ Page({
     const self = this;
     
   },
+	
+	
+	
   
   intoPath(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
-  bindPickerChange(e) {
-    this.setData({
-      index: e.detail.value
-    })
-  }, 
+	
+
 })
 
   

@@ -6,11 +6,55 @@ const token = new Token();
 
 Page({
   data: {
- 
+		mainData:[],
+		searchItem:{},
+		isFirstLoadAllStandard:['getMainData']
   },
+	
   onLoad(options){
-
+		const self  = this;
+		api.commonInit(self);
+		self.getMainData()
   },
+	
+	getMainData(isNew) {
+		const self = this;
+		if(isNew){
+			api.clearPageIndex(self)
+		};
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.searchItem.user_type = ['in',[0,1,2]];
+		postData.searchItem.type = ['in',[1,2,3,4]];
+		postData.order = {
+			create_time: 'desc'
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+			
+			}else{
+				self.data.isLoadAll=true;
+				api.showToast('没有更多了','none')
+			}
+			self.setData({
+				web_mainData: self.data.mainData
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+		};
+		api.messageGet(postData, callback);
+	},
+	
+	
+	onReachBottom() {
+		const self = this;
+		if (!self.data.isLoadAll) {
+			self.data.paginate.currentPage++;
+			self.getMainData();
+		};
+	},
  
   intoPath(e){
     const self = this;
@@ -23,6 +67,7 @@ Page({
       delta:1
     })
   },
+	
   intoPathRedirect(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'redi');

@@ -1,109 +1,117 @@
 <!--index.wxml-->
 <view class="w690 position flex">
-    <view class="position_left flex">
-      <image src="/images/position_icon.png"></image>
-      <view class="font24 color6">西安市</view>
-    </view>
-    <view class="position_right" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
-        <image src="/images/message.jpg"></image>
-    </view>
+	<view class="position_left flex">
+		<image src="/images/position_icon.png"></image>
+		<view class="font24 color6">{{web_city}}</view>
+	</view>
+	<view class="position_right" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
+		<image src="/images/message.jpg"></image>
+	</view>
 </view>
 <view class="w690">
-    <view class="page-body">
-        <view class="page-section page-section-spacing swiper">
-          <swiper
-            indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-            interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-            <block wx:for="{{background}}" wx:index="{{index}}" wx:key="id">
-              <swiper-item>
-                <image src="{{item}}"></image>
-              </swiper-item>
-            </block>
-          </swiper>
-        </view>
-    </view>
+	<view class="page-body">
+		<view class="page-section page-section-spacing swiper">
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+			 interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+				<block wx:for="{{web_sliderData}}" wx:index="{{index}}" wx:key="id">
+					<swiper-item>
+						<image src="{{item.mainImg[0].url}}"></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+</view>
+
+<view class="w690" style="border-bottom: 20rpx solid #e5e5e5;border-top: 20rpx solid #e5e5e5;margin-top:20rpx">
+	<view class="new_store">
+		<view class="indexTitle flex" style="height:60rpx">
+			<image src="/images/navbar3-a.png"></image>
+			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+				<swiper-item wx:for="{{web_messageData}}">
+					<view class="font30 color2">
+						<import src="../../wxParse/wxParse.wxml" />
+						<template is="wxParse" data="{{wxParseData:item.content}}" />
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+</view>
+
+<view class="w690">
+	<view class="new_store">
+		<view class="indexTitle flex">
+			<image src="/images/index_icon2.jpg"></image>
+			<view class="font30 color2">最新店铺</view>
+		</view>
+	</view>
+	<view class="scroll_img">
+		<scroll-view class="recommend_scroll_x_box" scroll-x="true">
+			<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+				<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
+				<view class="store_name font28 color1">{{item.name}}</view>
+			</view>
+
+		</scroll-view>
+	</view>
+</view>
+<view style="height:20rpx;background-color: #e5e5e5;margin-top:22.5rpx">
 </view>
 <view class="w690">
-    <view class="new_store">
-        <view class="indexTitle flex">
-            <image src="/images/index_icon2.jpg"></image>
-            <view class="font30 color2">最新店铺</view>
-        </view>
-    </view>
-    <view class="scroll_img">
-    <scroll-view class="recommend_scroll_x_box" scroll-x="true">
-      <view class="recommend_hot_box bg1" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
-        <image src="/images/banner.jpg" class="recommend_hot_image"></image>
-        <view class="store_name font28 color1">胖哥两</view>
-      </view>
-      <view class="recommend_hot_box bg1"  bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
-        <image src="/images/banner.jpg" class="recommend_hot_image"></image>
-        <view class="store_name font28 color1">胖哥两</view>
-      </view>
-      <view class="recommend_hot_box bg1"  bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
-        <image src="/images/banner.jpg" class="recommend_hot_image"></image>
-        <view class="store_name font28 color1">胖哥两</view>
-      </view>
-    </scroll-view>
-  </view>
-</view>
-<view class="advertisement w690 flex">
-   <image src="/images/banner1.png"> </image>
-</view>
-<view class="w690">
-    <view class="new_store">
-        <view class="indexTitle flex">
-            <image src="/images/index_icon3.jpg"></image>
-            <view class="font30 color2">热门商家</view>
-        </view>
-    </view>
-    <view class="index_product flexRowBetween">
-      <view class="recommend_left shadow1"  bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
-        <view class="recommend_top">
-          <image src="/images/img1.jpg"></image>
-        </view>
-        <view class="product_name font28 color2">名称名称名称名称</view>
-        <view class="product_pro flex">
-            <view class="product_item flexCenter">
-                <image src="/images/index_icon4.png"></image>
-                <view class="color5 font24">454</view>
-            </view>
-            <view class="product_item flexCenter">
-                <image src="/images/index_icon5.jpg"></image>
-                <view class="color6 font24">454</view>
-            </view>
-            <view class="product_item flexCenter">
-                <image src="/images/index_icon6.jpg"></image>
-                <view class="color7 font24">454</view>
-            </view>
-        </view>
-      </view>
-    </view>
+	<view class="new_store">
+		<view class="indexTitle flex">
+			<image src="/images/index_icon3.jpg"></image>
+			<view class="font30 color2">热门店铺</view>
+		</view>
+	</view>
+	<view class="index_product flexRowBetween">
+		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+			<view class="recommend_top">
+				<image src="{{item.mainImg[0].url}}"></image>
+			</view>
+			<view class="product_name font28 color2">{{item.name}}</view>
+			<view class="product_pro flex">
+				<view class="product_item flexCenter">
+					<image src="/images/index_icon4.png"></image>
+					<view class="color5 font24">{{item.follow_count}}</view>
+				</view>
+				<view class="product_item flexCenter">
+					<image src="/images/index_icon5.jpg"></image>
+					<view class="color6 font24">{{item.favor_count}}</view>
+				</view>
+				<view class="product_item flexCenter">
+					<image src="/images/index_icon6.jpg"></image>
+					<view class="color7 font24">{{item.view_count}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
 <view class="space_bottom"></view>
 <view class="navbar">
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/index/index">
-        <view class="nav_img">
-          <image src="/images/navbar1-a.png"></image>
-        </view>
-        <view class="text this-text">首页</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/store/store">
-        <view class="nav_img">
-           <image src="/images/navbar2.png"></image>
-        </view>
-        <view class="text">附近</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/status/status">
-        <view class="nav_img">
-           <image src="/images/navbar3.png"></image>
-        </view>
-        <view class="text">动态</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/user/user">
-        <view class="nav_img">
-            <image src="/images/navbar4.png"></image>
-        </view>
-        <view class="text">我的</view>
-    </view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
+		<view class="nav_img">
+			<image src="/images/navbar1-a.png"></image>
+		</view>
+		<view class="text this-text">首页</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/store/store">
+		<view class="nav_img">
+			<image src="/images/navbar2.png"></image>
+		</view>
+		<view class="text">附近</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/status/status">
+		<view class="nav_img">
+			<image src="/images/navbar3.png"></image>
+		</view>
+		<view class="text">支条</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/user/user">
+		<view class="nav_img">
+			<image src="/images/navbar4.png"></image>
+		</view>
+		<view class="text">我的</view>
+	</view>
 </view>

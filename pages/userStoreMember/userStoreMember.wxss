@@ -10,15 +10,16 @@ page{
 	margin-right:20rpx;
 }
 .piece_list{
-	height:88rpx;
-	line-height:88rpx;
+	height:140rpx;
+	line-height:140rpx;
 	border-bottom:solid 1px #f4f4f4;
 }
 .piece_item{
 	width:50%;
 }
 .piece_top{
-	height:136rpx;
+	height:250rpx;
+	background-color: #2a75f1;
 }
 .tab{
 	height:80rpx;
@@ -43,4 +44,11 @@ page{
 	width:214rpx;
 	height:280rpx;
 	margin-top:200rpx;
+}
+.user_img{
+	width:90rpx;
+	height:90rpx;
+	border-radius:50%;
+	overflow:hidden;
+	margin:0px auto;
 }

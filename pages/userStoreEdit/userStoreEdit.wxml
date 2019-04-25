@@ -1,30 +1,53 @@
 
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">商品名称:</view>
-	<input class="product_cont" disabled="{{is_edit}}" value="商品名称"></input>
+	<input class="product_cont" disabled="{{is_edit}}" value="{{web_submitData.title}}"  data-key="title" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">商品价格:</view>
-	<input class="product_cont" disabled="{{is_edit}}" value="5265"></input>
+	<input class="product_cont" disabled="{{is_edit}}" value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">知条价格:</view>
-	<input class="product_cont" disabled="{{is_edit}}" value="2232"></input>
+	<input class="product_cont" disabled="{{is_edit}}" value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
 </view>
-<view class="font28 font28 color8 w690" style="height:80rpx;line-height:80rpx;">
-	商品详情
-</view>
-<view class="message_right w690">
-	<textarea class="font24 color6" disabled="{{is_edit}}" value="内容内容内容内容内容内容内容内容内容内容内容内容内 容内容内容内容内容内容你内容内容内容内容内容内容内 容内容内容你内容内容内"></textarea>
-</view>
-<view class="input_list1 flex font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
-	<view class="input_before font28 scolor8">商品图片:</view>
-	<view class="input">
-		<image src="/images/img1.jpg"></image>
-		<view class="input_edit" wx:if="{{!is_edit}}" bindtap="uoload"></view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8">
+		商品主图：
+	</view>
+	<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
+		<view class="upload_box" style="border:2px solid #E5E5E5" style="position:relative">
+			<view  class="input">
+				<image  src="{{item.url}}" mode="aspectFill" style="width:200rpx;height:240rpx"/>
+				<image  src="/images/Uploadqualification-icon.png" 
+				wx:if="{{!is_edit}}" 
+				style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
+				bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
+			</view> 
+		</view>
+	</block>
+	<view class="input" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg.length==0}}">
+		<image src="/images/Upload-icon.png"></image>
 	</view>
 </view>
-<button class="submit_info bg2" bindtap="edit">{{is_edit?'编辑':'提交'}}</button>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8">内容图片:</view>
+		<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
+		<view class="upload_box" style="border:2px solid #E5E5E5" style="position:relative">
+			<view class="input" >
+				<image  src="{{item.url}}" mode="aspectFill" style="width:200rpx;height:240rpx"/>
+				<image  src="/images/Uploadqualification-icon.png" 
+				wx:if="{{!is_edit}}" 
+				style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
+				bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
+			</view> 
+		</view>
+	</block>
+	<view class="input" bindtap="upLoadBannerImg" wx:if="{{!is_edit}}">
+		<image src="/images/Upload-icon.png" ></image>
+	</view>
+</view>
+<button class="submit_info bg2" bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>
 
 
 

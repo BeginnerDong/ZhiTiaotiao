@@ -1,31 +1,46 @@
 
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">商品名称:</view>
-	<input placeholder="请输入商品名称"></input>
+	<input placeholder="请输入商品名称" 
+	value="{{web_submitData.title}}"  data-key="title" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">商品价格:</view>
-	<input placeholder="请输入商品价格"></input>
+	<input placeholder="请输入商品价格" value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">知条价格:</view>
-	<input placeholder="请输入知条价格"></input>
-</view>
-<view class="message flex1 w690">
-	<view class="message_left font28 color2">
-		商品详情
-	</view>
-	<view class="message_right">
-		<textarea></textarea>
-	</view>
+	<input placeholder="请输入知条价格"value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
-	<view class="input_before  color8">商品图片:</view>
-	<view class="input">
+	<view class="input_before  color8">
+		商品主图：
+	</view>
+	<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
+		
+			<view  bindtap="previewImage" id="{{item.url}}">
+				<image  src="{{item.url}}" mode="aspectFill" style="width:200rpx;height:240rpx"/>
+			</view> 
+		
+	</block>
+	<view class="input" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg.length==0}}">
 		<image src="/images/Upload-icon.png"></image>
 	</view>
 </view>
-<button class="submit_info bg2">提交</button>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8">内容图片:</view>
+		<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
+		<view class="upload_box" style="border:2px solid #E5E5E5">
+			<view class="input" bindtap="previewImage" id="{{item.url}}">
+				<image  src="{{item.url}}" mode="aspectFill" style="width:200rpx;height:240rpx"/>
+			</view> 
+		</view>
+	</block>
+	<view class="input" bindtap="upLoadBannerImg">
+		<image src="/images/Upload-icon.png" ></image>
+	</view>
+</view>
+<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
 
 
 

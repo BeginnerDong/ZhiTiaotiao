@@ -1,23 +1,25 @@
 <!--index3.wxml-->
-<view class="w690">
-    <view class="member_ranking shadow1 bg1">
-        <view class="member_cont flex">
-            <view class="member_item">
-                <view class="font26">代理总数</view>
-                <view class="font24">100</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">完成数量</view>
-                <view class="font24">60</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">剩余数量</view>
-                <view class="font24">40</view>
+<view class="piece_top flex">
+    <view class="w690">
+        <view class="member_ranking  bg1" style="border-radius:10rpx">
+            <view class="member_cont flex">
+                <view class="member_item">
+                    <view class="font30 colorb">辅导总数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_shopCount}}</view>
+                </view>
+                <view class="member_item ">
+                    <view class="font30 colorb">总授权数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_authCount}}</view>
+                </view>
+                <view class="member_item ">
+                    <view class="font30 colorb">总剩余数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_shopCount-web_authCount}}</view>
+                </view>
             </view>
         </view>
     </view>
 </view>
-<view class="w690">
+<!-- <view class="w690">
     <view class="search flex">
         <input placeholder="搜索" class="font28 color9"></input> 
         <view class="search_btn">
@@ -67,22 +69,16 @@
             
         </view> 
     </view>     
-</view>
+</view> -->
 
 <view class="w690">
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">5552</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">5552</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">5552</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail?user_no={{item.child_no}}&&type=service">
+			<view class="w33 color6 font24">{{item.shopInfo[0].name}}</view>
+			<view class="w33 color6 font24">{{item.create_time}}</view>
+		</view>
+	</block>
 </view>
-<view class="blank">
+<view class="blank" wx:if="{{web_mainData.length==0}}">
     <image src="/images/members-img.png"></image>
-</view>
+</view>	

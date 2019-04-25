@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "我的账单"
+  "navigationBarTitleText": "我的账单",
+	"navigationBarBackgroundColor": "#2a75f1",
+	"enablePullDownRefresh": true
 }

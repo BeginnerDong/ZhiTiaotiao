@@ -133,6 +133,6 @@
 	border-right:solid 1px #f0f0f0;
 }
 .piece_top{
-	height:136rpx;
-	border-top:solid 20rpx #f2f2f2;
+	height:250rpx;
+	background-color: #2a75f1;
 }

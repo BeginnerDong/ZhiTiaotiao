@@ -3,13 +3,21 @@
 @import "../../wxParse/wxParse.wxss"; 
 page{
 	overflow:hidden;
+	background-color: #2a75f1;
 }
 .poster image{
 	width:300rpx;
 	height:300rpx;
-
+	margin-top:;
 }
 .poster{
 	width:100%;
 	text-align:center;
+}
+.bg{
+	background-color: #FFF;
+	width:80%;
+	height:60%;
+	margin-left: 10%;
+	border-radius: 30rpx;
 }

@@ -1,9 +1,10 @@
 <view class="piece_top flex">
     <view style="width:100%;text-align: center;">
         <view class="piece_row flexCenter">
-            <view class="color8 font30">余额</view>
+            <view class="color1" style="font-size:60rpx">865.25</view>
         </view>
-        <view class="font28 color_r" style="text-align:center;margin-top:16rpx;">¥898</view>
+        <view class="font24 color1" style="text-align:center;margin-top:16rpx;">佣金余额(¥)</view>
+        <view class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
     </view>
 </view>
 <view class="piece_list w690 flex">

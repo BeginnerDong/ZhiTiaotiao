@@ -2,7 +2,7 @@
 
 @import "../../wxParse/wxParse.wxss"; 
 page{
-	overflow:hidden;
+	
 }
 .input_list1{
 	height:88rpx;
@@ -61,4 +61,8 @@ page{
 }
 .banner image{
 	width:100%;
+}
+.uploader_item image{
+	width:160rpx;
+	height:160rpx;
 }

@@ -60,3 +60,43 @@ page{
 	text-align:center;
 	font-size:54rpx;
 }
+.total{
+  width:100%;
+  height:100rpx;
+  position:fixed;
+  bottom:0rpx;
+  left:0rem;
+  align-items:center;
+  background:#f2f2f2;
+  z-index:999;
+}
+.all_select img{
+  width:30rpx;
+  height:30rpx;
+}
+.total_price text{display:flex;}
+.select_c{
+  font-size:30rpx;
+  color:#444;
+}
+.del_shopping{font-size:.30rpx;}
+.toalt1{font-size:.30rpx;color:#333;}
+.priceNumber{
+  font-size:30rpx;
+}
+.submit_shopping{
+  width:50rpx;
+  height:30rpx;
+  line-height:30rpx;
+  text-align:center;
+  border-radius:20rpx;
+}
+.submit_shopping button{
+  width:120rpx;
+  height:50rpx;
+  color:#fff;
+  line-height: 50rpx;
+  font-size:30rpx;
+  background:#2a75f1;
+  border-radius:30rpx;
+}

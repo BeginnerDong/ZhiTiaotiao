@@ -1,48 +1,54 @@
 
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">店铺名称:</view>
-	<input placeholder="请输入店铺名称"></input>
+	<view class="input_before color8">辅导编号:</view>
+	<input placeholder="请输入您的辅导编号"  value="{{web_submitData.agent_no}}"  data-key="agent_no" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">负责人姓名:</view>
-	<input placeholder="请输入负责人姓名"></input>
+	<view class="input_before color8">本人姓名:</view>
+	<input placeholder="请输入您的姓名"  value="{{web_submitData.name}}"  data-key="name" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">手机号:</view>
-	<input placeholder="请输入知条价格"></input>
+	<view class="input_before color8">手机号码:</view>
+	<input placeholder="请输入您的手机号"  value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"></input>
 </view>
-<view class="input_list1 flexRowBetween w690">
-    <input class="font28" placeholder="请输入验证码" style="width:60%"  data-key="password" bindinput="bindInputChange"></input>
-    <button class="get_check">获取验证码</button>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">登录密码:</view>
+	<input placeholder="设置密码(6-16位)"  value="{{web_submitData.password}}"  data-key="password" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:30%;">设置登录密码:</view>
-	<input placeholder="请输入负责人姓名"></input>
+	<view class="input_before color8">常用邮箱:</view>
+	<input placeholder="请输入邮箱(选填)"  value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">银行卡号:</view>
-	<input placeholder="请输入银行卡号"></input>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">银行卡开户行:</view>
-	<input placeholder="请输入银行卡开户行"></input>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">省市县:</view>
+	<view class="input_before color8">选择地区:</view>
 	<view style="width:70%;" class="city">
 		<picker
 	    mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}"
 	  >
 	    <view class="picker">
-	      {{region[0]}}，{{region[1]}}，{{region[2]}}
+	      {{web_submitData.address}}
 	    </view>
 	  </picker>
 	</view>
 </view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" >开户行:</view>
+	<input placeholder="请输入您的银行卡开户行"  value="{{web_submitData.bank}}"  data-key="bank" bindblur="bindInputChange"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">银行卡号:</view>
+	<input placeholder="请输入您的银行卡号"  value="{{web_submitData.bank_no}}"  data-key="bank_no" bindblur="bindInputChange"></input>
+</view>
+
+
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8">打款凭证:</view>
-	<view class="upload">
+	<view class="upload" wx:for="{{web_submitData.bill_img}}">
+		<image src="{{item.url}}"></image>
+	</view>
+	<view class="upload" bindtap="upLoadBillImg">
 		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 	</view>
 </view>
-<button class="submit_info bg2" bindtap="intoPath">提交</button>
+<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>

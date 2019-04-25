@@ -132,3 +132,7 @@
 	border-left:solid 1px #f0f0f0;
 	border-right:solid 1px #f0f0f0;
 }
+.piece_top{
+	height:250rpx;
+	background-color: #2a75f1;
+}

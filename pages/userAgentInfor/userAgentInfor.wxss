@@ -2,10 +2,10 @@
 
 @import "../../wxParse/wxParse.wxss"; 
 page{
-	overflow:hidden;
+	
 }
 .input_list1{
-	height:80rpx;
+	height:90rpx;
 	margin-top:30rpx;
 	border-bottom:solid 1px #e0e0e0;
 }
@@ -42,4 +42,26 @@ page{
 	bottom:0;
 	border-radius:0;
 	margin:0 auto;
+}
+.member_cont{
+	height:140rpx;
+}
+.member_item{
+	width:33.33%;
+}
+.member_item>view{
+	text-align:center;
+	color:#182c4f;
+}
+.piece_top{
+	height:210rpx;
+	background-color: #2a75f1;
+}
+.upload{
+	width:30%;
+	height:240rpx;
+	line-height:240rpx;
+	border:solid 1px #e0e0e0;
+	background:#f2f2f2;
+	text-align: center;
 }

@@ -6,9 +6,6 @@ page{
 	overflow:hidden;
 }
 
-.cash{
-	padding-bottom:50rpx;
-}
 .cash_bank{
 	width:87%;
 	padding:0 6.5%;
@@ -76,80 +73,30 @@ page{
 	box-shadow:0 0 20rpx #e0e0e0;
 }
 .case_box{
-	margin-top:100rpx;
 	border-radius:20rpx;
-	padding-bottom:30rpx;
 }
-.payment_item{
-	width:100%;
-	height:90rpx;
-}
-.payment_item image{
-	width:30rpx;
-	height:30rpx;
-	margin-right:20rpx;
+.bank{
+	height:140rpx;
+	line-height:140rpx;
+	margin-top:100rpx;
 }
 .mask{
 	width:100%;
 	height:100%;
 	background:rgba(0,0,0,0.5);
 	position:fixed;
-	overflow: hidden;
-	left:0;
 	top:0;
-}
-.confirm{
-	width:70%;
-	height:336rpx;
-	border-radius:20rpx;
-	position:absolute;
-	left:15%;
-	top:30%;
-}
-.confirm_tlt{
-	width:100%;
-	height:120rpx;
-	line-height:120rpx;
-	font-size:28rpx;
-	color:#222;
-	text-align:center;
-}
-.confirm_notice{
-	height:120rpx;
-	text-align:center;
-}
-.confirm_btn{
-	width:100%;
-	height:96rpx;
-	border-top:solid 1px #e0e0e0;
-}
-.confirm_item{
-	width:50%;
-	height:96rpx;
-	line-height:96rpx;
-	text-align:center;
-}
-.get_peice{
-	position:absolute;
 	left:0;
-	width:100%;
-	top:30%;
-	text-align:center;
+	z-index:999;
+	overflow:hidden;
 }
-.get_peice image{
-	width:446rpx;
-	height:360rpx;
-	margin:0 auto;
-}
-.close{
-	position:absolute;
-	left:0;
-	width:100%;
-	bottom:10%;
-	text-align:center;
-}
-.close image{
-	width:80rpx;
-	height:80rpx;
-	margin:0 auto;
+.content{
+	width:90%;
+	height:80%;
+	background:#fff;
+	position:fixed;
+	top:10%;
+	left:5%;
+	z-index:999;
+	overflow:hidden;
 }

@@ -16,7 +16,7 @@ class Base{
     request(params) {
         var that = this;
         getApp().globalData.buttonClick = true;
-        var baseRestUrl = 'http://39.98.170.233/api/public/index.php/api/v1/';
+        var baseRestUrl = 'http://106.12.155.217/api/public/index.php/api/v1/';
         var url=baseRestUrl + params.url;
         const callback = (res)=>{
             that.request(params);
@@ -86,7 +86,7 @@ class Base{
             };
         };
         wx.uploadFile({
-            url: 'http://39.98.170.233/api/public/index.php/api/v1/Base/FtpFile/upload',
+            url: 'http://106.12.155.217/api/public/index.php/api/v1/Base/FtpFile/upload',
             filePath:filePath,
             name:name,
             formData:formData,
@@ -817,7 +817,20 @@ class Base{
         mydata=mydata.replace('-', '/'); 
         return new Date(mydata)/1000;
         
-    }
+    };
+	
+	distance(la1, lo1, la2, lo2) {
+		var La1 = la1 * Math.PI / 180.0;
+		var La2 = la2 * Math.PI / 180.0;
+		var La3 = La1 - La2;
+		var Lb3 = lo1 * Math.PI / 180.0 - lo2 * Math.PI / 180.0;
+		var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(La3 / 2), 2) + Math.cos(La1) * Math.cos(La2) * Math.pow(Math.sin(
+			Lb3 / 2), 2)));
+		s = s * 6378.137;
+		s = Math.round(s * 10000) / 10000;
+		s = s.toFixed(2);
+		return s;
+	}
 
 
 

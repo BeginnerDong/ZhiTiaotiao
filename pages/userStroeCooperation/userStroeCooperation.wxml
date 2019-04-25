@@ -1,23 +1,13 @@
 <view class="piece_top flex">
     <view style="width:100%;text-align: center;">
         <view class="piece_row flexCenter">
-            <view class="color8 font30">联盟金额</view>
+            <view class="color1" style="font-size:60rpx">{{web_userInfoData.reward}}</view>
         </view>
-        <view class="font28 color_r" style="text-align:center;margin-top:16rpx;">¥898</view>
+        <view class="font24 color1" style="text-align:center;margin-top:16rpx;">联盟金余额(¥)</view>
+        <view class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
     </view>
 </view>
-<view class="piece_list w690 flex">
-    <view class="piece_item">
-        <view class="credit_reson font24 avoidOverflow">
-            永得利副食超市
-        </view>
-        <view class="credit_dates font22 color9">
-            0000-0-0
-        </view>
-        <view class="font22 color9">明细明细明细明细明细</view>
-    </view>
-    <view class="piece_item font26 color8" style="text-align:right;">+12.8</view>
-</view>
+
 <view class="blank">
     <image src="/images/members-img.png"></image>
 </view>

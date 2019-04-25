@@ -1,31 +1,33 @@
 
 <view class="input_list1 font28 flex w690">
 	<view class="input_before">店铺名称:</view>
-	<view class="input">西安纯粹</view>
+	<view class="input">{{web_mainData.name}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">省市:</view>
-	<view class="input">陕西省西安市</view>
+	<view class="input_before">店铺地址:</view>
+	<view class="input">{{web_mainData.address}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">知条数:</view>
-	<view class="input">212121</view>
+	<view class="input_before">负责人姓名:</view>
+	<view class="input">{{web_mainData.owner}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">会员数:</view>
-	<view class="input">212121</view>
+	<view class="input_before">手机号码:</view>
+	<view class="input">{{web_mainData.phone}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">联系人:</view>
-	<view class="input">刘女士</view>
+	<view class="input_before">年月日:</view>
+	<view class="input">{{web_mainData.create_time}}</view>
 </view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before">联系电话:</view>
-	<view class="input">212121</view>
+<view class="input_list1 font28 flex  w690" wx:if="{{web_type&&web_type=='service'}}">
+	<view class="input_before">服务代理:</view>
+	<view class="input">{{web_mainData.userInfo[0].name}}</view>
 </view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before">时间:</view>
-	<view class="input">2018-9</view>
+<view class="input_list1 font28 flex  w690" wx:if="{{web_type&&web_type=='service'}}">
+	<view class="input_before" style="width:27%">服务代理电话:</view>
+	<view class="input">{{web_mainData.userInfo[0].phone}}</view>
 </view>
+
+
 
 

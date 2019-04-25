@@ -20,12 +20,16 @@ page{
 .input{
 	width:30%;
 	height:240rpx;
-	position:relative;
+	line-height:240rpx;
+	border:solid 1px #e0e0e0;
+	background:#f2f2f2;
+	text-align: center;
 }
 .input image{
-	width:100%;
-	height:240rpx;
-	margin:0 auto;	
+	width:80rpx;
+	height:80rpx;
+	margin:0 auto;
+	
 }
 .submit_info{
 	width:100%;

@@ -11,12 +11,12 @@ const token = new Token();
 
 Page({
 	data: {
-		is_show: false,
+
 		searchItem: {},
 		submitData: {
 			count: ''
 		},
-		isFirstLoadAllStandard: ['getUserInfoData', 'getAboutData']
+		isFirstLoadAllStandard: ['getUserInfoData','getAboutData']
 	},
 
 	onLoad(options) {
@@ -50,7 +50,7 @@ Page({
 				count: -self.data.submitData.count,
 				trade_info: '提现',
 				status: 0,
-				type: 3,
+				type: 4,
 				thirdapp_id: 2
 			}
 		};
@@ -85,7 +85,26 @@ Page({
 			api.buttonCanClick(self, true);
 
 			api.showToast('请输入提现数量', 'none')
+
+
 		};
+	},
+
+	allOut() {
+		const self = this;
+		self.data.submitData.count = self.data.userInfoData.score;
+		self.setData({
+			web_submitData: self.data.submitData
+		})
+	},
+
+	changeBind(e) {
+		const self = this;
+		api.fillChange(e, self, 'submitData');
+		console.log('self.data.submitData', self.data.submitData)
+		self.setData({
+			web_submitData: self.data.submitData,
+		});
 	},
 
 	getAboutData() {
@@ -125,25 +144,6 @@ Page({
 			is_show: self.data.is_show
 		})
 	},
-
-	allOut() {
-		const self = this;
-		self.data.submitData.count = self.data.userInfoData.score;
-		self.setData({
-			web_submitData: self.data.submitData
-		})
-	},
-
-	changeBind(e) {
-		const self = this;
-		api.fillChange(e, self, 'submitData');
-		console.log('self.data.submitData', self.data.submitData)
-		self.setData({
-			web_submitData: self.data.submitData,
-		});
-	},
-
-
 	intoPath(e) {
 		const self = this;
 		api.pathTo(api.getDataSet(e, 'path'), 'nav');

@@ -32,18 +32,31 @@ class Token {
     }
 
 
-    getThreeToken(callback,postData) { 
+    getStoreToken(callback,postData) { 
 
-        if((postData&&postData.refreshToken)||!wx.getStorageSync('threeToken')){
-            wx.removeStorageSync('threeToken');
-            wx.removeStorageSync('threeInfo');
+        if((postData&&postData.refreshToken)||!wx.getStorageSync('storeToken')){
+            wx.removeStorageSync('storeToken');
+            wx.removeStorageSync('storeInfo');
             wx.reLaunch({
-              url: '/pages/userLoginAssistant/userLoginAssistant'
+              url: '/pages/userStoreLogin/userStoreLogin'
             });
         }else{
-            return wx.getStorageSync('threeToken');
+            return wx.getStorageSync('storeToken');
         }
     }
+	
+	getAgentToken(callback,postData) { 
+	
+	    if((postData&&postData.refreshToken)||!wx.getStorageSync('agentToken')){
+	        wx.removeStorageSync('agentToken');
+	        wx.removeStorageSync('agentInfo');
+	        wx.reLaunch({
+	          url: '/pages/userAgentLogin/userAgentLogin'
+	        });
+	    }else{
+	        return wx.getStorageSync('agentToken');
+	    }
+	}
 
 
     getUserInfo(params,callback){
@@ -112,7 +125,7 @@ class Token {
                 };
                 console.log('postData',postData)
                 wx.request({
-                    url: 'http://39.98.170.233/api/public/index.php/api/v1/Base/ProgrameToken/get',
+                    url: 'http://106.12.155.217/api/public/index.php/api/v1/Base/ProgrameToken/get',
                     method:'POST',
                     data:postData,
                     success:function(res){
@@ -151,13 +164,14 @@ class Token {
                 password:wx.getStorageSync('login').password,
             }
             wx.request({
-                url: 'http://39.98.170.233/api/public/index.php/api/v1/Func/Common/loginByUp',
+                url: 'http://106.12.155.217/api/public/index.php/api/v1/Func/Common/loginByUp',
                 method:'POST',
                 data:postData,
                 success:function(res){
                     console.log(res)
                     if(res.data&&res.data.token){
-                        wx.setStorageSync('threeToken', res.data.token);
+						
+                        wx.setStorageSync('storeToken', res.data.token);
                         var login = wx.getStorageSync('login');   
                         wx.setStorageSync('login',login);
                         if(params&&callback){  
@@ -196,6 +210,61 @@ class Token {
         
 
     }
+	
+	getTokenA(callback,params){
+	
+	    if(wx.getStorageSync('login').login_name&&wx.getStorageSync('login').password){
+	        var postData = {
+	            login_name:wx.getStorageSync('login').login_name,
+	            password:wx.getStorageSync('login').password,
+	        }
+	        wx.request({
+	            url: 'http://106.12.155.217/api/public/index.php/api/v1/Func/Common/loginByUp',
+	            method:'POST',
+	            data:postData,
+	            success:function(res){
+	                console.log(res)
+	                if(res.data&&res.data.token){
+						
+	                    wx.setStorageSync('agentToken', res.data.token);
+	                    var login = wx.getStorageSync('login');   
+	                    wx.setStorageSync('login',login);
+	                    if(params&&callback){  
+	                        params.data.token = res.data.token;
+	                         
+	                        callback && callback(params);
+	                    }else if(callback){
+	                        callback && callback(res);
+	                    };
+	
+	                    
+	                }else{
+	                    setTimeout(function(){
+	                        wx.showToast({
+	                            title: res.data.msg,
+	                            icon: 'fail',
+	                            duration: 1000,
+	                            mask:true
+	                        });
+	                    },500);
+	
+	                   
+	                    wx.removeStorageSync('threeToken');
+	                    wx.removeStorageSync('login');
+	
+	                }
+	                
+	                
+	            }
+	        })
+	    }else{
+	        wx.redirectTo({
+	          url: '/pages/Index/index'
+	        });
+	    };
+	    
+	
+	}
 }
 
 export {Token};

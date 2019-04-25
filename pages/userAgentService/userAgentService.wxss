@@ -75,8 +75,8 @@
 	text-align:center;
 }
 .member_cont{
-	height:120rpx;
-	margin-top:30rpx;
+	height:140rpx;
+	
 }
 .member_item{
 	width:33.33%;
@@ -105,4 +105,8 @@
 	width:88%;
 	height:100%;
 	text-align:center;
+}
+.piece_top{
+	height:210rpx;
+	background-color: #2a75f1;
 }

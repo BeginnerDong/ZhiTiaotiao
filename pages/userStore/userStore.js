@@ -10,6 +10,14 @@ Page({
   onLoad(options){
 
   },
+	
+	loginOff(){
+		const self = this;
+		wx.removeStorageSync('login');
+		wx.removeStorageSync('storeToken');
+		wx.removeStorageSync('storeInfo');
+		api.pathTo('/pages/userStoreLogin/userStoreLogin','redi');
+	},
  
   intoPath(e){
     const self = this;

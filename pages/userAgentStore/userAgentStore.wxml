@@ -1,45 +1,67 @@
 <!--index3.wxml-->
-<view class="w690">
-    <view class="member_ranking shadow1 bg1">
-        <view class="member_tlt font28 color8">
-            会员数量前三名
-        </view>
-        <view class="member_cont flex">
-            <view class="member_item">
+<view class="piece_top flex">
+	<view class="w690">
+		<view class="member_ranking  bg1" style="border-radius:10rpx">
+			<view class="member_tlt font30 colorb">
+				会员数量前三名
+			</view>
+			<view class="member_cont flex">
+				<block wx:for="{{web_memberData}}" wx:key="id">
+					<view class="member_item flex" style="justify-content: center;">
+						<view class="rank flex">
+							<image src="/images/img3.png" wx:if="{{index==0}}"></image>
+							<image src="/images/img2.png" wx:if="{{index==1}}"></image>
+							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
+						</view>
+						<view>
+							<view class="font26">{{item.name}}</view>
+							<view class="font24">{{item.mem_num}}</view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+		<view class="member_ranking  bg1">
+			<view class="member_tlt font30 colorb">
+				店铺知条数量前三名
+			</view>
+			<view class="member_cont flex">
+				<block wx:for="{{web_scoreData}}" wx:key="id">
+					<view class="member_item flex" style="justify-content: center;">
+						<view class="rank flex">
+							<image src="/images/img3.png" wx:if="{{index==0}}"></image>
+							<image src="/images/img2.png" wx:if="{{index==1}}"></image>
+							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
+						</view>
+						<view>
+							<view class="font26">{{item.name}}</view>
+							<view class="font24">{{item.score}}</view>
+						</view>
+					</view>
+				</block>
+				<!--            <view class="member_item flex" style="justify-content: center;">
+        		<view class="rank flex">
+        		<image src="/images/img2.png"></image>
+        		</view>
+               <view>
+               <view class="font26">胖哥俩</view>
+               <view class="font24">100</view>
+               </view>
+            </view>
+            <view class="member_item flex" style="justify-content: center;">
+        		<view class="rank flex">
+        		<image src="/images/img4.png"></image>
+        		</view>
+                <view>
                 <view class="font26">胖哥俩</view>
                 <view class="font24">100</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">胖哥俩</view>
-                <view class="font24">1000</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">胖哥俩</view>
-                <view class="font24">1000</view>
-            </view>
-        </view>
-    </view>
-    <view class="member_ranking shadow1 bg1">
-        <view class="member_tlt font28 color8">
-            店铺知条数量前三名
-        </view>
-        <view class="member_cont flex">
-            <view class="member_item">
-                <view class="font26">胖哥俩</view>
-                <view class="font24">1000</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">胖哥俩</view>
-                <view class="font24">1000</view>
-            </view>
-            <view class="member_item">
-                <view class="font26">胖哥俩</view>
-                <view class="font24">1000</view>
-            </view>
-        </view>
-    </view>
+                </view>
+            </view> -->
+			</view>
+		</view>
+	</view>
 </view>
-<view class="w690">
+<!-- <view class="w690">
     <view class="search flex">
         <input placeholder="搜索" class="font28 color9"></input> 
         <view class="search_btn">
@@ -89,22 +111,16 @@
             
         </view> 
     </view>     
-</view>
+</view> -->
 
 <view class="w690">
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">胖哥俩</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">胖哥俩</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
-    <view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail">
-      <view class="w33 color6 font24">胖哥俩</view>
-      <view class="w33 color6 font24">2012-5-9</view>
-    </view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail?user_no={{item.user_no}}">
+			<view class="w33 color6 font24">{{item.name}}</view>
+			<view class="w33 color6 font24">{{item.create_time}}</view>
+		</view>
+	</block>
 </view>
-<view class="blank">
+<view class="blank" wx:if="{{web_mainData.length==0}}">
     <image src="/images/members-img.png"></image>
 </view>

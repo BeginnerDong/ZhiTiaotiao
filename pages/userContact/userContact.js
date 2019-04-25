@@ -10,10 +10,13 @@ Page({
 
   },
 
-  onShow(){
+  onLoad(){
     const self = this;
-    
+		
   },
+	
+	
+	
   bindInputChange(e){
     const self = this;
     api.fillChange(e,self,'sForm');
@@ -21,6 +24,8 @@ Page({
       web_sForm:self.data.sForm,
     });
   },
+	
+	
   intoPath(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');

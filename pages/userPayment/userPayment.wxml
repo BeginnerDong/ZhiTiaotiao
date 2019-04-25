@@ -4,11 +4,11 @@
 
       <view class="case_box">
         <view class="cash_tlt color2 font32 bg1">
-            支付金额
+            {{currentId==0?'支付金额':'抵用数量'}}
         </view>
         <view class="cash_input flexRowBetween bg1">
-            <view class="input_masks color2">¥</view>
-            <input data-key="count" bindinput="changeBind" value="4343"></input>
+            <view class="input_masks color2">{{currentId==0?'¥':'个'}}</view>
+            <input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}"></input>
         </view>
         <view class="payment_way bg1 w690">
           <view class="payment_item flex" data-id="0" bindtap="choose_payment">
@@ -36,7 +36,7 @@
       </view>
       <view class="confirm_btn flex">
         <view class="confirm_item font24 color6" bindtap="cancle">取消</view>
-        <view class="confirm_item font24 color" style="border-left:solid 1px #e0e0e0" bindtap="confirm">确认</view>
+        <button class="confirm_item font24 color" style="border-left:solid 1px #e0e0e0" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>
       </view>
   </view>
   <view class="get_peice" wx:if="{{is_peice}}">

@@ -80,6 +80,9 @@ page{
 .font34{
 	font-size:34rpx;
 }
+.colorb{
+	color:black;
+}
 .color1{
 	color:#fff;
 }

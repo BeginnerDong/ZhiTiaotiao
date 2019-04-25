@@ -17,6 +17,7 @@
 .message{
 	border-top:solid 1px #e0e0e0;
 	padding-bottom:28rpx;
+	height:160rpx
 }
 .message_tlt{
 	height:74rpx;
@@ -24,4 +25,23 @@
 }
 .message_time{
 	margin-top:16rpx;
+}
+.user_left{
+	align-items:center;
+}
+.user_left image{
+	width:30rpx;
+	height:32rpx;
+	margin-right:22rpx;
+}
+.user_infor{
+	height:160rpx;
+
+	background:#fff;
+	border-bottom:solid 1px #dcdcdc;
+	align-items:center;
+	}
+
+.user_all{
+	margin-top:12rpx;
 }

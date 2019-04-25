@@ -38,7 +38,7 @@ page{
 	margin-right:10rpx;
 }
 .store_infor{
-	flex-wrap:wrap;
+
 	margin-top:10rpx;
 }
 

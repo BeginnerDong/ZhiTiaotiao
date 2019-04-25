@@ -18,12 +18,17 @@ page{
 	height:100%;
 }
 .piece_top{
-	height:186rpx;
+	height:300rpx;
+	background-color: #2a75f1;
+	position:relative
 }
 .submit_info{
-	width:140rpx;
-	height:46rpx;
-	line-height:46rpx;
-	margin:20rpx auto;
+	width:120rpx;
+	height:50rpx;
+	line-height:50rpx;
 	font-size:24rpx;
+	position:absolute;
+	background-color: #182C4F;
+	top:10rpx;
+	right:10rpx
 }

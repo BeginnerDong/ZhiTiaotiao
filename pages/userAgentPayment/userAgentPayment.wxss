@@ -26,6 +26,17 @@ page{
 	margin-top:200rpx;
 }
 .piece_top{
-	height:136rpx;
-	border-top:solid 20rpx #f2f2f2;
+	height:300rpx;
+	background-color: #2a75f1;
+	position:relative
+}
+.submit_info{
+	width:120rpx;
+	height:50rpx;
+	line-height:50rpx;
+	font-size:24rpx;
+	position:absolute;
+	background-color: #182C4F;
+	top:10rpx;
+	right:10rpx
 }

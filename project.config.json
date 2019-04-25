@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
-	"appid": "wx212611f012b9cf1d",
+	"appid": "wx6729ffd7b8e225d9",
 	"projectname": "%E7%9F%A5%E6%9D%A1%E6%9D%A1",
 	"isGameTourist": false,
 	"condition": {
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -147,7 +147,8 @@
 					"id": 18,
 					"name": "店铺详情",
 					"pathName": "pages/storeDetail/storeDetail",
-					"query": ""
+					"query": "id=1",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -170,7 +171,35 @@
 				{
 					"id": -1,
 					"name": "店铺注册信息",
-					"pathName": "pages/userRegisterInfor/userRegisterInfor"
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺信息",
+					"pathName": "pages/userStoreDetail/userStoreDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/userFeedBack/userFeedBack",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺纸条",
+					"pathName": "pages/userStorePiece/userStorePiece",
+					"scene": null
 				}
 			]
 		}

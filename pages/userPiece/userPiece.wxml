@@ -1,24 +1,23 @@
 <view class="piece_top flex">
     <view style="width:100%;text-align: center;">
         <view class="piece_row flexCenter">
-            <image src="/images/user_icon2.png"></image>
-            <view class="font28 color2">知条</view>
+            <view class=" color1" style="font-size:60rpx">{{web_userInfoData.score}}</view>
         </view>
-        <view class="font28 color2" style="text-align:center;margin-top:16rpx;">¥898</view>
+        <view class="font24 color1" style="text-align:center;margin-top:16rpx;">当前数量(个)</view>
     </view>
 </view>
-<view class="piece_list w690 flex">
-    <view class="piece_item font28 color2" style="text-align:left;">2018-9-9</view>
-    <view class="piece_item font26 color2" style="text-align:center;">消费</view>
-    <view class="piece_item font26 color5" style="text-align:right;">-12.8</view>
-</view>
-<view class="piece_list w690 flex">
-    <view class="piece_item font28 color2" style="text-align:left;">2018-9-9</view>
-    <view class="piece_item font26 color2" style="text-align:center;">过期</view>
-    <view class="piece_item font26 color5" style="text-align:right;">-12.8</view>
-</view>
-<view class="piece_list w690 flex">
-    <view class="piece_item font28 color2" style="text-align:left;">2018-9-9</view>
-    <view class="piece_item font26 color_a" style="text-align:center;">获得</view>
-    <view class="piece_item font26 color_a" style="text-align:right;">+12.8</view>
-</view>
+<block wx:for="{{web_mainData}}" wx:key="id">
+	<view class="piece_list w690 flex">
+		<view class="piece_item font28 color2" style="text-align:left;">{{item.create_time}}</view>
+		<view class="piece_item font26 color2" style="text-align:center;" 
+		wx:if="{{item.count<0&&item.user_type==0}}">支条抵用</view>
+		<view class="piece_item font26 color2" style="text-align:center;" 
+		wx:if="{{item.count<0&&item.user_type==2}}">过期支条</view>
+		<view class="piece_item font26 color2" style="text-align:center;" 
+		wx:if="{{item.count>0&&item.user_type==0}}">奖励支条</view>
+		<view class="piece_item font26 color2" style="text-align:center;" 
+		wx:if="{{item.count>0&&item.user_type==2}}">月奖支条 </view>
+		<view class="piece_item font26 color5" style="text-align:right;" wx:if="{{item.count<0}}">{{item.count}}</view>
+		<view class="piece_item font26 color_a" style="text-align:right;" wx:if="{{item.count>0}}">{{item.count}}</view>
+	</view>
+</block>

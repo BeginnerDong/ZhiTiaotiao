@@ -110,3 +110,12 @@
 	height:100%;
 	text-align:center;
 }
+.piece_top{
+	height:480rpx;
+	background-color: #2a75f1;
+	position:relative
+}
+.rank image{
+	width:50rpx;
+	height:60rpx;
+}
