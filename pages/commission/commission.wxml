@@ -1,0 +1,29 @@
+<!--index3.wxml-->
+<view class="status-top">
+	<view class="top-text1">885.25</view>
+	<view class="top-text2">佣金余额（￥）</view>
+	<view class="btn" bindtap="intoPath" data-path="/pages/userAgentCash/userAgentCash">提现</view>
+</view>
+
+
+<view style="margin-top:30rpx;">
+	<view class="record_tlt flex" style="background:#f5f5f5;">
+	  <view class="w50 color2 font30">时间</view>
+	  <view class="w50 color2 font30">金额</view>
+	</view>
+	<view class="record_list flex">
+	  <view class="w50 color6 font24">2019-02-03</view>
+	  <view class="w50 color6 font24">56</view>
+	</view>
+	<view class="record_list flex">
+	  <view class="w50 color6 font24">2019-02-03</view>
+	  <view class="w50 color6 font24">56</view>
+	</view>
+	<view class="record_list flex">
+	  <view class="w50 color6 font24">2019-02-03</view>
+	  <view class="w50 color6 font24">56</view>
+	</view>
+	
+</view>
+
+

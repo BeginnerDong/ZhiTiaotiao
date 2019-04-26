@@ -1,20 +1,11 @@
-<view class="message_top">
-</view>
+
 <view class="w690 message">
-    <view class="message_tlt font26 color2">
-        交易消息
+    <view class="message_tlt color2">
+        特大喜讯
     </view>
-    <view class="font24 color5">
+    <view class="font24 color5" style="margin-top: 20rpx; text-align:justify;">
         内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内
-    </view>
-    <view class="font22 color5 message_time">2015-9-9</view>
-</view>
-<view class="w690 message ">
-    <view class="message_tlt font26 color2">
-        交易消息
-    </view>
-    <view class="font24 color5">
-        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内
-    </view>
-    <view class="font22 color5 message_time">2015-9-9</view>
+		内容内容内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 
+	</view>
+    <view class="font22 color5 message_time">15:56</view>
 </view>

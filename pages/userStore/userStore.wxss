@@ -58,3 +58,20 @@ page{
 	height:86rpx;
 	line-height:86rpx;
 }
+.box{
+	background:rgba(0,0,0,0.6) ;
+	height: 240rpx;
+	width: 460rpx;
+	border-radius: 16rpx;
+	margin: 550rpx auto;
+}
+.box image{
+	position: relative;
+	left: 420rpx;
+}
+.boxtext{
+	font-size: 38rpx;
+	color: #FCFCFC;
+	text-align: center;
+	margin-top: 40rpx;
+}

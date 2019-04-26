@@ -9,6 +9,107 @@ page{
 }
 .recommend_top{
 	width:100%;
+	height:260rpx;
+	overflow: hidden;
+	border-radius: 0rpx;
+}
+.recommend_top image{
+	width:100%;
+	height:100%
+}
+.recommend_left{
+	width:47.5%;
+	padding-bottom: 20rpx;
+	height:410rpx;
+	margin-top:26rpx;
+}
+.product_name{
+	height:76rpx;
+	line-height: 90rpx;
+	overflow:hidden;
+	width:92%;
+	padding:0 4%;
+}
+.product_pro{
+	width:86%;
+	padding:0 4%;
+	line-height:40rpx;
+}
+.product_item{
+	width:33.33%;
+}
+.product_item image{
+	width:22rpx;
+	height:22rpx;
+	margin-right:10rpx;
+}
+.register{
+	width:116rpx;
+	height:116rpx;
+	position:fixed;
+	bottom:20%;
+	right:0;
+	border-radius:50%;
+	color:#fff;
+}
+.add{
+	width:54rpx;
+	height:54rpx;
+	margin:0 auto;
+	line-height:54rpx;
+	text-align:center;
+	font-size:54rpx;
+}
+
+.openTime{
+	border-top: solid 8px #F0F0F0;
+	height: 90rpx;
+}
+.openTime image{
+	width: 40rpx;
+	height: 44rpx;
+	margin-left: 30rpx;
+	margin-right: 14rpx;
+}
+
+.Addstore{
+	position: fixed;
+	width:90rpx ;
+	height: 90rpx;
+	background: #0d6fb8;
+	border-radius: 50%;
+	left: 632rpx;
+	top: 410rpx;
+}
+.Addstore image{
+	width:40rpx ;
+	height: 40rpx;
+	margin: 25rpx;
+}
+.store-del{
+	margin-top: 50rpx;
+}
+.store-del view{
+	display: inline-block; 
+	background: #0d6fb8; 
+	width: 100rpx;
+	 height: 50rpx; 
+	 font-size: 26rpx;
+	  color: #A5C2E3; 
+	  text-align: center;
+	  line-height: 50rpx;
+	  border-radius: 30rpx; 
+	  margin-left: 490rpx;
+}
+
+/* page{
+	background:#f2f2f2;
+}
+.index_product{
+	flex-wrap: wrap;
+}
+.recommend_top{
+	width:100%;
 	height:212rpx;
 	overflow: hidden;
 }
@@ -99,4 +200,4 @@ page{
   font-size:30rpx;
   background:#2a75f1;
   border-radius:30rpx;
-}
+} */

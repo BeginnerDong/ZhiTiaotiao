@@ -7,8 +7,22 @@ var token = new Token();
 Page({
 
   data: {
-
+				currentId:1,
+				is_rule:false
   },
+	 rule(e){
+	const self=this;
+	self.data.is_rule=!self.data.is_rule;
+	self.setData({
+		is_rule:self.data.is_rule
+	})
+	},
+	
+	tab(e){
+	 this.setData({
+	    currentId:e.currentTarget.dataset.id
+	  })
+	},
 
   onShow(){
     const self = this;

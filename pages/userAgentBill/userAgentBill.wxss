@@ -1,5 +1,3 @@
-/**index.wxss**/
-
 .user_img{
 	width:140rpx;
 	height:140rpx;
@@ -91,15 +89,20 @@
 }
 .tab{
 	height:80rpx;
-	margin-bottom:36rpx;
+	margin-bottom:10rpx;
+	border-bottom: solid 20rpx #F0F0F0;
+	margin-top: 40rpx;
 }
 .tab_item{
-	width:33.33%;
+	width:50%;
 	text-align:center;
-	height:80rpx;
-	line-height:80rpx;
+	height:120rpx;
+	line-height:45rpx;
 	color:#04132c;
-	border-bottom:solid 2px #fff;
+	display: inline-block;
+	border: solid 1rpx #F3F3F3;
+	box-sizing: border-box;
+	border-top: none;
 }
 .tab_this{
 	color:#2a75f1;
@@ -123,6 +126,13 @@
 	height:80rpx;
 	line-height:80rpx;
 }
+.w50{
+	width:50%;
+	text-align:center;
+	height:80rpx;
+	line-height:80rpx;
+	border-right:solid 1rpx #F0F0F0 ;
+}
 .record_list{
 	width:100%;
 	height:80rpx;
@@ -132,7 +142,36 @@
 	border-left:solid 1px #f0f0f0;
 	border-right:solid 1px #f0f0f0;
 }
-.piece_top{
-	height:250rpx;
-	background-color: #2a75f1;
+
+
+.status-top{
+	height: 440rpx;
+	width: 100%;
+	background: #0d6fb8;
+}
+.top-text1{
+	color: #fff;
+	font-size: 95rpx;
+	text-align: center;
+	padding-top: 100rpx;
+}
+.top-text2{
+	color: #BDDEF1;
+	font-size: 32rpx;
+	text-align: center;
+	margin-top: 40rpx;
+}
+
+.piece_list{
+	height:106rpx;
+	border-bottom:solid 1px #f4f4f4;
+}
+.piece_item{
+	width:50%;
+}
+.ilblock{
+	display: inline-block;
+}
+.time{
+	margin-left: 20rpx;
 }

@@ -28,8 +28,6 @@ page{
 .input image{
 	width:80rpx;
 	height:80rpx;
-	margin:0 auto;
-	
 }
 .submit_info{
 	width:100%;

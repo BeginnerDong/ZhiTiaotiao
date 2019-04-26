@@ -97,3 +97,22 @@ page{
 	left:5%
 }
 
+.store-type{
+	width: 690rpx;
+	position: fixed;
+	background: #fff;
+	margin-left: 30rpx;
+	top: 0rpx;
+	
+}
+.type-item{
+	display: inline-block;
+	border-bottom: solid 1rpx #F1F1F1;
+	width: 180rpx;
+	height: 90rpx;
+	text-align: center;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	margin-left: 35rpx;
+	
+}

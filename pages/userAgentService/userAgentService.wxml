@@ -1,5 +1,53 @@
 <!--index3.wxml-->
-<view class="piece_top flex">
+<view class="status-top">
+	<view class="w690">
+	    <view class="member_ranking bg1">
+	        <view class="member_cont flex">
+	            <view class="member_item">
+	                <view class="font26">店铺数量</view>
+	                <view class="font24">100</view>
+	            </view>
+	            <view class="member_item">
+	                <view class="font26">授权数量</view>
+	                <view class="font24">60</view>
+	            </view>
+	            <view class="member_item">
+	                <view class="font26">剩余数量</view>
+	                <view class="font24">40</view>
+	            </view>
+	        </view>
+	    </view>
+	</view>
+</view>
+<view class="input_list1 font28 flex w690">
+	<view class="input_before">辅导编号:</view>
+	<input placeholder="请输入编号" value="001"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">本人姓名:</view>
+	<input placeholder="请输入姓名"  value="刘佳"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">手机号码:</view>
+	<input placeholder="请输入手机号码" value="15646578945"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">常用邮箱</view>
+	<input placeholder="请输入常用邮箱"  value="15646578945@qq.com"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before">地区</view>
+	<input placeholder="请输入地址" value="464666"></input>
+</view>
+<view class="input_list1 font28 flex  w690" style="height: 300rpx;">
+	<view class="input_before" style="width:26%; position: relative; top: -110rpx;">打款凭证</view>
+	<view style="width: 200rpx; height: 240rpx; border: solid 1rpx #000;">
+		<image style="width: 200rpx; height: 240rpx;"></image>
+	</view>
+</view>
+<button style="background: #0d6fb8; width: 80%; color: #fff; font-size: 26rpx;margin-top: 80rpx; margin-bottom: 80rpx;">编辑</button>
+
+<!-- <view class="piece_top flex">
     <view class="w690">
         <view class="member_ranking  bg1" style="border-radius:10rpx">
             <view class="member_cont flex">
@@ -19,57 +67,6 @@
         </view>
     </view>
 </view>
-<!-- <view class="w690">
-    <view class="search flex">
-        <input placeholder="搜索" class="font28 color9"></input> 
-        <view class="search_btn">
-            <image src="/images/store_icon9.png"></image>
-        </view>
-    </view>
-</view>
-<view class="date font30">
-    <view class="date_item">
-        <view style="width:45%;display:flex;align-items:center;">
-            <view class="date_left" style="color:#00c6f7;width:100%;">
-                <picker  mode="date"  bindchange="bindTimeChange" >
-                    <view style="display:flex;align-items:center;width:100%;height:100%;">
-                        <view style="width:85%;height:70rpx;">
-                            <view class="picker text color8">
-                              起始日期
-                            </view>
-                            <view class="text  font22" >{{time}}</view>
-                        </view>
-                        <view style="width:15%;height:70rpx;align-items:center;">
-                            <image src="/images/up.jpg"></image>
-                        </view>
-                    </view> 
-                </picker>
-                
-            </view>
-            
-        </view> 
-    </view>
-    <view class="date_item">
-        <view style="width:45%;display:flex;align-items:center;">
-            <view class="date_left" style="color:#00c6f7;width:100%;">
-                <picker  mode="date" bindchange="bindTimeChange" >
-                    <view style="display:flex;align-items:center;width:100%;height:100%;">
-                        <view style="width:85%;height:70rpx;">
-                            <view class="picker text color8">
-                              截至日期
-                            </view>
-                            <view class="text font22">{{time}}</view>
-                        </view>
-                        <view style="width:15%;height:70rpx;">
-                            <image src="/images/up.jpg"></image>
-                        </view>
-                    </view>
-                </picker>
-            </view>
-            
-        </view> 
-    </view>     
-</view> -->
 
 <view class="w690">
 	<block wx:for="{{web_mainData}}" wx:key="id">
@@ -81,4 +78,4 @@
 </view>
 <view class="blank" wx:if="{{web_mainData.length==0}}">
     <image src="/images/members-img.png"></image>
-</view>	
+</view>	 -->

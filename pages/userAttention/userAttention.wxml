@@ -11,21 +11,21 @@
 					<view class="font24 color5">{{item.distance}}Km</view>
 				</view>
 			</view>
-            <view class="store_infor flex ">
-                <view class="store_item flex">
-                    <image src="/images/index_icon4.png"></image>
-                    <view class="font24 color5">{{item.follow_count}}</view>
-                </view>
-                <view class="store_item flex">
-                    <image src="/images/index_icon5.jpg"></image>
-                    <view class="font24 color5">{{item.favor_count}}</view>
-                </view>
-                <view class="store_item flex">
-                    <image src="/images/index_icon6.jpg"></image>
-                    <view class="font24 color5">{{item.view_count}}</view>
-                </view>
-                
-            </view>  
+           <view class="store_infor flex ">
+               <view class="store_item flex">
+                   <image src="/images/images/near-icon2.png"></image>
+                   <view class="font24 color5">{{item.follow_count}}</view>
+               </view>
+               <view class="store_item flex">
+                   <image src="../../images/images/near-icon3.png"></image>
+                   <view class="font24 color5">{{item.favor_count}}</view>
+               </view>
+               <view class="store_item flex">
+                   <image src="../../images/images/near-icon4.png"></image>
+                   <view class="font24 color5">{{item.view_count}}</view>
+               </view>
+               
+           </view>  
         </view>
         <view class="store_right">
             <image src="{{item.mainImg[0].url}}"></image>

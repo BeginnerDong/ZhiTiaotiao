@@ -21,7 +21,7 @@
     "pages/userStroeCooperation/userStroeCooperation",
     "pages/userStorePiece/userStorePiece",
     "pages/userStoreCash/userStoreCash",
-		"pages/userStoreCashPiece/userStoreCashPiece",
+	"pages/userStoreCashPiece/userStoreCashPiece",
     "pages/userStoreContact/userStoreContact",
     "pages/userPeiceOffer/userPeiceOffer",
     "pages/userStoreAdd/userStoreAdd",
@@ -44,8 +44,24 @@
     "pages/userAgentRule/userAgentRule",
     "pages/userAgentRegister/userAgentRegister",
     "pages/productDetail/productDetail",
-	"pages/checkDetail/checkDetail"
+	"pages/checkDetail/checkDetail",
+	"pages/forget/forget",
+	"pages/upload/upload",
+	"pages/sotre_status/sotre_status",
+	"pages/register/register",
+	"pages/userStoreCashb/userStoreCashb",
+	"pages/sotre_statusb/sotre_statusb",
+	"pages/userRegisterInforb/userRegisterInforb",
+	"pages/userRegisterInforaa/userRegisterInforaa",
+	"pages/userRegisterInforbb/userRegisterInforbb",
+	"pages/userStoreLoginb/userStoreLoginb",
+	"pages/commission/commission",
+	"pages/userAgentCash/userAgentCash",
+	"pages/Agent_statusb/Agent_statusb",
+	"pages/Agent_status/Agent_status",
+	"pages/userAgentDetailb/userAgentDetailb"
 
+ 
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,4 @@
-<block wx:for="{{web_mainData}}" wx:key="id">
+<!-- <block wx:for="{{web_mainData}}" wx:key="id">
 	<view class="user_infor  w710" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
 		<image src="/images/user_icon1.png" style="width:60rpx;height:60rpx"></image>
 		<view class="title flex">	
@@ -12,4 +12,63 @@
 			<view>{{item.content}}</view>
 		</view>
 	</view>
-</block>
+</block> -->
+<view class="message-all">
+	<view class="message-item " bindtap="intoPath" data-path="/pages/userMessageNew/userMessageNew">
+		<view class="message-img">
+			<image src="../../images/images/new-icon.png"></image>
+		</view>
+		<view class="message-text text1" style="top: 36rpx;">
+			<view class="message-title">系统消息</view>
+			<view class="time">15：09</view>
+		</view>
+		<view class="text2 avoidOverflow" style="top: -50rpx;">特大喜讯知条条用户量超过1000</view>
+	</view>
+	
+	<view class="message-item ">
+		<view class="message-img">
+			<image src="../../images/images/new-icon2.png"></image>
+		</view>
+		<view class="message-text text1">
+			<view class="message-title">收到奖励知条</view>
+			<view class="time">15：09</view>
+		</view>
+		<view class="text2 avoidOverflow">特大喜讯知条条用户量超过1000</view>
+	</view>
+	
+	<view class="message-item ">
+		<view class="message-img">
+			<image src="../../images/images/new-icon3@2x.png"></image>
+		</view>
+		<view class="message-text text1">
+			<view class="message-title">交易成功</view>
+			<view class="time">15：09</view>
+		</view>
+		<view class="text2 avoidOverflow">您有一笔243元的订单交易成功</view>
+	</view>
+	
+	<view class="message-item ">
+		<view class="message-img">
+			<image src="../../images/images/new-icon4.png"></image>
+		</view>
+		<view class="message-text text1">
+			<view class="message-title">知条过期提醒</view>
+			<view class="time">15：09</view>
+		</view>
+		<view class="text2 avoidOverflow">您的知条余量200个，还有1/3/7天过期，过期后知条数量自动清零，请及时抵用，如已抵用请忽略。</view>
+	</view>
+	
+	<view class="message-item ">
+		<view class="message-img">
+			<image src="../../images/images/new-icon2.png"></image>
+		</view>
+		<view class="message-text text1">
+			<view class="message-title">收到月奖知条</view>
+			<view class="time">15：09</view>
+		</view>
+		<view class="text2 avoidOverflow">您收到3月份消费排名的月奖知条300个已</view>
+	</view>
+	
+	 
+</view>
+<view class="space_bottom"></view>

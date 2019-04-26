@@ -1,19 +1,11 @@
-<view class="w690">
-	<view class="contact flex">
-    	<view class="contact_left">
-    		<image src="/images/kefu-icon.png"></image>
-    		<view class="contact_left_word font30 color8">
-    			客服电话
-    		</view>
-    		<input placeholder="请输入电话"></input>
-    	</view>
-    	<view class="contact_left">
-    		<image src="/images/kefu-icon1.png"></image>
-    		<view class="contact_left_word font30 color8">
-    			客服微信
-    		</view>
-    		<input placeholder="请输入微信"></input>
-    	</view>
+<view class="contact">
+	<view class="contact-box" style="margin-left: 120rpx;" bindtap="intoPath" data-path="/pages/userRegisterInfor/userRegisterInfor">
+		<image src="../../images/微信图片_20190424155850.png"></image>
+		<view>个体开户</view>
+	</view>
+	<view class="contact-box" bindtap="intoPath" data-path="/pages/userRegisterInforaa/userRegisterInforaa">
+		<image src="../../images/微信图片_20190424155846.png"></image>
+		<view>企业开户</view>
 	</view>
 </view>
-<button class="submit_info bg2">确认</button>
+<view class="contact-text">本服务由金融机构监管提供</view>

@@ -1,0 +1,14 @@
+<view class="box">
+	<view>上传营业执照</view>
+	<view class="photoa" style="background: url(../../images/Upload-icon.png) no-repeat 80rpx center; background-size: 25%;">
+		<image src="../../images/Upload-icon.png" style="width: 45rpx;height: 55rpx; margin: 100rpx 80rpx; "></image>
+	</view>
+	<view>上传法人身份证正反面</view>
+	<view class="photob">
+		<image src="../../images/Upload-icon.png" style="width: 50rpx;height: 60rpx; margin: 90rpx 170rpx; "></image>
+	</view>
+	<view class="photob" style="margin-top: 20rpx;">
+		<image src="../../images/Upload-icon.png" style="width: 50rpx;height: 60rpx; margin: 90rpx 170rpx; "></image>
+	</view>
+	<button bindtap="intoPath" data-path="/pages/sotre_status/sotre_status" >提交</button>
+</view>

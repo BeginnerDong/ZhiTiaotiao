@@ -56,9 +56,12 @@
 }
 .w33{
 	width:50%;
-	text-align:center;
+	/* text-align:center; */
 	height:80rpx;
 	line-height:80rpx;
+}
+.www{
+	text-align: right;
 }
 .record_list{
 	width:100%;
@@ -66,7 +69,7 @@
 	border-bottom:solid 1px #f0f0f0;
 }
 .record_list .w33:nth-child(2n){
-	border-left:solid 1px #f0f0f0;
+	/* border-left:solid 1px #f0f0f0; */
 }
 .member_ranking{
 	width:100%;
@@ -81,6 +84,7 @@
 }
 .member_cont{
 	height:100rpx;
+	
 }
 .member_item{
 	width:33.33%;
@@ -112,7 +116,7 @@
 }
 .piece_top{
 	height:480rpx;
-	background-color: #2a75f1;
+	background-color: #0d6fb8;
 	position:relative
 }
 .rank image{

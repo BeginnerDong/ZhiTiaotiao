@@ -1,49 +1,56 @@
-<!--index3.wxml-->
+
 <view class="w690 logout font24 color7">
     <view class="agent_code font28 color8">代理商编码：{{web_userInfoData.user_no}}</view>
     <view class="logout_page" bindtap="loginOff">退出</view>
 </view>
 <view class="sort flex shadow1 bg1">
-	    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentPayment/userAgentPayment">
-	    <view class="item_box flex" style="border-right:solid 1px #bfbfbf">
+	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/commission/commission">
+	    <view class="item_box flex">
 	        <view style="width:100%;">
-	            <image src="/images/agency-icon4.png"></image>
+	            <image src="/images/store-icon5.png"></image>
 	            <view class="font28 color3">佣金</view>
 	        </view>
 	    </view>
 	</view>
-	 <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
-	    <view class="item_box flex" style="border-right:solid 1px #bfbfbf" >
+	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
+	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
 	        <view style="width:100%;">
 	            <image src="/images/agency-icon3.png"></image>
 	            <view class="font28 color3">账单</view>
 	        </view>
 	    </view>
 	</view>
-    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentInfor/userAgentInfor">
-        <view class="item_box flex">
-            <view style="width:100%;">
-                <image src="/images/agency-icon.png"></image>
-                <view class="font28 color3">代理信息</view>
-            </view>
-        </view>
-    </view>
-    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentStore/userAgentStore">
-        <view class="item_box flex" style="border-right:solid 1px #bfbfbf">
-            <view style="width:100%;">
-                <image src="/images/agency-icon1.png"></image>
-                <view class="font28 color3">服务店铺</view>
-            </view>
-        </view>
-    </view>
-    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentService/userAgentService">
-        <view class="item_box flex" style="border-right:solid 1px #bfbfbf">
-            <view style="width:100%;">
-                <image src="/images/agency-icon2.png"></image>
-                <view class="font28 color3">辅导店铺</view>
-            </view>
-        </view>
-    </view>
-   
+	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentService/userAgentService">
+	    <view class="item_box flex">
+	        <view style="width:100%;">
+	            <image src="/images/agency-icon.png"></image>
+	            <view class="font28 color3">代理信息</view>
+	        </view>
+	    </view>
+	</view>
+	 <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentStore/userAgentStore">
+	    <view class="item_box flex">
+	        <view style="width:100%;">
+	            <image src="/images/store-icon.png"></image>
+	            <view class="font28 color3">服务店铺</view>
+	        </view>
+	    </view>
+	</view>
+	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentPayment/userAgentPayment">
+	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	        <view style="width:100%;">
+	            <image src="../../images/images/user-icon6.png"></image>
+	            <view class="font28 color3">辅导店铺</view>
+	        </view>
+	    </view>
+	</view>
+	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/Agent_status/Agent_status">
+	    <view class="item_box flex">
+	        <view style="width:100%;">
+	            <image src="/images/store-icon8.png"></image>
+	            <view class="font28 color3">代理开户</view>
+	        </view>
+	    </view>
+	</view>
 
 </view>

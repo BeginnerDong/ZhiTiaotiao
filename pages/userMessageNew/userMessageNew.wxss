@@ -1,11 +1,10 @@
 /**index.wxss**/
 
 @import "../../wxParse/wxParse.wxss"
-.message_top{
-	width:100%;
-	height:20rpx;
-	background:#f2f2f2;
+page{
+	background: #F4F4F4;
 }
+
 .submit_info{
 	width:160rpx;
 	height:60rpx;
@@ -16,11 +15,16 @@
 .message{
 	border-top:solid 1px #e0e0e0;
 	padding-bottom:28rpx;
+	background: #fff;
+	padding-bottom: 100rpx;
 }
 .message_tlt{
 	height:74rpx;
-	line-height:84rpx;
+	line-height:100rpx;
+	text-align: center;
+	font-size: 32rpx;
 }
 .message_time{
-	margin-top:16rpx;
+	margin-top:30rpx;
+	float: right;
 }

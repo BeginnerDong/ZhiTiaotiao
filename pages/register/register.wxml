@@ -1,0 +1,29 @@
+<view class="row">
+	<view class="row-text">店铺名称</view>
+	<input placeholder="请输入店铺名称" />
+</view>
+<view class="row">
+	<view class="row-text">店主登录手机号码</view>
+	<input placeholder="请输入手机号码" />
+</view>
+<view class="row">
+	<view class="row-text">登录密码</view>
+	<input placeholder="6位-16位字母与数字混合设置" />
+</view>
+<view class="row">
+	<view class="row-text">常用邮箱</view>
+	<input placeholder="请输入您的常用邮箱(选填)" />
+</view>
+<view class="row" style="height: 90rpx;">
+	<view class="row-text" style="line-height: 50rpx;">行业类型</view>
+	<view class="row-box" style="background: url(../../images/down.png) no-repeat 198rpx center; background-size: 9%;"></view>
+</view>
+<view class="row" style="height: 90rpx;">
+	<view class="row-text" style="line-height: 50rpx;">选择地区</view>
+	<view class="row-box2" style="background: url(../../images/down.png) no-repeat 498rpx center; background-size: 4%;"></view>
+</view>
+<view class="row">
+	<view class="row-text">店铺地址</view>
+	<input placeholder="请输入详细地址" />
+</view>
+<button bindtap="intoPath" data-path="/pages/upload/upload" >保存</button>

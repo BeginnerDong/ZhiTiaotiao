@@ -1,0 +1,145 @@
+<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">已授权</text> </view>
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8" style="width: 40%;">企业证件照类型</view>
+	<view class="input">普通营业执照企业</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">企业类型</view>
+	<view class="input">普通企业</view>
+</view><view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">企业名称</view>
+	<view class="input">中国建材集团有限公司</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">营业执照注册号</view>
+	<view class="input">123454654685544565</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:40%;">统一社会信用代码</view>
+	<view class="input">454654685544565</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">证照起始时间</view>
+	<view class="input">2015年5月18日</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">证照结束时间</view>
+	<view class="input">2015年5月18日</view>
+</view>
+<view class="input_list3 font28 w690">
+	<view style="display: inline;" class="color8">企业经营地址</view>
+	<view style="display: inline;" class="input"><text>\n</text>陕西省莲湖区大话南门A座2001</view>
+</view>
+<view class="input_list3 font28 w690">
+	<view style="display: inline;" class="color8">企业注册地址</view>
+	<view style="display: inline;" class="input"><text>\n</text>陕西省莲湖区大话南门A座2001</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:50%;">企业固定电话</view>
+	<view class="input">029-58684655</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">经营范围</view>
+	<view class="input">
+     建材批发
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">控股股东</view>
+	<view class="input avoidOverflow">
+     	张明瑞
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">法人姓名</view>
+	<view class="input avoidOverflow">
+     	张明瑞
+    </view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width: 30%;">法人证件类型</view>
+	<view class="input avoidOverflow">
+     	省份证
+    </view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">法人证件号</view>
+	<view class="input avoidOverflow">
+     	41015648545654656
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:40%;">法人证件起始时间</view>
+	<view class="input avoidOverflow">
+     	2012年8月4日
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:40%;">法人证件结束时间</view>
+	<view class="input avoidOverflow">
+     	2012年8月4日
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">法人手机号</view>
+	<view class="input avoidOverflow">
+     	15689544654
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">联系人姓名</view>
+	<view class="input avoidOverflow">
+     	张东阳
+    </view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">联系人手机号</view>
+	<view class="input avoidOverflow">
+     	1891254568
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">联系人邮箱</view>
+	<view class="input avoidOverflow">
+     	15689544654@163.com
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行</view>
+	<view class="input avoidOverflow">
+     	民生银行
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行账号</view>
+	<view class="input avoidOverflow">
+     	62015468565545486
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:40%;">开户银行支行名称</view>
+	<view class="input avoidOverflow">
+     	民生银行
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行省份</view>
+	<view class="input avoidOverflow">
+     	陕西省
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行地区</view>
+	<view class="input avoidOverflow">
+     	西安市未央区
+    </view>
+</view>
+
+<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+
+
+
+

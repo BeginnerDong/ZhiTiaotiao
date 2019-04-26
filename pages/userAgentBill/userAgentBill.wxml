@@ -1,5 +1,39 @@
 <!--index3.wxml-->
-<view class="piece_top flex">
+<view class="status-top">
+	<view class="top-text1">456.25</view>
+	<view class="top-text2">佣金总额（￥）</view>
+</view>
+<view class="tab flexRowBetween">
+    <view class="tab_item">
+       <view style=" color: #1A2235; font-weight: bolder;">236.26</view>
+	   <view style="font-size: 22rpx;">服务佣金</view>
+    </view>
+	<view class="tab_item">
+	   <view style="color: #1A2235; font-weight: bolder;">236.26</view>
+	   <view style="font-size: 22rpx;">辅导佣金</view>
+	</view>
+</view>
+<view>
+	<view class="piece_list w690 flex">
+	    <view class="piece_item font28 color2" style="text-align:left;">
+	    	<view class="font24 color2">永得利副食超市</view>
+	    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">18:09</view>
+		</view>
+	    <view class="piece_item font26 color5" style="text-align:right;">+125.00<text style="font-size: 22rpx;">\n 服务佣金</text></view>
+	</view>
+	<view class="piece_list w690 flex">
+	   <view class="piece_item font28 color2" style="text-align:left;">
+	    	<view class="font24 color2">提现</view>
+	    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view>
+		</view>
+	    <view class="piece_item font26 color5" style="text-align:right;">-125.00<text style="font-size: 22rpx;">\n 提现成功</text></view>
+	</view>
+</view>
+
+
+
+
+<!-- <view class="piece_top flex">
     <view style="width:100%;text-align: center;">
 		<view class="color1" style="text-align:center;" style="font-size:60rpx" wx:if="{{web_currentId==0}}">{{web_userInfoData.benifit}}</view>
         <view class="piece_row flexCenter">
@@ -90,3 +124,4 @@
         </view>
     </view>
 </view>
+ -->

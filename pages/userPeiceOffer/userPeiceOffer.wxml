@@ -1,4 +1,37 @@
-<view class="w690">
+<view class="w690" style="text-align: right;margin-top: 10rpx; font-size: 28rpx;" bindtap="show">删除</view>
+<view class="index_product flexRowBetween w690">
+	
+		  <view class="recommend_left bg1 shadow1" bindtap="intoPath" data-path="/pages/storeDetails/storeDetails">
+		    <view class="recommend_top">
+		      <image src="/images/切图/我的店铺/goods-img.jpg"></image>
+		    </view>
+		    <view class="product_name font28 color2 avoidOverflow2">标题标题标题标题标题标题标题标题标题</view>
+		    <view class="product_pro ">
+				<view class="text-red" style="font-size: 28rpx; color: red;">知条数量:8.8个</view>
+				<view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥16</view>
+		    </view>
+		  </view>
+		  <view class="recommend_left  bg1 shadow1"  bindtap="intoPath" data-path="/pages/storeDetails/storeDetails">
+		    <view class="recommend_top">
+		      <image src="/images/切图/我的店铺/goods-img.jpg"></image>
+		    </view>
+		    <view class="product_name font28 color2 avoidOverflow2">标题标题标题标题标题标题标题标题标题</view>
+		    <view class="product_pro ">
+		    	<view class="text-red" style="font-size: 28rpx; color: red;">知条数量:8.8个</view>
+		    	<view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥16</view>
+		    </view>
+		  </view>
+</view>
+<view class="Addstore" bindtap="intoPath" data-path="/pages/userStoreAdd/userStoreAdd">
+	<image src="../../images/Upload-icon.png"></image>
+</view>
+<view class="store-del" wx:if="is_show">
+	<radio style="transform: scale(0.6);">全选</radio>
+	<view bindtap="show">删除</view>
+</view>
+
+
+<!-- <view class="w690">
 	<view class="font28 color2" style="text-align:right;height:50rpx;line-height: 50rpx;" bindtap="showDelete">
 	{{web_showDelete?'完成':'删除'}}
 	</view>
@@ -37,3 +70,4 @@
 <view class="register flex bg2" bindtap="intoPath" data-path="/pages/userStoreAdd/userStoreAdd">
 	<view class="add color1">+</view>
 </view>
+ -->

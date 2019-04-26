@@ -1,0 +1,69 @@
+
+<view class="input_list1 font28 flex w690">
+	<view class="input_before color8">用户姓名</view>
+	<view class="input">请输入真实的姓名</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">身份证号</view>
+	<view class="input">请输入您的身份证号</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">手机号码</view>
+	<view class="input">请输入您的手机号码</view>
+</view>
+<view class="input_list1 input-type">
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">用户省份</view>
+	<view class="font28" style="font-size: 22rpx;margin-left: 66rpx;">请选择
+	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+	</view>
+</view>
+<view class="input_list1 input-type">
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">用户地区</view>
+	<view class="font28" style="font-size: 22rpx;margin-left: 66rpx;">请选择
+	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+	</view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">住址</view>
+	<view class="input">
+     	请填写证件上的住址
+    </view>
+</view>
+<view class="input_list1 input-type">
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">开户银行</view>
+	<view class="font28" style="font-size: 22rpx;margin-left: 66rpx;">请选择
+	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+	</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行账号</view>
+	<view class="input avoidOverflow">
+     	请输入开户银行账号
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户支行名称</view>
+	<view class="input avoidOverflow">
+     	请输入开户支行名称
+    </view>
+</view>
+
+<view class="input_list1 input-type">
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">开户银行省份</view>
+	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;">请选择
+	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+	</view>
+</view>
+<view class="input_list1 input-type">
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">开户银行地区</view>
+	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;">请选择
+	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+	</view>
+</view>
+<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="intoPath" data-path="/pages/userAgentDetailb/userAgentDetailb">提交</button>
+<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+
+
+
+

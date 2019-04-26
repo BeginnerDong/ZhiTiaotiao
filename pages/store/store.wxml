@@ -1,6 +1,20 @@
 <!--index1.wxml-->
 <view class="w690">
-    <view class="stroe_search flex">
+	<view class="stroe_search flex">
+	    <view class="stroe_search_left flex">
+	        <image src="/images/store_icon8.png"></image>
+	        <view class="font28 color2" style="width:100rpx ; background: url(../../images/up.png) no-repeat 65rpx center;background-size: 25%; ">分类</view>
+	    </view>
+	    <view class="stroe_search_right">
+	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;">
+	            <input class="font28 color9"></input> 
+	            <view class="search_btn">
+	                <image src="/images/store_icon9.png"></image>
+	            </view>
+	        </view>
+	    </view>
+	</view>
+    <!-- <view class="stroe_search flex">
         <view class="stroe_search_left flex" bindtap="isShowStore">
             <image src="/images/store_icon8.png"></image>
             <view class="font28 color2">分类</view>
@@ -13,7 +27,7 @@
                 </view>
             </view>
         </view>
-    </view>
+    </view> -->
     <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
         <view class="store_left">
 			<view style="display:flex">
@@ -28,15 +42,15 @@
 			</view>
             <view class="store_infor flex ">
                 <view class="store_item flex">
-                    <image src="/images/index_icon4.png"></image>
+                    <image src="/images/images/near-icon2.png"></image>
                     <view class="font24 color5">{{item.follow_count}}</view>
                 </view>
                 <view class="store_item flex">
-                    <image src="/images/index_icon5.jpg"></image>
+                    <image src="../../images/images/near-icon3.png"></image>
                     <view class="font24 color5">{{item.favor_count}}</view>
                 </view>
                 <view class="store_item flex">
-                    <image src="/images/index_icon6.jpg"></image>
+                    <image src="../../images/images/near-icon4.png"></image>
                     <view class="font24 color5">{{item.view_count}}</view>
                 </view>
                 
@@ -55,6 +69,28 @@
 		<view class="font24 color5" data-id="{{item.id}}" bindtap="changeType">{{item.title}}</view>
 	</block>
 </view>
+<view class="store-type" >
+	<view class="type-item">健身</view>
+	<view class="type-item">健身</view>
+	<view class="type-item">健身</view>
+	
+	<view class="type-item">餐饮</view>
+	<view class="type-item">餐饮</view>
+	<view class="type-item">餐饮</view>
+	
+	<view class="type-item">美容</view>
+	<view class="type-item">美容</view>
+	<view class="type-item">美容</view>
+	<view class="type-item">棋牌</view>
+	<view class="type-item">棋牌</view>
+	<view class="type-item">棋牌</view>
+	<view class="type-item">医疗</view>
+	<view class="type-item">医疗</view>
+	<view class="type-item">医疗</view>
+</view>
+
+
+
 <view class="space_bottom"></view>
 <view class="navbar">
     <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/index/index">

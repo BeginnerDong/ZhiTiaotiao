@@ -1,4 +1,51 @@
-<view class="piece_top flex">
+<view class="status-top">
+	<view class="w690">
+	    <view class="member_ranking bg1">
+	        <view class="member_cont flex">
+	            <view class="member_item">
+	                <view class="font26">店铺数量</view>
+	                <view class="font24">100</view>
+	            </view>
+	            <view class="member_item">
+	                <view class="font26">授权数量</view>
+	                <view class="font24">60</view>
+	            </view>
+	            <view class="member_item">
+	                <view class="font26">剩余数量</view>
+	                <view class="font24">40</view>
+	            </view>
+	        </view>
+	    </view>
+	</view>
+</view>
+<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
+	<view class="w690 flex">
+		<view class="serve-name">口水鱼</view>
+		<view class="flex">8月18日
+			<view style="margin-left: 20rpx;">15：56</view>
+		</view>
+	</view>
+</view>
+<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
+	<view class="w690 flex">
+		<view class="serve-name">胖哥两</view>
+		<view class="flex">8月18日
+			<view style="margin-left: 20rpx;">15：56</view>
+		</view>
+	</view>
+</view>
+<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
+	<view class="w690 flex">
+		<view class="serve-name">海底捞</view>
+		<view class="flex">8月18日
+			<view style="margin-left: 20rpx;">15：56</view>
+		</view>
+	</view>
+</view>
+
+
+
+<!-- <view class="piece_top flex">
     <view style="width:100%;text-align: center;">
         <view class="piece_row flexCenter">
             <view class="color1" style="font-size:60rpx">865.25</view>
@@ -17,4 +64,4 @@
 </view>
 <view class="blank">
     <image src="/images/members-img.png"></image>
-</view>
+</view> -->

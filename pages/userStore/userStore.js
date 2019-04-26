@@ -4,9 +4,18 @@ const app = getApp();
 
 Page({
   data: {
- 
+				is_show:false
   },
-
+	show(e){
+		const self=this;
+		self.data.is_show=!self.data.is_show;
+		self.setData({
+			is_show:self.data.is_show
+		})
+	},
+	onLoad(options){
+	
+	},
   onLoad(options){
 
   },

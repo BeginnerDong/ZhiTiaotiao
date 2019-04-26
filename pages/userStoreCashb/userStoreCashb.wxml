@@ -1,0 +1,26 @@
+<!--index3.wxml-->
+<view class="w690">
+  <view class="bank bg1 flex w690">
+    <view class="font24 color2" style="width: 25%; margin-left: 15rpx;">到账银行</view>
+    <view class="font24 color2" style="width: 50%;">中国银行(2356)</view>
+  </view>
+  <view class="cash">
+      <view class="case_box">
+        <view class="cash_tlt color2 font32 bg1">
+            兑换数量
+        </view>
+        <view class="cash_input flexRowBetween bg1">
+            <view class="input_masks color2">个</view>
+            <input data-key="count" bindinput="changeBind" value="3233"></input>
+        </view>
+        <view class="cash_can font24 color6 bg1 flex">
+            本次可兑换<text>200.0个</text>
+            <view class="font28 color2" style="margin-left: 280rpx;" bindtap="allOut">全部兑换</view>
+        </view>
+        <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
+            <button class="submit_info bg2">兑换</button>
+			<!-- bindtap="{{web_buttonCanClick?'submit':''}}" -->
+        </view>
+      </view>
+  </view>
+</view>

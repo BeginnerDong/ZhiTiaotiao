@@ -7,15 +7,19 @@
 	</view>
 	<view class="font24 color8">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</view>
 	<view class="product_pro  flex avoidOverflow">
-       <view class="font24 color_r">¥434 /</view>
-       <view class="font24 color_r" style="margin-left:20rpx;">知条:¥434</view>
+       <view class="font24 color_r">知条数量：8.8个</view>
+       <view class="font20" style="margin-left:20rpx; text-decoration: line-through;">店铺价格：￥16</view>
     </view>
 </view>
-<view class="w690 bg1 store_product">
+<view class="w690 bg1 store_product" style="margin-bottom: 30rpx;">
 	<view class="font28 color2" style="height:60rpx;line-height:60rpx;">
+	<image src="../../images/微信图片_20190425144911.png" style="width: 42rpx; height: 36rpx; position: relative; top: 10rpx;"></image>
 	商品图片
 	</view>
+	<view class="condition" style="margin-top: 10rpx;">
+		<image src="../../images/2019-04-25_135438.png"></image>
+	</view>
 	<view class="condition">
-		<image src="/images/banner.jpg"></image>
+		<image src="../../images/2019-04-25_135438.png"></image>
 	</view>
 </view>

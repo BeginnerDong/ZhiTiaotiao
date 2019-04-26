@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 46,
 			"list": [
 				{
 					"id": -1,
@@ -205,7 +205,121 @@
 				{
 					"id": -1,
 					"name": "个人中心",
-					"pathName": "pages/user/user"
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "账单详情",
+					"pathName": "pages/checkDetail/checkDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消费记录",
+					"pathName": "pages/userConsume/userConsume",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的消费",
+					"pathName": "pages/userMessage/userMessage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "系统消息",
+					"pathName": "pages/userMessageNew/userMessageNew",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的店铺登录",
+					"pathName": "pages/userStoreLogin/userStoreLogin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "忘记密码",
+					"pathName": "pages/forget/forget",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的店铺",
+					"pathName": "pages/userStore/userStore",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "余额",
+					"pathName": "pages/userStoreBanlance/userStoreBanlance",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现1",
+					"pathName": "pages/userStoreCash/userStoreCash",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "知条通知",
+					"pathName": "pages/userStorePiece/userStorePiece",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺会员",
+					"pathName": "pages/userStoreMember/userStoreMember",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/userStorePoster/userStorePoster",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个体开户",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个体开户",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个体开户",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个体开户",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个体开户",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "代理",
+					"pathName": "pages/userAgentLogin/userAgentLogin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "账单",
+					"pathName": "pages/userAgentBill/userAgentBill"
 				}
 			]
 		}

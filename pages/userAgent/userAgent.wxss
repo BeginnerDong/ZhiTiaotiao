@@ -1,4 +1,3 @@
-
 page{
 }
 .agent_code{
@@ -22,8 +21,8 @@ page{
 	text-align: center;
 }
 .item_box image{
-	width:60rpx;
-	height:58rpx;
+	width:58rpx;
+	height:56rpx;
 }
 .logout{
 	height:86rpx;

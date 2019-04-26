@@ -1,0 +1,33 @@
+.box{
+	width: 690rpx;
+	margin: 0 auto;
+	font-size: 30rpx;
+}
+view{
+	height: 70rpx;
+	line-height: 70rpx;
+}
+.photoa{
+	height: 270rpx;
+	width: 210rpx;
+	border: solid 1rpx #fff;
+	background: #ECECEC !important;
+	margin: 0 auto;
+}
+.photob{
+	height: 240rpx;
+	width: 400rpx;
+	border: solid 1rpx #fff;
+	background: #ECECEC !important;
+	margin: 0 auto;
+	
+}
+
+button{
+	width: 80%;
+	height: 75rpx;
+	background: #0d6fb8;
+	color: #fff;
+	font-size: 28rpx;
+	margin-top: 140rpx;
+}

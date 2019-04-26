@@ -1,4 +1,30 @@
 
+    <view class="login">
+		<view class="img" style="height: 380rpx; background: url(../../images/微信图片_20190423185524.png) no-repeat; background-size: 100%;">
+			<image style="transform:rotate(90deg);width:160rpx; height: 150rpx; margin: 40rpx 290rpx;" src="../../images/logo%20(1).png" ></image>
+		</view>
+        <view class="login_box bg1">
+            <view class="login_input">
+                <view class="list_input">
+                    <input placeholder="请输入手机号" style="text-indent: 10rpx;" data-key="login_name" bindinput="bindInputChange"></input>
+                </view>
+                <view class="list_input flexRowBetween">
+                    <input style="width:60%" placeholder="请输入密码" style="text-indent: 10rpx;" data-key="password" bindinput="bindInputChange"></input>
+                    <view class="get_check" style="width: 40rpx; height: 25rpx; background: url(../../images/eay.png) no-repeat; background-size: 100%;"></view>
+                </view>
+                <button class="submit_info" style="background: #0d6fb8;"  bindtap="submit" data-path="/pages/userStore/userStore" >登录</button>
+            </view>
+        </view>
+		<view class="register-box"> 
+			<view style="text-align: right;" bindtap="intoPath" data-path="/pages/register/register">注册 | </view>
+			<view style="text-indent: 10rpx;" bindtap="intoPath" data-path="/pages/forget/forget">忘记密码</view>
+		</view>
+		<image class="img-phone" src="../../images/register-icon1.png"></image>
+		<image class="img-lock" src="../../images/register-icon2.png"></image>
+    </view>
+
+
+<!-- 
 <view class="login" wx:if="{{web_show}}">
     <image src="/images/img7.jpg"></image>
     <view class="w690 flex login_cont">
@@ -19,4 +45,4 @@
         </view>
 
     </view>
-</view>
+</view> -->

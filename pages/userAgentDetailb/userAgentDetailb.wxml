@@ -1,0 +1,55 @@
+<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">审核中</text> </view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">用户姓名</view>
+	<view class="input">张三</view>
+</view><view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">身份证号</view>
+	<view class="input">41046548554524532</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">手机号码</view>
+	<view class="input">1234546542</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">用户省份</view>
+	<view class="input">陕西省</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">地址</view>
+	<view class="input">陕西省西安市长安区韦曲街道西韦巷</view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">开户银行</view>
+	<view class="input">华夏银行</view>
+</view>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:30%;">开户银行账号</view>
+	<view class="input">
+     15645212556633
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:40%;">开户银行支行名称</view>
+	<view class="input avoidOverflow">
+     	西安分行
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行省份</view>
+	<view class="input avoidOverflow">
+     	陕西省
+    </view>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行地区</view>
+	<view class="input avoidOverflow">
+     	西安市未央区
+    </view>
+</view>
+
+<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+
+
+
+

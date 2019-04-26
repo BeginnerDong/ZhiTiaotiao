@@ -1,7 +1,7 @@
 
     <view class="login">
 		<view class="img" style="height: 380rpx; background: url(../../images/微信图片_20190423185609.png) no-repeat; background-size: 100%;">
-			<image style="transform:rotate(90deg);width:160rpx; height: 150rpx; margin: 40rpx 275rpx;" src="../../images/logo%20(1).png" ></image>
+			<image style="transform:rotate(90deg);width:160rpx; height: 150rpx; margin: 40rpx 290rpx;" src="../../images/logo%20(1).png" ></image>
 		</view>
             <view class="login_box bg1">
                 <view class="login_input">

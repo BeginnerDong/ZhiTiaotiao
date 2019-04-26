@@ -1,0 +1,41 @@
+<view class="store-textc" style="text-align: center;">状态：<view style="display: inline-block; color: #0d6fb8;">已授权</view> </view>
+
+<view class="store-row">
+	<view class="store-texta">店铺名称</view>
+	<view class="store-textb">胖哥两</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">店主登录手机号码</view>
+	<view class="store-textb">151689784569</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">登录密码</view>
+	<view class="store-textb">213266sgha</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">常用邮箱</view>
+	<view class="store-textb">213266sgha@163.com</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">行业类型</view>
+	<view class="store-textb">餐饮</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">地区</view>
+	<view class="store-textb">陕西省西安市长安区</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">店铺地址</view>
+	<view class="store-textb">陕西省西安市长安区韦曲街道231号</view>
+</view>
+<view class="store-textc" style="margin-left: 20rpx;">营业执照</view>
+<view class="business">
+	<image src="../../images/merchant-img.jpg"></image>
+</view>
+<view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;">身份证正反面</view>
+<view class="business-2">
+	<image src="../../images/merchants-img.jpg"></image>
+</view>
+<view class="business-2" style="margin:20rpx auto 40rpx">
+	<image src="../../images/merchants-img.jpg"></image>
+</view>

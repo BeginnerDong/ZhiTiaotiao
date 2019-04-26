@@ -1,4 +1,4 @@
-<view class="flex" style="width:100%;height:90vh">
+<!-- <view class="flex" style="width:100%;height:90vh">
 	<view class="bg">
 		<view class="poster">
 			<view class="font30 color7" style="margin-top:100rpx;">{{web_mainData.name}}</view>
@@ -8,4 +8,29 @@
 		</view>
 	</view>
     
+</view> -->
+
+<view class="flex" style="width:100%;height:90vh">
+    <view class="poster">
+		<view class="poster-texta">店铺名称名称</view>
+        <image src="../../images/Qrcode-img.png"></image>
+        <view class="font30 color7" class="poster-textb">保存到本地</view>
+    </view>
+</view>
+<view class="reword font24 color1 flex" bindtap="rule">
+    <view class="reword_in">会员规则</view>
+</view>
+
+<view class="mask" wx:if="{{is_rule}}">
+    <view class="rule bg1" style="height: 90%;">
+        <scroll-view scroll-y style="height:70vh;">
+            <view class="rule_cont">
+                <view class="font28 color2 rule_tlt">标题标题标题</view>
+				<view class=" content font24 color2 w690">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+				<view class=" content font24 color2 w690">2.内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容</view>
+				 <view class="content font24 color2 w690">3.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+			</view>
+        </scroll-view>
+		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+    </view>
 </view>

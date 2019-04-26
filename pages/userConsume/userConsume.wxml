@@ -1,4 +1,21 @@
-<block wx:for ="{{web_mainData}}" wx:key="id">
+
+<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
+    <view class="piece_item font28 color2" style="text-align:left;">
+    	<view class="font24 color2">味千拉面</view>
+    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">18:09</view>
+	</view>
+    <view class="piece_item font26 color5" style="text-align:right;">-56.88</view>
+</view>
+<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
+   <view class="piece_item font28 color2" style="text-align:left;">
+    	<view class="font24 color2">海底捞</view>
+    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view>
+	</view>
+    <view class="piece_item font26 color5" style="text-align:right;">-125.00</view>
+</view>
+
+
+<!-- <block wx:for ="{{web_mainData}}" wx:key="id">
 
 	<view class="piece_list w690 flex">
 		<view class="piece_item font28 color2" style="text-align:left;">
@@ -7,4 +24,4 @@
 		</view>
 		<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}</view>
 	</view>
-</block>
+</block> -->

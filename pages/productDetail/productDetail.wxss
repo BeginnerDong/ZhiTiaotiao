@@ -3,6 +3,9 @@
 @import "../../wxParse/wxParse.wxss"; 
 page{
 }
+page{
+	background: #F0F0F0;
+}
 .banner{
 	width:100%;
 	overflow:hidden;
@@ -21,14 +24,16 @@ page{
 
 
 .store_product{
-	border-top:solid 20rpx #f0f0f0;
+	background:none;
 }
 .condition{
 	margin-top:30rpx;
+	width: 100%;
+	height: 320rpx;
 }
 .condition image{
 	width:100%;
-	height:600rpxs;
+	height:320rpx;
 }
 .store_bottom{
 	height:100rpx;

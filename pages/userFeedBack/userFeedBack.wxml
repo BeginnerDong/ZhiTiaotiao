@@ -1,4 +1,25 @@
-<view class="message  w690">
+<view class="message w690">
+	<view class="message_left font28 color2">
+		问题和意见
+	</view>
+	<view class="message_right" style=" margin-top: 20rpx;">
+		<textarea placeholder="请填写10字以上的问题描述,以便我们提供更好服务" style="font-size: 24rpx;"></textarea>
+	</view>
+</view>
+<view class="message w690">
+	<view class="message_left font28 color2" style=" margin-top: 20rpx;">
+		图片 (选填，提供问题的截图)
+	</view>
+	<view class="message_upload flex" style=" margin-top: 20rpx;">
+		<view class="uplode_add">+</view>
+	</view>
+</view>
+<view class="input_list1 font28 w690">
+	<view class="input_before color2" style=" margin-bottom: 20rpx;">联系电话:</view>
+	<input style="width: 100%; height: 70rpx;" placeholder="请输入联系人电话"></input>
+</view>
+<button class="submit_info bg1">提交</button>
+<!-- <view class="message  w690">
 	<view class="message_left font30 color2">
 		问题和意见
 	</view>
@@ -26,3 +47,4 @@
 
 </view>
 <button class="submit_info bg1" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
+ -->

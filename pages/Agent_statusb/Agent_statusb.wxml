@@ -1,0 +1,30 @@
+<view class="store-row">
+	<view class="store-texta">店铺名称</view>
+	<view class="store-textb">胖哥两</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">店铺地址</view>
+	<view class="store-textb">陕西省西安市雁塔区高新大都荟</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">店长姓名</view>
+	<view class="store-textb">张三</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">手机号</view>
+	<view class="store-textb">12345678910</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">注册时间</view>
+	<view class="store-textb">2018年9月2日</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">服务代理姓名</view>
+	<view class="store-textb">李四</view>
+</view>
+<view class="store-row">
+	<view class="store-texta">服务代理电话</view>
+	<view class="store-textb">18212456987</view>
+</view>
+
+

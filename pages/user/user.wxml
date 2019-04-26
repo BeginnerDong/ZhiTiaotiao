@@ -43,7 +43,7 @@
 	        <image src="/images/next_page.jpg"></image>
 	    </view>
 	</view>       
-	<view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userStoreLoginb/userStoreLoginb">
+	<view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userAgentLogin/userAgentLogin">
 	    <view class="user_left flexRowBetween">
 	        <image src="../../images/images/user-icon6.png"></image>
 	        <text>我要代理</text>

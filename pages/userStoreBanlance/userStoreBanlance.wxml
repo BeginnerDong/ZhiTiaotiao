@@ -1,4 +1,4 @@
-<view class="w690">
+<!-- <view class="w690">
 	<view class="shadow1 w710 bg1 balance flex" bindtap="intoPath" data-path="/pages/userStroePayment/userStroePayment">
 		<view class="balance_left font28 color8">货款</view>
 		<view class="balance_right">
@@ -11,4 +11,60 @@
 			<image src="/images/next_page.jpg"></image>
 		</view>
 	</view>
+</view> -->
+
+<view class="status-top">
+	<view class="top-text1">885.25</view>
+	<view class="top-text2" wx:if="{{currentId==1}}">货款余额（￥）</view>
+	<view class="top-text2" wx:if="{{currentId==2}}">结盟进结算金额（￥）</view>
+	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
+</view>
+<view class="tab font30 flexRowBetween" style="border-bottom: solid 20rpx #F5F5F5;">
+    <view class="tab_item {{currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
+       收款
+    </view>
+    <view class="tab_item {{currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
+        联盟金结算
+    </view>
+</view>
+
+<view style="{{currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
+	<view class="record_tlt flex" style="background:#f5f5f5;">
+	  <view class="w50 color2 font30">时间</view>
+	  <view class="w50 color2 font30">金额</view>
+	</view>
+	<view class="record_list flex">
+	  <view class="w50 color6 font24">2019-02-03</view>
+	  <view class="w50 color6 font24">56</view>
+	</view>
+</view>
+<view style="{{currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
+    <view class="record_tlt flex" style="background:#f5f5f5;">
+      <view class="w33 color2 font30">店比重额</view>
+      <view class="w33 color2 font30">联盟金</view>
+      <view class="w33 color2 font30">结算金</view>
+      <view class="w33 color2 font30">时间</view>
+    </view>
+    <view class="record_list flex">
+      <view class="w33 color6 font24">562</view>
+      <view class="w33 color6 font24">561</view>
+      <view class="w33 color6 font24">654</view>
+      <view class="w33 color6 font24">2月3日</view>
+    </view>
+	<view class="reword font24 color1 flex">
+	    <view class="reword_in color1" bindtap="rule">结算规则</view>
+	</view>
+</view>
+<view class="mask" wx:if="{{is_rule}}">
+    <view class="rule bg1" style="height: 90%;">
+        <scroll-view scroll-y style="height:70vh;">
+            <view class="rule_cont">
+                <view class="font28 color2 rule_tlt">标题标题标题</view>
+				<view class=" content font24 color2 w690">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+				<view class=" content font24 color2 w690">2.内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容</view>
+				 <view class="content font24 color2 w690">3.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+			</view>
+        </scroll-view>
+		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+    </view>
 </view>

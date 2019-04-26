@@ -24,6 +24,11 @@ Page({
 	},
 	//事件处理函数
 	
+	tab(e){
+	 this.setData({
+	    currentId:e.currentTarget.dataset.id
+	  })
+	},
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
