@@ -18,7 +18,7 @@
     "pages/userStroeBill/userStroeBill",
     "pages/userStoreBanlance/userStoreBanlance",
     "pages/userStroePayment/userStroePayment",
-    "pages/userStroeCooperation/userStroeCooperation",
+  
     "pages/userStorePiece/userStorePiece",
     "pages/userStoreCash/userStoreCash",
 	"pages/userStoreCashPiece/userStoreCashPiece",
@@ -54,7 +54,7 @@
 	"pages/userRegisterInforb/userRegisterInforb",
 	"pages/userRegisterInforaa/userRegisterInforaa",
 	"pages/userRegisterInforbb/userRegisterInforbb",
-	"pages/userStoreLoginb/userStoreLoginb",
+
 	"pages/commission/commission",
 	"pages/userAgentCash/userAgentCash",
 	"pages/Agent_statusb/Agent_statusb",
