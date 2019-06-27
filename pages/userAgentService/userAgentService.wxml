@@ -5,47 +5,54 @@
 	        <view class="member_cont flex">
 	            <view class="member_item">
 	                <view class="font26">店铺数量</view>
-	                <view class="font24">100</view>
+	                <view class="font24">{{web_mainData.shop_num}}</view>
 	            </view>
 	            <view class="member_item">
 	                <view class="font26">授权数量</view>
-	                <view class="font24">60</view>
+	                <view class="font24">{{web_mainData.auth_num}}</view>
 	            </view>
 	            <view class="member_item">
 	                <view class="font26">剩余数量</view>
-	                <view class="font24">40</view>
+	                <view class="font24">{{web_mainData.shop_num-web_mainData.auth_num}}</view>
 	            </view>
 	        </view>
 	    </view>
 	</view>
 </view>
+
 <view class="input_list1 font28 flex w690">
 	<view class="input_before">辅导编号:</view>
-	<input placeholder="请输入编号" value="001"></input>
+	<input placeholder="请输入编号"   disabled="true" value="{{web_submitData.user_no}}"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before">本人姓名:</view>
-	<input placeholder="请输入姓名"  value="刘佳"></input>
+	<input placeholder="请输入姓名"  disabled="{{is_edit}}" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before">手机号码:</view>
-	<input placeholder="请输入手机号码" value="15646578945"></input>
+	<input placeholder="请输入手机号码"  disabled="{{is_edit}}" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">常用邮箱</view>
-	<input placeholder="请输入常用邮箱"  value="15646578945@qq.com"></input>
+	<view class="input_before">常用邮箱:</view>
+	<input placeholder="请输入常用邮箱"  disabled="{{is_edit}}" value="{{web_submitData.email}}"  data-key="email" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">地区</view>
-	<input placeholder="请输入地址" value="464666"></input>
+	<view class="input_before">地区:</view>
+	<input placeholder="请输入省市区(县)"  disabled="{{is_edit}}" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
 </view>
+
 <view class="input_list1 font28 flex  w690" style="height: 300rpx;">
 	<view class="input_before" style="width:26%; position: relative; top: -110rpx;">打款凭证</view>
-	<view style="width: 200rpx; height: 240rpx; border: solid 1rpx #000;">
+	<view style="width:30%;height:240rpx" wx:for="{{web_submitData.bill_img}}">
+		<image src="{{item.url}}" style="width:100%;height:240rpx"></image>
+	</view>
+	<view style="width: 200rpx; height: 240rpx; border: solid 1rpx #000;" bindtap="upLoadBillImg" wx:if="{{!is_edit}}">
 		<image style="width: 200rpx; height: 240rpx;"></image>
 	</view>
 </view>
-<button style="background: #0d6fb8; width: 80%; color: #fff; font-size: 26rpx;margin-top: 80rpx; margin-bottom: 80rpx;">编辑</button>
+<button style="background: #0d6fb8; width: 80%; color: #fff; font-size: 26rpx;margin-top: 80rpx; margin-bottom: 80rpx;" bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>
+
+
 
 <!-- <view class="piece_top flex">
     <view class="w690">

@@ -342,7 +342,7 @@
     </view>
     <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/userLogin/userLogin">
         <view class="nav_img">
-           <image src="/images/navbar3-a%20(2).png" style="width:42rpx;"></image>
+           <image src="/images/navbar3-a.png" style="width:42rpx;"></image>
         </view>
         <view class="text this-text">知条</view>
     </view>

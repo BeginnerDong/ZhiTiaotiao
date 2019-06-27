@@ -4,64 +4,62 @@
 	        <view class="member_cont flex">
 	            <view class="member_item">
 	                <view class="font26">店铺数量</view>
-	                <view class="font24">100</view>
+	                <view class="font24">{{web_shopCount}}</view>
 	            </view>
 	            <view class="member_item">
 	                <view class="font26">授权数量</view>
-	                <view class="font24">60</view>
+	                <view class="font24">{{web_authCount}}</view>
 	            </view>
 	            <view class="member_item">
 	                <view class="font26">剩余数量</view>
-	                <view class="font24">40</view>
+	                <view class="font24">{{web_shopCount-web_authCount}}</view>
 	            </view>
 	        </view>
 	    </view>
 	</view>
 </view>
-<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
-	<view class="w690 flex">
-		<view class="serve-name">口水鱼</view>
-		<view class="flex">8月18日
-			<view style="margin-left: 20rpx;">15：56</view>
+<block wx:for="{{web_mainData}}" wx:key="id">
+	<view class="serve-div" bindtap="intoPath"  bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail?user_no={{item.child_no}}&&type=service">
+		<view class="w690 flex">
+			<view class="serve-name">{{item.shopInfo[0].name}}</view>
+			<view style="width:40%;text-align: right;">{{item.create_time}}</view>
 		</view>
 	</view>
+</block>
+<view class="blank" wx:if="{{web_mainData.length==0}}">
+    <image src="/images/members-img.png"></image>
 </view>
-<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
-	<view class="w690 flex">
-		<view class="serve-name">胖哥两</view>
-		<view class="flex">8月18日
-			<view style="margin-left: 20rpx;">15：56</view>
-		</view>
-	</view>
-</view>
-<view class="serve-div" bindtap="intoPath" data-path="/pages/Agent_statusb/Agent_statusb">
-	<view class="w690 flex">
-		<view class="serve-name">海底捞</view>
-		<view class="flex">8月18日
-			<view style="margin-left: 20rpx;">15：56</view>
-		</view>
-	</view>
-</view>
-
 
 
 <!-- <view class="piece_top flex">
-    <view style="width:100%;text-align: center;">
-        <view class="piece_row flexCenter">
-            <view class="color1" style="font-size:60rpx">865.25</view>
+    <view class="w690">
+        <view class="member_ranking  bg1" style="border-radius:10rpx">
+            <view class="member_cont flex">
+                <view class="member_item">
+                    <view class="font30 colorb">辅导总数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_shopCount}}</view>
+                </view>
+                <view class="member_item ">
+                    <view class="font30 colorb">总授权数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_authCount}}</view>
+                </view>
+                <view class="member_item ">
+                    <view class="font30 colorb">总剩余数量</view>
+                    <view class="font26" style="margin-top: 25rpx;">{{web_shopCount-web_authCount}}</view>
+                </view>
+            </view>
         </view>
-        <view class="font24 color1" style="text-align:center;margin-top:16rpx;">佣金余额(¥)</view>
-        <view class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
     </view>
 </view>
-<view class="piece_list w690 flex">
-    <view class="piece_item font28 color8" style="text-align:left;">2018-9-9</view>
-    <view class="piece_item font26 color8" style="text-align:right;">+12.8</view>
+
+<view class="w690">
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail?user_no={{item.child_no}}&&type=service">
+			<view class="w33 color6 font24">{{item.shopInfo[0].name}}</view>
+			<view class="w33 color6 font24">{{item.create_time}}</view>
+		</view>
+	</block>
 </view>
-<view class="piece_list w690 flex">
-    <view class="piece_item font28 color8" style="text-align:left;">2018-9-9</view>
-    <view class="piece_item font26 color8" style="text-align:right;">+12.8</view>
-</view>
-<view class="blank">
+<view class="blank" wx:if="{{web_mainData.length==0}}">
     <image src="/images/members-img.png"></image>
-</view> -->
+</view>	 -->

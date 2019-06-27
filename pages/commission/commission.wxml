@@ -1,6 +1,6 @@
 <!--index3.wxml-->
 <view class="status-top">
-	<view class="top-text1">885.25</view>
+	<view class="top-text1">{{web_userInfoData.balance}}</view>
 	<view class="top-text2">佣金余额（￥）</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userAgentCash/userAgentCash">提现</view>
 </view>
@@ -11,19 +11,15 @@
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>
 	</view>
-	<view class="record_list flex">
-	  <view class="w50 color6 font24">2019-02-03</view>
-	  <view class="w50 color6 font24">56</view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex">
+			<view class="w50 color6 font24">{{item.create_time}}</view>
+			<view class="w50 color6 font24">{{item.count}}</view>
+		</view>	
+	</block>
+	<view class="blank" wx:if="{{web_mainData.length==0}}">
+	    <image src="/images/members-img.png"></image>
 	</view>
-	<view class="record_list flex">
-	  <view class="w50 color6 font24">2019-02-03</view>
-	  <view class="w50 color6 font24">56</view>
-	</view>
-	<view class="record_list flex">
-	  <view class="w50 color6 font24">2019-02-03</view>
-	  <view class="w50 color6 font24">56</view>
-	</view>
-	
 </view>
 
 

@@ -88,9 +88,10 @@ page{
 }
 .store-del{
 	margin-top: 50rpx;
+	display: flex;
 }
-.store-del view{
-	display: inline-block; 
+.detail-box{
+	
 	background: #0d6fb8; 
 	width: 100rpx;
 	 height: 50rpx; 
@@ -100,6 +101,11 @@ page{
 	  line-height: 50rpx;
 	  border-radius: 30rpx; 
 	  margin-left: 490rpx;
+}
+.select_c{
+  font-size:28rpx;
+  color:#444;
+  line-height: 50rpx;
 }
 
 /* page{

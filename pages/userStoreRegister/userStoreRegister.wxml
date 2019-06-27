@@ -5,7 +5,7 @@
 </view>
 
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">手机号码</view>
+	<view class="input_before color8" style="width:40%">店主登录手机号码</view>
 	<input placeholder="请输入手机号码" value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"></input>
 </view>
 
@@ -17,14 +17,7 @@
 	<view class="input_before color8">常用邮箱</view>
 	<input placeholder="请输入您的邮箱" value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>	
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">开户行</view>
-	<input placeholder="请输入银行卡开户行" value="{{web_submitData.bank}}"  data-key="bank" bindblur="bindInputChange"></input>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">银行卡号</view>
-	<input placeholder="请输入银行卡号" value="{{web_submitData.bank_no}}"  data-key="bank_no" bindblur="bindInputChange"></input>
-</view>
+
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" >行业类型:</view>
 	<view class="input">
@@ -37,14 +30,14 @@
     </view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" >省市县:</view>
+	<view class="input_before color8" >选择地区:</view>
 	<view class="input">
       <view style="width:70%;" class="city">
 		<picker
 	    mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}"
 	  >
 	    <view class="picker">
-	      {{region[0]}}，{{region[1]}}，{{region[2]}}
+	      {{region[0]}}{{region[1]}}{{region[2]}}
 	    </view>
 	  </picker>
 	</view>
@@ -52,13 +45,13 @@
 </view>
 <view class="message flex1 w690" bindtap="chooseLocation">
 	<view class="message_left font28 color2">
-		详细地址
+		店铺地址
 	</view>
 	<view class="message_right font28 color2">
 		<textarea value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"></textarea>
 	</view>
 </view>
-<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
+<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>
 
 
 

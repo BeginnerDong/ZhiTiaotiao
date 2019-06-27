@@ -32,14 +32,7 @@
 	  </picker>
 	</view>
 </view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" >开户行:</view>
-	<input placeholder="请输入您的银行卡开户行"  value="{{web_submitData.bank}}"  data-key="bank" bindblur="bindInputChange"></input>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">银行卡号:</view>
-	<input placeholder="请输入您的银行卡号"  value="{{web_submitData.bank_no}}"  data-key="bank_no" bindblur="bindInputChange"></input>
-</view>
+
 
 
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">

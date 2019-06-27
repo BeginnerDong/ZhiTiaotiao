@@ -1,4 +1,5 @@
 <!--index1.wxml-->
+<view class="w690">
  <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
         <view class="store_left">
 			<view style="display:flex">
@@ -31,4 +32,4 @@
             <image src="{{item.mainImg[0].url}}"></image>
         </view>
     </view>
-
+</view>

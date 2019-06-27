@@ -1,47 +1,23 @@
 <view class="status-top">
-	<view class="top-text1">200.0</view>
+	<view class="top-text1">{{web_userInfoData.score}}</view>
 	<view class="top-text2">知条数量（个）</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCashb/userStoreCashb">兑换</view>
 </view>
-<view class="piece_list w690 flex">
-	    <view class="piece_item font28 color2" style="text-align:left;">
-	    	<view class="font24 color2">兑换</view>
-	    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">18:09</view>
-		</view>
-	    <view class="piece_item font26 color5" style="text-align:right;">-56.88<text style="font-size: 22rpx;">\n兑换成功</text></view>
-	</view>
-	<view class="piece_list w690 flex">
-	   <view class="piece_item font28 color2" style="text-align:left;">
-	    	<view class="font24 color2">客户名称</view>
-	    	<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view>
-		</view>
-	    <view class="piece_item font26 color5" style="text-align:right; color: #0d6fb8;">+125.00</view>
-	</view>
-
-<!-- <view class="piece_top flex">
-    <view style="width:100%;text-align: center;">
-        <view class="piece_row flexCenter">
-            <view class="color1" style="font-size:60rpx">{{web_userInfoData.score}}</view>
-        </view>
-        <view class="font24 color1" style="text-align:center;margin-top:16rpx;">支条数量(个)</view>
-        <view class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStoreCashPiece/userStoreCashPiece">兑换</view>
-    </view>
-</view>
 <block wx:for="{{web_mainData}}" wx:key="id">
-	<view class="piece_list w690 flexRowBetween">
-		<view class="piece_item  flex font28 color2" style="text-align:left;">
-			<view style="width:100%;">
-				<view class="font22" >{{item.count>0?item.shopInfo.nickname:'兑换'}}</view>
-				<view class="font20 color2">{{item.create_time}}</view>
-			</view>
-		</view>
-		<view class="piece_item font26 color2" style="text-align:center;line-height:98rpx;" 
-		wx:if="{{item.status==1&&item.count<0}}">已通过</view>
-		<view class="piece_item font26 color_r" style="text-align:center;line-height:98rpx;" 
-		wx:if="{{item.status==-1&&item.count<0}}">未通过</view>
-		<view class="piece_item font26 color_b" style="text-align:center;line-height:98rpx;" 
-		wx:if="{{item.status==0&&item.count<0}}">待审核</view>
-		<view class="piece_item font26 {{item.count>0?'color_b':'color5'}}" style="text-align:right;line-height:98rpx;">{{item.count}}</view>
+<view class="piece_list w690 flex">
+	<view class="piece_item font28 color2" style="text-align:left;">
+		<view class="font24 color2">{{item.count>0?item.shopInfo.nickname:'兑换'}}</view>
+		<view class="font24 color2 ilblock">{{item.create_time}}</view>
 	</view>
+	<view class="piece_item font26 color5"style="text-align:left;{{item.count>0?'color: #0d6fb8;':''}}">{{item.count}}
+		<text style="font-size: 22rpx;" wx:if="{{item.count<0}}">\n兑换成功</text>
+	</view>
+</view>
+<!-- <view class="piece_list w690 flex">
+   <view class="piece_item font28 color2" style="text-align:left;{{item.count>0?'color: #0d6fb8;':''}}">
+		<view class="font24 color2">客户名称</view>
+		<view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view>
+	</view>
+	<view class="piece_item font26 color5" style="text-align:right; ">+125.00</view>
+</view> -->
 </block>
- -->

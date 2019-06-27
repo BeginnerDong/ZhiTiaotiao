@@ -17,8 +17,8 @@ Page({
 
 	onLoad(options) {
 		const self = this;
-		/* api.commonInit(self);
-		self.getMainData(); */
+		api.commonInit(self);
+		self.getMainData();
 		self.setData({
 			web_currentId:self.data.currentId
 		})
@@ -58,7 +58,6 @@ Page({
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 			} else {
 				self.data.isLoadAll = true;
-				api.showToast('没有更多了', 'none');
 			};
 			self.setData({
 				web_mainData: self.data.mainData,

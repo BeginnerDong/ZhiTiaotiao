@@ -41,6 +41,44 @@ class Api extends Base {
 		});
 	}
 
+	hfInfoAdd(param, callback) {
+		var allParams = {
+			url: 'Common/HfInfo/add',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	hfInfoGet(param, callback) {
+		var allParams = {
+			url: 'Common/HfInfo/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+
+	areaGet(param, callback) {
+		var allParams = {
+			url: 'Common/Area/Get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+
 
 
 	labelGet(param, callback) {

@@ -15,7 +15,7 @@
 </view>
 
 
-<!-- <block wx:for ="{{web_mainData}}" wx:key="id">
+<block wx:for ="{{web_mainData}}" wx:key="id">
 
 	<view class="piece_list w690 flex">
 		<view class="piece_item font28 color2" style="text-align:left;">
@@ -24,4 +24,4 @@
 		</view>
 		<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}</view>
 	</view>
-</block> -->
+</block>

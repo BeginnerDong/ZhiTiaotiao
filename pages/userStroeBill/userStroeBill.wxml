@@ -1,22 +1,22 @@
 <!--index3.wxml-->
 <view class="status-top">
 	<view class="top-text1">885.25</view>
-	<view class="top-text2" wx:if="{{currentId==0}}">结盟进结算金额（￥）</view>
-	<view class="top-text2" wx:if="{{currentId==1}}">货款余额（￥）</view>
-	<view class="top-text2" wx:if="{{currentId==2}}">结盟进结算金额（￥）</view>
+	<view class="top-text2" wx:if="{{web_currentId==0}}">货款总额（￥）</view>
+	<view class="top-text2" wx:if="{{web_currentId==1}}">联盟金总额（￥）</view>
+	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算总额（￥）</view>
 </view>
 <view class="tab font30 flexRowBetween">
-    <view class="tab_item {{currentId == 0?'tab_this':''}}" data-id="0" bindtap="tab">
+    <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="tab">
        货款
     </view>
-    <view class="tab_item {{currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
         联盟金
     </view>
-    <view class="tab_item {{currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
-        结算
+    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
+        结算金
     </view>
 </view>
-<view style="{{currentId==0?'display:block':'display:none'}};margin-top:30rpx;">
+<view style="{{web_currentId==0?'display:block':'display:none'}};margin-top:30rpx;">
 	<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
 	    <view class="piece_item font28 color2" style="text-align:left;">
 	    	<view class="font24 color2">客户名称</view>
@@ -32,7 +32,7 @@
 	    <view class="piece_item font26 color5" style="text-align:right;">-125.00<text style="font-size: 22rpx;">\n提现成功</text></view>
 	</view>
 </view>
-<view style="{{currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
+<view style="{{web_currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
     <view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
         <view class="piece_item font28 color2" style="text-align:left;">
         	<view class="font24 color2">客户名称</view>
@@ -48,7 +48,7 @@
         <view class="piece_item font26 color5" style="text-align:right;">-15.00<text style="font-size: 22rpx;">\n提现成功</text></view>
     </view>
 </view>
-<view style="{{currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
+<view style="{{web_currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
 	<view class="record_tlt flex" style="background:#f5f5f5;">
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>

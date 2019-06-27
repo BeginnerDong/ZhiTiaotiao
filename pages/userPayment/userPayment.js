@@ -17,18 +17,19 @@ Page({
 		submitData: {
 			money: ''
 		},
-		distributionData:[],
-		distributionTwoData:[],
-		cityStoreData:[],
-		isFirstLoadAllStandard: ['getMainData','distributionGet','distributionTwoGet','getCityStoreData']
+		pay:{},
+		distributionData: [],
+		distributionTwoData: [],
+		cityStoreData: [],
+		isFirstLoadAllStandard: ['getMainData']
 	},
 
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.data.user_no = 'U226497928712099'
+		self.data.user_no = 'U225671915955112'
 		self.getMainData();
-		
+
 		console.log('self.data.user_no', self.data.user_no)
 	},
 
@@ -36,383 +37,88 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
-		postData.getAfter = {
-			store: {
-				tableName: 'UserInfo',
-				middleKey: 'status',
-				key: 'status',
-				searchItem: {
-					user_no: self.data.user_no
-				},
-				condition: '=',
-				info: ['mem_num','ratio','province','city']
-			},
-		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
 			};
-			self.distributionGet();
-			self.distributionTwoGet();
-			self.getCityStoreData();
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
 		api.userInfoGet(postData, callback);
 	},
-	
-	getCityStoreData() {
-		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		postData.searchItem = {
-			province:self.data.mainData.store.province,
-			city:self.data.mainData.store.city,
-			user_type:2
-		};
-		const callback = (res) => {
-			if (res.info.data.length > 0) {
-				self.data.cityStoreData = res.info.data;
-			};
-			console.log('self.data.cityStoreData',self.data.cityStoreData)
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getCityStoreData', self);
-		};
-		api.userInfoGet(postData, callback);
-	},
-	
-	distributionGet() {
-		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		postData.searchItem = {
-			child_no: wx.getStorageSync('info').user_no,
-		};
-		const callback = (res) => {
-			if (res.solely_code == 100000) {
-				self.data.distributionData = res.info.data
-			};
-			
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'distributionGet', self);
-		};
-		api.distributionGet(postData, callback);
-	},
 
-	distributionTwoGet() {
+	countPrice() {
+
 		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		postData.searchItem = {
-			child_no: self.data.user_no,
-			type:1
-		};
-		const callback = (res) => {
-			if (res.solely_code == 100000) {
-				self.data.distributionTwoData.push.apply(self.data.distributionTwoData,res.info.data)
-			};
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'distributionTwoGet', self);
-		};
-		api.distributionGet(postData, callback);
-	},
-
-
-	flowLogAdd() {
-		const self = this;
-		console.log(parseFloat(self.data.mainData.score))
-		console.log(self.data.submitData.money)
-		if (parseFloat(self.data.mainData.score) < self.data.submitData.money) {
-			api.buttonCanClick(self, true)
-			api.showToast('支条不足', 'none');
-			return
-		};
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		postData.data = {
-			count: -self.data.submitData.money,
-			type: 3,
-			shop_no: self.data.user_no,
-			user_no: wx.getStorageSync('info').user_no,
-			thirdapp_id: 2,
-			behavior:2
-		};
-		postData.saveAfter = [{
-			tableName: 'FlowLog',
-			FuncName: 'add',
-			data: {
-				count: self.data.submitData.money,
-				type: 3,
-				consumer_no: wx.getStorageSync('info').user_no,
-				user_no: self.data.user_no,
-				thirdapp_id: 2,
-				behavior:2
+		var wxPay = self.data.submitData.money;
+		console.log('wxPay', wxPay);
+		if (self.data.currentId == 0) {
+			if (wxPay > 0) {
+				self.data.pay.wxPay = {
+					price: wxPay
+				};
+				self.data.pay.wxPayStatus = 0
 			}
-		}];
-		if (self.data.distributionData.length == 0) {
-			postData.saveAfter.push({
-				tableName: 'Distribution',
-				FuncName: 'add',
-				data: {
-					parent_no: self.data.user_no,
-					child_no: wx.getStorageSync('info').user_no,
-					level: 1,
-					thirdapp_id: 2,
-					type: 2
-				}
-			}, 
-			{
-				tableName: 'UserInfo',
-				FuncName: 'update',
-				searchItem: {
-					user_no: self.data.user_no
-				},
-				data: {
-					mem_num: self.data.mainData.store.mem_num + 1
-				}
-			})
-		};
-		console.log('postData', postData)
-		const callback = (res) => {
-			api.buttonCanClick(self, true);
-			if (res.solely_code == 100000) {
-				api.showToast('支付成功', 'none');
-				self.data.is_peice = true;
-				self.data.is_show = false;
-				self.setData({
-					is_show: self.data.is_show
-				})
-			} else {
-				api.showToast(res.msg, 'none')
-			}
-		}
-		api.flowLogAdd(postData, callback)
-	},
-	
-	
-
-	realPay() {
-		const self = this;
-		const postData = {};
-		var ratio = self.data.mainData.store.ratio;
-		console.log('给店铺的货款',self.data.submitData.money-(self.data.submitData.money*ratio/100));
-		console.log('给平台的服务费',(self.data.submitData.money*ratio/100)*0.06);
-		console.log('给用户的月奖支条',(self.data.submitData.money*ratio/100)*0.04);
-		console.log('给用户的支条',(self.data.submitData.money*ratio/100)*0.35);
-
-		postData.tokenFuncName = 'getProjectToken';
-		postData.data = {
-			count: self.data.submitData.money,
-			type: 1,
-			shop_no: self.data.user_no,
-			user_no: wx.getStorageSync('info').user_no,
-			thirdapp_id: 2
-		};
-		postData.saveAfter = [
-		{
-			tableName: 'FlowLog',
-			FuncName: 'add',
-			data: {
-				count: self.data.submitData.money-(self.data.submitData.money*ratio/100),
-				type: 2,
-				consumer_no: wx.getStorageSync('info').user_no,
-				user_no: self.data.user_no,
-				thirdapp_id: 2,
-				behavior:2
-			}
-		},
-		{
-			tableName: 'FlowLog',
-			FuncName: 'add',
-			data: {
-				count: (self.data.submitData.money*ratio/100)*0.06,
-				type: 5,
-				consumer_no: wx.getStorageSync('info').user_no,
-				user_no: 'U910872296194660',
-				thirdapp_id: 2,
-				behavior:2
-			}
-		},
-		{
-			tableName: 'FlowLog',
-			FuncName: 'add',
-			data: {
-				count: (self.data.submitData.money*ratio/100)*0.04,
-				type: 3,
-				consumer_no: wx.getStorageSync('info').user_no,
-				user_no: wx.getStorageSync('info').user_no,
-				thirdapp_id: 2,
-				behavior:1
-			}
-		},		
-		{
-			tableName: 'FlowLog',
-			FuncName: 'add',
-			data: {
-				count: (self.data.submitData.money*ratio/100)*0.35,
-				type: 3,
-				consumer_no: wx.getStorageSync('info').user_no,
-				user_no: wx.getStorageSync('info').user_no,
-				thirdapp_id: 2,
-				behavior:2
-			}
-		}
-		];
-		if (self.data.distributionData.length == 0) {
-			postData.saveAfter.push({
-				tableName: 'Distribution',
-				FuncName: 'add',
-				data: {
-					parent_no: self.data.user_no,
-					child_no: wx.getStorageSync('info').user_no,
-					level: 1,
-					thirdapp_id: 2,
-					type: 2
-				}
-			}, 
-			{
-				tableName: 'UserInfo',
-				FuncName: 'update',
-				searchItem: {
-					user_no: self.data.user_no
-				},
-				data: {
-					mem_num: self.data.mainData.store.mem_num + 1
-				}
-			},
-			{
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)* 0.5,
-					type: 4,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: self.data.user_no,
-					thirdapp_id: 2,
-					behavior:1
-				}
-			}
-			)
-		} else {
-			postData.saveAfter.push({
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)* 0.5,
-					type: 4,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: self.data.distributionData[0].parent_no,
-					thirdapp_id: 2,
-					behavior:1
-				}
-			})
-		};
-		if(self.data.distributionTwoData.length==2){
-			for (var i = 0; i < self.data.distributionTwoData.length; i++) {
-				if(self.data.distributionTwoData[i].level=1){
-					postData.saveAfter.push({
-						tableName: 'FlowLog',
-						FuncName: 'add',
-						data: {
-							count: (self.data.submitData.money*ratio/100)*0.03,
-							type: 5,
-							consumer_no: self.data.user_no,
-							user_no: self.data.distributionData[i].parent_no,
-							thirdapp_id: 2,
-							behavior:2,
-							trade_info:'服务佣金'
-						}
-					})
-				}else if(self.data.distributionTwoData[i].level=2){
-					postData.saveAfter.push({
-						tableName: 'FlowLog',
-						FuncName: 'add',
-						data: {
-							count: (self.data.submitData.money*ratio/100)*0.01,
-							type: 5,
-							consumer_no: self.data.user_no,
-							user_no: self.data.distributionData[i].parent_no,
-							thirdapp_id: 2,
-							behavior:2,
-							trade_info:'辅导佣金'
-						}
-					})
-				}
-			}
-		}else if(self.data.distributionTwoData.length==1){
-			postData.saveAfter.push(
-			{
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)*0.03,
-					type: 5,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: self.data.distributionData[0].parent_no,
-					thirdapp_id: 2,
-					behavior:2,
-					trade_info:'服务佣金'
-				}
-			},
-			{
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)*0.01,
-					type: 5,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: 'U910872296194660',
-					thirdapp_id: 2,
-					behavior:2
-				}
-			}
-			)
-		};
-		if(self.data.cityStoreData.length>0){
-			postData.saveAfter.push(
-			{
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)*0.01,
-					type: 5,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: self.data.cityStoreData[0].user_no,
-					thirdapp_id: 2,
-					behavior:2
-				}
-			},
-			)
 		}else{
-			postData.saveAfter.push(
-		
-			{
-				tableName: 'FlowLog',
-				FuncName: 'add',
-				data: {
-					count: (self.data.submitData.money*ratio/100)*0.01,
-					type: 5,
-					consumer_no: wx.getStorageSync('info').user_no,
-					user_no: 'U910872296194660',
-					thirdapp_id: 2,
-					behavior:2
-				}
-			}
-			)
-		}
-		console.log('postData', postData)
-		const callback = (res) => {
-			api.buttonCanClick(self, true);
-			if (res.solely_code == 100000) {
-				api.showToast('支付成功', 'none');
-				self.data.is_peice = true;
-				self.data.is_show = false;
-				self.setData({
-					is_show: self.data.is_show
-				})
-			} else {
-				api.showToast(res.msg, 'none')
+			if (wxPay > 0) {
+				self.data.pay.score = wxPay
 			}
 		}
-		api.flowLogAdd(postData, callback)
 	},
 
+	pay() {
+		const self = this;
+		api.buttonCanClick(self);
+
+		const postData = {};
+		postData.pay = self.data.pay;
+		postData.tokenFuncName = 'getProjectToken';
+		if (!wx.getStorageSync('info') || !wx.getStorageSync('info').headImgUrl) {
+			postData.refreshToken = true;
+		};
+		postData.data = {
+			shop_no: self.data.user_no,
+			price: self.data.submitData.money
+		}
+		if (JSON.stringify(postData.pay) == '{}') {
+			api.buttonCanClick(self, true);
+			api.showToast('空白充值', 'error');
+			return;
+		};
+		const callback = (res) => {
+			console.log(res)
+			api.buttonCanClick(self, true)
+			if (res.solely_code == 100000) {
+				if (res.info) {
+					const payCallback = (payData) => {
+						if (payData == 1) {
+							api.showToast('支付成功', 'none', 1000, function() {
+								wx.navigateBack({
+									delta:1
+								})
+							});
+						} else {
+							api.showToast('调起微信支付失败', 'none');
+						};
+
+						self.data.submitData.money = '';
+
+					};
+					api.realPay(res.info, payCallback);
+				} else {
+					console.log(777)
+				};
+			} else {
+				api.showToast(res.msg, 'none');
+
+				self.data.submitData.money = '';
+
+			};
+			self.setData({
+				web_submitData: self.data.submitData
+			})
+		}
+		api.addVirtualOrder(postData, callback);
+	},
 
 	submit() {
 		const self = this;
@@ -420,18 +126,12 @@ Page({
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {
-			if (self.data.currentId == 0) {
-				const callback = (user, res) => {
-					self.realPay()
-				};
-				api.getAuthSetting(callback);
-			} else if (self.data.currentId == 1) {
-
-				const callback = (user, res) => {
-					self.flowLogAdd()
-				};
-				api.getAuthSetting(callback);
-			}
+			
+			const callback = (user, res) => {
+				self.pay()
+			};
+			api.getAuthSetting(callback);
+			
 		} else {
 			api.buttonCanClick(self, true);
 			if (self.data.currentId == 0) {
@@ -449,6 +149,7 @@ Page({
 		self.setData({
 			web_submitData: self.data.submitData,
 		});
+		self.countPrice()
 	},
 
 	payment(e) {
@@ -484,10 +185,15 @@ Page({
 
 	choose_payment(e) {
 		const self = this;
-		self.data.currentId = !self.data.currentId;
-		self.setData({
-			currentId: self.data.currentId
-		})
+		self.data.pay={};
+		console.log(self.data.currentId)
+		var currentId = api.getDataSet(e,'id');
+		if(self.data.currentId!=currentId){
+			self.data.currentId = currentId
+			self.setData({
+				currentId: self.data.currentId
+			})
+		}
 	},
 
 	intoPath(e) {
@@ -506,4 +212,360 @@ Page({
 		const self = this;
 		api.pathTo(api.getDataSet(e, 'path'), 'redi');
 	},
+
+	/* 	getCityStoreData() {
+			const self = this;
+			const postData = {};
+			postData.tokenFuncName = 'getProjectToken';
+			postData.searchItem = {
+				province:self.data.mainData.store.province,
+				city:self.data.mainData.store.city,
+				user_type:2
+			};
+			const callback = (res) => {
+				if (res.info.data.length > 0) {
+					self.data.cityStoreData = res.info.data;
+				};
+				console.log('self.data.cityStoreData',self.data.cityStoreData)
+				api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getCityStoreData', self);
+			};
+			api.userInfoGet(postData, callback);
+		},
+		
+		distributionGet() {
+			const self = this;
+			const postData = {};
+			postData.tokenFuncName = 'getProjectToken';
+			postData.searchItem = {
+				child_no: wx.getStorageSync('info').user_no,
+			};
+			const callback = (res) => {
+				if (res.solely_code == 100000) {
+					self.data.distributionData = res.info.data
+				};
+				
+				api.checkLoadAll(self.data.isFirstLoadAllStandard, 'distributionGet', self);
+			};
+			api.distributionGet(postData, callback);
+		},
+
+		distributionTwoGet() {
+			const self = this;
+			const postData = {};
+			postData.tokenFuncName = 'getProjectToken';
+			postData.searchItem = {
+				child_no: self.data.user_no,
+				type:1
+			};
+			const callback = (res) => {
+				if (res.solely_code == 100000) {
+					self.data.distributionTwoData.push.apply(self.data.distributionTwoData,res.info.data)
+				};
+				api.checkLoadAll(self.data.isFirstLoadAllStandard, 'distributionTwoGet', self);
+			};
+			api.distributionGet(postData, callback);
+		}, */
+
+
+	/* 	flowLogAdd() {
+			const self = this;
+			console.log(parseFloat(self.data.mainData.score))
+			console.log(self.data.submitData.money)
+			if (parseFloat(self.data.mainData.score) < self.data.submitData.money) {
+				api.buttonCanClick(self, true)
+				api.showToast('支条不足', 'none');
+				return
+			};
+			const postData = {};
+			postData.tokenFuncName = 'getProjectToken';
+			postData.data = {
+				count: -self.data.submitData.money,
+				type: 3,
+				shop_no: self.data.user_no,
+				user_no: wx.getStorageSync('info').user_no,
+				thirdapp_id: 2,
+				behavior:2
+			};
+			postData.saveAfter = [{
+				tableName: 'FlowLog',
+				FuncName: 'add',
+				data: {
+					count: self.data.submitData.money,
+					type: 3,
+					consumer_no: wx.getStorageSync('info').user_no,
+					user_no: self.data.user_no,
+					thirdapp_id: 2,
+					behavior:2
+				}
+			}];
+			if (self.data.distributionData.length == 0) {
+				postData.saveAfter.push({
+					tableName: 'Distribution',
+					FuncName: 'add',
+					data: {
+						parent_no: self.data.user_no,
+						child_no: wx.getStorageSync('info').user_no,
+						level: 1,
+						thirdapp_id: 2,
+						type: 2
+					}
+				}, 
+				{
+					tableName: 'UserInfo',
+					FuncName: 'update',
+					searchItem: {
+						user_no: self.data.user_no
+					},
+					data: {
+						mem_num: self.data.mainData.store.mem_num + 1
+					}
+				})
+			};
+			console.log('postData', postData)
+			const callback = (res) => {
+				api.buttonCanClick(self, true);
+				if (res.solely_code == 100000) {
+					api.showToast('支付成功', 'none');
+					self.data.is_peice = true;
+					self.data.is_show = false;
+					self.setData({
+						is_show: self.data.is_show
+					})
+				} else {
+					api.showToast(res.msg, 'none')
+				}
+			}
+			api.flowLogAdd(postData, callback)
+		},
+		
+		
+
+		realPay() {
+			const self = this;
+			const postData = {};
+			var ratio = self.data.mainData.store.ratio;
+			console.log('给店铺的货款',self.data.submitData.money-(self.data.submitData.money*ratio/100));
+			console.log('给平台的服务费',(self.data.submitData.money*ratio/100)*0.06);
+			console.log('给用户的月奖支条',(self.data.submitData.money*ratio/100)*0.04);
+			console.log('给用户的支条',(self.data.submitData.money*ratio/100)*0.35);
+
+			postData.tokenFuncName = 'getProjectToken';
+			postData.data = {
+				count: self.data.submitData.money,
+				type: 1,
+				shop_no: self.data.user_no,
+				user_no: wx.getStorageSync('info').user_no,
+				thirdapp_id: 2
+			};
+			postData.saveAfter = [
+			{
+				tableName: 'FlowLog',
+				FuncName: 'add',
+				data: {
+					count: self.data.submitData.money-(self.data.submitData.money*ratio/100),
+					type: 2,
+					consumer_no: wx.getStorageSync('info').user_no,
+					user_no: self.data.user_no,
+					thirdapp_id: 2,
+					behavior:2
+				}
+			},
+			{
+				tableName: 'FlowLog',
+				FuncName: 'add',
+				data: {
+					count: (self.data.submitData.money*ratio/100)*0.06,
+					type: 5,
+					consumer_no: wx.getStorageSync('info').user_no,
+					user_no: 'U910872296194660',
+					thirdapp_id: 2,
+					behavior:2
+				}
+			},
+			{
+				tableName: 'FlowLog',
+				FuncName: 'add',
+				data: {
+					count: (self.data.submitData.money*ratio/100)*0.04,
+					type: 3,
+					consumer_no: wx.getStorageSync('info').user_no,
+					user_no: wx.getStorageSync('info').user_no,
+					thirdapp_id: 2,
+					behavior:1
+				}
+			},		
+			{
+				tableName: 'FlowLog',
+				FuncName: 'add',
+				data: {
+					count: (self.data.submitData.money*ratio/100)*0.35,
+					type: 3,
+					consumer_no: wx.getStorageSync('info').user_no,
+					user_no: wx.getStorageSync('info').user_no,
+					thirdapp_id: 2,
+					behavior:2
+				}
+			}
+			];
+			if (self.data.distributionData.length == 0) {
+				postData.saveAfter.push({
+					tableName: 'Distribution',
+					FuncName: 'add',
+					data: {
+						parent_no: self.data.user_no,
+						child_no: wx.getStorageSync('info').user_no,
+						level: 1,
+						thirdapp_id: 2,
+						type: 2
+					}
+				}, 
+				{
+					tableName: 'UserInfo',
+					FuncName: 'update',
+					searchItem: {
+						user_no: self.data.user_no
+					},
+					data: {
+						mem_num: self.data.mainData.store.mem_num + 1
+					}
+				},
+				{
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)* 0.5,
+						type: 4,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: self.data.user_no,
+						thirdapp_id: 2,
+						behavior:1
+					}
+				}
+				)
+			} else {
+				postData.saveAfter.push({
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)* 0.5,
+						type: 4,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: self.data.distributionData[0].parent_no,
+						thirdapp_id: 2,
+						behavior:1
+					}
+				})
+			};
+			if(self.data.distributionTwoData.length==2){
+				for (var i = 0; i < self.data.distributionTwoData.length; i++) {
+					if(self.data.distributionTwoData[i].level=1){
+						postData.saveAfter.push({
+							tableName: 'FlowLog',
+							FuncName: 'add',
+							data: {
+								count: (self.data.submitData.money*ratio/100)*0.03,
+								type: 5,
+								consumer_no: self.data.user_no,
+								user_no: self.data.distributionData[i].parent_no,
+								thirdapp_id: 2,
+								behavior:2,
+								trade_info:'服务佣金'
+							}
+						})
+					}else if(self.data.distributionTwoData[i].level=2){
+						postData.saveAfter.push({
+							tableName: 'FlowLog',
+							FuncName: 'add',
+							data: {
+								count: (self.data.submitData.money*ratio/100)*0.01,
+								type: 5,
+								consumer_no: self.data.user_no,
+								user_no: self.data.distributionData[i].parent_no,
+								thirdapp_id: 2,
+								behavior:2,
+								trade_info:'辅导佣金'
+							}
+						})
+					}
+				}
+			}else if(self.data.distributionTwoData.length==1){
+				postData.saveAfter.push(
+				{
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)*0.03,
+						type: 5,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: self.data.distributionData[0].parent_no,
+						thirdapp_id: 2,
+						behavior:2,
+						trade_info:'服务佣金'
+					}
+				},
+				{
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)*0.01,
+						type: 5,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: 'U910872296194660',
+						thirdapp_id: 2,
+						behavior:2
+					}
+				}
+				)
+			};
+			if(self.data.cityStoreData.length>0){
+				postData.saveAfter.push(
+				{
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)*0.01,
+						type: 5,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: self.data.cityStoreData[0].user_no,
+						thirdapp_id: 2,
+						behavior:2
+					}
+				},
+				)
+			}else{
+				postData.saveAfter.push(
+			
+				{
+					tableName: 'FlowLog',
+					FuncName: 'add',
+					data: {
+						count: (self.data.submitData.money*ratio/100)*0.01,
+						type: 5,
+						consumer_no: wx.getStorageSync('info').user_no,
+						user_no: 'U910872296194660',
+						thirdapp_id: 2,
+						behavior:2
+					}
+				}
+				)
+			}
+			console.log('postData', postData)
+			const callback = (res) => {
+				api.buttonCanClick(self, true);
+				if (res.solely_code == 100000) {
+					api.showToast('支付成功', 'none');
+					self.data.is_peice = true;
+					self.data.is_show = false;
+					self.setData({
+						is_show: self.data.is_show
+					})
+				} else {
+					api.showToast(res.msg, 'none')
+				}
+			}
+			api.flowLogAdd(postData, callback)
+		}, */
+
+
+
 })

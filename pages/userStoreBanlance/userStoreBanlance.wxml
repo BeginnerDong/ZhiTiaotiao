@@ -14,31 +14,33 @@
 </view> -->
 
 <view class="status-top">
-	<view class="top-text1">885.25</view>
-	<view class="top-text2" wx:if="{{currentId==1}}">货款余额（￥）</view>
-	<view class="top-text2" wx:if="{{currentId==2}}">结盟进结算金额（￥）</view>
+	<view class="top-text1">{{web_currentId==1?web_userInfoData.balance:web_userInfoData.reward}}</view>
+	<view class="top-text2" wx:if="{{web_currentId==1}}">货款余额（￥）</view>
+	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算金额（￥）</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash">提现</view>
 </view>
-<view class="tab font30 flexRowBetween" style="border-bottom: solid 20rpx #F5F5F5;">
-    <view class="tab_item {{currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
+<view class="tab font30 flexRowBetween" style="border-bott: ;om: solid 20rpx #F5F5F5;">
+    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="changeType">
        收款
     </view>
-    <view class="tab_item {{currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="changeType">
         联盟金结算
     </view>
 </view>
 
-<view style="{{currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
+<view style="margin-top:30rpx;" wx:if="{{web_currentId==1}}">
 	<view class="record_tlt flex" style="background:#f5f5f5;">
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>
 	</view>
-	<view class="record_list flex">
-	  <view class="w50 color6 font24">2019-02-03</view>
-	  <view class="w50 color6 font24">56</view>
-	</view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex">
+		  <view class="w50 color6 font24">{{item.create_time}}</view>
+		  <view class="w50 color6 font24">{{item.count}}</view>
+		</view>
+	</block>
 </view>
-<view style="{{currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
+<view style="margin-top:30rpx;"  wx:if="{{web_currentId==2}}">
     <view class="record_tlt flex" style="background:#f5f5f5;">
       <view class="w33 color2 font30">店比重额</view>
       <view class="w33 color2 font30">联盟金</view>
@@ -67,4 +69,7 @@
         </scroll-view>
 		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
     </view>
+</view>
+<view class="blank" wx:if="{{web_mainData.length==0}}">
+    <image src="/images/members-img.png"></image>
 </view>

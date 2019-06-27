@@ -29,7 +29,8 @@ var token = new Token();
 	
 		onLoad(options) {
 			const self = this;
-		
+			api.commonInit(self);
+			self.getMainData()
 		},
 	
 	
@@ -74,7 +75,7 @@ var token = new Token();
 				if (res.info.data.length > 0) {
 			
 					if(!JSON.stringify(res.info.data[0].info.phone)==''){
-						api.pathTo('/pages/userPiece/userPiece','redi')
+						api.pathTo('/pages/status/status','redi')
 					}else{
 						self.data.isShow = true
 					};
@@ -96,7 +97,7 @@ var token = new Token();
 			const callback = (data) => {
 				if (data.solely_code == 100000) {
 					api.showToast('登录成功', 'none');
-					api.pathTo('/pages/userPiece/userPiece','redi')
+					api.pathTo('/pages/status/status','redi')
 				} else {
 					api.showToast('网络故障', 'none')
 				};
@@ -110,13 +111,12 @@ var token = new Token();
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
-	bindInputChange(e){
-	  const self = this;
-	  api.fillChange(e,self,'sForm');
-	  self.setData({
-	    web_sForm:self.data.sForm,
-	  });
-	},
+  
+  intoPathRedirect(e) {
+  	const self = this;
+  	api.pathTo(api.getDataSet(e, 'path'), 'redi');
+  },
+
   
 })
 

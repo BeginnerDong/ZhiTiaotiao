@@ -18,10 +18,9 @@
     "pages/userStroeBill/userStroeBill",
     "pages/userStoreBanlance/userStoreBanlance",
     "pages/userStroePayment/userStroePayment",
-  
     "pages/userStorePiece/userStorePiece",
     "pages/userStoreCash/userStoreCash",
-	"pages/userStoreCashPiece/userStoreCashPiece",
+    "pages/userStoreCashPiece/userStoreCashPiece",
     "pages/userStoreContact/userStoreContact",
     "pages/userPeiceOffer/userPeiceOffer",
     "pages/userStoreAdd/userStoreAdd",
@@ -44,34 +43,31 @@
     "pages/userAgentRule/userAgentRule",
     "pages/userAgentRegister/userAgentRegister",
     "pages/productDetail/productDetail",
-	"pages/checkDetail/checkDetail",
-	"pages/forget/forget",
-	"pages/upload/upload",
-	"pages/sotre_status/sotre_status",
-	"pages/register/register",
-	"pages/userStoreCashb/userStoreCashb",
-	"pages/sotre_statusb/sotre_statusb",
-	"pages/userRegisterInforb/userRegisterInforb",
-	"pages/userRegisterInforaa/userRegisterInforaa",
-	"pages/userRegisterInforbb/userRegisterInforbb",
-
-	"pages/commission/commission",
-	"pages/userAgentCash/userAgentCash",
-	"pages/Agent_statusb/Agent_statusb",
-	"pages/Agent_status/Agent_status",
-	"pages/userAgentDetailb/userAgentDetailb"
-
- 
+    "pages/checkDetail/checkDetail",
+    "pages/forget/forget",
+    "pages/upload/upload",
+    "pages/sotre_status/sotre_status",
+    "pages/register/register",
+    "pages/userStoreCashb/userStoreCashb",
+    "pages/sotre_statusb/sotre_statusb",
+    "pages/userRegisterInforb/userRegisterInforb",
+    "pages/userRegisterInforaa/userRegisterInforaa",
+    "pages/userRegisterInforbb/userRegisterInforbb",
+    "pages/commission/commission",
+    "pages/userAgentCash/userAgentCash",
+    "pages/Agent_status/Agent_status",
+    "pages/userAgentDetailb/userAgentDetailb"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#DE5D1C",
     "navigationBarTitleText": "知条条",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
-	"permission": {
-		"scope.userLocation": {
-			"desc": "你的位置信息将用于小程序位置接口的效果展示"
-		}
-	}
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }

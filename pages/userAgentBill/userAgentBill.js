@@ -11,12 +11,13 @@ Page({
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:5,
-			behavior:2
+			behavior:2,
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
-		startTime:'',
-		endTime:''
+		totalCount:'0.00',
+		serviceCount:'0.00',
+		helpCount:'0.00',
 	},
 	//事件处理函数
 	
@@ -33,7 +34,7 @@ Page({
 	getUserInfoData() {
 		const self = this;
 		const postData = {};
-		postData.tokenFuncName = 'getStoreToken';
+		postData.tokenFuncName = 'getAgentToken';
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];
@@ -53,7 +54,7 @@ Page({
 		};
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
-		postData.tokenFuncName = 'getStoreToken';
+		postData.tokenFuncName = 'getAgentToken';
 		postData.searchItem = api.cloneForm(self.data.searchItem)
 		postData.order = {
 			create_time: 'desc',
@@ -73,6 +74,17 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				for (var i = 0; i < self.data.mainData.length; i++) {
+					if(self.data.mainData[i].count>0){
+						self.data.totalCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+					};
+					if(self.data.mainData[i].count>0&&self.data.mainData[i]==1){
+						self.data.serviceCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+					};
+					if(self.data.mainData[i].count>0&&self.data.mainData[i]==2){
+						self.data.helpCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+					};
+				}
 			} else {
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none');
@@ -83,6 +95,9 @@ Page({
 			  wx.stopPullDownRefresh();
 			},300);
 			self.setData({
+				web_totalCount:self.data.totalCount,
+				web_serviceCount:self.data.serviceCount,
+				web_helpCount:self.data.helpCount,
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
@@ -102,33 +117,7 @@ Page({
 	
 	
 	
-	onPullDownRefresh(){
-	  const self = this;
-	  wx.showNavigationBarLoading(); 
-	  delete self.data.searchItem.create_time;
-	  self.setData({
-	    web_startTime:'',
-	    web_endTime:'',
-	  });
-	  self.getMainData(true);
-	},
 	
-	bindTimeChange: function(e) {
-	  const self = this;
-	  var label = api.getDataSet(e,'type');
-	  this.setData({
-	    ['web_'+label]: e.detail.value
-	  });
-	  self.data[label+'stap'] = new Date(self.data.date+' '+e.detail.value).getTime()/1000;
-	  if(self.data.endTimestap&&self.data.startTimestap){
-	    self.data.searchItem.create_time = ['between',[self.data.startTimestap,self.data.endTimestap]];
-	  }else if(self.data.startTimestap){
-	    self.data.searchItem.create_time = ['>',self.data.startTimestap];
-	  }else{
-	    self.data.searchItem.create_time = ['<',self.data.endTimestap];
-	  };
-	  self.getMainData(true);   
-	},
 	
   intoPath(e){
     const self = this;

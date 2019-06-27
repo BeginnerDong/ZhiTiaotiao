@@ -42,6 +42,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
 		const callback = (res) => {
 			self.data.mainData = {};
 			if (res.info.data.length > 0) {

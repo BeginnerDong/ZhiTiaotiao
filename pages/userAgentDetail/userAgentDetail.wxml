@@ -19,7 +19,7 @@
 	<view class="input_before">注册时间</view>
 	<view class="input">{{web_mainData.create_time}}</view>
 </view>
-<!-- <view class="input_list1 font28 flex  w690" wx:if="{{web_type&&web_type=='service'}}">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_type&&web_type=='service'}}">
 	<view class="input_before">服务代理:</view>
 	<view class="input">{{web_mainData.userInfo[0].name}}</view>
 </view>
@@ -27,7 +27,7 @@
 	<view class="input_before" style="width:27%">服务代理电话:</view>
 	<view class="input">{{web_mainData.userInfo[0].phone}}</view>
 </view>
- -->
+
 
 
 

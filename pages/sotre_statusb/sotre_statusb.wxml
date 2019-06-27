@@ -1,37 +1,55 @@
 <view class="store-row">
 	<view class="store-texta">店铺名称</view>
-	<view class="store-textb">胖哥两</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">店铺地址</view>
-	<view class="store-textb">陕西省西安市长安区韦曲街道231号</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">店长姓名</view>
-	<view class="store-textb">请输入店长姓名</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.owner}}"  data-key="owner" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">店长手机号</view>
-	<view class="store-textb">请输入店长手机号</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">营业时间</view>
-	<view class="store-textb">请输入营业时间</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.description}}"  data-key="description" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">主营商品</view>
-	<view class="store-textb">请输入主营商品</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.keywords}}"  data-key="keywords" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">店铺电话</view>
-	<view class="store-textb">请输入店铺电话</view>
+	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.csphone}}"  data-key="csphone" bindblur="changeBind"></input>
 </view>
 <view class="store-textc" style="margin-left: 20rpx;">店铺主图</view>
 <view class="business">
+	<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
+		<image  src="/images/Uploadqualification-icon.png" 
+		wx:if="{{!is_edit}}" 
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
+		bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
+		<image src="{{item.url}}" mode="aspectFill" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
+	</block>
+</view>
+<view class="business" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg==0}}">
 	<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
 </view>
 <view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;">店铺环境图</view>
 <view class="business-2">
+	<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
+		<image  src="/images/Uploadqualification-icon.png" 
+		wx:if="{{!is_edit}}" 
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
+		bindtap="deleteImg" data-type="bannerImg" data-index="{{index}}"/>
+		<image src="{{item.url}}" mode="aspectFill" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
+	</block>
+</view>
+<view class="business-2" bindtap="upLoadBannerImg" wx:if="{{!is_edit}}">
 	<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx; position: relative; top: 120rpx; left: 95rpx;"></image>
 </view>
-<button>编辑</button>
+<button bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>

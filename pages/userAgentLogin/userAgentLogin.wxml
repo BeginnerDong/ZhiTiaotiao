@@ -12,11 +12,11 @@
 					<input style="width:60%" placeholder="请输入密码" style="text-indent: 10rpx;" data-key="password" bindinput="bindInputChange"></input>
 					<view class="get_check" style="width: 40rpx; height: 25rpx; background: url(../../images/eay.png) no-repeat; background-size: 100%;"></view>
 				</view>
-				<button class="submit_info" style="background: #0d6fb8;" bindtap="submit" data-path="/pages/userAgent/userAgent">登录</button>
+				<button class="submit_info" style="background: #0d6fb8;" bindtap="submit">登录</button>
 			</view>
 		</view>
 		<view class="register-box">
-			<view style="text-align: right;" bindtap="intoPath" data-path="/pages/register/register">注册 | </view>
+			<view style="text-align: right;" bindtap="intoPath" data-path="/pages/userAgentRegister/userAgentRegister">注册 | </view>
 			<view style="text-indent: 10rpx;" bindtap="intoPath" data-path="/pages/forget/forget">忘记密码</view>
 		</view>
 		<image class="img-phone" src="../../images/register-icon1.png"></image>

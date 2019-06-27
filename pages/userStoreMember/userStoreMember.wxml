@@ -1,164 +1,33 @@
 <view class="status-top">
-	<view class="top-text1" wx:if="{{currentId==0}}">10</view>
-	<view class="top-text1" wx:if="{{currentId==1}}">5</view>
-	<view class="top-text1" wx:if="{{currentId==2}}">3</view>
-	<view class="top-text2" wx:if="{{currentId==0}}">会员总量</view>
-	<view class="top-text2" wx:if="{{currentId==1}}">本月新增</view>
-	<view class="top-text2" wx:if="{{currentId==2}}">本月重消</view>
+	<view class="top-text1">{{web_mainData.length}}</view>
+	<view class="top-text2" wx:if="{{web_currentId==0}}">会员总量</view>
+	<view class="top-text2" wx:if="{{web_currentId==2}}">本月新增</view>
+	<view class="top-text2" wx:if="{{web_currentId==3}}">本月重消</view>
 </view>
 <view class="tab font30 flexRowBetween">
-	<view class="tab_item {{currentId == 0?'tab_this':''}}" data-id="0"  bindtap="tab">
+	<view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0"  bindtap="tab">
 	  会员列表
 	</view>
-    <view class="tab_item {{currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
        本月新增
     </view>
-    <view class="tab_item {{currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 3?'tab_this':''}}" data-id="3"  bindtap="tab">
        本月重消
     </view>
 </view>
 
-<view style="{{currentId==0?'display:block':'display:none'}};margin-top:30rpx;">
-		<view class="status bg1 flex">
-		    <view class="status_left flex">
-		        <view class="user_img">
-		          <open-data type="userAvatarUrl"></open-data>
-		        </view>
-		        <view class="font28 color2 avoidOverflow">名称名称</view>
-		    </view>
-		    <view class="status_right font24 color5">2月5日
-				<view>12：12</view>
-			</view>
+<block wx:for="{{web_mainData}}" wx:key="id">
+	<view class="piece_list w690 flex">
+		<view style="width:20%;display: flex;align-items: center;">
+			<image src="{{item.userInfo.headImgUrl}}" class="user_img"></image>
 		</view>
-		<view class="status bg1 flex">
-		    <view class="status_left flex">
-		        <view class="user_img">
-		          <open-data type="userAvatarUrl"></open-data>
-		        </view>
-		        <view class="font28 color2 avoidOverflow">名称名称</view>
-		    </view>
-		    <view class="status_right font24 color5">2月5日
-				<view>05：03</view>
-			</view>
-		</view>
-	    <view class="status bg1 flex ">
-	        <view class="status_left flex">
-	            <view class="user_img">
-	              <open-data type="userAvatarUrl"></open-data>
-	            </view>
-	            <view class="font28 color2 avoidOverflow">名称名称</view>
-	        </view>
-	        <view class="status_right font24 color5">2月5日
-				<view>14：12</view>
-			</view>
-	    </view>
-	    <view class="status bg1 flex ">
-	        <view class="status_left flex">
-	            <view class="user_img">
-	              <open-data type="userAvatarUrl">4</open-data>
-	            </view>
-	            <view class="font28 color2 avoidOverflow">名称名称</view>
-	        </view>
-	        <view class="status_right font24 color5">2月5日
-	        	<view>15：02</view>
-	        </view>
-	    </view>
-	    <view class="status bg1 flex">
-	        <view class="status_left flex">
-	            <view class="user_img" >
-	              <open-data type="userAvatarUrl"></open-data>
-	            </view>
-	            <view class="font28 color2 avoidOverflow">名称名称</view>
-	        </view>
-	        <view class="status_right font24 color5">2月5日
-	        	<view>23：12</view>
-	        </view>
-	    </view>
-</view>
-<view style="{{currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
-    	<view class="status bg1 flex">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">7月12日
-    			<view>22：02</view>
-    		</view>
-    	</view>
-    	<view class="status bg1 flex">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    			<view>05：03</view>
-    		</view>
-    	</view>
-    	<view class="status bg1 flex ">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    			<view>14：12</view>
-    		</view>
-    	</view>
-    	
-    	
-</view>
+		<view class="piece_item font28 color8" style="text-align:left;width:30%">{{item.userInfo.nickname}}</view>
+		<view class="piece_item font26 color8" style="text-align:right;">{{item.create_time}}</view>
+	</view>
+</block>
 
-<view style="{{currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
-    	<view class="status bg1 flex">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    			<view>12：12</view>
-    		</view>
-    	</view>
-    	<view class="status bg1 flex">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    			<view>05：03</view>
-    		</view>
-    	</view>
-    	<view class="status bg1 flex ">
-    	    <view class="status_left flex">
-    	        <view class="user_img">
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    			<view>14：12</view>
-    		</view>
-    	</view>
-    	
-    	<view class="status bg1 flex">
-    	    <view class="status_left flex">
-    	        <view class="user_img" >
-    	          <open-data type="userAvatarUrl"></open-data>
-    	        </view>
-    	        <view class="font28 color2 avoidOverflow">名称名称</view>
-    	    </view>
-    	    <view class="status_right font24 color5">2月5日
-    	    	<view>23：12</view>
-    	    </view>
-    	</view>
+<view class="blank" wx:if="{{web_mainData.length==0}}">
+    <image src="/images/members-img.png"></image>
 </view>
 
 <!-- <view class="piece_top flex">

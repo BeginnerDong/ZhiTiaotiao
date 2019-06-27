@@ -41,6 +41,7 @@ Page({
       wx.setStorageSync('login',self.data.sForm);
     }else{
       api.showToast('请输入账号密码','none')
+			return
     }
     const callback = (res)=>{
       if(res){       

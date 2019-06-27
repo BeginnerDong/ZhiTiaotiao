@@ -58,7 +58,7 @@ page{
 }
 .serve-name{
 	font-size: 28rpx;
-	width: 70%;
+	width: 60%;
 }
 
 

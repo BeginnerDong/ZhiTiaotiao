@@ -69,25 +69,7 @@
 		<view class="font24 color5" data-id="{{item.id}}" bindtap="changeType">{{item.title}}</view>
 	</block>
 </view>
-<view class="store-type" >
-	<view class="type-item">健身</view>
-	<view class="type-item">健身</view>
-	<view class="type-item">健身</view>
-	
-	<view class="type-item">餐饮</view>
-	<view class="type-item">餐饮</view>
-	<view class="type-item">餐饮</view>
-	
-	<view class="type-item">美容</view>
-	<view class="type-item">美容</view>
-	<view class="type-item">美容</view>
-	<view class="type-item">棋牌</view>
-	<view class="type-item">棋牌</view>
-	<view class="type-item">棋牌</view>
-	<view class="type-item">医疗</view>
-	<view class="type-item">医疗</view>
-	<view class="type-item">医疗</view>
-</view>
+
 
 
 

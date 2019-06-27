@@ -16,7 +16,7 @@ class Base{
     request(params) {
         var that = this;
         getApp().globalData.buttonClick = true;
-        var baseRestUrl = 'http://106.12.155.217/test/public/index.php/api/v1/';
+        var baseRestUrl = 'https://www.zhitt.com/api/public/index.php/api/v1/';
         var url=baseRestUrl + params.url;
         const callback = (res)=>{
             that.request(params);
@@ -86,7 +86,7 @@ class Base{
             };
         };
         wx.uploadFile({
-            url: 'http://106.12.155.217/api/public/index.php/api/v1/Base/FtpFile/upload',
+            url: 'https://www.zhitt.com/api/api/public/index.php/api/v1/Base/FtpFile/upload',
             filePath:filePath,
             name:name,
             formData:formData,

@@ -18,8 +18,6 @@ Page({
 			phone: '',
 			email: '',
 			address: '',
-			bank: '',
-			bank_no: '',
 			agent_no:'',
 			thirdapp_id: 2,
 			bill_img:[]
@@ -92,10 +90,7 @@ Page({
 	
 	upLoadBillImg() {
 		const self = this;
-		if (self.data.submitData.bannerImg.length > 2) {
-			api.showToast('仅限3张', 'fail');
-			return;
-		};
+	
 		wx.showLoading({
 			mask: true,
 			title: '图片上传中',
@@ -124,7 +119,7 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getProjectToken'
 				}, callback)
 			},
 			fail: function(err) {

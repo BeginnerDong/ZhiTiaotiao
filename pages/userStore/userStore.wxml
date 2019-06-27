@@ -1,5 +1,5 @@
 <!--index3.wxml-->
-<view class="w690 logout font24 color7" bindtap="intoPath" data-path="/pages/user/user">
+<view class="w690 logout font24 color7" bindtap="loginOff">
     退出
 </view>
 <view class="sort flex shadow1 bg1">

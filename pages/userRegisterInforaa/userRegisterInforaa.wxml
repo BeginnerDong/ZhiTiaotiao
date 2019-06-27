@@ -1,3 +1,5 @@
+
+
 <view class="input_list1 input-type">
 	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">附件类型</view>
 	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;" >请选择
@@ -11,151 +13,157 @@
 	</view>
 </view>
 <view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">企业证件照类型</view>
+	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">企业证照类型</view>
 	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;" >请选择
 	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
 	</view>
 </view>
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业类型</view>
-	<view class="input">普通企业</view>
+	<input class="input" placeholder="普通企业" value="{{web_submitData.corp_type}}"data-key="corp_type" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业名称</view>
-	<view class="input">请输入企业的公司全称</view>
+	<input class="input" placeholder="输入个体户名称" value="{{web_submitData.corp_name}}"data-key="corp_name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:30%;">营业执照注册号</view>
-	<view class="input">请输入企业营业执照注册号</view>
+	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
+	<input class="input" placeholder="请输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:40%;">统一社会信用代码</view>
-	<view class="input">请输入统一的社会信用代码</view>
+	<view class="input_before color8" style="width:38%;">统一社会信用代码</view>
+	<input class="input" placeholder="请输入统一社会信用代码" value="{{web_submitData.institution_code}}"data-key="institution_code" bindblur="changeBind"></input>
 </view>
-
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">证照起始时间</view>
-	<view class="font28" style="font-size: 22rpx;">请选择时间
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照起始日期</view>
+	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseStartChange" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseStart?web_licenseStart:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">证照结束时间</view>
-	<view class="font28" style="font-size: 22rpx;">请选择时间
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照结束日期</view>
+	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseEndChange" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseEnd?web_licenseEnd:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">企业营业地址</view>
-	<view style="display: inline;" class="input"><text>\n</text>输入的地址要与营业执照上一致</view>
+	<input class="input" placeholder="输入的地址要与营业执照上一致" value="{{web_submitData.corp_business_address}}"data-key="corp_business_address" bindblur="changeBind"></input>
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">企业注册地址</view>
-	<view style="display: inline;" class="input"><text>\n</text>输入的地址要与营业执照上一致</view>
+	<input class="input" placeholder="输入的地址要与营业执照上一致" value="{{web_submitData.corp_reg_address}}"data-key="corp_reg_address" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:50%;">企业固定电话</view>
-	<view class="input">请输入企业固定电话</view>
+	<view class="input_before color8" style="width:26%;">企业固定电话</view>
+	<input class="input" placeholder="请输入固定电话" value="{{web_submitData.corp_fixed_telephone}}"data-key="corp_fixed_telephone" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">经营范围</view>
-	<view class="input">
-     	请输入企业的经营范围
-    </view>
+		<input class="input" placeholder="请输入企业的经营范围" value="{{web_submitData.business_scope}}"data-key="business_scope" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">控股股东</view>
-	<view class="input avoidOverflow">
-     	请输入企业的实际控股人
-    </view>
+	<input class="input" placeholder="请输入企业的实际控股人" value="{{web_submitData.legal_name}}"data-key="legal_name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">法人姓名</view>
-	<view class="input avoidOverflow">
-     	请输入法人姓名
-    </view>
+	<input class="input" placeholder="请输入法人姓名" value="{{web_submitData.legal_name}}"data-key="legal_name" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">法人者证件类型</view>
-	<view class="font28" style="font-size: 22rpx; margin-left: 66rpx;">请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">法人手机号码</view>
+	<input class="input" placeholder="请输入法人手机号码" value="{{web_submitData.legal_mobile}}"data-key="legal_mobile" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width:33%">法人证件类型</view>
+	<picker bindchange="certChange" value="{{index}}" range="{{certData}}" range-key="name" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{certData[web_index2].name?certData[web_index2].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width: 30%;">法人证件号</view>
-	<view class="input avoidOverflow">
-     	输入的证件号须于证件类型对应
-    </view>
+	<input class="input" placeholder="输入的证件号须于证件类型对应" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">法人证件起始时间</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 66rpx;">请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">法人证件起始时间</view>
+	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertStartChange" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_certStart?web_certStart:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">法人证件结束时间</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 66rpx;">请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">法人手机号</view>
-	<view class="input avoidOverflow">
-     	请输入法人手机号
-    </view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">法人证件到期时间</view>
+	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertEndChange" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_endStart?web_endStart:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">联系人姓名</view>
-	<view class="input avoidOverflow">
-     	请输入联系人姓名
-    </view>
+		<input class="input" placeholder="请输入联系人姓名" value="{{web_submitData.contact_name}}"data-key="contact_name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">联系人手机号</view>
-	<view class="input avoidOverflow">
-     	请输入联系人的手机号
-    </view>
+		<input class="input" placeholder="请输入联系人手机号" value="{{web_submitData.contact_mobile}}"data-key="contact_mobile" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">联系人邮箱</view>
-	<view class="input avoidOverflow">
-     	请输入联系人邮箱
-    </view>
+		<input class="input" placeholder="请输入联系人邮箱" value="{{web_submitData.contact_email}}"data-key="contact_email" bindblur="changeBind"></input>
+</view>
+<!-- <view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx">职业</view>
+	<picker bindchange="occupationChange" value="{{index}}" range="{{occupationData}}" range-key="name" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{occupationData[web_index1].name?occupationData[web_index1].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">开户银行</view>
-	<view class="input avoidOverflow">
-     	请输入开户银行
-    </view>
+	<view class="input_before color8" style="width:10%">住址</view>
+		<input class="input" placeholder="请输入联系人的住址" value="{{web_submitData.address}}"data-key="address" bindblur="changeBind"></input>
+</view> -->
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;">开户银行</view>
+	<picker bindchange="bankChange" value="{{index}}" range="{{bankData}}" range-key="name" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{bankData[web_index].name?bankData[web_index].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">开户银行账号</view>
-	<view class="input avoidOverflow">
-     	请输入开户银行账号
-    </view>
+		<input class="input" placeholder="请输入开户银行账号" value="{{web_submitData.bank_acct_no}}"data-key="bank_acct_no" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:40%;">开户银行支行名称</view>
-	<view class="input avoidOverflow">
-     	请输入开户银行支行名称
-    </view>
+	<view class="input_before color8"  style="width:30%;">开户支行名称</view>
+		<input class="input" placeholder="请输入开户支行名称" value="{{web_submitData.bank_branch}}"data-key="bank_branch" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">开户银行省份</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;">请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width:27%">开户银行省份</view>
+	<picker bindchange="provinceChange" value="{{index}}" range="{{web_pArray}}" range-key="name"  class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_pArray[web_index3].name?web_pArray[web_index3].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">开户银行地区</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;">请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width:27%">开户银行地区</view>
+	<picker bindchange="cityChange" value="{{index}}" range="{{web_cArray}}" range-key="name"  class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_cArray[web_index4].name?web_cArray[web_index4].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
-<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;"  bindtap="intoPath" data-path="/pages/userRegisterInforbb/userRegisterInforbb">提交</button>
+<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="hfInfoAdd">提交</button>
 <view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
-
-
 
 
