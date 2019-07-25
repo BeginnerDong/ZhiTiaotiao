@@ -7,7 +7,7 @@
 	<view class="message_tlt color2" wx:if="{{web_mainData.type==4}}">知条过期提醒</view>
 	<view class="message_tlt color2" wx:if="{{web_mainData.type==5}}">收到月奖知条</view>
     <view class="font24 color5" style="margin-top: 20rpx; text-align:justify;">
-       {{item.description}}
+       {{web_mainData.description}}
 	</view>
-    <view class="font22 color5 message_time">{{item.create_time}}</view>
+    <view class="font22 color5 message_time">{{web_mainData.create_time}}</view>
 </view>

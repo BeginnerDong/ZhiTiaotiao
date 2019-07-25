@@ -1,6 +1,6 @@
 <!--index3.wxml-->
 <view class="status-top">
-	<view class="top-text1">{{web_userInfoData.balance}}</view>
+	<view class="top-text1">{{web_userInfoData.benefit}}</view>
 	<view class="top-text2">佣金余额（￥）</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userAgentCash/userAgentCash">提现</view>
 </view>

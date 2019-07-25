@@ -140,6 +140,7 @@ Page({
 						self.data.hfData.bank_name = self.data.bankData[i].name
 					}
 				}
+				self.data.hfData.bank_acct_no = self.data.hfData.bank_acct_no.substring(self.data.hfData.bank_acct_no.length-4);
 			};
 			self.setData({
 				web_hfData: self.data.hfData
@@ -246,7 +247,7 @@ Page({
 
 	allOut() {
 		const self = this;
-		self.data.submitData.count = self.data.userInfoData.score;
+		self.data.submitData.count = self.data.userInfoData.benefit;
 		self.setData({
 			web_submitData: self.data.submitData
 		})
