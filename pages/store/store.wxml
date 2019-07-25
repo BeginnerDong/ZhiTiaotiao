@@ -1,15 +1,16 @@
 <!--index1.wxml-->
 <view class="w690">
 	<view class="stroe_search flex">
-	    <view class="stroe_search_left flex">
+	    <view class="stroe_search_left flex" style="width:30%" bindtap="isShowStore">
 	        <image src="/images/store_icon8.png"></image>
-	        <view class="font28 color2" style="width:100rpx ; background: url(../../images/up.png) no-repeat 65rpx center;background-size: 25%; ">分类</view>
+	        <view class="font28 color2" style="width:35%">分类</view>
+			<image src="../../images/up.png"></image>
 	    </view>
 	    <view class="stroe_search_right">
 	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;">
-	            <input class="font28 color9"></input> 
+	            <input class="font28 color9" value="{{web_sForm.name}}"  data-key="name" bindblur="bindInputChange"></input> 
 	            <view class="search_btn">
-	                <image src="/images/store_icon9.png"></image>
+	                <image src="/images/store_icon9.png" bindtap="search"></image>
 	            </view>
 	        </view>
 	    </view>
@@ -28,30 +29,30 @@
             </view>
         </view>
     </view> -->
-    <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail">
+    <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
-				<view class="store_name font28 color2 avoidOverflow">
+				<view class="store_name font30 color2 avoidOverflow">
 					{{item.name}}
 					
 				</view>
 				<view class="store_item flex" style="width:300rpx">
 					<image src="/images/position_icon2.png"></image>
-					<view class="font24 color5">{{item.distance}}Km</view>
+					<view class="font26 color5">{{item.distance}}Km</view>
 				</view>
 			</view>
             <view class="store_infor flex ">
                 <view class="store_item flex">
                     <image src="/images/images/near-icon2.png"></image>
-                    <view class="font24 color5">{{item.follow_count}}</view>
+                    <view class="font26 color5">{{item.follow_count}}</view>
                 </view>
                 <view class="store_item flex">
                     <image src="../../images/images/near-icon3.png"></image>
-                    <view class="font24 color5">{{item.favor_count}}</view>
+                    <view class="font26 color5">{{item.favor_count}}</view>
                 </view>
                 <view class="store_item flex">
                     <image src="../../images/images/near-icon4.png"></image>
-                    <view class="font24 color5">{{item.view_count}}</view>
+                    <view class="font26 color5">{{item.view_count}}</view>
                 </view>
                 
             </view>  
@@ -64,10 +65,16 @@
 <view class="maskStore" wx:if="{{isShowStore}}" catchtouchmove="true">
 	
 </view>
-<view class="storeChoose" wx:if="{{isShowStore}}">
-	<block wx:for="{{web_typeData}}" wx:key="id">
-		<view class="font24 color5" data-id="{{item.id}}" bindtap="changeType">{{item.title}}</view>
-	</block>
+<view class="storeChoose" wx:if="{{isShowStore}}" style="padding: 0 5%;">
+	
+		<view style="display:  flex;width:100%;flex-wrap: wrap;">
+			<block wx:for="{{web_typeData}}" wx:key="id" >
+				<view class="font28 color5" style="width:33%;height:40px;line-height: 40px;text-align: center;{{web_menu_id==item.id?'font-weight: 700':''}}" data-id="{{item.id}}" bindtap="{{web_buttonCanClick?'changeType':''}}">{{item.title}}</view>
+			
+			</block>
+		</view>
+		
+	
 </view>
 
 

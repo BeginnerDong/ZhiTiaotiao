@@ -15,6 +15,7 @@ Page({
 			score:'',
 			mainImg:[],
 			bannerImg:[],
+			content:''
 		}
   },
 
@@ -38,6 +39,7 @@ Page({
 				self.data.submitData.title = res.info.data[0].title;
 				self.data.submitData.price = res.info.data[0].price;
 				self.data.submitData.score = res.info.data[0].score;
+				self.data.submitData.content = res.info.data[0].content;
 				self.data.submitData.mainImg = res.info.data[0].mainImg;
 				self.data.submitData.bannerImg = res.info.data[0].bannerImg;
 
@@ -94,10 +96,99 @@ Page({
 		};
 	},
 	
+	upLoadBannerImg() {
+		const self = this;
+		if (self.data.submitData.bannerImg.length > 2) {
+			api.showToast('仅限3张', 'fail');
+			return;
+		};
+		wx.showLoading({
+			mask: true,
+			title: '图片上传中',
+		});
+		const callback = (res) => {
+			console.log('res', res)
+			if (res.solely_code == 100000) {
+	
+				self.data.submitData.bannerImg.push({
+					url: res.info.url
+				})
+				self.setData({
+					web_submitData: self.data.submitData
+				});
+				wx.hideLoading()
+				console.log('self.data.submitData',self.data.submitData)
+			} else {
+				api.showToast('网络故障', 'none')
+			}
+		};
+	
+		wx.chooseImage({
+			count: 1,
+			success: function(res) {
+				console.log(res);
+				var tempFilePaths = res.tempFilePaths;
+				console.log(callback)
+				api.uploadFile(tempFilePaths[0], 'file', {
+					tokenFuncName: 'getStoreToken',
+					type:'image'
+				}, callback)
+			},
+			fail: function(err) {
+				wx.hideLoading();
+			}
+		})
+	},
+	
+	upLoadMainImg() {
+		const self = this;
+		if (self.data.submitData.mainImg.length > 2) {
+			api.showToast('仅限3张', 'fail');
+			return;
+		};
+		wx.showLoading({
+			mask: true,
+			title: '图片上传中',
+		});
+		const callback = (res) => {
+			console.log('res', res)
+			if (res.solely_code == 100000) {
+	
+				self.data.submitData.mainImg.push({
+					url: res.info.url
+				})
+				self.setData({
+					web_submitData: self.data.submitData
+				});
+				wx.hideLoading()
+				console.log('self.data.submitData',self.data.submitData)
+			} else {
+				api.showToast('网络故障', 'none')
+			}
+		};
+	
+		wx.chooseImage({
+			count: 1,
+			success: function(res) {
+				console.log(res);
+				var tempFilePaths = res.tempFilePaths;
+				console.log(callback)
+				api.uploadFile(tempFilePaths[0], 'file', {
+					tokenFuncName: 'getStoreToken',
+					type:'image'
+				}, callback)
+			},
+			fail: function(err) {
+				wx.hideLoading();
+			}
+		})
+	},
+	
 	deleteImg(e){
 		const self = this;
 		var index = api.getDataSet(e,'index');
 		var type = api.getDataSet(e,'type');
+		console.log(type)
 		if(type=='mainImg'){
 			self.data.submitData.mainImg.splice(index,1);
 		}else if(type=='bannerImg'){

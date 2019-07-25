@@ -18,12 +18,12 @@
 	<image src="../../images/Upload-icon.png"></image>
 </view>
 <view class="store-del" wx:if="{{web_showDelete}}">
-	<view class="all_select" style="width:10%;text-align:center;overflow:hidden;">
+	<view class="all_select" style="width:10%;text-align:center;overflow:hidden;"  bindtap="chooseAll">
 		<image src="{{web_isChooseAll?'/images/circle_a.jpg':'/images/circle.jpg'}}" 
 		 wx:if="{{web_showDelete}}" style="width:30rpx;height:30rpx;"></image>
 	</view>
 	<view class="select_c" style="width:10%;text-align:left;overflow:hidden;" bindtap="chooseAll">全选</view>
-	<view bindtap="show" class="detail-box">删除</view>
+	<view bindtap="deleteIndex" class="detail-box">删除</view>
 </view>
 
 

@@ -125,7 +125,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -168,7 +169,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

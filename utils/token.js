@@ -164,7 +164,7 @@ class Token {
                 password:wx.getStorageSync('login').password,
             }
             wx.request({
-                url: 'https://www.zhitt.com/api/public/index.php/api/v1/Func/Common/loginByUp',
+                url: 'https://www.zhitt.com/api/public/index.php/api/v1/Func/Common/loginByShop',
                 method:'POST',
                 data:postData,
                 success:function(res){
@@ -219,7 +219,7 @@ class Token {
 	            password:wx.getStorageSync('login').password,
 	        }
 	        wx.request({
-	            url: 'https://www.zhitt.com/api/public/index.php/api/v1/Func/Common/loginByUp',
+	            url: 'https://www.zhitt.com/api/public/index.php/api/v1/Func/Common/loginByAgent',
 	            method:'POST',
 	            data:postData,
 	            success:function(res){

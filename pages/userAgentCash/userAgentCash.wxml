@@ -16,9 +16,19 @@
             <input data-key="count" bindinput="changeBind" value="{{web_submitData.count}}"></input>
         </view>
         <view class="cash_can font24 color6 bg1 flex">
-            本次可提现<text>¥{{web_userInfoData.reward}}</text>
-            <view class="font28 color2" bindtap="allOut">全部提现</view>
+            本次可提现<text>¥{{web_userInfoData.benefit}}</text>
+            <view class="font24" style="margin-left: 300rpx;color: #0d6fb8;" bindtap="allOut">全部提现</view>
         </view>
+		<view class="cash_can" style="display: flex;background: #fff;">
+			<view style="display: flex;height:100%;align-items: center;margin-left: 0;" bindtap="choose" data-type='2'>
+				<image src="{{web_chooseType==2?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:30rpx;height:30rpx"></image>
+				<view class="font24 color2" style="margin-left: 20rpx;">快速提现</view>
+			</view>
+			<view style="display: flex;height:100%;align-items: center;margin-left: 0;margin-left: 40rpx;" bindtap="choose" data-type='1'>
+				<image src="{{web_chooseType==1?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:30rpx;height:30rpx"></image>
+				<view class="font24 color2" style="margin-left: 20rpx;">次日到账</view>
+			</view>
+		</view>
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
             <button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提现</button>
         </view>

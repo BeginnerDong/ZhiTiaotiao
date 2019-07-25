@@ -1,23 +1,23 @@
 <view class="detail-box">
 	<view class="box-top" style="border-bottom: solid 1rpx #F0F0F0;">
 		<view class="box-img">
-			<image src="../../images/navbar3-a%20(2).png"></image>
+			<image src="../../images/navbar3-a.png"></image>
 		</view>
 		<view class="detail-name">
-			味千拉面
+			{{web_mainData.shopInfo.name}}
 		</view>
 		<view class="detail-money">
-			-56.88
+			{{web_mainData.count}}
 		</view>
 	</view>
 	<view style="width: 690rpx; margin: 0 auto;">
 		<view class="left">当前状态</view>
 		<view class="right">支付成功</view>
 		<view class="left">支付时间</view>
-		<view class="right">2019-02-19 11：09：38</view>
+		<view class="right">{{web_mainData.create_time}}</view>
 		<view class="left">交易单号</view>
-		<view class="right">4562582255225339666363</view>
+		<view class="right">{{web_mainData.order_no}}</view>
 		<view class="left">店铺单号</view>
-		<view class="right">S56225</view>
+		<view class="right">{{web_mainData.shop_no}}</view>
 	</view>
 </view>

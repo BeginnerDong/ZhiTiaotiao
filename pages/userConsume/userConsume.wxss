@@ -5,7 +5,7 @@ page{
 	background: #F0F0F0;
 }
 .piece_list{
-	height:106rpx;
+	height:140rpx;
 	border-bottom:solid 1px #f4f4f4;
 	background: #fff;
 }

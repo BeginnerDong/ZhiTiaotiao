@@ -10,8 +10,7 @@ page{
 	border-radius:50%;
 	overflow:hidden;
 	margin:20rpx;
-	position: absolute;
-	top: 20rpx;
+
 }
 .date_left{
 	height:70rpx;
@@ -87,14 +86,14 @@ page{
 	text-align:right;
 }
 .tab{
-	height:80rpx;
-	margin-bottom:36rpx;
+	height:100rpx;
+
 }
 .tab_item{
 	width:50%;
 	text-align:center;
-	height:80rpx;
-	line-height:80rpx;
+	height:100rpx;
+	line-height:100rpx;
 	color:#04132c;
 	border-bottom:solid 1px #EFEFEF;
 }
@@ -145,13 +144,13 @@ page{
 }
 .top-text1{
 	color: #fff;
-	font-size: 95rpx;
+	font-size: 110rpx;
 	text-align: center;
 	padding-top: 100rpx;
 }
 .top-text2{
 	color: #BDDEF1;
-	font-size: 32rpx;
+	font-size: 30rpx;
 	text-align: center;
 	margin-top: 40rpx;
 }

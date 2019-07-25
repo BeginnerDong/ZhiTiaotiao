@@ -16,7 +16,7 @@ Page({
 		isFirstLoadAllStandard: ['getMainData', 'getTypeData', 'getLocation'],
 		searchItem: {},
 		sForm: {
-			keyswords: ''
+			name: ''
 		},
 		La1: '',
 		lo1: '',
@@ -54,6 +54,7 @@ Page({
 		postData.searchItem.user_type = 1
 		postData.order = api.cloneForm(self.data.order)
 		const callback = (res) => {
+			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				for (var i = 0; i < self.data.mainData.length; i++) {
@@ -107,6 +108,7 @@ Page({
 
 	changeType(e) {
 		const self = this;
+		api.buttonCanClick(self);
 		self.data.isShowStore = !self.data.isShowStore;
 		self.setData({
 			isShowStore: self.data.isShowStore
@@ -115,12 +117,19 @@ Page({
 		self.data.searchItem = {
 			menu_id: menu_id
 		};
+		self.setData({
+			web_menu_id:menu_id
+		})
 		self.getMainData(true)
 	},
 
 	search() {
 		const self = this;
-		self.data.searchItem.keyswords = self.data.sForm.keyswords;
+		if(self.data.sForm.name==''){
+			api.showToast('搜索条件无效','none');
+			return
+		};
+		self.data.searchItem.name =['LIKE', ['%' + self.data.sForm.name + '%']];
 		self.getMainData(true)
 	},
 
@@ -146,13 +155,7 @@ Page({
 		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
 	},
 
-	onReachBottom() {
-		const self = this;
-		if (!self.data.isLoadAll) {
-			self.data.paginate.currentPage++;
-			self.getMainData();
-		};
-	},
+	
 
 	intoPath(e) {
 		const self = this;

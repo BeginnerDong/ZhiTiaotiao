@@ -75,7 +75,8 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
-			user_type: 1
+			user_type: 1,
+			status:1
 		};
 		postData.order = {
 			create_time: 'desc'
@@ -103,7 +104,8 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
-			user_type: 1
+			user_type: 1,
+			status:1
 		};
 		postData.order = api.cloneForm(self.data.order);
 

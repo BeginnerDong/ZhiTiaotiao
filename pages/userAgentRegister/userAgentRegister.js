@@ -51,6 +51,7 @@ Page({
 					})
 				}, 800)
 			} else {
+				api.buttonCanClick(self, true);
 				api.showToast(res.msg, 'none', 1000);
 			};
 
@@ -64,7 +65,9 @@ Page({
 		const self = this;
 		api.buttonCanClick(self);
 		var phone = self.data.submitData.phone;
-		const pass = api.checkComplete(self.data.submitData);
+		var newObject = api.cloneForm(self.data.submitData);
+		delete newObject.email;
+		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
 		if (pass) {
 			if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
@@ -119,7 +122,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getProjectToken'
+					tokenFuncName: 'getProjectToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

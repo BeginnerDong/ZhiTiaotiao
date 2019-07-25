@@ -27,29 +27,36 @@
 	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.csphone}}"  data-key="csphone" bindblur="changeBind"></input>
 </view>
 <view class="store-textc" style="margin-left: 20rpx;">店铺主图</view>
-<view class="business">
-	<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
-		<image  src="/images/Uploadqualification-icon.png" 
-		wx:if="{{!is_edit}}" 
-		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
-		bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
-		<image src="{{item.url}}" mode="aspectFill" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
-	</block>
-</view>
-<view class="business" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg==0}}">
-	<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
-</view>
+	<view style="display: flex;justify-content: center;align-items: center;position: relative;	">
+		<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
+			<image  src="/images/Uploadqualification-icon.png" 
+			wx:if="{{!is_edit}}" 
+			style="width:30rpx;height:30rpx;position:absolute;top:-14rpx;right:180rpx"  
+			bindtap="deleteImg" data-type="mainImg" data-index="{{index}}"/>
+			<image src="{{item.url}}" mode="aspectFill" style="width: 180px; height: 115px;"></image>
+		</block>
+		
+	</view>
+	
+
+	<view class="business" bindtap="upLoadMainImg" style="display: flex;align-items: center;justify-content: center;" wx:if="{{web_submitData.mainImg==0&&!is_edit}}">
+		<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
+	</view>
 <view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;">店铺环境图</view>
-<view class="business-2">
-	<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
-		<image  src="/images/Uploadqualification-icon.png" 
-		wx:if="{{!is_edit}}" 
-		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx"  
-		bindtap="deleteImg" data-type="bannerImg" data-index="{{index}}"/>
-		<image src="{{item.url}}" mode="aspectFill" style="width: 50rpx; height: 60rpx; position: relative; top: 70rpx; left: 150rpx;"></image>
-	</block>
-</view>
-<view class="business-2" bindtap="upLoadBannerImg" wx:if="{{!is_edit}}">
-	<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx; position: relative; top: 120rpx; left: 95rpx;"></image>
-</view>
+	<view>
+		<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
+		<view style="width: 100%;position: relative;display: flex;justify-content: center;align-items: center;margin-bottom: 10px;">
+			
+				<image  src="/images/Uploadqualification-icon.png" 
+				wx:if="{{!is_edit}}" 
+				style="width:30rpx;height:30rpx;position:absolute;top:-14rpx;right:226rpx"  
+				bindtap="deleteImg" data-type="bannerImg" data-index="{{index}}"/>
+				<image src="{{item.url}}" mode="aspectFill" style="width: 135px; height: 160px"></image>
+			
+		</view>
+		</block>
+	</view>
+	<view class="business-2" bindtap="upLoadBannerImg" style="display: flex;align-items: center;justify-content: center;" wx:if="{{!is_edit}}">
+		<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
+	</view>
 <button bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>

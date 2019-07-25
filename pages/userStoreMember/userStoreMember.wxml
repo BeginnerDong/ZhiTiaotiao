@@ -5,23 +5,23 @@
 	<view class="top-text2" wx:if="{{web_currentId==3}}">本月重消</view>
 </view>
 <view class="tab font30 flexRowBetween">
-	<view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0"  bindtap="tab">
-	  会员列表
+	<view class="tab_item" data-id="0"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+	  <view class="{{web_currentId==0?'tab_this':''}}" style="width:140rpx">会员列表</view>
 	</view>
-    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
-       本月新增
+    <view class="tab_item" data-id="2"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+       <view class="{{web_currentId==2?'tab_this':''}}" style="width:140rpx">本月新增</view>
     </view>
-    <view class="tab_item {{web_currentId == 3?'tab_this':''}}" data-id="3"  bindtap="tab">
-       本月重消
+    <view class="tab_item" data-id="3"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+       <view class="{{web_currentId==3?'tab_this':''}}" style="width:140rpx">本月重消</view>
     </view>
 </view>
 
 <block wx:for="{{web_mainData}}" wx:key="id">
-	<view class="piece_list w690 flex">
+	<view class="piece_list w690 flex" style="border-bottom: 1px solid #e5e5e5;">
 		<view style="width:20%;display: flex;align-items: center;">
 			<image src="{{item.userInfo.headImgUrl}}" class="user_img"></image>
 		</view>
-		<view class="piece_item font28 color8" style="text-align:left;width:30%">{{item.userInfo.nickname}}</view>
+		<view class="piece_item font28 color8" style="text-align:left;width:40%">{{item.userInfo.nickname}}</view>
 		<view class="piece_item font26 color8" style="text-align:right;">{{item.create_time}}</view>
 	</view>
 </block>

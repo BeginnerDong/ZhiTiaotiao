@@ -1,6 +1,6 @@
 
 <view class="w690 logout font24 color7">
-    <view class="agent_code font28 color8">代理商编码：{{web_userInfoData.user_no}}</view>
+    <view class="agent_code font28 color8">商圈代理编码：{{web_userInfoData.user_no}}</view>
     <view class="logout_page" bindtap="loginOff">退出</view>
 </view>
 <view class="sort flex shadow1 bg1">

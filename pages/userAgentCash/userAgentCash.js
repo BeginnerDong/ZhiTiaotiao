@@ -158,7 +158,9 @@ Page({
 				status: 0,
 				type: 5,
 				thirdapp_id: 2,
-				behavior:2
+				behavior:2,
+				withdraw_type:self.data.chooseType,
+				user_no:wx.getStorageSync('agentInfo').user_no
 			}
 		};
 		postData.tokenFuncName = 'getAgentToken';
@@ -172,6 +174,8 @@ Page({
 						delta: 1
 					})
 				}, 1000);
+			}else{
+				api.showToast(res.msg, 'none');
 			}
 		};
 		api.flowLogAdd(postData, callback)
@@ -189,6 +193,17 @@ Page({
 
 			api.showToast('请输入提现金额', 'none')
 		};
+	},
+	
+	choose(e){
+		const self = this;
+		var type = api.getDataSet(e,'type');	
+		if(type!=self.data.chooseType){
+			self.data.chooseType = type;
+			self.setData({
+				web_chooseType:self.data.chooseType
+			})
+		}
 	},
 
 	getAboutData() {

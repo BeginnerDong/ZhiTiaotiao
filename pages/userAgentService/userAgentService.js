@@ -279,7 +279,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getAgentToken'
+					tokenFuncName: 'getAgentToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

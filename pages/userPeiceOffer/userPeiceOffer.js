@@ -33,6 +33,10 @@ Page({
   	postData.paginate = api.cloneForm(self.data.paginate);
   	postData.tokenFuncName = 'getStoreToken';
   	postData.searchItem = api.cloneForm(self.data.searchItem);
+	postData.searchItem = {
+	
+		user_no: wx.getStorageSync('storeInfo').user_no
+	};
   	postData.order = {
   		create_time: 'desc'
   	};
@@ -62,13 +66,28 @@ Page({
 		})
 	},
 	
+	checkChooseAll(){
+	  const self = this;
+	  var isChooseAll = true;
+	  for (var i = 0; i < self.data.mainData.length; i++) {
+	    if(!self.data.mainData[i].isSelect){
+	      isChooseAll = false;
+	    };
+	  };
+	  self.data.isChooseAll = isChooseAll;
+	  self.setData({
+	    web_isChooseAll:self.data.isChooseAll
+	  });
+	},
+	
 	choose(e){
 		const self = this;
 		var index = api.getDataSet(e,'index');
-		self.data.mainData[index].isSelect = true;
+		self.data.mainData[index].isSelect = !self.data.mainData[index].isSelect;
 		self.setData({
 			web_mainData:self.data.mainData
 		})
+		self.checkChooseAll()
 	},
 	
 	 chooseAll(){

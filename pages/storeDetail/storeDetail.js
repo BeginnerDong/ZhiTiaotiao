@@ -77,6 +77,33 @@ Page({
 		};
 		api.shopInfoGet(postData, callback);
 	},
+	
+	phoneCall() {
+		const self = this;
+		wx.makePhoneCall({
+			phoneNumber: self.data.mainData.phone,
+		})
+	},
+	
+	intoMap() {
+		const self = this;
+		wx.getLocation({
+			type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+			success: function(res) { //因为这里得到的是你当前位置的经纬度
+				var latitude = res.latitude
+				var longitude = res.longitude
+				wx.openLocation({ //所以这里会显示你当前的位置
+					// longitude: 109.045249,
+					// latitude: 34.325841,
+					longitude: parseFloat(self.data.mainData.longitude),
+					latitude: parseFloat(self.data.mainData.latitude),
+					name: self.data.mainData.name,
+					address: self.data.mainData.address,
+					scale: 28
+				})
+			}
+		})
+	},
 
 	clickGood(e) {
 		const self = this;
@@ -122,7 +149,8 @@ Page({
 
 		const postData = {
 			searchItem: {
-				id: self.data.mainData.goodMe[0].id
+				id: self.data.mainData.goodMe[0].id,
+				status:self.data.mainData.goodMe[0].status
 			},
 			data: {
 				status: -self.data.mainData.goodMe[0].status
@@ -148,7 +176,7 @@ Page({
 	clickFollow(e) {
 		const self = this;
 		api.buttonCanClick(self);
-		if (self.data.mainData.goodMe.length == 0) {
+		if (self.data.mainData.followMe.length == 0) {
 			self.addFollowLog()
 		} else {
 			self.updateFollowLog()
@@ -189,7 +217,8 @@ Page({
 
 		const postData = {
 			searchItem: {
-				id: self.data.mainData.followMe[0].id
+				id: self.data.mainData.followMe[0].id,
+				status:self.data.mainData.followMe[0].status
 			},
 			data: {
 				status: -self.data.mainData.followMe[0].status
@@ -199,7 +228,7 @@ Page({
 		const callback = (res) => {
 			api.buttonCanClick(self, true);
 			if (res.solely_code == 100000) {
-				self.data.mainData.followMe[0].status = -self.data.mainData.goodMe[0].status;
+				self.data.mainData.followMe[0].status = -self.data.mainData.followMe[0].status;
 
 			} else {
 				api.showToast(res.msg, 'none', 1000)

@@ -121,29 +121,39 @@
 
 <!--index1.wxml-->
 <view class="status-top">
-	<view class="top-text1">56999.99</view>
+	<view class="top-text1">{{web_totalCount}}</view>
 	<view class="top-text2" wx:if="{{web_num==1}}">知条余量（个）</view>
 	<view class="top-text2" wx:if="{{web_num==2}}">本月可奖知条（个）</view>
-	<view class="top-text2" wx:if="{{web_num==3}}">9月已奖知条（个）</view>
+	<view class="top-text2" wx:if="{{web_num==3}}">{{web_month}}月已奖知条（个）</view>
 </view>
-<view class="status-nav">
-	<view class="status-nav-item {{web_num==1?'active':''}}" bindtap="changeNav" data-num='1' >知条记录</view>
-	<view class="status-nav-item {{web_num==2?'active':''}}" bindtap="changeNav" data-num='2'>消费排名</view>
-	<view class="status-nav-item {{web_num==3?'active':''}}" bindtap="changeNav" data-num='3'>月奖查询</view>
+<view class="status-nav"  style="display: flex;align-items: center;">
+	<view class="status-nav-item"  bindtap="changeNav" data-num='1' style="display: flex;align-items: center;justify-content: center;">
+		<view class="{{web_num==1?'active':''}}" style="width:140rpx">知条记录</view>
+	</view>
+	<view class="status-nav-item"  bindtap="changeNav" data-num='2' style="display: flex;align-items: center;justify-content: center;">
+		<view class="{{web_num==2?'active':''}}" style="width:140rpx">消费排名</view>
+	</view>
+	<view class="status-nav-item"  bindtap="changeNav" data-num='3' style="display: flex;align-items: center;justify-content: center;">
+		<view class="{{web_num==3?'active':''}}" style="width:140rpx">月奖查询</view>
+	</view>
 </view>
 <view class="w690" wx:if="{{web_num==1}}">
-	<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
+	<block wx:for="{{web_mainData}}">
+		<view class="piece_list w690 flex">
+		    <view class="piece_item font28 color2" style="text-align:left;width: 40%;">
+		    	<view class="font26 color2 ilblock"><view class="font24 color2 ilblock">{{item.create_time}}</view></view>
+			</view>
+			<view class="font24 color2 ilblock middlea {{item.count>0?'redd':''}}" style="text-align: center;width: 40%;">{{item.trade_info}}</view>
+		
+		    <view class="piece_item font26 color5 {{item.count>0?'redd':''}}" style="text-align:right;width: 20%;">{{item.count}}</view>
+		</view>		
+	</block>
+	
+	<!-- <view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
 	    <view class="piece_item font28 color2" style="text-align:left;">
 	    	<view class="font26 color2 ilblock">2月3日 <view class="font24 color2 ilblock time">18:09</view></view>
 		</view>
-		<view class="font24 color2 ilblock middlea">纸条抵用</view>
-	    <view class="piece_item font26 color5" style="text-align:right;">-12.88</view>
-	</view>
-	<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
-	    <view class="piece_item font28 color2" style="text-align:left;">
-	    	<view class="font26 color2 ilblock">2月3日 <view class="font24 color2 ilblock time">18:09</view></view>
-		</view>
-		<view class="font24 color2 ilblock middlea redd">奖励纸条</view>
+		<view class="font24 color2 ilblock middlea redd">奖励知条</view>
 	    <view class="piece_item font26 color5 redd" style="text-align:right;">+12.88</view>
 	</view>
 	<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail">
@@ -159,67 +169,27 @@
 		</view>
 		<view class="font24 color2 ilblock middlea redd">月奖知条</view>
 	    <view class="piece_item font26 color5 redd" style="text-align:right;">+56.88</view>
-	</view>
+	</view> -->
 </view>
 
 <view class="w690" wx:if="{{web_num==2}}">
-	<view class="status bg1 flex shadow1">
-	    <view class="status_number">
-	        1
-	    </view>
-	    <view class="status_left flex">
-	        <view class="user_img">
-	          <open-data type="userAvatarUrl"></open-data>
-	        </view>
-	        <view class="font28 color2 avoidOverflow">名称名称</view>
-	    </view>
-	    <view class="status_right font24 color5">月消费额
-			<view>￥800.88</view>
+    <block wx:for="{{web_rankData}}">	
+		<view class="status bg1 flex shadow1">
+		    <view class="status_number">
+		        {{index!=web_rankData.length?index+1:'1/4'}}
+		    </view>
+		    <view class="status_left flex">
+		        <view class="user_img">
+		          <image src="{{item.user.headImgUrl}}" style="width: 100%;height: 100%;"></image>
+		        </view>
+		        <view class="font28 color2 avoidOverflow">{{item.user.nickname}}</view>
+		    </view>
+		    <view class="status_right font24 color5">月消费额
+				<view class="status_right-b">{{item.consume}}</view>
+			</view>
 		</view>
-	</view>
-	<view class="status bg1 flex shadow1">
-	    <view class="status_number">
-	        2
-	    </view>
-	    <view class="status_left flex">
-	        <view class="user_img">
-	          <open-data type="userAvatarUrl"></open-data>
-	        </view>
-	        <view class="font28 color2 avoidOverflow">名称名称</view>
-	    </view>
-	    <view class="status_right font24 color5">月消费额
-			<view>￥800.88</view>
-		</view>
-	</view>
-    <view class="status bg1 flex shadow1">
-        <view class="status_number">
-            3
-        </view>
-        <view class="status_left flex">
-            <view class="user_img">
-              <open-data type="userAvatarUrl"></open-data>
-            </view>
-            <view class="font28 color2 avoidOverflow">名称名称</view>
-        </view>
-        <view class="status_right font24 color5">月消费额
-			<view>￥800.88</view>
-		</view>
-    </view>
-    <view class="status bg1 flex shadow1">
-        <view class="status_number">
-			1/4
-        </view>
-        <view class="status_left flex">
-            <view class="user_img">
-              <open-data type="userAvatarUrl">4</open-data>
-            </view>
-            <view class="font28 color2 avoidOverflow">名称名称</view>
-        </view>
-        <view class="status_right font24 color5">月消费额
-        	<view>￥800.88</view>
-        </view>
-    </view>
-    <view class="status bg1 flex shadow1">
+	</block>
+<!--    <view class="status bg1 flex shadow1">
         <view class="status_number color">
             我
         </view>
@@ -232,7 +202,7 @@
         <view class="status_right font24 color5">月消费额
         	<view>￥800.88</view>
         </view>
-    </view>
+    </view> -->
 </view>
 
 
@@ -240,75 +210,35 @@
 <view class="w690" wx:if="{{web_num==3}}">
     <view class="select bg1 flex">
         <view style="width:100%;">
-            <picker mode="date" value="{{select_data}}" start="2019-01-12" end="2050-09-01" bindchange="changeDate">
+            <picker mode="date" value="{{select_data}}" fields="month" start="2019-01-12" end="2050-09-01" bindchange="changeDate">
                 <view class="flexCenter">
                     <view class="font28 color2">时间筛选</view>
                     <image src="/images/up.png"></image>
                 </view>
                 <view class="picker_in">
-                  <view class="picker color5 font22">{{select_data}}</view>
+                  <view class="picker color5 font22">{{web_select_data}}</view>
                 </view>
             </picker>
         </view>
     </view>
-    
-	<view class="status bg1 flex shadow1">
-	    <view class="status_number">
-	        1
-	    </view>
-	    <view class="status_left flex">
-	        <view class="user_img">
-	          <open-data type="userAvatarUrl"></open-data>
-	        </view>
-	        <view class="font28 color2 avoidOverflow">名称名称</view>
-	    </view>
-	    <view class="status_right font24 color5">月奖知条
-			<view class="status_right-b">566.99</view>
+    <block wx:for="{{web_rankData}}">	
+		<view class="status bg1 flex shadow1">
+		    <view class="status_number">
+		        {{index!=web_rankData.length?index+1:'1/4'}}
+		    </view>
+		    <view class="status_left flex">
+		        <view class="user_img">
+		          <image src="{{item.user.headImgUrl}}" style="width: 100%;height: 100%;"></image>
+		        </view>
+		        <view class="font28 color2 avoidOverflow">{{item.user.nickname}}</view>
+		    </view>
+		    <view class="status_right font24 color5">月奖知条
+				<view class="status_right-b">{{item.reward}}</view>
+			</view>
 		</view>
-	</view>
-	<view class="status bg1 flex shadow1">
-	    <view class="status_number">
-	        2
-	    </view>
-	    <view class="status_left flex">
-	        <view class="user_img">
-	          <open-data type="userAvatarUrl"></open-data>
-	        </view>
-	        <view class="font28 color2 avoidOverflow">名称名称</view>
-	    </view>
-	    <view class="status_right font24 color5">月奖知条
-			<view class="status_right-b">566.99</view>
-		</view>
-	</view>
-    <view class="status bg1 flex shadow1">
-        <view class="status_number">
-            3
-        </view>
-        <view class="status_left flex">
-            <view class="user_img">
-              <open-data type="userAvatarUrl"></open-data>
-            </view>
-            <view class="font28 color2 avoidOverflow">名称名称</view>
-        </view>
-        <view class="status_right font24 color5">月奖知条
-			<view class="status_right-b">566.99</view>
-		</view>
-    </view>
-    <view class="status bg1 flex shadow1">
-        <view class="status_number">
-			1/4
-        </view>
-        <view class="status_left flex">
-            <view class="user_img">
-              <open-data type="userAvatarUrl">4</open-data>
-            </view>
-            <view class="font28 color2 avoidOverflow">名称名称</view>
-        </view>
-        <view class="status_right font24 color5">月奖知条
-        	<view class="status_right-b">566.99</view>
-        </view>
-    </view>
-    <view class="status bg1 flex shadow1">
+	</block>
+
+<!--    <view class="status bg1 flex shadow1">
         <view class="status_number color">
             我
         </view>
@@ -321,7 +251,7 @@
         <view class="status_right font24 color5">月奖知条
         	<view class="status_right-b">566.99</view>
         </view>
-    </view>
+    </view> -->
 </view>
 <view class="reword font24 color1 flex" bindtap="rule">
     <view class="reword_in color1">奖励规则</view>
@@ -358,12 +288,15 @@
     <view class="rule bg1" style="height: 90%;">
         <scroll-view scroll-y style="height:70vh;">
             <view class="rule_cont">
-                <view class="font28 color2 rule_tlt">标题标题标题</view>
-				<view class=" content font24 color2 w690">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
-				<view class=" content font24 color2 w690">2.内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容</view>
-				 <view class="content font24 color2 w690">3.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+                 <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+                <view class=" content font24 color2 w690">
+                	 <view class="content ql-editor">
+                	  <import src="../../wxParse/wxParse.wxml"/>
+                	  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+                	</view>
+                </view>
 			</view>
         </scroll-view>
 		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
     </view>
-</view>
+</view>	

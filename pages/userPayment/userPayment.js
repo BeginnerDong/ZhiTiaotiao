@@ -27,10 +27,42 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.data.user_no = 'U225671915955112'
+		self.data.user_no = options.user_no;
 		self.getMainData();
 
 		console.log('self.data.user_no', self.data.user_no)
+	},
+	
+	rewardParamGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			use:1
+		}
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.rewardData = res.info.data[0];
+			};
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+		};
+		api.rewardParamGet(postData, callback);
+	},
+	
+	getShopData() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_no:self.data.user_no
+		}
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.shopData = res.info.data[0];
+			};
+			self.rewardParamGet()
+		};
+		api.userInfoGet(postData, callback);
 	},
 
 	getMainData() {
@@ -41,7 +73,8 @@ Page({
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
 			};
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+			self.getShopData()
+		
 		};
 		api.userInfoGet(postData, callback);
 	},
@@ -58,6 +91,11 @@ Page({
 				};
 				self.data.pay.wxPayStatus = 0
 			}
+			self.data.ztt = self.data.pay.wxPay.price*(self.data.shopData.ratio/100)*(parseInt(self.data.rewardData.ztt_reward)/100) //让利钱
+			console.log('self.data.ztt',self.data.ztt)
+			self.setData({
+				web_ztt:self.data.ztt.toFixed(2)
+			})
 		}else{
 			if (wxPay > 0) {
 				self.data.pay.score = wxPay
@@ -68,7 +106,7 @@ Page({
 	pay() {
 		const self = this;
 		api.buttonCanClick(self);
-
+		
 		const postData = {};
 		postData.pay = self.data.pay;
 		postData.tokenFuncName = 'getProjectToken';
@@ -84,6 +122,7 @@ Page({
 			api.showToast('空白充值', 'error');
 			return;
 		};
+		
 		const callback = (res) => {
 			console.log(res)
 			api.buttonCanClick(self, true)
@@ -92,26 +131,40 @@ Page({
 					const payCallback = (payData) => {
 						if (payData == 1) {
 							api.showToast('支付成功', 'none', 1000, function() {
-								wx.navigateBack({
-									delta:1
+								self.data.is_peice = true;
+								self.setData({
+									is_peice:self.data.is_peice
 								})
 							});
+							
 						} else {
 							api.showToast('调起微信支付失败', 'none');
 						};
 
 						self.data.submitData.money = '';
-
+						self.data.is_show = false;
+						self.setData({
+							is_show: self.data.is_show
+						})
 					};
 					api.realPay(res.info, payCallback);
 				} else {
 					console.log(777)
 				};
 			} else {
-				api.showToast(res.msg, 'none');
-
+				
+				if(res.msg=='积分不足'){
+					api.showToast('知条不足', 'none');
+				}else{
+					api.showToast(res.msg, 'none');
+				}
+				
+				
 				self.data.submitData.money = '';
-
+				self.data.is_show = false;
+				self.setData({
+					is_show: self.data.is_show
+				})
 			};
 			self.setData({
 				web_submitData: self.data.submitData
@@ -139,7 +192,10 @@ Page({
 			} else if (self.data.currentId == 1) {
 				api.showToast('请输入支条数量', 'none')
 			}
-
+			self.data.is_show = false;
+			self.setData({
+				is_show: self.data.is_show
+			})
 		};
 	},
 

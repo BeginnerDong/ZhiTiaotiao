@@ -14,13 +14,15 @@ Page({
 			bannerImg:[],
 			category_id:7,
 			price:'',
-			score:''
+			score:'',
+			content:''
 		}
   },
 
   onLoad(){
     const self = this;
     self.setData({
+		web_submitData:self.data.submitData,
       web_buttonCanClick:self.data.buttonCanClick
     })
   },
@@ -59,7 +61,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -102,7 +105,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

@@ -86,7 +86,7 @@ class Base{
             };
         };
         wx.uploadFile({
-            url: 'https://www.zhitt.com/api/api/public/index.php/api/v1/Base/FtpFile/upload',
+            url: 'https://www.zhitt.com/api/public/index.php/api/v1/Base/FtpFile/upload',
             filePath:filePath,
             name:name,
             formData:formData,

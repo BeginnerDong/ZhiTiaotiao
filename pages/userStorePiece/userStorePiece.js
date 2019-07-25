@@ -14,7 +14,6 @@ Page({
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:3,
-			behavior:2
 		},
 		isFirstLoadAllStandard: ['getMainData', 'getUserInfoData']
 	},
@@ -30,6 +29,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];

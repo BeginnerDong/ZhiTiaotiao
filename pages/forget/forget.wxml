@@ -1,25 +1,26 @@
 
     <view class="login">
-		<view class="img" style="height: 380rpx; background: url(../../images/微信图片_20190423185524.png) no-repeat; background-size: 100%;">
-			<image style="transform:rotate(90deg);width:160rpx; height: 150rpx; margin: 40rpx 275rpx;" src="../../images/logo%20(1).png" ></image>
+		<view class="img">
+			<image src="../../images/loginBg.png" style="height:380rpx;width:100%"></image>
+			<image style="position: absolute;transform:rotate(90deg);width:160rpx; height: 150rpx;top: 5%;left:39%" src="../../images/logo.png" ></image>
 		</view>
             <view class="login_box bg1">
                 <view class="login_input">
                     <view class="list_input">
-                        <input placeholder="请输入手机号" data-key="login_name" bindinput="bindInputChange"></input>
+                        <input placeholder="请输入手机号" data-key="login_name" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
                     </view>
 					<view class="list_input flexRowBetween">
-					    <input style="width:60%"  data-key="password" bindinput="bindInputChange"></input>
-					    <view class="get_check">获取验证码</view>
+					    <input style="width:60%"  value="{{web_submitData.code}}"  data-key="code" bindblur="changeBind"></input>
+					    <view class="get_check" bindtap="{{web_buttonCanClick?'getCode':''}}">{{text}}</view>
 					</view>
                     <view class="list_input flexRowBetween">
-                        <input style="width:100%;" placeholder="请输入新密码(6-16位)"data-key="password" bindinput="bindInputChange"></input>
-                        <view class="get_check" style="width: 40rpx; height: 25rpx; background: url(../../images/eay.png) no-repeat; background-size: 70%;"></view>
+                        <input style="width:100%;" type="{{web_type}}"  placeholder="请输入新密码(6-16位)"value="{{web_submitData.password_new}}"  data-key="password_new" bindblur="changeBind"></input>
+                        <view class="get_check" bindtap="changeType" style="width: 40rpx; height: 25rpx; background: url(../../images/eay.png) no-repeat; background-size: 70%;"></view>
                     </view>
 					<view class="list_input flexRowBetween">
-					    <input style="width:100%" placeholder="请再次输入新密码"></input>
+					    <input style="width:100%"   type="password"  placeholder="请再次输入新密码" value="{{web_submitData.password_new_copy}}"  data-key="password_new_copy" bindblur="changeBind"></input>
 					</view>
-                    <button class="submit_info" style="background: #0d6fb8;"  bindtap="intoPath" data-path="/pages/status/status" >登录</button>
+                    <button class="submit_info" style="background: #0d6fb8;"   bindtap="submit">确认</button>
                 </view>
 				
 				<image class="img-phone" src="../../images/register-icon1.png"></image>

@@ -61,7 +61,7 @@ page{
 .uplode_add{
 	width:160rpx;
 	height:190rpx;
-	background:#ececec;
+	border:1px solid #ececec;
 	text-align:center;
 	line-height:190rpx;
 	color:#ababab;

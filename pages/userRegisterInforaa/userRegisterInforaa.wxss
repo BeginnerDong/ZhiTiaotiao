@@ -22,7 +22,7 @@ page{
 .input_list2-img{
 	width: 200rpx;
 	height: 240rpx;
-	margin-left: 50rpx;
+	margin-top: 10px;
 	background: #ECECEC;
 	overflow: hidden;
 }

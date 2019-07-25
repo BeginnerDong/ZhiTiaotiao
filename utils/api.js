@@ -40,6 +40,19 @@ class Api extends Base {
 			}
 		});
 	}
+	
+	rewardParamGet(param, callback) {
+		var allParams = {
+			url: 'Common/RewardParam/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
 
 	hfInfoAdd(param, callback) {
 		var allParams = {
@@ -53,9 +66,23 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+	
 	hfInfoGet(param, callback) {
 		var allParams = {
 			url: 'Common/HfInfo/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	hfInfoUpdate(param, callback) {
+		var allParams = {
+			url: 'Common/HfInfo/update',
 			type: 'post',
 			noToken: true,
 			data: param,
@@ -78,8 +105,43 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+	
+	codeGet(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/getCode',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	resetPassword(param, callback) {
+		var allParams = {
+			url: 'Project/Register/resetPassword',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
 
-
+	rankGet(param, callback) {
+		var allParams = {
+			url: 'Common/Rank/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
 
 	labelGet(param, callback) {
 		var allParams = {
@@ -1128,6 +1190,19 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+	
+	bindWithdrawCard(param, callback) {
+		var allParams = {
+			url: 'Project/Card/bindWithdrawCard',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
 
 	addVirtualOrder(param, callback) {
 		var allParams = {

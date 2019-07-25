@@ -9,12 +9,13 @@ Page({
   data: {
 
     sForm:{
-      login_name:'大都荟水果店',
-      password:'chuncuiwangluo'
+      login_name:'',
+      password:''
 
     },
     web_show:true,
-    code:''
+    code:'',
+		type:'password'
   },
 
  
@@ -28,7 +29,10 @@ Page({
         wx.redirectTo({
           url: '/pages/userStore/userStore'
         })
-    }
+    };
+		self.setData({
+		  web_type:self.data.type
+		});
   },
 
   
@@ -66,7 +70,18 @@ Page({
     });
   },
 
-
+	changeType(){
+		const self = this;	
+		if(self.data.type=='password'){
+			self.data.type='text'
+		}else if(self.data.type=='text'){
+			self.data.type='password'
+		}
+		self.setData({
+			web_type:self.data.type
+		})
+		
+	},
 
 
 

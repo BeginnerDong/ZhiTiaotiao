@@ -19,7 +19,7 @@ Page({
 			phone: '',
 			csphone: '',
 			description: '',
-			keyswords: '',
+			keywords: '',
 			mainImg: [],
 			address: '',
 		},
@@ -29,7 +29,10 @@ Page({
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
-		self.getMainData()
+		self.getMainData();
+		self.setData({
+			web_submitData:self.data.submitData
+		})
 	},
 
 
@@ -56,7 +59,7 @@ Page({
 				self.data.submitData.description = res.info.data[0].description;
 				self.data.submitData.bannerImg = res.info.data[0].bannerImg;
 				self.data.submitData.mainImg = res.info.data[0].mainImg;
-				self.data.submitData.keyswords = res.info.data[0].keyswords;
+				self.data.submitData.keywords = res.info.data[0].keywords;
 				self.data.submitData.address = res.info.data[0].address;
 			};
 			self.setData({
@@ -125,7 +128,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -168,7 +172,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken'
+					tokenFuncName: 'getStoreToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

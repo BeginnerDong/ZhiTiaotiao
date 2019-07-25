@@ -2,7 +2,7 @@
 <view class="w690">
   <view class="bank bg1 flex w690">
     <view class="font24 color2" style="width: 25%; margin-left: 15rpx;">到账银行</view>
-    <view class="font24 color2" style="width: 50%;">中国银行(2356)</view>
+    <view class="font24 color2" style="width: 50%;">{{web_hfInfoData.bankName}}({{web_hfInfoData.bank_acct_no}})</view>
   </view>
   <view class="cash">
       <view class="case_box">
@@ -11,14 +11,24 @@
         </view>
         <view class="cash_input flexRowBetween bg1">
             <view class="input_masks color2">¥</view>
-            <input data-key="count" bindinput="changeBind" value="3233"></input>
+            <input data-key="count" bindinput="changeBind" value="{{web_submitData.count}}"></input>
         </view>
         <view class="cash_can font24 color6 bg1 flex">
-            本次可提现<text>¥434</text>
-            <view class="font28 color2" style="margin-left: 300rpx;" bindtap="allOut">全部提现</view>
+            本次可提现<text>¥{{web_type==1?web_userInfoData.balance:web_userInfoData.reward}}</text>
+            <view class="font24" style="margin-left: 300rpx;color: #0d6fb8;" bindtap="allOut">全部提现</view>
         </view>
+		<view class="cash_can" style="display: flex;background: #fff;">
+			<view style="display: flex;height:100%;align-items: center;margin-left: 0;" bindtap="choose" data-type='2'>
+				<image src="{{web_chooseType==2?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:30rpx;height:30rpx"></image>
+				<view class="font24 color2" style="margin-left: 20rpx;">快速提现</view>
+			</view>
+			<view style="display: flex;height:100%;align-items: center;margin-left: 0;margin-left: 40rpx;" bindtap="choose" data-type='1'>
+				<image src="{{web_chooseType==1?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:30rpx;height:30rpx"></image>
+				<view class="font24 color2" style="margin-left: 20rpx;">次日到账</view>
+			</view>
+		</view>
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
-            <button class="submit_info bg2" bindtap="intoPath" data-path="/pages/userStroeBill/userStroeBill">提现</button>
+            <button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提现</button>
 			<!-- bindtap="{{web_buttonCanClick?'submit':''}}" -->
         </view>
       </view>

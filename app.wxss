@@ -135,8 +135,8 @@ page{
 	align-items:center;
 }
 .nav_img image{
-	width:46rpx;
-	height:46rpx;
+	width:40rpx;
+	height:50rpx;
 }
 .navbar_item{
 	width:33.3%;

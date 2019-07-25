@@ -103,8 +103,12 @@
  }
  .user_left image{
  	width:30rpx;
- 	height:32rpx;
+ 	height:30rpx;
  	margin-right:22rpx;
+ }
+ .user_left text{
+	 font-size: 32rpx;
+	 color: rgb(42,15,6);
  }
  .user_infor{
  	height:96rpx;

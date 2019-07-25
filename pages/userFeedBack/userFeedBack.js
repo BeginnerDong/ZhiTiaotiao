@@ -14,7 +14,8 @@ Page({
 		submitData: {
 			content: '',
 			mainImg: [],
-			phone: ''
+			phone: '',
+			type:6
 		},
 		buttonCanClick: true
 
@@ -23,6 +24,7 @@ Page({
 	onLoad() {
 		const self = this;
 		self.setData({
+			web_submitData:self.data.submitData,
 			web_buttonCanClick: self.data.buttonCanClick
 		})
 	},
@@ -63,12 +65,17 @@ Page({
 		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
 		if (pass) {
-			if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
-				api.buttonCanClick(self, true);
-				api.showToast('手机格式错误', 'none')
-			} else {
+			if(phone!=''){
+				if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
+					api.buttonCanClick(self, true);
+					api.showToast('手机格式错误', 'none')
+				} else {
+					self.messageAdd();
+				}
+			}else{
 				self.messageAdd();
 			}
+			
 		} else {
 			api.buttonCanClick(self, true);
 			api.showToast('请补全信息', 'none');
@@ -108,7 +115,8 @@ Page({
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getProjectToken'
+					tokenFuncName: 'getProjectToken',
+					type:'image'
 				}, callback)
 			},
 			fail: function(err) {

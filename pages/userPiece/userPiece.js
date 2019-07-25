@@ -30,6 +30,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('info').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];

@@ -10,20 +10,24 @@
 	<view class="message_left font28 color2" style=" margin-top: 20rpx;">
 		图片 (选填，提供问题的截图)
 	</view>
-	<view class="message_upload flex" bindtap="previewImage" id="{{item.url}}" wx:if="{{web_submitData.mainImg.length>0}}">
-		<block wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
-			<image src="{{item.url}}" mode="aspectFill" style="width:200rpx;height:240rpx" />
+	<view class="message_upload flex" >
+		<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}" >
+			<view class=" flex" style=" margin-top: 20rpx;" bindtap="previewImage" id="{{item.url}}" wx:if="{{web_submitData.mainImg.length>0}}">
+				<image src="{{item.url}}" mode="aspectFill" style="width:160rpx;height:190rpx;margin-right: 20px;" />
+			</view>
+			
 		</block>
+		<view style=" margin-top: 20rpx;" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg.length<=2}}">
+			<view class="uplode_add">+</view>
+		</view>
 	</view>
-	<view class="message_upload flex" style=" margin-top: 20rpx;" bindtap="upLoadMainImg">
-		<view class="uplode_add">+</view>
-	</view>
+	
 </view>
 <view class="input_list1 font28 w690">
 	<view class="input_before color2" style=" margin-bottom: 20rpx;">联系电话:</view>
 	<input style="width: 100%; height: 70rpx;" placeholder="选填,便于我们与您联系" style="margin-top:20rpx" value="{{web_submitData.phone}}" data-key="phone" bindblur="bindInputChange"></input>
 </view>
-<button class="submit_info bg1" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
+<button class="submit_info bg1" style="font-size:28rpx;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
 <!-- <view class="message  w690">
 	<view class="message_left font30 color2">
 		问题和意见

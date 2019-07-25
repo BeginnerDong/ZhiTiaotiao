@@ -8,10 +8,10 @@
 <view id="order" class="w690">
     <view class="order">
         <view class="order_cont">
-            <view class="user_img">
+            <view class="user_img" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U629044112041762" >
               <open-data type="userAvatarUrl"></open-data>
             </view>
-            <view class="font30 color2" style="text-align: center;margin-top:30rpx;">昵称昵称</view>
+            <view class="font30 color2" style="text-align: center;margin-top:30rpx;" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U713080314554678"><open-data type="userNickName"></open-data></view>
         </view>
     </view>
 </view>
@@ -72,7 +72,7 @@
             <image src="/images/next_page.jpg"></image>
         </view>
     </view>
-    <view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userPayment/userPayment" >
+    <!-- <view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userPayment/userPayment" >
         <view class="user_left flexRowBetween">
             <image src="/images/user_icon4.png"></image>
             <text>扫一扫</text>
@@ -80,7 +80,7 @@
         <view class="next_page">
             <image src="/images/next_page.jpg"></image>
         </view>
-    </view>
+    </view> -->
 	
 </view>
 <view style="width:100%;height:150rpx;"></view>

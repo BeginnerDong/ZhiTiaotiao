@@ -6,15 +6,15 @@ const token = new Token();
 
 Page({
 	data: {
-
+		is_rule:false,
 		currentId: 1,
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:2,
-			behavior:2,
+			
 		},
 		mainData:[],
-		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
+		isFirstLoadAllStandard:['getMainData','getUserInfoData','getAboutData'],
 	},
 	//事件处理函数
 	
@@ -23,6 +23,7 @@ Page({
 		api.commonInit(self);
 		self.getMainData();
 		self.getUserInfoData();
+		self.getAboutData();
 		self.setData({
 			web_currentId: self.data.currentId
 		})
@@ -34,11 +35,13 @@ Page({
 		if(self.data.currentId!=currentId){
 			self.data.currentId = currentId;
 			if(currentId==1){
-				self.data.searchItem.type=4;
-				
-			}else if(currentId==2){
 				self.data.searchItem.type=2;
-			}
+			}else if(currentId==2){
+				
+				self.data.searchItem.type=4;
+				self.data.searchItem.behavior  =2
+			};
+			self.getMainData(true)
 		};
 		
 		self.setData({
@@ -50,6 +53,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];
@@ -70,7 +76,8 @@ Page({
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getStoreToken';
-		postData.searchItem = api.cloneForm(self.data.searchItem)
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.searchItem.user_no=wx.getStorageSync('storeInfo').user_no;
 		postData.order = {
 			create_time: 'desc',
 		};
@@ -83,7 +90,7 @@ Page({
 					status: 1
 				},
 				condition: '=',
-				info: ['name']
+				info: ['nickname']
 			}
 		};
 		const callback = (res) => {
@@ -105,6 +112,36 @@ Page({
 		api.flowLogGet(postData, callback);
 	},
 	
+	getAboutData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			thirdapp_id: 2,
+		};
+		postData.getBefore = {
+			label: {
+				tableName: 'Label',
+				searchItem: {
+					title: ['=', ['联盟金提现规则']],
+				},
+				middleKey: 'menu_id',
+				key: 'id',
+				condition: 'in'
+			},
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.aboutData = res.info.data[0];
+				self.data.aboutData.content = api.wxParseReturn(res.info.data[0].content).nodes;
+			}
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getAboutData', self);
+			self.setData({
+				web_aboutData: self.data.aboutData,
+			});
+		};
+		api.articleGet(postData, callback);
+	},
+	
 	
 	onReachBottom() {
 		const self = this;
@@ -115,7 +152,13 @@ Page({
 	},
 
 	
-	
+	rule(){
+		const self = this;
+		self.data.is_rule = !self.data.is_rule;
+		self.setData({
+			is_rule:self.data.is_rule
+		})
+	},
 	
 	
 	

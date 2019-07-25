@@ -124,7 +124,7 @@ Page({
 					self.data.shopCount += self.data.topData[i].shopNum.num
 					self.data.authCount += self.data.topData[i].authNum.num
 				}
-				console.log('self.data.topData[i].shopNum.num', self.data.topData[0].shopNum.num)
+				
 			}
 			self.setData({
 				web_shopCount: self.data.shopCount,

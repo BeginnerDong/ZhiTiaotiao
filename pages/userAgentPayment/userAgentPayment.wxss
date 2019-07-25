@@ -60,6 +60,14 @@ page{
 	font-size: 28rpx;
 	width: 60%;
 }
+.blank{
+	text-align:center;
+}
+.blank image{
+	width:214rpx;
+	height:280rpx;
+	margin-top:200rpx;
+}
 
 
 

@@ -1,25 +1,25 @@
 <view class="banner">
-	<image src="/images/banner.jpg"></image>
+	<image src="{{web_mainData.bannerImg[0].url}}"></image>
 </view>
 <view class="store_introduce w690 bg1">
-	<view class="store_tlt font28 color2 avoidOverflow">
-		标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题
+	<view class="store_tlt font32 color2 avoidOverflow">
+		{{web_mainData.title}}
 	</view>
-	<view class="font24 color8">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</view>
+	<view class="font24 color8">{{web_mainData.description}}</view>
 	<view class="product_pro  flex avoidOverflow">
-       <view class="font24 color_r">知条数量：8.8个</view>
-       <view class="font20" style="margin-left:20rpx; text-decoration: line-through;">店铺价格：￥16</view>
+       <view class="font30 color_r">知条数量：{{web_mainData.score}}个</view>
+       <view class="font20" style="margin-left:20rpx; text-decoration: line-through;">店铺价格：￥{{web_mainData.price}}</view>
     </view>
 </view>
 <view class="w690 bg1 store_product" style="margin-bottom: 30rpx;">
-	<view class="font28 color2" style="height:60rpx;line-height:60rpx;">
-	<image src="../../images/微信图片_20190425144911.png" style="width: 42rpx; height: 36rpx; position: relative; top: 10rpx;"></image>
+	<view class="font32 color2" style="height:100rpx;line-height:100rpx;">
+	<image src="../../images/pic.png" style="width: 42rpx; height: 36rpx; position: relative; top: 10rpx;"></image>
 	商品图片
 	</view>
-	<view class="condition" style="margin-top: 10rpx;">
-		<image src="../../images/2019-04-25_135438.png"></image>
-	</view>
-	<view class="condition">
-		<image src="../../images/2019-04-25_135438.png"></image>
-	</view>
+	<block wx:for="{{web_mainData.mainImg}}">
+		<view class="condition" style="margin-top: 10rpx;">
+			<image src="{{item.url}}"></image>
+		</view>
+	</block>
+	
 </view>

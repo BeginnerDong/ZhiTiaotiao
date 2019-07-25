@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 47,
+			"current": 51,
 			"list": [
 				{
 					"id": -1,
@@ -332,6 +332,34 @@
 					"id": -1,
 					"name": "代理",
 					"pathName": "pages/userAgent/userAgent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业开户",
+					"pathName": "pages/userRegisterInforaa/userRegisterInforaa",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺账单",
+					"pathName": "pages/userStroeBill/userStroeBill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "附近",
+					"pathName": "pages/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreEdit/userStoreEdit",
+					"pathName": "pages/userStoreEdit/userStoreEdit",
 					"query": "",
 					"scene": null
 				}

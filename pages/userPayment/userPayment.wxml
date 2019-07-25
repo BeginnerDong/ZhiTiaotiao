@@ -10,7 +10,7 @@
         </view>
         <view class="cash_input flexRowBetween bg1">
             <view class="input_masks color2">{{currentId==0?'¥':'个'}}</view>
-            <input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}"></input>
+            <input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}" type="number"></input>
         </view>
         <view class="payment_way bg1 w690">
           <view class="payment_item flex" data-id="0" bindtap="choose_payment">
@@ -19,7 +19,7 @@
           </view>
           <view class="payment_item  flex" data-id="1" bindtap="choose_payment">
             <image src="{{currentId==1?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
-            <view class="font24 color2">知条支付</view>
+            <view class="font24 color2">知条抵用</view>
           </view>
         </view>
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
@@ -30,20 +30,21 @@
 </view>
 <view class="mask" wx:if="{{is_show||is_peice}}">
   <view class="confirm bg1" wx:if="{{is_show}}">
-      <view class="confirm_tlt">
+      <view class="confirm_tlt" style="font-weight: 700;">
           确认支付
       </view>
-      <view class="confirm_notice font24 color6">
+      <view class="confirm_notice font26 color6">
         请确保此次操作是本人支付
       </view>
       <view class="confirm_btn flex">
-        <view class="confirm_item font24 color6" bindtap="cancle">取消</view>
-        <button class="confirm_item font24 color" style="border-left:solid 1px #e0e0e0" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>
+        <view class="confirm_item font26 color6" bindtap="cancle">取消</view>
+        <button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>
       </view>
   </view>
   <view class="get_peice" wx:if="{{is_peice}}">
-    <image src="/images/peice.png" style="margin-bottom:20rpx;"></image>
-    <view class="font24 color1">恭喜获得100知条</view>
+    <image src="/images/ztthb.png" style="margin-bottom:20rpx;position: relative;"></image>
+    <view class="font24 color1" style="position: absolute;bottom: 10%;text-align: center;width: 100%;text-decoration:underline">恭喜获得{{web_ztt}}知条</view>
+	   <view class="font24 color1" style="position: absolute;bottom: 5%;text-align: center;width: 100%;text-decoration:underline">(可到知条条附近店铺消费抵用)</view>
   </view>
   <view class="close" bindtap="close" wx:if="{{is_peice}}">
     <image src="/images/close.png"></image>

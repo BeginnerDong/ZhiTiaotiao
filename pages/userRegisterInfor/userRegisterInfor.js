@@ -11,6 +11,48 @@ var token = new Token();
 Page({
 
 	data: {
+		fileData: [{
+				name: '营业执照注册号',
+				value: '00'
+			}, {
+				name: '组织结构代码证',
+				value: '01'
+			}, {
+				name: '税务登记证号',
+				value: '02'
+			}, {
+				name: '法人证件',
+				value: '03'
+			}, {
+				name: '开户银行许可证',
+				value: '04'
+			},
+			{
+				name: '统一社会信用代码',
+				value: '05'
+			}, {
+				name: '开户电子协议',
+				value: '08'
+			}, {
+				name: '法人证件反面',
+				value: '09'
+			},{
+				name: '经营照片',
+				value: '10'
+			},{
+				name: '经营照片（地址照片）',
+				value: '11'
+			},{
+				name: '经营照片（门面照片）',
+				value: '12'
+			},{
+				name: '其他',
+				value: '99'
+			},{
+				name: '经办人证件',
+				value: '15'
+			}
+		],
 		bankData: [{
 			name: '兴业银行',
 			value: '03090000'
@@ -163,6 +205,7 @@ Page({
 		submitData: {
 			type: 2,
 			bank_id: '',
+			address: '',
 			corp_license_type: '',
 			corp_name: '',
 			business_code: '',
@@ -182,29 +225,83 @@ Page({
 			bank_branch: '',
 			bank_prov: '',
 			bank_area: '',
-			attach_nos: '',
 			user_name: '',
 			solo_business_address: '',
 			solo_reg_address: '',
 			solo_fixed_telephone: '',
 			occupation: '',
+			file:[],
 		},
+		attach_type: '',
 		pArray: [],
 		cArray: [],
 		mainData: [],
+		comCertType: [{
+			name: '普通营业执照企业',
+			value: '01030100'
+		}, {
+			name: '三证合一企业',
+			value: '01030101'
+		}],
 		isFirstLoadAllStandard: ['getMainData']
 	},
 
 	onShow() {
 		const self = this;
 		api.commonInit(self);
-		self.getMainData();
+
+		self.hfInfoGet();
+		
+	},
+
+	upLoadImg(e) {
+		const self = this;
+		var type = api.getDataSet(e,'type');
+		console.log('type',type)
+		wx.showLoading({
+			mask: true,
+			title: '图片上传中',
+		});
+		const callback = (res) => {
+			console.log('res', res)
+			if (res.solely_code == 100000) {
+				var url = res.info.url;
+				var imgIdReg = /id(\S*)\./i;
+				var id = url.match(imgIdReg)[1]
+				console.log('id', id)
+				self.data.submitData.file.push(id)
+				self.setData({
+					web_submitData: self.data.submitData
+				});
+				wx.hideLoading()
+			} else {
+				api.showToast('网络故障', 'none')
+			}
+		};
+		wx.chooseImage({
+			count: 1,
+			success: function(res) {
+				console.log(res);
+				var tempFilePaths = res.tempFilePaths;
+				console.log(callback)
+				api.uploadFile(tempFilePaths[0], 'file', {
+					tokenFuncName: 'getStoreToken',
+					attach_type: type,
+					type:'image'
+				}, callback)
+			},
+			fail: function(err) {
+				wx.hideLoading();
+			},
+			
+		})
+		console.log(self.data.submitData.file)
 	},
 
 	bindLicenseStartChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_start_date = e.detail.value;
+		self.data.submitData.license_start_date = e.detail.value.replace('-', '');
 		self.setData({
 			web_licenseStart: e.detail.value
 		})
@@ -213,7 +310,7 @@ Page({
 	bindLicenseEndChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_end_date = e.detail.value;
+		self.data.submitData.license_end_date = e.detail.value.replace('-', '');
 		self.setData({
 			web_licenseEnd: e.detail.value
 		})
@@ -222,7 +319,7 @@ Page({
 	bindCertStartChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_start_date = e.detail.value;
+		self.data.submitData.legal_cert_start_date = e.detail.value.replace('-', '');
 		self.setData({
 			web_certStart: e.detail.value
 		})
@@ -231,7 +328,7 @@ Page({
 	bindCertEndChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_end_date = e.detail.value;
+		self.data.submitData.legal_cert_end_date = e.detail.value.replace('-', '');
 		self.setData({
 			web_certEnd: e.detail.value
 		})
@@ -268,6 +365,46 @@ Page({
 		};
 		api.areaGet(postData, callback);
 	},
+	
+	userInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				self.data.userInfoData = res.info.data[0];
+				if (self.data.userInfoData.check_status != 0&&self.data.hfInfoData.type==2) {
+					wx.redirectTo({
+						url:'/pages/userRegisterInforb/userRegisterInforb'
+					})
+				}else{
+					self.getMainData();
+				}
+			};
+		};
+		api.userInfoGet(postData, callback);
+	},
+	
+
+	hfInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
+
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				if (res.solely_code == 100000) {
+					self.data.hfInfoData  = res.info.data[0]
+					self.userInfoGet();
+				};
+			};
+		};
+		api.hfInfoGet(postData, callback);
+	},
+
 
 	changeBind(e) {
 		const self = this;
@@ -282,18 +419,50 @@ Page({
 		console.log(self.data.submitData)
 	},
 
-	hfInfoAdd() {
+	hfInfoUpdate() {
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
 		postData.data = api.cloneForm(self.data.submitData);
+		postData.saveAfter = [{
+			tableName: 'UserInfo',
+			FuncName: 'update',
+			data: {
+				/* bank: self.data.submitData.bank_branch, */
+				bank_id: self.data.submitData.bank_id,
+				card_no: self.data.submitData.bank_acct_no,
+				card_prov: self.data.submitData.bank_prov,
+				card_area: self.data.submitData.bank_area,
+			},
+			searchItem: {
+				user_no: wx.getStorageSync('storeInfo').user_no
+			}
+		}];
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				if (res.solely_code == 100000) {
+					api.showToast('申请成功','none')
+				
+				}else{
+					api.showToast(res.msg,'none')
+				}
+			};
+		};
+		api.hfInfoUpdate(postData, callback);
+	},
+
+	/* bindWithdrawCard() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 
 			};
 		};
-		api.hfInfoAdd(postData, callback);
-	},
+		api.bindWithdrawCard(postData, callback);
+	}, */
+
 
 	bankChange(e) {
 		const self = this;
@@ -321,7 +490,7 @@ Page({
 	certChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.cert_id = self.data.certData[e.detail.value].value;
+		self.data.submitData.legal_cert_type = self.data.certData[e.detail.value].value;
 		console.log(self.data.submitData);
 		self.setData({
 			web_index2: e.detail.value,
@@ -363,6 +532,28 @@ Page({
 		};
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.bank_area = self.data.cArray[e.detail.value].value;
+		console.log(self.data.submitData);
+		self.setData({
+			web_index4: e.detail.value,
+			web_submitData: self.data.submitData
+		})
+	},
+	
+	comCertTypeChange(e) {
+		const self = this;
+		console.log('picker发送选择改变，携带值为', e.detail.value)
+		self.data.submitData.corp_license_type = self.data.comCertType[e.detail.value].value;
+		console.log(self.data.submitData);
+		self.setData({
+			web_index5: e.detail.value,
+			web_submitData: self.data.submitData
+		})
+	},
+	
+	attachChange(e) {
+		const self = this;
+		console.log('picker发送选择改变，携带值为', e.detail.value)
+		self.data.attach_type = self.data.fileData[e.detail.value].value;
 		console.log(self.data.submitData);
 		self.setData({
 			web_index4: e.detail.value,

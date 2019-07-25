@@ -17,6 +17,9 @@ Page({
 
 	onLoad(options) {
 		const self = this;
+		wx.setNavigationBarTitle({
+		  title: '店铺会员'
+		});
 		api.commonInit(self);
 		self.getMainData();
 		self.setData({

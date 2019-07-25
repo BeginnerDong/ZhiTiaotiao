@@ -15,9 +15,9 @@ Page({
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
-		totalCount:'0.00',
-		serviceCount:'0.00',
-		helpCount:'0.00',
+		totalCount:0,
+		serviceCount:0,
+		helpCount:0,
 	},
 	//事件处理函数
 	
@@ -35,6 +35,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('agentInfo').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];
@@ -55,14 +58,17 @@ Page({
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem = api.cloneForm(self.data.searchItem)
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.searchItem = {
+			user_no:wx.getStorageSync('agentInfo').user_no
+		}
 		postData.order = {
 			create_time: 'desc',
 		};
 		postData.getAfter = {
 			shopInfo: {
-				tableName: 'User',
-				middleKey: 'consumer_no',
+				tableName: 'ShopInfo',
+				middleKey: 'shop_no',
 				key: 'user_no',
 				searchItem: {
 					status: 1
@@ -76,13 +82,13 @@ Page({
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				for (var i = 0; i < self.data.mainData.length; i++) {
 					if(self.data.mainData[i].count>0){
-						self.data.totalCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+						self.data.totalCount +=parseFloat(self.data.mainData[i].count)
 					};
-					if(self.data.mainData[i].count>0&&self.data.mainData[i]==1){
-						self.data.serviceCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+					if(self.data.mainData[i].count>0&&self.data.mainData[i].benefit_type ==1){
+						self.data.serviceCount +=parseFloat(self.data.mainData[i].count)
 					};
-					if(self.data.mainData[i].count>0&&self.data.mainData[i]==2){
-						self.data.helpCount +=parseFloat(self.data.mainData[i].count).toFixed(2)
+					if(self.data.mainData[i].count>0&&self.data.mainData[i].benefit_type ==2){
+						self.data.helpCount +=parseFloat(self.data.mainData[i].count)
 					};
 				}
 			} else {
@@ -95,9 +101,9 @@ Page({
 			  wx.stopPullDownRefresh();
 			},300);
 			self.setData({
-				web_totalCount:self.data.totalCount,
-				web_serviceCount:self.data.serviceCount,
-				web_helpCount:self.data.helpCount,
+				web_totalCount:self.data.totalCount.toFixed(2),
+				web_serviceCount:self.data.serviceCount.toFixed(2),
+				web_helpCount:self.data.helpCount.toFixed(2),
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)

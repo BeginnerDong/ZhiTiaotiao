@@ -44,7 +44,7 @@ Page({
 				},
 				fixSearchItem: {
 					user_no: ['in', [wx.getStorageSync('info').user_no]],
-					type:['in',[4]],
+					type:['in',[5]],
 				},
 				middleKey: 'id',
 				key: 'relation_id',

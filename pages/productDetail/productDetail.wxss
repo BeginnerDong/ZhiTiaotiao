@@ -9,7 +9,7 @@ page{
 .banner{
 	width:100%;
 	overflow:hidden;
-	height:330rpx;
+	height:400rpx;
 }
 .banner image{
 	width:100%;

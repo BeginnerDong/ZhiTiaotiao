@@ -10,12 +10,12 @@
 	
 }
 .position_right image{
-	width:26rpx;
-	height:22rpx;
+	width:45rpx;
+	height:40rpx;
 }
 .position_left image{
-	width:22rpx;
-	height:28rpx;
+	width:35rpx;
+	height:45rpx;
 	margin-right:20rpx;
 }
 .page-body image{
@@ -47,7 +47,7 @@ swiper{
 .indexTitle image{
 	width:30rpx;
 	height:30rpx;
-	margin-right:30rpx;
+	margin-right:20rpx;
 }
 .indexTitle{
 	width:100%;

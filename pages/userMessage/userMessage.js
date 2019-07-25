@@ -14,7 +14,12 @@ Page({
   onLoad(options){
 		const self  = this;
 		api.commonInit(self);
-		self.getMainData()
+		
+  },
+  
+  onShow(){
+	 const self= this; 
+	 self.getMainData(true)
   },
 	
 	getMainData(isNew) {
@@ -26,15 +31,29 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = api.cloneForm(self.data.searchItem);
-		postData.searchItem.user_type = ['in',[0,1,2]];
-		postData.searchItem.type = ['in',[1,2,3,4]];
+		postData.searchItem.user_no = ['in',[wx.getStorageSync('info').user_no,'U910872296194660']];
+		postData.searchItem.type = ['in',[1,2,3,4,5]];
 		postData.order = {
 			create_time: 'desc'
+		};
+		postData.getAfter = {
+			log: {
+				tableName: 'Log',
+				middleKey: 'id',
+				key: 'relation_id',
+				searchItem: {
+					status: 1,
+					type:6
+				},
+				condition: '=',
+			}
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
-			
+				for (var i = 0; i < self.data.mainData.length; i++) {
+					self.data.mainData[i].content = api.wxParseReturn(res.info.data[i].content).nodes;
+				}
 			}else{
 				self.data.isLoadAll=true;
 				api.showToast('没有更多了','none')

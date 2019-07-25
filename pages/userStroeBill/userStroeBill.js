@@ -15,12 +15,13 @@ Page({
 		searchItem: {
 			status:['in',[1]],
 			type:2,
-			behavior:2
+			
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
 		startTime:'',
-		endTime:''
+		endTime:'',
+		
 	},
 	//事件处理函数
 	
@@ -43,6 +44,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];
@@ -57,6 +61,7 @@ Page({
 	
 	getMainData(isNew) {
 		const self = this;
+		var totalCount = 0;
 		if (isNew) {
 			api.clearPageIndex(self);
 		};
@@ -82,6 +87,9 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				for (var i = 0; i < self.data.mainData.length; i++) {
+					totalCount += parseFloat(self.data.mainData[i].count)
+				};
 			} else {
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none');
@@ -92,6 +100,7 @@ Page({
 			  wx.stopPullDownRefresh();
 			},300);
 			self.setData({
+					web_totalCount: totalCount.toFixed(2),
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
@@ -116,15 +125,21 @@ Page({
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:4,
-					behavior:2
+				
 				}
 			}else if(self.data.currentId==0){
 				self.data.searchItem = {
 					status:['in',[1]],
 					type:2,
+					
+				}
+			}if(self.data.currentId==2){
+				self.data.searchItem = {
+					status:['in',[1,0,-1]],
+					type:4,
 					behavior:2
 				}
-			};
+			}
 			self.getMainData(true);
 			self.setData({
 				web_currentId: self.data.currentId

@@ -138,10 +138,10 @@ Page({
 			user_name: '',
 			cert_id: '',
 			user_mobile: '',
-			vali_date: '',
+			/* vali_date: '', */
 			cust_prov: '',
 			cust_area: '',
-			cust_address: '',
+			/* cust_address: '', */
 			occupation: '',
 			user_email: '',
 			bank_acct_no: '',
@@ -159,7 +159,8 @@ Page({
 	onShow() {
 		const self = this;
 		api.commonInit(self);
-		self.getMainData();
+		
+		self.hfInfoGet()
 	},
 
 
@@ -204,6 +205,62 @@ Page({
 		};
 		api.areaGet(postData, callback);
 	},
+	
+	userInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getAgentToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('agentInfo').user_no
+		};
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				self.data.userInfoData = res.info.data[0];
+				if (self.data.userInfoData.check_status != 0&&self.data.hfInfoData.type==3) {
+					wx.redirectTo({
+						url:'/pages/userAgentDetailb/userAgentDetailb'
+					})
+				}else{
+					self.getMainData();
+				}
+			};
+		};
+		api.userInfoGet(postData, callback);
+	},
+
+	hfInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getAgentToken';
+		postData.searchItem = {
+			user_no: wx.getStorageSync('agentInfo').user_no
+		};
+		postData.data = api.cloneForm(self.data.submitData);
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				self.data.hfInfoData = res.info.data[0]
+				/* self.data.submitData.user_name = res.info.data[0].user_name
+				self.data.submitData.cert_id = res.info.data[0].cert_id
+				self.data.submitData.user_mobile = res.info.data[0].user_mobile
+				self.data.submitData.cust_prov = res.info.data[0].cust_prov
+				self.data.submitData.cust_area = res.info.data[0].cust_area
+				self.data.submitData.occupation = res.info.data[0].occupation
+				self.data.submitData.user_email = res.info.data[0].user_email
+				
+				self.data.submitData.bank_acct_no = res.info.data[0].bank_acct_no
+				self.data.submitData.bank_branch = res.info.data[0].bank_branch
+				self.data.submitData.bank_prov = res.info.data[0].bank_prov
+				self.data.submitData.bank_area = res.info.data[0].bank_area
+				self.data.submitData.bank_id = res.info.data[0].bank_id */
+				self.userInfoGet();
+			};	
+			
+			self.setData({
+				web_submitData:self.data.submitData
+			})
+		};
+		api.hfInfoGet(postData, callback);
+	},
 
 	changeBind(e) {
 		const self = this;
@@ -218,18 +275,52 @@ Page({
 		console.log(self.data.submitData)
 	},
 
-	hfInfoAdd() {
+	hfInfoUpdate() {
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
+		postData.searchItem = {
+			user_no: wx.getStorageSync('agentInfo').user_no
+		};
 		postData.data = api.cloneForm(self.data.submitData);
+		postData.saveAfter = [{
+			tableName: 'UserInfo',
+			FuncName: 'update',
+			data: {
+				/* bank: self.data.submitData.bank_branch, */
+				bank_id: self.data.submitData.bank_id,
+				card_no: self.data.submitData.bank_acct_no,
+				card_prov: self.data.submitData.bank_prov,
+				card_area: self.data.submitData.bank_area,
+			},
+			searchItem: {
+				user_no: wx.getStorageSync('agentInfo').user_no
+			}
+		}];
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
+				api.showToast('申请成功','none')
 
-			};
+			}else{
+				api.showToast(res.msg,'none')
+			}
 		};
-		api.hfInfoAdd(postData, callback);
+		api.hfInfoUpdate(postData, callback);
 	},
+
+	/* bindWithdrawCard() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getAgentToken';
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				api.showToast('开户成功','none')
+			}else{
+				api.showToast(res.msg,'none')
+			}
+		};
+		api.bindWithdrawCard(postData, callback);
+	}, */
 
 	bankChange(e) {
 		const self = this;

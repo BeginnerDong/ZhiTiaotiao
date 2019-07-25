@@ -1,11 +1,13 @@
 
 <view class="w690 message">
-    <view class="message_tlt color2">
-        特大喜讯
-    </view>
+    
+	<view class="message_tlt color2" wx:if="{{web_mainData.type==1}}">系统消息</view>
+	<view class="message_tlt color2" wx:if="{{web_mainData.type==2}}">收到奖励知条</view>
+	<view class="message_tlt color2" wx:if="{{web_mainData.type==3}}">交易成功</view>
+	<view class="message_tlt color2" wx:if="{{web_mainData.type==4}}">知条过期提醒</view>
+	<view class="message_tlt color2" wx:if="{{web_mainData.type==5}}">收到月奖知条</view>
     <view class="font24 color5" style="margin-top: 20rpx; text-align:justify;">
-        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 内
-		内容内容内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容 
+       {{item.description}}
 	</view>
-    <view class="font22 color5 message_time">15:56</view>
+    <view class="font22 color5 message_time">{{item.create_time}}</view>
 </view>

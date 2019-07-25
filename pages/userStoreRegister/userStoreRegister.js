@@ -18,8 +18,7 @@ Page({
 			phone: '',
 			email: '',
 			address: '',
-			bank: '',
-			bank_no: '',
+		
 			menu_id: '',
 			thirdapp_id: 2,
 			longitude: '',
@@ -81,6 +80,7 @@ Page({
 					})
 				}, 800)
 			} else {
+				api.buttonCanClick(self, true);
 				api.showToast(res.msg, 'none', 1000);
 			};
 

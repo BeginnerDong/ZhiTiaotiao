@@ -1,7 +1,8 @@
  <view wx:if="{{web_isShow}}">
     <view class="login">
-		<view class="img" style="height: 380rpx; background: url(../../images/微信图片_20190423185609.png) no-repeat; background-size: 100%;">
-			<image style="transform:rotate(90deg);width:160rpx; height: 150rpx; margin: 40rpx 290rpx;" src="../../images/logo%20(1).png" ></image>
+		<view class="img">
+			<image src="../../images/userLoginBg.png" style="height:380rpx;width:100%"></image>
+			<image style="position: absolute;transform:rotate(90deg);width:160rpx; height: 150rpx;top: 5%;left:39%" src="../../images/logo.png" ></image>
 		</view>
             <view class="login_box bg1">
                 <view class="login_input">
@@ -9,8 +10,8 @@
                         <input placeholder="请输入手机号" style="text-indent: 10rpx;"  value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
                     </view>
                     <view class="list_input flexRowBetween">
-                        <input style="width:60%"></input>
-                        <view class="get_check">获取验证码</view>
+                        <input style="width:60%" value="{{web_submitData.code}}"  data-key="code" bindblur="changeBind"></input>
+                       <view class="get_check" bindtap="{{web_buttonCanClick?'getCode':''}}">{{text}}</view>
                     </view>
 					<radio style="transform: scale(0.5); margin-left: -90rpx; margin-top: 20rpx;" bindtap="rule">《用户服务协议》</radio>
                     <button class="submit_info"  bindtap="{{web_buttonCanClick?'submit':''}}">登录</button>
@@ -23,10 +24,13 @@
 	    <view class="rule bg1" style="height: 90%;">
 	        <scroll-view scroll-y style="height:70vh;">
 	            <view class="rule_cont">
-	                <view class="font28 color2 rule_tlt">标题标题标题</view>
-					<view class=" content font24 color2 w690">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
-					<view class=" content font24 color2 w690">2.内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容</view>
-					 <view class="content font24 color2 w690">3.内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容</view>
+	                <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+					<view class=" content font24 color2 w690">
+						 <view class="content ql-editor">
+						  <import src="../../wxParse/wxParse.wxml"/>
+						  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+						</view>
+					</view>				
 				</view>
 	        </scroll-view>
 			<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
@@ -70,7 +74,7 @@
 		<view class="nav_img">
 			<image src="../../images/navbar3-a.png"></image>
 		</view>
-		<view class="text this-text">支条</view>
+		<view class="text this-text">知条</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/user/user">
 		<view class="nav_img">

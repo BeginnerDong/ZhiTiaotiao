@@ -1,39 +1,87 @@
 
-
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">附件类型</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;" >请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
-	</view>
+<view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width:33%">企业证照类型</view>
+	<picker bindchange="comCertTypeChange" value="{{index}}" range="{{comCertType}}" range-key="name" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{comCertType[web_index5].name?comCertType[web_index5].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
 </view>
-<view class="input_list2 flex w690" style="height: 300rpx;">
-	<view class="color8" style="position: relative; top: -110rpx;">上传文件</view>
-	<view class="input_list2-img">
+
+<!-- <view class="input_list1 font28  flex w690">
+	<view class="input_before color8" style="font-size: 28rpx;width:33%">附件类型</view>
+	<picker bindchange="attachChange" value="{{index}}" range="{{fileData}}" range-key="name" class="input">
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{fileData[web_index4].name?fileData[web_index4].name:'请选择'}}
+			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
+		</view>
+	</picker>
+</view> -->
+<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
+	<view class="color8">统一社会信用码照片</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="05">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list1 input-type">
-	<view class="input_before color8" style="font-size: 28rpx; width: 70%;">企业证照类型</view>
-	<view class="font28" style="font-size: 22rpx;margin-left: 70rpx;" >请选择
-	<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>
+<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
+	<view class="color8" >营业执照照片</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="00">
+		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list1 font28 flex w690">
+<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
+	<view class="color8" >组织机构代码照片</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="01">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+</view>
+<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
+	<view class="color8" >税务登记证</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="02">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+</view>
+<view class="input_list2  w690" style="height: 320rpx;">
+	<view class="color8" >法人身份证照片（正面）</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="03">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+</view>
+<view class="input_list2  w690" style="height: 320rpx;" >
+	<view class="color8" >法人身份证照片（反面）</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="09">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+</view>
+<view class="input_list2  w690" style="height: 320rpx;">
+	<view class="color8" >对公银行账户信息照片</view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="04">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+</view>
+<!-- <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业类型</view>
 	<input class="input" placeholder="普通企业" value="{{web_submitData.corp_type}}"data-key="corp_type" bindblur="changeBind"></input>
-</view>
+</view> -->
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业名称</view>
 	<input class="input" placeholder="输入个体户名称" value="{{web_submitData.corp_name}}"data-key="corp_name" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<!-- <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
 	<input class="input" placeholder="请输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:38%;">统一社会信用代码</view>
-	<input class="input" placeholder="请输入统一社会信用代码" value="{{web_submitData.institution_code}}"data-key="institution_code" bindblur="changeBind"></input>
+	<view class="input_before color8" style="width:33%;">组织机构代码</view>
+	<input class="input" placeholder="请输入组织机构代码" value="{{web_submitData.institution_code}}"data-key="institution_code" bindblur="changeBind"></input>
 </view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:33%;">税务登记证号</view>
+	<input class="input" placeholder="请输入税务登记证号" value="{{web_submitData.tax_code}}"data-key="tax_code" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:38%;">统一社会信用代码</view>
+	<input class="input" placeholder="请输入统一社会信用代码" value="{{web_submitData.social_credit_code}}"data-key="social_credit_code" bindblur="changeBind"></input>
+</view> -->
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照起始日期</view>
 	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseStartChange" class="input">
@@ -68,7 +116,7 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">控股股东</view>
-	<input class="input" placeholder="请输入企业的实际控股人" value="{{web_submitData.legal_name}}"data-key="legal_name" bindblur="changeBind"></input>
+	<input class="input" placeholder="请输入企业的实际控股人" value="{{web_submitData.controlling_shareholder[0].custName}}"data-key="legal_name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">法人姓名</view>
@@ -147,6 +195,10 @@
 	<view class="input_before color8"  style="width:30%;">开户支行名称</view>
 		<input class="input" placeholder="请输入开户支行名称" value="{{web_submitData.bank_branch}}"data-key="bank_branch" bindblur="changeBind"></input>
 </view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8"  style="width:30%;">开户银行账户名</view>
+		<input class="input" placeholder="请输入开户银行账户名" value="{{web_submitData.bank_acct_name}}"data-key="bank_acct_name" bindblur="changeBind"></input>
+</view>
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;width:27%">开户银行省份</view>
 	<picker bindchange="provinceChange" value="{{index}}" range="{{web_pArray}}" range-key="name"  class="input">
@@ -163,7 +215,7 @@
 		</view>
 	</picker>
 </view>
-<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="hfInfoAdd">提交</button>
+<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
 <view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
 
 

@@ -11,7 +11,7 @@ var token = new Token();
 Page({
 
 	data: {
-		isFirstLoadAllStandard: ['getQrData', 'getMainData'],
+		isFirstLoadAllStandard: ['getQrData', 'getMainData','getAboutData'],
 		QrData: [],
 		is_rule: false
 	},
@@ -28,6 +28,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('info').user_no
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];

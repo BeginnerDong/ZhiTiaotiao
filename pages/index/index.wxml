@@ -1,15 +1,16 @@
 <!--index.wxml-->
-<view  style="background: url(../../images/91fb5b0823e8222ba6f43c3b64b14b1.png) no-repeat; background-size: 100%;" >
-	<view class="w690 position flex">
+<view>
+	<image src="../../images/91fb5b0823e8222ba6f43c3b64b14b1.png" style="width:100%;height: 320rpx;"></image>
+	<view class="w690 position flex" style="position: absolute;top: 0">
 		<view class="position_left flex">
-			<image src="/images/微信图片_20190423185559.png"></image>
-			<view class="font24"style="color: #F4C8B2;">{{web_city}}</view>
+			<image src="/images/dingwei.png"></image>
+			<view class="font24" style="color: #fff;">{{web_city}}</view>
 		</view>
 		<view class="position_right" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
 			<image src="../../images/Homepage-icon.png"></image>
 		</view>
 	</view>
-	<view class="w690">
+	<view class="w690" style="position: absolute;top: 6%">
 		<view class="page-body">
 			<view class="page-section page-section-spacing swiper">
 				<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
@@ -43,15 +44,16 @@
 	</view>
 </view> -->
 
-<view class="w690" style="border-bottom: 20rpx solid #e5e5e5;border-top: 20rpx solid #e5e5e5;margin-top:20rpx">
+<view class="w690" style="border-bottom: 20rpx solid rgb(240,240,240);border-top: 20rpx solid rgb(240,240,240);margin-top:100rpx">
 	<view class="new_store">
 		<view class="indexTitle flex" style="height:60rpx">
 			<image src="../../images/Homepage-icon1.png"></image>
 			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
 				<swiper-item wx:for="{{web_messageData}}">
-					<view class="font30 color2">
-						<import src="../../wxParse/wxParse.wxml" />
-						<template is="wxParse" data="{{wxParseData:item.content}}" />
+					<view class="font26 color2">
+						{{item.description}}
+						<!-- <import src="../../wxParse/wxParse.wxml" />
+						<template is="wxParse" data="{{wxParseData:item.content}}" /> -->
 					</view>
 				</swiper-item>
 			</swiper>
@@ -63,46 +65,46 @@
 	<view class="new_store">
 		<view class="indexTitle flex">
 			<image src="/images/index_icon2.jpg"></image>
-			<view class="font30 color2">最新店铺</view>
+			<view class="font32 color2">最新店铺</view>
 		</view>
 	</view>
 	<view class="scroll_img">
 		<scroll-view class="recommend_scroll_x_box" scroll-x="true">
 			<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
 				<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
-				<view class="store_name font28 color1">{{item.name}}</view>
+				<view class="store_name font30 color1">{{item.name}}</view>
 			</view>
 
 		</scroll-view>
 	</view>
 </view>
-<view style="height:20rpx;background-color: #e5e5e5;margin-top:22.5rpx">
+<view style="height:20rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
 </view>
 <view class="w690">
 	<view class="new_store">
 		<view class="indexTitle flex">
 			<image src="/images/index_icon3.jpg"></image>
-			<view class="font30 color2">热门店铺</view>
+			<view class="font32 color2">热门店铺</view>
 		</view>
 	</view>
 	<view class="index_product flexRowBetween">
-		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<8}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
 			<view class="recommend_top">
 				<image src="{{item.mainImg[0].url}}"></image>
 			</view>
-			<view class="product_name font28 color2">{{item.name}}</view>
+			<view class="product_name font30 color2">{{item.name}}</view>
 			<view class="product_pro flex">
 				<view class="product_item flexCenter">
 					<image src="../../images/images/near-icon2.png"></image>
-					<view class="color5 font24">{{item.follow_count}}</view>
+					<view class="color5 font22">{{item.follow_count}}</view>
 				</view>
 				<view class="product_item flexCenter">
 					<image src="../../images/images/near-icon3.png"></image>
-					<view class="color6 font24">{{item.favor_count}}</view>
+					<view class="color6 font22">{{item.favor_count}}</view>
 				</view>
 				<view class="product_item flexCenter">
 					<image src="../../images/images/near-icon4.png"></image>
-					<view class="color7 font24">{{item.view_count}}</view>
+					<view class="color7 font22">{{item.view_count}}</view>
 				</view>
 			</view>
 		</view>

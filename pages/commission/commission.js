@@ -34,6 +34,9 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('agentInfo').user_no
+		}
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.userInfoData = res.info.data[0];
@@ -55,6 +58,9 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getAgentToken';
 		postData.searchItem = api.cloneForm(self.data.searchItem)
+		postData.searchItem = {
+			user_no:wx.getStorageSync('agentInfo').user_no
+		}
 		postData.order = {
 			create_time: 'desc',
 		};

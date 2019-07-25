@@ -48,10 +48,10 @@
 		</view>
 	</picker>
 </view>
-<view class="input_list1 font28 flex w690">
+<!-- <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">住址</view>
 	<input class="input" placeholder="请填写证件上的住址" value="{{web_submitData.cust_address}}"data-key="cust_address" bindblur="changeBind"></input>
-</view>
+</view> -->
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;">开户银行</view>
 	<picker bindchange="bankChange" value="{{index}}" range="{{bankData}}" range-key="name" class="input">
@@ -84,7 +84,7 @@
 		</view>
 	</picker>
 </view>
-<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="hfInfoAdd">提交</button>
+<button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="hfInfoUpdate">提交</button>
 <view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
 
 

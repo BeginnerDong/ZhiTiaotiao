@@ -1,12 +1,12 @@
  <view class="page-body">
-    <view class="page-section page-section-spacing swiper">
+    <view class="swiper-block">
       
         <image src="{{web_mainData.mainImg[0].url}}"></image>
       
     </view>
 </view>
 <view class="store_introduce w690 bg1">
-	<view class="store_tlt font28 color2 avoidOverflow">
+	<view class="store_tlt font34 color2 avoidOverflow">
 		{{web_mainData.name}}
 	</view>
 	<view class="commnet flex">
@@ -25,14 +25,14 @@
 	</view>
 </view>
 <view class="openTime flex">
-	<image src="../../images/微信图片_20190424155819.png" style="width: 30rpx; height: 33rpx;"></image>
-	<view class=" font26 color2">营业时间：</view><view class="font26 color2">{{web_mainData.description}}</view>
-	<image src="../../images/微信图片_20190424155803.png" style="margin-left: 325rpx;"></image>
+	<image src="../../images/time.png" style="width: 30rpx; height: 33rpx;"></image>
+	<view class=" font30 color2" style="width:77%">营业时间：{{web_mainData.description}}</view>
+	<image src="../../images/phone1.png" style="float: right;" bindtap="phoneCall"></image>
 </view>
 <view class="openTime flex">
-	<image src="../../images/微信图片_20190424155825.png" style="width: 30rpx; height: 33rpx;"></image>
-	<view class=" font26 color2">{{web_mainData.address}}</view>
-	<image src="../../images/position_icon2.png" style="margin-left: 364rpx;"></image>
+	<image src="../../images/dingwei1.png" style="width: 30rpx; height: 33rpx;"></image>
+	<view class=" font30 color2" style="width:77%">{{web_mainData.address}}</view>
+	<image src="../../images/position_icon2.png" bindtap="intoMap"></image>
 </view>
 
 <view class="w690 bg1 store_product">
@@ -51,7 +51,7 @@
 	</view>
 	<view class="peice" style="{{currentId == 1?'display:block':'display:none'}}">
 		<view class="index_product flexRowBetween">
-		  <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail">
+		  <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail?id={{item.id}}">
 		    <view class="recommend_top">
 		      <image src="{{item.mainImg[0].url}}"></image>
 		    </view>
@@ -68,15 +68,15 @@
 <view class="store_bottom flex bg1">
 	<view class="store_left flex">
 		<view class="store_btn" bindtap="clickFollow">
-			<image src="{{web_mainData.followMe.length>0?'/images/store-icon11.png':'/images/store-icon15.png'}}"></image>
-			<view class="font24 color2">关注</view>
+			<image src="{{web_mainData.followMe.length>0&&web_mainData.followMe[0].status==1?'/images/follow-active.png':'/images/follow.png'}}"></image>
+			<view class="font30 color2">关注</view>
 		</view>
 		<view class="store_btn" bindtap="clickGood">
-			<image src="{{web_mainData.goodMe.length>0?'/images/store-icon12.png':'/images/store-icon16.png'}}"></image>
-			<view class="font24 color2">点赞</view>
+			<image src="{{web_mainData.goodMe.length>0&&web_mainData.goodMe[0].status==1?'/images/store-icon12.png':'/images/store-icon16.png'}}"></image>
+			<view class="font30 color2">点赞</view>
 		</view>
 	</view>
-	<view class="store_right bg3 font30 color1">欢迎光临</view>
+	<view class="store_right bg3 font30 color1" style="background: #DE5D1C;" bindtap="intoMap">到店光顾</view>
 </view>
 <!-- <view class="page-body">
     <view class="page-section page-section-spacing swiper">
@@ -90,7 +90,7 @@
 		{{web_mainData.name}}
 	</view>
 	<view class="openTime flex">
-		<view class=" font26 color2">营业时间：</view>
+		<view class=" font30 color2">营业时间：</view>
 		<view class="font26 color2">{{web_mainData.description}}</view>
 	</view>
 	<view class="commnet flex">

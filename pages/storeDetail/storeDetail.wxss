@@ -6,15 +6,17 @@ page{
 view{
 	border-radius: 0;
 }
+.page-body{
+	height:400rpx
+}
 .page-body image{
 	width:100%;
-	height:330rpx;
+	height:400rpx;
 }
-swiper{
-	height:330rpx;
-}
+
+
 .swiper-block{
-  height: 330rpx;
+  height: 400rpx;
   width: 100%;
 }
 .swiper-item{
@@ -109,7 +111,7 @@ swiper{
 }
 .tabs_this{
 	color:#de5d1c;
-	border-bottom:solid 1px #de5d1c;
+	border-bottom:solid 2px #de5d1c;
 }
 .tabs_item text{
 	height:78rpx;
@@ -133,6 +135,7 @@ swiper{
 }
 .store_btn{
 	width:50%;
+	text-align: center;
 }
 .store_btn image{
 	width:32rpx;
@@ -140,8 +143,8 @@ swiper{
 	margin-left:6rpx;
 }
 .store_left{
-	width:46%;
-	padding-left:4%;
+	width:50%;
+	
 }
 .store_right{
 	width:50%;

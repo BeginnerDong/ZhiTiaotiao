@@ -1,16 +1,16 @@
 <view class="w690">
 	<view class="contact flex">
-    	<view class="contact_left">
+    	<view class="contact_left" bindtap="phoneCall">
     		<image src="/images/phone.png"></image>
     		<view class="contact_left_word font30 color8 color2">
     			客服电话
     		</view>
-    		<view class="font24">15587575</view>
+    		<view class="font24">{{web_mainData.description}}</view>
     	</view>
 	</view>
 </view>
 <view class="w690">
-    <view class="feedBack shadow1 flex bg1 w710" bindtap="intoPath" data-path="/pages/userFeedBack/userFeedBack">
+    <view class="feedBack shadow1 flex bg1 w710" style="box-shadow:0 0 8rpx #ddd8d6" bindtap="intoPath" data-path="/pages/userFeedBack/userFeedBack">
         <view class="feed_left font30 color2">
             意见反馈
         </view>

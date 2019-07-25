@@ -1,10 +1,10 @@
 <view class="contact">
 	<view class="contact-box" style="margin-left: 120rpx;" bindtap="intoPath" data-path="/pages/userRegisterInfor/userRegisterInfor">
-		<image src="../../images/微信图片_20190424155850.png"></image>
+		<image src="../../images/people.png"></image>
 		<view>个体开户</view>
 	</view>
 	<view class="contact-box" bindtap="intoPath" data-path="/pages/userRegisterInforaa/userRegisterInforaa">
-		<image src="../../images/微信图片_20190424155846.png"></image>
+		<image src="../../images/company.png"></image>
 		<view>企业开户</view>
 	</view>
 </view>

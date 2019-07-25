@@ -33,4 +33,6 @@ page{
 	position: absolute;
 	top:0;
 	right:4%;
+	font-size:24rpx;
+	color: rgb(4,19,44);
 }

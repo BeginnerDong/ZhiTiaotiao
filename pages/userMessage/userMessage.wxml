@@ -14,18 +14,34 @@
 	</view>
 </block> -->
 <view class="message-all">
-	<view class="message-item " bindtap="intoPath" data-path="/pages/userMessageNew/userMessageNew">
-		<view class="message-img">
-			<image src="../../images/images/new-icon.png"></image>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="message-item " bindtap="intoPath" data-path="/pages/userMessageNew/userMessageNew?id={{item.id}}">
+			<view class="message-img" style="position: relative;">
+				<image src="../../images/images/new-icon.png" wx:if="{{item.type==1}}"></image>
+				<image src="../../images/images/new-icon2.png"  wx:if="{{item.type==2||item.type==5}}"></image>
+				<image src="../../images/images/new-icon3@2x.png"  wx:if="{{item.type==3}}"></image>
+				<image src="../../images/images/new-icon4.png"  wx:if="{{item.type==4}}"></image>
+				<view style="width:10px;height:10px;background: red;border-radius: 50%;position: absolute;top:17px;right:6px;" wx:if="{{item.log.length==0}}"></view>
+			</view>
+			<view style="width: 75%;border-bottom: solid 1rpx #F3F3F3;">
+				<view class="message-text text1">
+					<view class="message-title" wx:if="{{item.type==1}}">系统消息</view>
+					<view class="message-title" wx:if="{{item.type==2}}">收到奖励知条</view>
+					<view class="message-title" wx:if="{{item.type==3}}">交易成功</view>
+					<view class="message-title" wx:if="{{item.type==4}}">知条过期提醒</view>
+					<view class="message-title" wx:if="{{item.type==5}}">收到月奖知条</view>
+					<view class="time">{{item.create_time}}</view>
+				</view>
+				<view class="text2 avoidOverflow">
+					{{item.description}}
+				</view>
+			</view>
+			
 		</view>
-		<view class="message-text text1" style="top: 36rpx;">
-			<view class="message-title">系统消息</view>
-			<view class="time">15：09</view>
-		</view>
-		<view class="text2 avoidOverflow" style="top: -50rpx;">特大喜讯知条条用户量超过1000</view>
-	</view>
+	</block>
 	
-	<view class="message-item ">
+	
+	<!-- <view class="message-item ">
 		<view class="message-img">
 			<image src="../../images/images/new-icon2.png"></image>
 		</view>
@@ -67,7 +83,7 @@
 			<view class="time">15：09</view>
 		</view>
 		<view class="text2 avoidOverflow">您收到3月份消费排名的月奖知条300个已</view>
-	</view>
+	</view> -->
 	
 	 
 </view>
