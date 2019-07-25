@@ -118,8 +118,8 @@ page{
 	background:#f2f2f2;
 }
 .w690{
-	width:92%;
-	padding:0 4%;
+	width:94%;
+	padding:0 3%;
 }
 /***********navbar***********/
 .navbar{
@@ -135,7 +135,7 @@ page{
 	align-items:center;
 }
 .nav_img image{
-	width:40rpx;
+	width:42rpx;
 	height:42rpx;
 }
 .navbar_item{

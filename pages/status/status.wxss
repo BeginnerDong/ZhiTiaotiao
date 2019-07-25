@@ -1,14 +1,15 @@
 /**index.wxss**/
 
-@import "../../wxParse/wxParse.wxss"
+@import "../../wxParse/wxParse.wxss" ;
 
 page{
-	background:#f0f0f0;
+  background: #f0f0f0;
 }
 .status-top{
 	height: 440rpx;
 	width: 100%;
 	background: #de5d1c;
+  
 }
 .top-text1{
 	color: #fff;
@@ -160,6 +161,7 @@ page{
 	font-size:50rpx;
 	line-height:200rpx;
 	text-align:center;
+  color: #222;
 }
 
 
@@ -203,6 +205,8 @@ page{
 } */
 .status_right-b{
 	color:#de5d1c;
+  font-size: 26rpx;
+  margin-top: 10rpx;
 	}
 
 

@@ -22,10 +22,11 @@ page{
 	width:80%;
 	height:80rpx;
 	line-height:80rpx;
-	border-radius:15rpx;
+	border-radius:10rpx;
 	margin:200rpx auto;
-	font-size: 30rpx;
+	font-size: 18px;
 }
+
 
 .message_left{
 	width:22%;

@@ -12,11 +12,13 @@ page{
 	margin-bottom:30rpx;
 }
 .store_left{
-	width:59%;
+	width:65%;
 	height:160rpx;
+  box-sizing: border-box;
+  padding-top: 20rpx;
 }
 .store_right{
-	width:41%;
+	width:35%;
 	height:160rpx;
 	text-align: right;
 }
@@ -34,8 +36,8 @@ page{
 	height:68rpx;
 }
 .store_item image{
-	width:22rpx;
-	height:22rpx;
+	width:26rpx;
+	height:26rpx;
 	margin-right:10rpx;
 }
 .store_infor{
@@ -54,9 +56,9 @@ page{
 	height:60rpx;
 }
 .stroe_search_left image{
-	width:28rpx;
-	height:28rpx;
-	margin-right:20rpx;
+	width:30rpx;
+	height:30rpx;
+	margin-right:14rpx;
 }
 .search{
 	width:94%;
@@ -72,6 +74,7 @@ page{
 .search_btn image{
 	width:36rpx;
 	height:36rpx;
+  margin-top: 14rpx;
 }
 .search input{
 	width:88%;

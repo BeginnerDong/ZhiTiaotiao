@@ -12,7 +12,7 @@
 	    </view>
 	</view>
 	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStorePiece/userStorePiece">
-	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon2.png" style="width: 48rpx;"></image>
 	            <view class="font28 color3">店铺知条</view>
@@ -36,7 +36,7 @@
 	    </view>
 	</view>
 	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userPeiceOffer/userPeiceOffer">
-	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="../../images/store-icon5A.png"></image>
 	            <view class="font28 color3">知条特惠</view>
@@ -60,7 +60,7 @@
 	    </view>
 	</view>
 	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreContact/userStoreContact">
-	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon8.png"></image>
 	            <view class="font28 color3">店铺开户</view>
@@ -75,7 +75,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" style="border-right:solid 1rpx #BFBFBF ;"bindtap="show">
+	<view class="sort_item flex" style="border-right:solid 1px #e1e1e1 ;box-sizing: content-box;border-bottom:none;" bindtap="show">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon0.png"></image>

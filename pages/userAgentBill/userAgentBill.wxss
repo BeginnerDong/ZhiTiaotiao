@@ -88,22 +88,20 @@
 	text-align:right;
 }
 .tab{
-	height:80rpx;
 	margin-bottom:10rpx;
 	border-bottom: solid 20rpx #F0F0F0;
-	margin-top: 40rpx;
+  padding:32rpx 0;
 }
 .tab_item{
 	width:50%;
 	text-align:center;
-	height:120rpx;
 	line-height:45rpx;
 	color:#04132c;
 	display: inline-block;
-	border: solid 1rpx #F3F3F3;
 	box-sizing: border-box;
 	border-top: none;
 }
+.tab_item:first-child{	border-right: solid 1px #F3F3F3;}
 .tab_this{
 	color:#2a75f1;
 	border-bottom:solid 2px #2a75f1;

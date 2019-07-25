@@ -5,22 +5,22 @@
 </view>
 <view class="tab flexRowBetween">
     <view class="tab_item">
-       <view style=" color: #1A2235; font-weight: bolder;font-size: 50rpx;">{{web_serviceCount?web_serviceCount:'0.00'}}</view>
-	   <view style="font-size: 26rpx;">服务佣金</view>
+       <view style=" color: #1A2235; font-weight: bolder;font-size: 50rpx;padding-bottom: 20rpx;">{{web_serviceCount?web_serviceCount:'0.00'}}</view>
+	   <view style="font-size: 28rpx;color#999">服务佣金</view>
     </view>
 	<view class="tab_item">
-	   <view style="color: #1A2235; font-weight: bolder;font-size: 50rpx;">{{web_helpCount?web_helpCount:'0.00'}}</view>
-	   <view style="font-size: 26rpx;">辅导佣金</view>
+	   <view style="color: #1A2235; font-weight: bolder;font-size: 50rpx;padding-bottom: 20rpx;">{{web_helpCount?web_helpCount:'0.00'}}</view>
+	   <view style="font-size: 28rpx;color#999">辅导佣金</view>
 	</view>
 </view>
 <view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="piece_list w690 flex">
 		   <view class="piece_item font28 color2" style="text-align:left;">
-				<view class="font26 color2"> {{item.shopInfo.name}}</view>
-				<view class="font20 color2 ilblock">{{item.create_time}}</view>
+				<view class="font28 color2"> {{item.shopInfo.name}}</view>
+				<view class="font24 color2 ilblock">{{item.create_time}}</view>
 			</view>
-			<view class="piece_item font24 color5" style="text-align:right;">{{item.count}}<text style="font-size: 22rpx;">\n {{item.count<0?'提现成功':(item.benefit_type==1?'服务佣金':'辅导佣金')}}</text></view>
+			<view class="piece_item font28 color5" style="text-align:right;">{{item.count}}<text style="font-size: 28rpx;">\n {{item.count<0?'提现成功':(item.benefit_type==1?'服务佣金':'辅导佣金')}}</text></view>
 		</view>
 	</block>
 </view>

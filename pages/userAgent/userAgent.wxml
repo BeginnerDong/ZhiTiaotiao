@@ -13,7 +13,7 @@
 	    </view>
 	</view>
 	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
-	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/agency-icon3.png"></image>
 	            <view class="font28 color3">账单</view>
@@ -37,7 +37,7 @@
 	    </view>
 	</view>
 	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentPayment/userAgentPayment">
-	    <view class="item_box flex" style="border-left:solid 1px #bfbfbf;border-right:solid 1px #bfbfbf">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="../../images/images/user-icon6.png"></image>
 	            <view class="font28 color3">辅导店铺</view>

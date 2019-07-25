@@ -27,16 +27,16 @@
 <view class="openTime flex">
 	<image src="../../images/time.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">营业时间：{{web_mainData.description}}</view>
-	<image src="../../images/phone1.png" style="float: right;" bindtap="phoneCall"></image>
+	<image class="right-clickbtn" src="../../images/phone1.png" style="float: right;margin-right: 30rpx;" bindtap="phoneCall"></image>
 </view>
 <view class="openTime flex">
 	<image src="../../images/dingwei1.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">{{web_mainData.address}}</view>
-	<image src="../../images/position_icon2.png" bindtap="intoMap"></image>
+	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap" style="float: right;margin-right:30rpx;"></image>
 </view>
 
-<view class="w690 bg1 store_product">
-	<view class="tabs font30 flexRowBetween color6">
+<view class=" bg1 store_product">
+	<view class="tabs font30 flexRowBetween color6" style="border-bottom:1px solid #e1e1e1">
 	    <view class="tabs_item " data-id="0" bindtap="tabs">
 	        <text class="color2 {{currentId == 0?'tabs_this':''}}">店铺环境</text>
 	    </view>
@@ -44,39 +44,41 @@
 	        <text class="color2  {{currentId == 1?'tabs_this':''}}">知条特惠</text>
 	    </view>
 	</view>
-	<view class="condition" style="{{currentId == 0?'display:block':'display:none'}}">
-		<block wx:for="{{web_mainData.bannerImg}}" wx:key="id">
-			<image src="{{item.url}}"></image>
-		</block>
-	</view>
-	<view class="peice" style="{{currentId == 1?'display:block':'display:none'}}">
-		<view class="index_product flexRowBetween">
-		  <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail?id={{item.id}}">
-		    <view class="recommend_top">
-		      <image src="{{item.mainImg[0].url}}"></image>
-		    </view>
-		    <view class="product_name font28 color2 avoidOverflow2">{{item.title}}</view>
-		    <view class="product_pro ">
-				<view class="text-red" style="font-size: 28rpx; color: red;">知条数量:{{item.score}}个</view>
-				<view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
-		    </view>
-		  </view>
-		</view>
-	</view>
+  <view class="w690">
+    <view class="condition" style="{{currentId == 0?'display:block':'display:none'}}">
+      <block wx:for="{{web_mainData.bannerImg}}" wx:key="id">
+        <image src="{{item.url}}"></image>
+      </block>
+    </view>
+    <view class="peice" style="{{currentId == 1?'display:block':'display:none'}}">
+      <view class="index_product flexRowBetween">
+        <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail?id={{item.id}}">
+          <view class="recommend_top">
+            <image src="{{item.mainImg[0].url}}"></image>
+          </view>
+          <view class="product_name font28 color2 avoidOverflow">{{item.title}}</view>
+          <view class="product_pro ">
+          <view class="text-red" style="font-size: 28rpx; color: red;">知条数量:{{item.score}}个</view>
+          <view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 <view class="space_bottom"></view>
 <view class="store_bottom flex bg1">
 	<view class="store_left flex">
 		<view class="store_btn" bindtap="clickFollow">
 			<image src="{{web_mainData.followMe.length>0&&web_mainData.followMe[0].status==1?'/images/follow-active.png':'/images/follow.png'}}"></image>
-			<view class="font30 color2">关注</view>
+			<view class="font22 color2" style="line-height: 1.2;">关注</view>
 		</view>
 		<view class="store_btn" bindtap="clickGood">
-			<image src="{{web_mainData.goodMe.length>0&&web_mainData.goodMe[0].status==1?'/images/store-icon12.png':'/images/store-icon16.png'}}"></image>
-			<view class="font30 color2">点赞</view>
+			<image src="{{web_mainData.goodMe.length>0&&web_mainData.goodMe[0].status==1?'/images/store-icon123.png':'/images/store-icon16.png'}}"></image>
+			<view class="font22 color2" style="line-height: 1.2;">点赞</view>
 		</view>
 	</view>
-	<view class="store_right bg3 font30 color1" style="background: #DE5D1C;" bindtap="intoMap">到店光顾</view>
+	<view class="store_right bg3 font34 color1" style="background: #DE5D1C;" bindtap="intoMap">到店光顾</view>
 </view>
 <!-- <view class="page-body">
     <view class="page-section page-section-spacing swiper">

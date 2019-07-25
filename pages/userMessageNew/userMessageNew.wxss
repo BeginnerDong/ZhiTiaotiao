@@ -14,7 +14,6 @@ page{
 }
 .message{
 	border-top:solid 1px #e0e0e0;
-	padding-bottom:28rpx;
 	background: #fff;
 	padding-bottom: 100rpx;
 }
@@ -24,7 +23,14 @@ page{
 	text-align: center;
 	font-size: 32rpx;
 }
+.message_cont{
+  margin-top: 30rpx; 
+  text-align:justify;
+  line-height: 40rpx;
+}
 .message_time{
 	margin-top:30rpx;
 	float: right;
+  font-size: 26rpx;
+  color: #999;
 }

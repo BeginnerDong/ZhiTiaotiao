@@ -1,8 +1,8 @@
 <!--index3.wxml-->
 <view class="w690">
 	<view class="bank bg1 flex w690">
-		<view class="font24 color2" style="width: 25%; margin-left: 15rpx;">到账银行</view>
-		<view class="font24 color2" style="width: 50%;">{{web_userInfoData.bank}}({{web_userInfoData.bank_no}})</view>
+		<view class="font28 color2" style="width: 25%; margin-left: 15rpx;">到账银行</view>
+		<view class="font28 color2" style="width: 50%;">{{web_userInfoData.bank}}({{web_userInfoData.bank_no}})</view>
 	</view>
 	<view class="cash">
 		<view class="case_box">
@@ -13,7 +13,7 @@
 				<view class="input_masks color2">个</view>
 				<input data-key="count" bindinput="changeBind" value="{{web_submitData.count}}"></input>
 			</view>
-			<view class="cash_can font24 color6 bg1 flex">
+			<view class="cash_can font26 color6 bg1 flex">
 				本次可兑换<text>{{web_userInfoData.score}}个</text>
 				<view class="font28 color2" style="margin-left: 280rpx;" bindtap="allOut">全部兑换</view>
 			</view>

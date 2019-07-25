@@ -46,6 +46,7 @@ page{
 .cash_input input{
 	width:90%;
 	height:80rpx;
+  font-size: 54rpx;
 }
 .cash_can{
 	width:87%;

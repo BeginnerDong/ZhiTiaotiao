@@ -28,7 +28,7 @@ page{
 	overflow: hidden;
 }
 .list_input input{
-	font-size:24rpx;
+	font-size:28rpx;
 	color:#666;
 	width:100%;
 	height:100%;
@@ -43,7 +43,7 @@ page{
 	line-height:50rpx;
 	background: #fff;
 	color:#0d6fb8;
-	font-size:24rpx;
+	font-size:28rpx;
 }
 button{
 	border:0;

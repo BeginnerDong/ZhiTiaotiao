@@ -18,7 +18,7 @@
 	<input placeholder="请输入您的邮箱" value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>	
 
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" style="height:110rpx;">
 	<view class="input_before color8" >行业类型:</view>
 	<view class="input">
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{web_typeData}}" range-key="title">
@@ -29,7 +29,7 @@
       </picker>
     </view>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" style="height:110rpx;">
 	<view class="input_before color8" >选择地区:</view>
 	<view class="input">
       <view style="width:70%;" class="city">

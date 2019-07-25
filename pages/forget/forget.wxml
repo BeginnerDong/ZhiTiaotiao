@@ -7,7 +7,7 @@
             <view class="login_box bg1">
                 <view class="login_input">
                     <view class="list_input">
-                        <input placeholder="请输入手机号" data-key="login_name" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
+                        <input placeholder="请输入手机号" data-key="login_name" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind" type="number" maxlength="11"></input>
                     </view>
 					<view class="list_input flexRowBetween">
 					    <input style="width:60%"  value="{{web_submitData.code}}"  data-key="code" bindblur="changeBind"></input>

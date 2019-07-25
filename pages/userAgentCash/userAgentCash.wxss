@@ -46,12 +46,14 @@ page{
 .cash_input input{
 	width:90%;
 	height:80rpx;
+  font-size: 54rpx;
 }
 .cash_can{
 	width:87%;
 	padding:0 6.5%;
 	height:72rpx;
 	line-height:72rpx;
+  padding-top: 10rpx;
 }
 
 .submit_info{

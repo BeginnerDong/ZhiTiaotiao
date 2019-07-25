@@ -42,7 +42,7 @@ page{
 	background:#fff;
 	width:33.33%;
 	box-sizing: border-box;
-	border-bottom: solid 2px #f2f2f2;
+	border-bottom: solid 1px #e1e1e1;
 }
 .item_box{
 	width:100%;

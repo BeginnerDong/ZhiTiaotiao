@@ -44,7 +44,7 @@
 	</view>
 </view> -->
 
-<view class="w690" style="border-bottom: 20rpx solid rgb(240,240,240);border-top: 20rpx solid rgb(240,240,240);margin-top:100rpx">
+<view class="w690" style="border-bottom: 10rpx solid rgb(240,240,240);border-top: 10rpx solid rgb(240,240,240);margin-top:100rpx">
 	<view class="new_store">
 		<view class="indexTitle flex" style="height:80rpx">
 			<image src="../../images/Homepage-icon1.png"  style="margin-right:16rpx"></image>
