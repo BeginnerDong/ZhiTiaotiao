@@ -46,8 +46,8 @@
 
 <view class="w690" style="border-bottom: 20rpx solid rgb(240,240,240);border-top: 20rpx solid rgb(240,240,240);margin-top:100rpx">
 	<view class="new_store">
-		<view class="indexTitle flex" style="height:60rpx">
-			<image src="../../images/Homepage-icon1.png"></image>
+		<view class="indexTitle flex" style="height:80rpx">
+			<image src="../../images/Homepage-icon1.png"  style="margin-right:16rpx"></image>
 			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
 				<swiper-item wx:for="{{web_messageData}}">
 					<view class="font26 color2">

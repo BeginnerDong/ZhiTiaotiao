@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 51,
+			"current": 52,
 			"list": [
 				{
 					"id": -1,
@@ -361,6 +361,12 @@
 					"name": "pages/userStoreEdit/userStoreEdit",
 					"pathName": "pages/userStoreEdit/userStoreEdit",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userMessage/userMessage",
+					"pathName": "pages/userMessage/userMessage",
 					"scene": null
 				}
 			]

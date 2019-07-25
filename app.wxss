@@ -136,7 +136,7 @@ page{
 }
 .nav_img image{
 	width:40rpx;
-	height:50rpx;
+	height:42rpx;
 }
 .navbar_item{
 	width:33.3%;
@@ -147,11 +147,12 @@ page{
 	font-size:24rpx;
 }
 .navbar .this-text{
-	color:#ff5f17;
+	/* color:#ff5f17; */
+  color: #de5d1c;
 }
 .navigator-hover {
 	background:none;
-	color:#ff5f17;
+	color: #de5d1c;
 }
 .submit_info{
 	margin:0rpx 25rpx;

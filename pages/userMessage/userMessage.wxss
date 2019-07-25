@@ -24,6 +24,12 @@
 	top:40rpx ;
 	left: 20rpx;
 }
+.message-item .right-item{
+  width: 85%;
+  border-bottom: solid 1rpx #F3F3F3;
+  box-sizing:border-box;
+  padding-right: 5%;
+}
 .message-text{
 	
 }

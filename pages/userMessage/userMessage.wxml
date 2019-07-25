@@ -23,7 +23,7 @@
 				<image src="../../images/images/new-icon4.png"  wx:if="{{item.type==4}}"></image>
 				<view style="width:10px;height:10px;background: red;border-radius: 50%;position: absolute;top:17px;right:6px;" wx:if="{{item.log.length==0}}"></view>
 			</view>
-			<view style="width: 75%;border-bottom: solid 1rpx #F3F3F3;">
+			<view class="right-item">
 				<view class="message-text text1">
 					<view class="message-title" wx:if="{{item.type==1}}">系统消息</view>
 					<view class="message-title" wx:if="{{item.type==2}}">收到奖励知条</view>
