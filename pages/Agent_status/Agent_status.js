@@ -204,7 +204,7 @@ Page({
 				}
 			}
 			self.setData({
-
+				web_pArrayTwo: self.data.pArrayTwo,
 				web_pArray: self.data.pArray,
 				web_mainData: self.data.mainData
 			});
@@ -227,6 +227,7 @@ Page({
 					wx.redirectTo({
 						url:'/pages/userAgentDetailb/userAgentDetailb'
 					})
+					
 				}else{
 					self.getMainData();
 				}
@@ -306,7 +307,7 @@ Page({
 		}];
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
-				api.showToast('申请成功','none')
+				api.showToast('开户成功','none')
 
 			}else{
 				api.showToast(res.msg,'none')

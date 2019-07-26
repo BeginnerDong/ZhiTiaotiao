@@ -214,11 +214,17 @@ Page({
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {
+			if(self.data.chooseType==0){
+				api.buttonCanClick(self, true);
+				
+				api.showToast('请选择提现方式', 'none');
+				return
+			}
 			self.flowLogAdd()
 		} else {
 			api.buttonCanClick(self, true);
 
-			api.showToast('请输入提现数量', 'none')
+			api.showToast('请输入提现金额', 'none')
 		};
 	},
 
