@@ -189,7 +189,8 @@ page{
 	box-shadow:0 0 20rpx #ddd8d6;
 }
 .bg2{
-	background:#2a75f1;
+  background: #0d6fb8;
+  
 }
 .color7{
 	color:#1e2e49;

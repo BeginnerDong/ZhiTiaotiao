@@ -22,11 +22,15 @@ page{
 	text-align:center;
 }
 .member_cont{
-	height:120rpx;
+	height:140rpx;
 	margin-top:30rpx;
 }
 .member_item{
 	width:33.33%;
+}
+.member_item .numb{
+  font-size: 30rpx;
+  padding-top: 10rpx;
 }
 .member_item>view{
 	text-align:center;

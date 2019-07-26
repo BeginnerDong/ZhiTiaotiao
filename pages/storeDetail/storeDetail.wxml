@@ -56,10 +56,10 @@
           <view class="recommend_top">
             <image src="{{item.mainImg[0].url}}"></image>
           </view>
-          <view class="product_name font28 color2 avoidOverflow">{{item.title}}</view>
+          <view class="product_name font30 color2 avoidOverflow">{{item.title}}</view>
           <view class="product_pro ">
           <view class="text-red" style="font-size: 28rpx; color: red;">知条数量:{{item.score}}个</view>
-          <view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
+          <view class="textinlin color9" style="font-size: 24rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
           </view>
         </view>
       </view>

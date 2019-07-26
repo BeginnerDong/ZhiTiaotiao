@@ -3,16 +3,16 @@
 	    <view class="member_ranking bg1">
 	        <view class="member_cont flex">
 	            <view class="member_item">
-	                <view class="font26">店铺数量</view>
-	                <view class="font24">{{web_shopCount}}</view>
+	                <view class="font30">辅导总数量</view>
+	                <view class="numb">{{web_shopCount}}</view>
 	            </view>
 	            <view class="member_item">
-	                <view class="font26">授权数量</view>
-	                <view class="font24">{{web_authCount}}</view>
+	                <view class="font30">授权总数量</view>
+	                <view class="numb">{{web_authCount}}</view>
 	            </view>
 	            <view class="member_item">
-	                <view class="font26">剩余数量</view>
-	                <view class="font24">{{web_shopCount-web_authCount}}</view>
+	                <view class="font30">剩余总数量</view>
+	                <view class="numb">{{web_shopCount-web_authCount}}</view>
 	            </view>
 	        </view>
 	    </view>

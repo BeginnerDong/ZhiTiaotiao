@@ -25,6 +25,8 @@ page{
 	border-radius:15rpx;
 	margin:200rpx auto;
 	font-size: 30rpx;
+  background: #0d6fb8;
+
 }
 
 .message_left{

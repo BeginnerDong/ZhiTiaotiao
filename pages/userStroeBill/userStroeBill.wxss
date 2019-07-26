@@ -104,8 +104,8 @@
 	box-sizing: border-box;
 }
 .tab_this{
-	color:#2a75f1;
-	border-bottom:solid 2px #2a75f1;
+	color:#0d6fb8;
+	border-bottom:solid 2px #0d6fb8;
 }
 .blank{
 	text-align:center;

@@ -51,7 +51,7 @@
 		<textarea value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"></textarea>
 	</view>
 </view>
-<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>
+<button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>
 
 
 
