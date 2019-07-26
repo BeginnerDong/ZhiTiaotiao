@@ -106,13 +106,12 @@ page{
 	line-height:50rpx;
 	background: #fff;
 	color:#de5d1c;
-	font-size:24rpx;
+	font-size:28rpx;
 }
 button{
 	border:0;
 }
 .submit_info{
-	border-radius:0;
 	width:100%;
 	margin:100rpx auto 0 auto;
 	border-radius: 40rpx;
@@ -128,7 +127,7 @@ button{
 	width: 30rpx; 
 	height: 45rpx;
 	position: relative;
-	top: -434rpx; 
+	top: -448rpx; 
 	left: 65rpx;
 }
 
