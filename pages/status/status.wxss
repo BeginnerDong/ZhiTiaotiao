@@ -32,8 +32,8 @@ page{
 	height: 100%;
 	color: #38221C;
 	display: inline-block;
-	line-height: 100rpx;
-	font-size: 30rpx;
+	line-height: 80rpx;
+	font-size: 34rpx;
 	width: 33.3%;
 	text-align: center;
 	box-sizing: border-box;
@@ -205,10 +205,9 @@ page{
 } */
 .status_right-b{
 	color:#de5d1c;
-  font-size: 30rpx;
+  font-size: 34rpx;
   margin-top: 10rpx;
-	}
-
+}
 
 /* 
 @import "../../wxParse/wxParse.wxss"

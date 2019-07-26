@@ -184,11 +184,11 @@
 		        </view>
 		        <view class="font28 color2 avoidOverflow">{{item.user.nickname}}</view>
 		    </view>
-		    <view class="status_right font26 color5">月消费额
-				<view class="status_right-b">{{item.consume}}</view>
-			</view>
-		</view>
-	</block>
+		    <view class="status_right font28 color5">月消费额
+				  <view class="status_right-b">{{item.consume}}</view>
+			  </view>
+		  </view>
+	  </block>
 <!--    <view class="status bg1 flex shadow1">
         <view class="status_number color">
             我
@@ -254,7 +254,7 @@
     </view> -->
 </view>
 <view class="reword font24 color1 flex" bindtap="rule">
-    <view class="reword_in color1">奖励规则</view>
+    <view class="reword_in color1">知条规则</view>
 </view>
 <view class="space_bottom"></view>
 <view class="navbar">

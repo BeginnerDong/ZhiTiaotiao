@@ -33,14 +33,15 @@ page{
 	width:22%;
 }
 .message_right{
-	width:78%;
+	width:70%;
 	height:258rpx;
 	border:solid 1px #e5e5e5;
 }
 .message_right textarea{
-	width:94%;
-	padding:2%;
+	width:100%;
+	padding:10rpx;
 	height:100%;
+  box-sizing:border-box;
 }
 .message{
 	margin-top:48rpx;

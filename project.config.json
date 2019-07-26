@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 66,
+			"current": 68,
 			"list": [
 				{
 					"id": -1,
@@ -465,6 +465,20 @@
 					"id": -1,
 					"name": "pages/userLogin/userLogin",
 					"pathName": "pages/userLogin/userLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/forget/forget",
+					"pathName": "pages/forget/forget",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/status/status",
+					"pathName": "pages/status/status",
 					"scene": null
 				}
 			]
