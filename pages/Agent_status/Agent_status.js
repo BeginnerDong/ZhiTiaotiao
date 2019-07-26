@@ -151,7 +151,9 @@ Page({
 			bank_id: ''
 		},
 		pArray: [],
+		pArrayTwo:[],
 		cArray: [],
+		cArrayTwo:[],
 		mainData: [],
 		isFirstLoadAllStandard: ['getMainData']
 	},
@@ -193,7 +195,12 @@ Page({
 							value: self.data.mainData[i].province_no
 						})
 					};
-
+					if (api.findItemInArray(self.data.pArrayTwo, 'name', self.data.mainData[i].province) == false) {
+						self.data.pArrayTwo.push({
+							name: self.data.mainData[i].province,
+							value: self.data.mainData[i].province_no
+						})
+					};
 				}
 			}
 			self.setData({
@@ -351,12 +358,12 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.cArray = [];
-		self.data.submitData.cust_prov = self.data.pArray[e.detail.value].value;
+		self.data.submitData.cust_prov = self.data.pArrayTwo[e.detail.value].value;
 		console.log(self.data.submitData);
 		for (var i = 0; i < self.data.mainData.length; i++) {
-			if (self.data.mainData[i].province_no == self.data.pArray[e.detail.value].value) {
-				if (api.findItemInArray(self.data.cArray, 'name', self.data.mainData[i].city) == false) {
-					self.data.cArray.push({
+			if (self.data.mainData[i].province_no == self.data.pArrayTwo[e.detail.value].value) {
+				if (api.findItemInArray(self.data.cArrayTwo, 'name', self.data.mainData[i].city) == false) {
+					self.data.cArrayTwo.push({
 						name: self.data.mainData[i].city,
 						value: self.data.mainData[i].city_no
 					})
@@ -364,7 +371,7 @@ Page({
 			}
 		};
 		self.setData({
-			web_cArray: self.data.cArray,
+			web_cArrayTwo: self.data.cArrayTwo,
 			web_index5: e.detail.value,
 			web_submitData: self.data.submitData
 		})
@@ -372,13 +379,13 @@ Page({
 
 	userCityChange(e) {
 		const self = this;
-		console.log(self.data.cArray)
-		if (self.data.cArray.length == 0) {
+		console.log(self.data.cArrayTwo)
+		if (self.data.cArrayTwo.length == 0) {
 			api.showToast('请先选择省份', 'none')
 			return
 		};
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.cust_area = self.data.cArray[e.detail.value].value;
+		self.data.submitData.cust_area = self.data.cArrayTwo[e.detail.value].value;
 		console.log(self.data.submitData);
 		self.setData({
 			web_index6: e.detail.value,
