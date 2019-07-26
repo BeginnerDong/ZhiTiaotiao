@@ -17,7 +17,9 @@ Page({
 		submitData: {
 			phone: '',
 		},
-		is_rule: false
+		is_rule: false,
+		text: '获取验证码', //按钮文字
+		currentTime: 61, //倒计时 
 	},
 	rule(e) {
 		const self = this;
@@ -157,7 +159,7 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 
-				if (!JSON.stringify(res.info.data[0].info.phone) == '') {
+				if (res.info.data[0].info.phone!= '') {
 					api.pathTo('/pages/status/status', 'redi')
 				} else {
 					self.data.isShow = true
@@ -176,7 +178,9 @@ Page({
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.data = {};
-		postData.data = api.cloneForm(self.data.submitData);
+		postData.data = {
+			phone:self.data.submitData.phone
+		};
 		postData.smsAuth = {
 			code:self.data.submitData.code,
 			phone:self.data.submitData.phone
