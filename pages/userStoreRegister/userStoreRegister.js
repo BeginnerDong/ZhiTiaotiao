@@ -73,7 +73,7 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				api.buttonCanClick(self, true);
-				api.showToast('申请成功', 'none', 800);
+				api.showToast('注册成功', 'none', 800);
 				setTimeout(function() {
 					wx.navigateBack({
 						delta: 1

@@ -92,13 +92,13 @@
 }
 .tab{
 	height:80rpx;
-	margin-bottom:36rpx;
+	margin:20rpx 0 30rpx 0;
 }
 .tab_item{
 	width:50%;
 	text-align:center;
-	height:80rpx;
-	line-height:80rpx;
+	height:70rpx;
+	line-height:70rpx;
 	color:#04132c;
 	border-bottom:solid 2px #fff;
 }

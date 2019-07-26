@@ -134,7 +134,8 @@ swiper{
 }
 .recommend_top{
 	width:100%;
-	height:212rpx;
+	/* height:212rpx; */
+  height: 230rpx;
 	overflow: hidden;
 }
 .recommend_top image{

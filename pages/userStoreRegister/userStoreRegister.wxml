@@ -1,25 +1,25 @@
 
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">店铺名称</view>
+	<view class="input_before color8">店铺名称：</view>
 	<input placeholder="请输入店铺名称" value="{{web_submitData.name}}"  data-key="name" bindblur="bindInputChange"></input>
 </view>
 
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:40%">店主登录手机号码</view>
+	<view class="input_before color8" style="width:45%">店主登录手机号码：</view>
 	<input placeholder="请输入手机号码" value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"></input>
 </view>
 
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">登录密码</view>
-	<input placeholder="设置密码(6位-16位)" value="{{web_submitData.password}}"  data-key="password" bindblur="bindInputChange"></input>
+	<view class="input_before color8">登录密码：</view>
+	<input placeholder="密码为6-16位字母与数字混合" value="{{web_submitData.password}}"  data-key="password" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">常用邮箱</view>
+	<view class="input_before color8">常用邮箱：</view>
 	<input placeholder="请输入您的邮箱" value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>	
 
 <view class="input_list1 font28 flex  w690" style="height:110rpx;">
-	<view class="input_before color8" >行业类型:</view>
+	<view class="input_before color8" >行业类型：</view>
 	<view class="input">
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{web_typeData}}" range-key="title">
         <view class="flex picker_in">
@@ -30,7 +30,7 @@
     </view>
 </view>
 <view class="input_list1 font28 flex  w690" style="height:110rpx;">
-	<view class="input_before color8" >选择地区:</view>
+	<view class="input_before color8" >所在地区：</view>
 	<view class="input">
       <view style="width:70%;" class="city">
 		<picker
@@ -45,7 +45,7 @@
 </view>
 <view class="message flex1 w690" bindtap="chooseLocation">
 	<view class="message_left font28 color2">
-		店铺地址
+		店铺地址：
 	</view>
 	<view class="message_right font28 color2">
 		<textarea value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"></textarea>

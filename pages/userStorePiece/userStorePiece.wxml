@@ -5,11 +5,11 @@
 </view>
 <block wx:for="{{web_mainData}}" wx:key="id">
 <view class="piece_list w690 flex">
-	<view class="piece_item font28 color2" style="text-align:right;">
+	<view class="piece_item font28 color2" style="text-align:left;">
 		<view class="font30 color2">{{item.count>0?item.shopInfo.nickname:'兑换'}}</view>
-		<view class="font24 color2 ilblock">{{item.create_time}}</view>
+		<view class="font24 color9 ilblock">{{item.create_time}}</view>
 	</view>
-	<view class="piece_item font28 color5"style="text-align:right;{{item.count>0?'color: #0d6fb8;':''}}">+{{item.count}}
+	<view class="piece_item font30 color5"style="text-align:right;line-height: 84rpx;{{item.count>0?'color: #0d6fb8;':''}}">+{{item.count}}
 		<text style="font-size: 24rpx;" wx:if="{{item.count<0}}">\n兑换成功</text>
 	</view>
 </view>

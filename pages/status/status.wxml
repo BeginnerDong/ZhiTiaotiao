@@ -184,7 +184,7 @@
 		        </view>
 		        <view class="font28 color2 avoidOverflow">{{item.user.nickname}}</view>
 		    </view>
-		    <view class="status_right font24 color5">月消费额
+		    <view class="status_right font26 color5">月消费额
 				<view class="status_right-b">{{item.consume}}</view>
 			</view>
 		</view>
@@ -212,11 +212,11 @@
         <view style="width:100%;">
             <picker mode="date" value="{{select_data}}" fields="month" start="2019-01-12" end="2050-09-01" bindchange="changeDate">
                 <view class="flexCenter">
-                    <view class="font28 color2">时间筛选</view>
+                    <view class="font30 color2">时间筛选</view>
                     <image src="/images/up.png"></image>
                 </view>
                 <view class="picker_in">
-                  <view class="picker color5 font22">{{web_select_data}}</view>
+                  <view class="picker color5 font26">{{web_select_data}}</view>
                 </view>
             </picker>
         </view>

@@ -80,7 +80,7 @@ page{
 }
 .status_left view{
 	position: relative;
-	top: -16rpx;
+	top: 0rpx;
 }
 .status_right{
 	/* border: solid 1rpx red; */
@@ -96,7 +96,7 @@ page{
 	border-radius:50%;
 	overflow:hidden;
 	margin-right:26rpx;
-	margin-top: 35rpx;
+	
 }
 .reword{
 	width:100rpx;
@@ -158,7 +158,7 @@ page{
 	text-align: center;
 }
 .status_number{
-	font-size:50rpx;
+	font-size:46rpx;
 	line-height:200rpx;
 	text-align:center;
   color: #222;
@@ -205,7 +205,7 @@ page{
 } */
 .status_right-b{
 	color:#de5d1c;
-  font-size: 26rpx;
+  font-size: 30rpx;
   margin-top: 10rpx;
 	}
 

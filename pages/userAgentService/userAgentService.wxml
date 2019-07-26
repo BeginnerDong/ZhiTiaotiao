@@ -50,9 +50,7 @@
 		<image style="width: 200rpx; height: 240rpx;"></image>
 	</view>
 </view>
-<button style="background: #0d6fb8; width: 80%; color: #fff; font-size: 26rpx;margin-top: 80rpx; margin-bottom: 80rpx;" bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>
-
-
+<button style="background: #0d6fb8; width: 80%; height:80rpx; line-height:80rpx; color: #fff; font-size: 28rpx;margin-top: 80rpx; margin-bottom: 80rpx;" bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>
 
 <!-- <view class="piece_top flex">
     <view class="w690">

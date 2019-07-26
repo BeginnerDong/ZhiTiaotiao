@@ -21,11 +21,11 @@
 		<block wx:for="{{web_mainData}}" wx:key="id">
 			<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail" wx:if="{{item.count>0}}">
 				<view class="piece_item font28 color2" style="text-align:left;">
-					<view class="font24 color2">{{item.shopInfo.nickname?item.shopInfo.nickname:item.trade_info}}</view>
+					<view class="font28 color2">{{item.shopInfo.nickname?item.shopInfo.nickname:item.trade_info}}</view>
 					<!-- <view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">18:09</view> -->
-					<view class="font24 color2 ilblock">{{item.create_time}}</view>
+					<view class="font24 color9 ilblock">{{item.create_time}}</view>
 				</view>
-				<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}</view>
+				<view class="piece_item font28 color3" style="text-align:right;">{{item.count}}</view>
 			</view>
 			<view class="piece_list w690 flex" bindtap="intoPath" data-path="/pages/checkDetail/checkDetail" wx:if="{{item.count<0}}">
 			   <view class="piece_item font28 color2" style="text-align:left;">

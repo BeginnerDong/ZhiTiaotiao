@@ -162,7 +162,7 @@
 }
 
 .piece_list{
-	height:106rpx;
+	height:110rpx;
 	border-bottom:solid 1px #f4f4f4;
 }
 .piece_item{
@@ -170,6 +170,7 @@
 }
 .ilblock{
 	display: inline-block;
+  padding-top: 8rpx;
 }
 .time{
 	margin-left: 20rpx;

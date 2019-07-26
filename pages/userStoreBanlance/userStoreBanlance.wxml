@@ -19,7 +19,7 @@
 	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算金额（￥）</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>
-<view class="tab font30 flexRowBetween" style="border-bott: ;om: solid 20rpx #F5F5F5;">
+<view class="tab font30 flexRowBetween">
     <view class="tab_item" data-id="1"  bindtap="changeType" style="display: flex;align-items: center;justify-content: center;">
        <view class="{{web_currentId==1?'tab_this':''}}" style="width:90rpx">货款</view>
     </view>
@@ -35,8 +35,8 @@
 	</view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="record_list flex">
-		  <view class="w50 color6 font24">{{item.create_time}}</view>
-		  <view class="w50 color6 font24">{{item.count}}</view>
+		  <view class="w50 color6 font26">{{item.create_time}}</view>
+		  <view class="w50 color3 font28">{{item.count}}</view>
 		</view>
 	</block>
 </view>

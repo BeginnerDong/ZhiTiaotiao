@@ -234,7 +234,7 @@ Page({
 		const callback = (data) => {
 			if (data.solely_code == 100000) {
 				api.buttonCanClick(self, true);
-				api.showToast('完善成功', 'none')
+				api.showToast('上传成功', 'none')
 				setTimeout(function() {
 					wx.navigateBack({
 						delta: 1

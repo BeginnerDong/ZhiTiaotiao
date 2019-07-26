@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 62,
+			"current": 65,
 			"list": [
 				{
 					"id": -1,
@@ -437,6 +437,27 @@
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/status/status",
+					"pathName": "pages/status/status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreBanlance/userStoreBanlance",
+					"pathName": "pages/userStoreBanlance/userStoreBanlance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreRegister/userStoreRegister",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
 					"scene": null
 				}
 			]
