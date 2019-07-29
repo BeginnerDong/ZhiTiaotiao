@@ -3,7 +3,7 @@
 	<view class="w690">
 		<view class="member_ranking  bg1" style="border-radius:10rpx">
 			<view class="member_tlt font30 colorb">
-				店铺会员前三名
+				店铺会员数量前三名
 			</view>
 			<view class="member_cont flex">
 				<block wx:for="{{web_memberData}}" wx:key="id">
@@ -23,7 +23,7 @@
 		</view>
 		<view class="member_ranking  bg1">
 			<view class="member_tlt font30 colorb">
-				店铺知条前三名
+				店铺知条数量前三名
 			</view>
 			<view class="member_cont flex">
 				<block wx:for="{{web_scoreData}}" wx:key="id">
