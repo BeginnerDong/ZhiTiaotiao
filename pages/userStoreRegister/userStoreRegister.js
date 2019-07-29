@@ -46,7 +46,7 @@ Page({
 			caseData: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['门店类别']],
+					title: ['=', ['行业类型']],
 				},
 				middleKey: 'parentid',
 				key: 'id',
