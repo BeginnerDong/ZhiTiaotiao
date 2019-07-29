@@ -27,12 +27,12 @@
 <view class="openTime flex">
 	<image src="../../images/time.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">营业时间：{{web_mainData.description}}</view>
-	<image class="right-clickbtn" src="../../images/phone1.png" style="float: right;margin-right: 30rpx;" bindtap="phoneCall"></image>
+	<image class="right-clickbtn" src="../../images/phone1.png" style="float: right;margin-right: 8rpx;" bindtap="phoneCall"></image>
 </view>
 <view class="openTime flex">
 	<image src="../../images/dingwei1.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">{{web_mainData.address}}</view>
-	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap" style="float: right;margin-right:30rpx;"></image>
+	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap" style="float: right;margin-right:8rpx;"></image>
 </view>
 
 <view class=" bg1 store_product">

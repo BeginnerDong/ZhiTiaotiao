@@ -29,19 +29,18 @@
             </view>
         </view>
     </view> -->
-    <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+    <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
 				<view class="store_name font30 color2 avoidOverflow">
 					{{item.name}}
-					
 				</view>
 				<view class="store_item flex" style="width:300rpx">
 					<image src="/images/position_icon2.png"></image>
 					<view class="font26 color5">{{item.distance}}Km</view>
 				</view>
 			</view>
-            <view class="store_infor flex ">
+            <view class="store_infor flex " style="width:89%">
                 <view class="store_item flex">
                     <image src="/images/images/near-icon2.png"></image>
                     <view class="font26 color5">{{item.follow_count}}</view>

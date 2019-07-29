@@ -1,15 +1,15 @@
 /**index.wxss**/
 
-@import "../../wxParse/wxParse.wxss"
+@import "../../wxParse/wxParse.wxss";
 
 page{
 	background:#f0f0f0;
 }
 .stroe{
 	height:200rpx;
-	border-radius:10rpx;
 	overflow:hidden;
-	margin-bottom:30rpx;
+	border-bottom:2rpx solid #e3e3e3;
+
 }
 .store_left{
 	width:65%;

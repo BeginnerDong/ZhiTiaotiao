@@ -14,10 +14,10 @@ view{
 	height:100%;
 }
 .openTime .right-clickbtn{
-  padding: 10rpx;
-  background: #f5f5f5;
-  border-radius: 8rpx;
-  border: 1px solid #eee;
+  padding: 20rpx;
+  border-right: 2px solid #eee;
+  border-left: 2px solid #eee;
+
   
 
 }
