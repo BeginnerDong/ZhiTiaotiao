@@ -86,7 +86,7 @@ swiper{
 
 /*************横向滚动*****************/
 .recommend_scroll_x_box {
-  height:180rpx;
+  height:220rpx;
   white-space: nowrap;
   display: flex;
 }
@@ -98,7 +98,7 @@ swiper{
 }
 .recommend_hot_box {
   width: 280rpx;
-  height:180rpx;
+  height:218rpx;
   margin-right:20rpx;
   display: inline-block;
   overflow:hidden;

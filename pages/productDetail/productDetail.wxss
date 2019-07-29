@@ -29,11 +29,9 @@ page{
 .condition{
 	margin-top:30rpx;
 	width: 100%;
-	height: 320rpx;
 }
 .condition image{
 	width:100%;
-	height:320rpx;
 }
 .store_bottom{
 	height:100rpx;

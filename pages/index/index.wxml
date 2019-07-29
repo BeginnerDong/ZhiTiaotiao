@@ -74,11 +74,10 @@
 				<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
 				<view class="store_name font30 color1">{{item.name}}</view>
 			</view>
-
 		</scroll-view>
 	</view>
 </view>
-<view style="height:20rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
+<view style="height:10rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
 </view>
 <view class="w690">
 	<view class="new_store">
