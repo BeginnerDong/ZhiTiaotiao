@@ -4,13 +4,10 @@
 	<view class="w690 position flex" style="position: absolute;top: 0">
 		<view class="position_left flex">
 			<image src="/images/dingwei.png"></image>
-			<view class="font26" style="color: #fff;">{{web_city}}</view>
-		</view>
-		<view class="position_right" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
-			<image src="../../images/Homepage-icon.png"></image>
+			<view class="font28" style="color: #fff;">{{web_city}}</view>
 		</view>
 	</view>
-	<view class="w690" style="position: absolute;top: 6%">
+	<view class="w690" style="position: absolute;top: 68rpx">
 		<view class="page-body">
 			<view class="page-section page-section-spacing swiper">
 				<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
@@ -44,19 +41,20 @@
 	</view>
 </view> -->
 
-<view class="w690" style="border-bottom: 10rpx solid rgb(240,240,240);border-top: 10rpx solid rgb(240,240,240);margin-top:100rpx">
+<view class="w690" style="border-bottom: 10rpx solid rgb(240,240,240);border-top: 10rpx solid rgb(240,240,240);margin-top:90rpx">
 	<view class="new_store">
 		<view class="indexTitle flex" style="height:80rpx">
 			<image src="../../images/Homepage-icon1.png"  style="margin-right:16rpx"></image>
 			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
 				<swiper-item wx:for="{{web_messageData}}">
-					<view class="font26 color2">
+					<view class="font28 color2">
 						{{item.description}}
 						<!-- <import src="../../wxParse/wxParse.wxml" />
 						<template is="wxParse" data="{{wxParseData:item.content}}" /> -->
 					</view>
 				</swiper-item>
 			</swiper>
+      <view class="moreBtn" bindtap="intoPath" data-path="/pages/userMessage/userMessage">更多...</view>
 		</view>
 	</view>
 </view>
@@ -65,14 +63,14 @@
 	<view class="new_store">
 		<view class="indexTitle flex">
 			<image src="/images/index_icon2.jpg"></image>
-			<view class="font32 color2">最新店铺</view>
+			<view class="font34 color2">最新店铺</view>
 		</view>
 	</view>
 	<view class="scroll_img">
 		<scroll-view class="recommend_scroll_x_box" scroll-x="true">
 			<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
 				<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
-				<view class="store_name font30 color1">{{item.name}}</view>
+				<view class="store_name font30 color1"><view class="tex">{{item.name}}</view></view>
 			</view>
 		</scroll-view>
 	</view>
@@ -83,7 +81,7 @@
 	<view class="new_store">
 		<view class="indexTitle flex">
 			<image src="/images/index_icon3.jpg"></image>
-			<view class="font32 color2">热门店铺</view>
+			<view class="font34 color2">热门店铺</view>
 		</view>
 	</view>
 	<view class="index_product flexRowBetween">

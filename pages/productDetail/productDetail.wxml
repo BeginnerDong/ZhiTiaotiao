@@ -2,17 +2,21 @@
 	<image src="{{web_mainData.bannerImg[0].url}}"></image>
 </view>
 <view class="store_introduce w690 bg1">
-	<view class="store_tlt font32 color2 avoidOverflow">
+	<view class="store_tlt font34 color2 avoidOverflow">
 		{{web_mainData.title}}
 	</view>
-	<view class="font24 color8">{{web_mainData.description}}</view>
+  <view class="rightSee commnet_item flexCenter" style="margin-right:0;">
+      <image src="../../images/images/near-icon4.png" style="width: 26rpx; height: 18rpx;"></image>
+      <view class="font24 color5">2322</view>
+  </view>
+	<!-- <view class="font24 color8">{{web_mainData.description}}</view> -->
 	<view class="product_pro  flex avoidOverflow">
-       <view class="font30 color_r">知条数量：{{web_mainData.score}}个</view>
-       <view class="font20" style="margin-left:20rpx; text-decoration: line-through;">店铺价格：￥{{web_mainData.price}}</view>
+       <view class="font30 color_r">知条特惠：{{web_mainData.score}}个</view>
+       <view class="font24" style="margin-left:20rpx; text-decoration: line-through;padding-top: 6rpx;">店铺价格：￥{{web_mainData.price}}</view>
     </view>
 </view>
 <view class="w690 bg1 store_product" style="margin-bottom: 30rpx;">
-	<view class="font32 color2" style="height:100rpx;line-height:100rpx;">
+	<view class="font32 color2" style="height:80rpx;line-height:100rpx;">
 	<image src="../../images/pic.png" style="width: 42rpx; height: 36rpx; position: relative; top: 10rpx;"></image>
 	商品图片
 	</view>

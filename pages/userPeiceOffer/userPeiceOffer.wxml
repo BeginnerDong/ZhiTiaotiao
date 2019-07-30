@@ -1,16 +1,16 @@
-<view class="w690" style="text-align: right;margin-top: 10rpx; font-size: 28rpx;" bindtap="showDelete">{{web_showDelete?'完成':'删除'}}</view>
+<view class="w690" style="text-align: right;margin-top: 20rpx; font-size: 28rpx;padding-right:2%;box-sizing: border-box;" bindtap="showDelete">{{web_showDelete?'完成':'删除'}}</view>
 <view class="index_product flexRowBetween w690">
 		<block wx:for="{{web_mainData}}" wx:key="id">
 		  <view class="recommend_left bg1 shadow1" style="position:relative" bindtap="{{web_showDelete?'':'intoPath'}}" data-path="/pages/userStoreEdit/userStoreEdit?id={{item.id}}">
 		    <view class="recommend_top">
 		      <image src="{{item.mainImg[0].url}}"></image>
 		    </view>
-		    <view class="product_name font28 color2 avoidOverflow2">{{item.title}}</view>
+		    <view class="product_name font30 color2 avoidOverflow2">{{item.title}}</view>
 		    <view class="product_pro ">
-				<view class="text-red" style="font-size: 28rpx; color: red;">知条数量:{{item.score}}个</view>
-				<view class="textinlin" style="font-size: 22rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
+				<view class="text-red" style="font-size: 28rpx; color: #de5d1c;">知条数量:{{item.score}}个</view>
+				<view class="textinlin color9" style="font-size: 24rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
 		    </view>
-			<image src="{{item.isSelect?'/images/circle_a.jpg':'/images/circle.jpg'}}" data-index="{{index}}" bindtap="choose" wx:if="{{web_showDelete}}" style="position:absolute;width:30rpx;height:30rpx;top:10rpx;right:10rpx"></image>
+			<image src="{{item.isSelect?'/images/circle_a.png':'/images/circle.png'}}" data-index="{{index}}" bindtap="choose" wx:if="{{web_showDelete}}" style="position:absolute;width:40rpx;height:40rpx;top:10rpx;right:10rpx"></image>
 		 </view>
 	 </block>
 </view>
@@ -19,8 +19,8 @@
 </view>
 <view class="store-del" wx:if="{{web_showDelete}}">
 	<view class="all_select" style="width:10%;text-align:center;overflow:hidden;"  bindtap="chooseAll">
-		<image src="{{web_isChooseAll?'/images/circle_a.jpg':'/images/circle.jpg'}}" 
-		 wx:if="{{web_showDelete}}" style="width:30rpx;height:30rpx;"></image>
+		<image src="{{web_isChooseAll?'/images/circle_a.png':'/images/circle.png'}}" 
+		 wx:if="{{web_showDelete}}" style="width:50rpx;height:50rpx;"></image>
 	</view>
 	<view class="select_c" style="width:10%;text-align:left;overflow:hidden;" bindtap="chooseAll">全选</view>
 	<view bindtap="deleteIndex" class="detail-box">删除</view>

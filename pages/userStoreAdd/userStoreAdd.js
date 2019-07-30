@@ -146,7 +146,6 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-
 	  
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass',pass)

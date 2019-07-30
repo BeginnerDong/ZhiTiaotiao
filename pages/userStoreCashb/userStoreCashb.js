@@ -143,7 +143,13 @@ Page({
 			web_submitData: self.data.submitData
 		})
 	},
-
+  rule() {
+    const self = this;
+    self.data.is_rule = !self.data.is_rule;
+    self.setData({
+      is_rule: self.data.is_rule
+    })
+  },
 	changeBind(e) {
 		const self = this;
 		api.fillChange(e, self, 'submitData');

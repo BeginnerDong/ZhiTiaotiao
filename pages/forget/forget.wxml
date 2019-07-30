@@ -7,14 +7,14 @@
             <view class="login_box bg1">
                 <view class="login_input">
                     <view class="list_input">
-                        <input placeholder="请输入手机号" data-key="login_name" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind" type="number" maxlength="11"></input>
+                        <input placeholder="请输入手机号码" data-key="login_name" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind" type="number" maxlength="11"></input>
                     </view>
 					<view class="list_input flexRowBetween">
 					    <input style="width:60%"  value="{{web_submitData.code}}"  data-key="code" bindblur="changeBind"></input>
 					    <view class="get_check" bindtap="{{web_buttonCanClick?'getCode':''}}">{{text}}</view>
 					</view>
                     <view class="list_input flexRowBetween">
-                        <input style="width:100%;" type="{{web_type}}"  placeholder="请输入新密码(6-16位)"value="{{web_submitData.password_new}}"  data-key="password_new" bindblur="changeBind"></input>
+                        <input style="width:100%;" type="{{web_type}}"  placeholder="请输入新密码(6-16位字母与数字混合)"value="{{web_submitData.password_new}}"  data-key="password_new" bindblur="changeBind"></input>
                         <view class="get_check" bindtap="changeType" style="width: 40rpx; height: 25rpx; background: url(../../images/eay.png) no-repeat; background-size: 70%;"></view>
                     </view>
 					<view class="list_input flexRowBetween">

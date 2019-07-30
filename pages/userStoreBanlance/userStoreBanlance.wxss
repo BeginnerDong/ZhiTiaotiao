@@ -91,7 +91,7 @@
 	text-align:right;
 }
 .tab{
-	height:80rpx;
+	height:46rpx;
 	margin:20rpx 0 30rpx 0;
 }
 .tab_item{
@@ -185,7 +185,6 @@
 	position:fixed;
 	right:0;
 	bottom:34%;
-	box-shadow:0 0 20rpx #ffa37a;
 	color:#fff;
 }
 .reword_in{

@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 68,
+			"current": 81,
 			"list": [
 				{
 					"id": -1,
@@ -479,6 +479,97 @@
 					"id": -1,
 					"name": "pages/status/status",
 					"pathName": "pages/status/status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/productDetail/productDetail",
+					"pathName": "pages/productDetail/productDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreCash/userStoreCash",
+					"pathName": "pages/userStoreCash/userStoreCash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStore/userStore",
+					"pathName": "pages/userStore/userStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStore/userStore",
+					"pathName": "pages/userStore/userStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStore/userStore",
+					"pathName": "pages/userStore/userStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/productDetail/productDetail",
+					"pathName": "pages/productDetail/productDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreContact/userStoreContact",
+					"pathName": "pages/userStoreContact/userStoreContact",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userPeiceOffer/userPeiceOffer",
+					"pathName": "pages/userPeiceOffer/userPeiceOffer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreAdd/userStoreAdd",
+					"pathName": "pages/userStoreAdd/userStoreAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userPeiceOffer/userPeiceOffer",
+					"pathName": "pages/userPeiceOffer/userPeiceOffer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreAdd/userStoreAdd",
+					"pathName": "pages/userStoreAdd/userStoreAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userContact/userContact",
+					"pathName": "pages/userContact/userContact",
 					"scene": null
 				}
 			]

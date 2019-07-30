@@ -37,13 +37,17 @@
 	width: 180rpx;
 	height: 210rpx;
 }
+.picCloseBtn{
+  width:40rpx;height:40rpx;position:absolute;top:-14rpx;right:6rpx;background: #fff;box-shadow: 0 0 5px rgba(0,0,0,0.3);border-radius: 50%;
+}
 .business-2{
 	border: solid 1rpx #fff;
-	width: 240rpx;
-	height: 300rpx;
-	margin: 0 auto;
+	width: 260rpx;
+	height: 320rpx;
+	margin-left:20rpx;
 	overflow: hidden;
 	background-color: #E1E1E1;
+  float: left;
 }
 .business-2 image{
 	width: 250rpx;

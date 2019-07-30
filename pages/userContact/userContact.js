@@ -37,7 +37,20 @@ Page({
 		};
 		api.labelGet(postData, callback);
 	},
-
+  rule(e) {
+    const self = this;
+    self.data.is_rule = !self.data.is_rule;
+    self.setData({
+      is_rule: self.data.is_rule
+    })
+  },
+  statement(e) {
+    const self = this;
+    self.data.is_statement = !self.data.is_statement;
+    self.setData({
+      is_statement: self.data.is_statement
+    })
+  },
 	bindInputChange(e) {
 		const self = this;
 		api.fillChange(e, self, 'sForm');

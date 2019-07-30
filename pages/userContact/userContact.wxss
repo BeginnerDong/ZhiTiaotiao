@@ -23,7 +23,8 @@ page{
 .feedBack{
 	height:90rpx;
 	line-height:90rpx;
-	margin-top:150rpx;
+	margin-top:30rpx;
+  box-shadow:0 0 8rpx #ddd8d6
 }
 .feed_left{
 	width:50%;

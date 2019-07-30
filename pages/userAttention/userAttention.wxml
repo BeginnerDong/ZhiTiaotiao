@@ -1,15 +1,13 @@
 <!--index1.wxml-->
 <view class="w690">
- <view class="stroe bg1 w710 flex shadow1" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+ <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
-				<view class="store_name font28 color2 avoidOverflow">
+				<view class="store_name font32 color2 avoidOverflow">
 					{{item.name}}
-					
 				</view>
 				<view class="store_item flex" style="width:300rpx">
-					<image src="/images/position_icon2.png"></image>
-					<view class="font24 color5">{{item.distance}}Km</view>
+					<view class="font24 color5" style="padding-top:10rpx;">{{item.distance}}Km</view>
 				</view>
 			</view>
            <view class="store_infor flex ">

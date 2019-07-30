@@ -265,7 +265,13 @@ Page({
 			is_show: self.data.is_show
 		})
 	},
-
+  rule() {
+    const self = this;
+    self.data.is_rule = !self.data.is_rule;
+    self.setData({
+      is_rule: self.data.is_rule
+    })
+  },
 	allOut() {
 		const self = this;
 		if(self.data.type==2){

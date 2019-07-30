@@ -179,5 +179,5 @@ button{
 	line-height: 35rpx;
 }
 .bg1{
-	border-radius:12rpx ;
+	border-radius:12rpx;
 }

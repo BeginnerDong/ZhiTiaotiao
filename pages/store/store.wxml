@@ -4,7 +4,7 @@
 	    <view class="stroe_search_left flex" style="width:30%" bindtap="isShowStore">
 	        <image src="/images/store_icon8.png"></image>
 	        <view class="font28 color2" style="width:35%">分类</view>
-			<image src="../../images/up.png"></image>
+			<image src="../../images/up.png" style="margin-left:0rpx"></image>
 	    </view>
 	    <view class="stroe_search_right">
 	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;">
@@ -32,12 +32,12 @@
     <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
-				<view class="store_name font30 color2 avoidOverflow">
+				<view class="store_name font32 color2 avoidOverflow">
 					{{item.name}}
 				</view>
 				<view class="store_item flex" style="width:300rpx">
-					<image src="/images/position_icon2.png"></image>
-					<view class="font26 color5">{{item.distance}}Km</view>
+					<!-- <image src="/images/position_icon2.png"></image> -->
+					<view class="font26 color5" style="padding-top: 10rpx;">{{item.distance}}Km</view>
 				</view>
 			</view>
             <view class="store_infor flex " style="width:89%">

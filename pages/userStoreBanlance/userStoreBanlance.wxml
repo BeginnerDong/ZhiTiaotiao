@@ -77,5 +77,5 @@
     </view>
 </view>
 <view class="blank" wx:if="{{web_mainData.length==0}}">
-    <image src="/images/members-img.png"></image>
+    <!-- <image src="/images/members-img.png"></image> -->
 </view>

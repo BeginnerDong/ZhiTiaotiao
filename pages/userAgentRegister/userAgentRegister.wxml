@@ -21,11 +21,10 @@
 	<input placeholder="请输入你的常用邮箱(选填)"  value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">选择地区:</view>
+	<view class="input_before color8">代理地区:</view>
 	<view style="width:70%;" class="city">
 		<picker
-	    mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}"
-	  >
+	    mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
 	    <view class="picker">
 	      {{web_submitData.address}}
 	    </view>

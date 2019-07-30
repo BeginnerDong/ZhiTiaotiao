@@ -8,7 +8,7 @@ page{
 .stroe{
 	height:200rpx;
 	overflow:hidden;
-	border-bottom:2rpx solid #e3e3e3;
+	border-bottom:4rpx solid #e3e3e3;
 
 }
 .store_left{
@@ -31,6 +31,7 @@ page{
 	height:68rpx;
 	line-height: 68rpx;
 }
+.store_infor{ margin-left: 12rpx;}
 .store_item{
 	width:50%;
 	height:68rpx;
@@ -45,20 +46,21 @@ page{
 	
 }
 .stroe_search{
-	height:146rpx;
+  padding-top: 20rpx;
+	height:90rpx;
 }
 .stroe_search_left{
 	width:20%;
-	height:60rpx;
+	height:66rpx;
 }
 .stroe_search_right{
 	width:80%;
-	height:60rpx;
+	height:66rpx;
 }
 .stroe_search_left image{
 	width:30rpx;
 	height:30rpx;
-	margin-right:14rpx;
+	margin:0 14rpx 0 20rpx;
 }
 .search{
 	width:94%;

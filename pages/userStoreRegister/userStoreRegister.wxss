@@ -1,9 +1,7 @@
 /**index.wxss**/
 
 @import "../../wxParse/wxParse.wxss"; 
-page{
-	overflow:hidden;
-}
+
 .input_list1{
 	height:96rpx;
 	border-bottom:solid 1px #e0e0e0;
@@ -23,7 +21,7 @@ page{
 	height:80rpx;
 	line-height:80rpx;
 	border-radius:15rpx;
-	margin:200rpx auto;
+	margin:100rpx auto;
 	font-size: 30rpx;
   background: #0d6fb8;
 
@@ -34,7 +32,7 @@ page{
 }
 .message_right{
 	width:70%;
-	height:258rpx;
+	height:150rpx;
 	border:solid 1px #e5e5e5;
 }
 .message_right textarea{

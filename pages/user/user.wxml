@@ -16,8 +16,8 @@
     </view>
 </view>
 <view class="user_all font30 color3" style="position:relative;top:-20rpx;">
-    <view class="user_infor flexRowBetween w710"  bindtap="intoPath" data-path="/pages/userConsume/userConsume">
-        <view class="user_left flexRowBetween">
+    <view class="user_infor flexRowBetween"  bindtap="intoPath" data-path="/pages/userConsume/userConsume">
+        <view class="user_left">
             <image src="/images/user_icon3.png"></image>
             <text>消费记录</text>
         </view>
@@ -25,7 +25,7 @@
             <image src="/images/next_page.jpg"></image>
         </view>
     </view>
-    <view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
+    <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
         <view class="user_left flexRowBetween">
             <image src="/images/user_icon1.png"></image>
             <text>我的消息</text>
@@ -34,7 +34,7 @@
             <image src="/images/next_page.jpg"></image>
         </view>
     </view>
-	<view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userStoreLogin/userStoreLogin" style="margin-top: 20rpx;">
+	<view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userStoreLogin/userStoreLogin" style="margin-top: 20rpx;">
 	    <view class="user_left flexRowBetween">
 	        <image src="/images/user_icon6.png"></image>
 	        <text>我的店铺</text>
@@ -43,7 +43,7 @@
 	        <image src="/images/next_page.jpg"></image>
 	    </view>
 	</view>       
-	<view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userAgentLogin/userAgentLogin">
+	<view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userAgentLogin/userAgentLogin">
 	    <view class="user_left flexRowBetween">
 	        <image src="../../images/images/user-icon6.png"></image>
 	        <text>我要代理</text>
@@ -54,7 +54,7 @@
 	</view>
     
     
-    <view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userAttention/userAttention" style="margin-top: 20rpx;">
+    <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userAttention/userAttention" style="margin-top: 20rpx;">
         <view class="user_left flexRowBetween">
             <image src="../../images/images/user-icon3.png"></image>
             <text>我的关注</text>
@@ -63,10 +63,10 @@
             <image src="/images/next_page.jpg"></image>
         </view>
     </view>
-    <view class="user_infor flexRowBetween w710" bindtap="intoPath" data-path="/pages/userContact/userContact">
+    <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userContact/userContact">
         <view class="user_left flexRowBetween">
             <image src="../../images/user_icon8.png"></image>
-            <text>知条条客服</text>
+            <text>关于知条条</text>
         </view>
         <view class="next_page">
             <image src="/images/next_page.jpg"></image>

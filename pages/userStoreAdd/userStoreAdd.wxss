@@ -2,7 +2,7 @@
 
 @import "../../wxParse/wxParse.wxss"; 
 page{
-	overflow:hidden;
+	/* overflow:hidden; */
 }
 .input_list1{
 	height:88rpx;
@@ -24,6 +24,7 @@ page{
 	border:solid 1px #e0e0e0;
 	background:#f2f2f2;
 	text-align: center;
+  margin: 0 auto;
 }
 .input image{
 	width:80rpx;
@@ -33,9 +34,9 @@ page{
 	width:100%;
 	height:80rpx;
 	line-height:80rpx;
-	position:fixed;
+	/* position:fixed;
 	left:0;
-	bottom:0;
+	bottom:0; */
 	border-radius:0;
 	margin:0 auto;
 }

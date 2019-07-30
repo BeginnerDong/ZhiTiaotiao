@@ -28,10 +28,12 @@ page{
 	margin:0 auto;
 }
 .cash_tlt{
-	width:87%;
-	padding:0 6.5%;
+	width:100%;
+	padding:0 20rpx;
 	height:140rpx;
 	line-height:140rpx;
+  box-sizing: border-box;
+
 }
 .input_masks{
 	width:10%;
@@ -79,3 +81,4 @@ page{
 	line-height:140rpx;
 	margin-top:100rpx;
 }
+

@@ -1,9 +1,6 @@
 /**index.wxss**/
 
 @import "../../wxParse/wxParse.wxss"; 
-page{
-	overflow:hidden;
-}
 
 .login_box{
 	width:95%;
@@ -66,7 +63,7 @@ page{
 	height: 80rpx;
 	font-size: 24rpx;
 	box-sizing: border-box;
-	margin-top: 250rpx;
+	margin-top: 100rpx;
 }
 .register-box view{
 	display: inline-block;
@@ -80,13 +77,13 @@ page{
 	width: 30rpx; 
 	height: 45rpx;
 	position: relative;
-	top: -718rpx; 
+	top: -572rpx; 
 	left: 65rpx;
 }
 .img-lock{
 	width: 30rpx; 
 	height: 35rpx;
 	position: relative;
-	top: -626rpx;
+	top: -480rpx;
 	left: 35rpx;
 }

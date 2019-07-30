@@ -10,29 +10,29 @@
 		{{web_mainData.name}}
 	</view>
 	<view class="commnet flex">
-		<view class="commnet_item flexCenter" style="background:#fff3ed;">
+		<view class="commnet_item flexCenter">
 			<image src="/images/images/near-icon2.png"></image>
 			<view class="font24 color5">{{web_mainData.follow_count}}</view>
 		</view>
-		<view class="commnet_item flexCenter" style="background:#edfeff;">
+		<view class="commnet_item flexCenter">
 			<image src="/images/store-icon12.png"></image>
 			<view class="font24 color5">{{web_mainData.favor_count}}</view>
 		</view>
-		<view class="commnet_item flexCenter" style="background:#ffedf5;">
+		<view class="commnet_item flexCenter">
 			<image src="../../images/images/near-icon4.png" style="width: 26rpx; height: 18rpx;"></image>
 			<view class="font24 color5">{{web_mainData.view_count}}</view>
 		</view>
 	</view>
 </view>
-<view class="openTime flex">
+<view class="openTime flex" style="border-top:8rpx solid #f0f0f0">
 	<image src="../../images/time.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">营业时间：{{web_mainData.description}}</view>
-	<image class="right-clickbtn" src="../../images/phone1.png" style="float: right;margin-right: 8rpx;" bindtap="phoneCall"></image>
+	<image class="right-clickbtn" src="../../images/phone1.png" bindtap="phoneCall"></image>
 </view>
 <view class="openTime flex">
 	<image src="../../images/dingwei1.png" style="width: 30rpx; height: 33rpx;"></image>
 	<view class=" font30 color2" style="width:77%">{{web_mainData.address}}</view>
-	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap" style="float: right;margin-right:8rpx;"></image>
+	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap"></image>
 </view>
 
 <view class=" bg1 store_product">
@@ -41,7 +41,7 @@
 	        <text class="color2 {{currentId == 0?'tabs_this':''}}">店铺环境</text>
 	    </view>
 	    <view class="tabs_item " data-id="1" bindtap="tabs">
-	        <text class="color2  {{currentId == 1?'tabs_this':''}}">知条特惠</text>
+	        <text class="color2  {{currentId == 1?'tabs_this':''}}">商品展示</text>
 	    </view>
 	</view>
   <view class="w690">
@@ -56,9 +56,15 @@
           <view class="recommend_top">
             <image src="{{item.mainImg[0].url}}"></image>
           </view>
-          <view class="product_name font30 color2 avoidOverflow">{{item.title}}</view>
+          <view class="product_name font30 color2 avoidOverflow">
+          {{item.title}}
+            <view class="rightSee commnet_item flexCenter" style="margin-right:0;">
+              <image src="../../images/images/near-icon4.png" style="width: 26rpx; height: 18rpx;"></image>
+			        <view class="font24 color5">2322</view>
+            </view>
+          </view>
           <view class="product_pro ">
-          <view class="text-red" style="font-size: 28rpx; color: red;">知条数量:{{item.score}}个</view>
+          <view class="text-red" style="font-size: 28rpx; color: #de5d1c;">知条特惠:{{item.score}}个</view>
           <view class="textinlin color9" style="font-size: 24rpx; text-decoration: line-through;">店铺价格：￥{{item.price}}</view>
           </view>
         </view>
