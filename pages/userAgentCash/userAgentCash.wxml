@@ -3,7 +3,7 @@
 
 <view class="w690">
   <view class="bank bg1 flex w690">
-    <view class="font32 color2" style="width: 25%; margin-left: 15rpx;">到账银行卡</view>
+    <view class="font32 color2" style="width: 25%; margin-left: 15rpx;">到账银行</view>
     <view class="font32 color2" style="width: 60%;">{{web_hfData.bank_name}}({{web_hfData.bank_acct_no}})</view>
   </view>
   <view class="cash">
@@ -32,6 +32,24 @@
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
             <button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提现</button>
         </view>
+      </view>
+  </view>
+  <!-- 提现规则 -->
+  <view class="reword font24 color1 flex">
+      <view class="reword_in color1" bindtap="rule">提现规则</view>
+  </view>
+  <view class="mask" wx:if="{{is_rule}}">
+      <view class="rule bg1" style="height: 90%;">
+          <scroll-view scroll-y style="height:70vh;">
+              <view class="rule_cont">
+                  <view class="font28 color2 rule_tlt">提现规则</view>
+                  <view class=" content font24 color2 w690">
+                    <view class="content ql-editor">这是兑换规则内容这是兑换规则内容这是提现规兑换规则兑换规则兑换规则兑换规则兑换规则兑换规则兑换规则。
+                    </view>
+                  </view>
+                </view>
+          </scroll-view>
+      <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
       </view>
   </view>
  </view>

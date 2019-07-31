@@ -11,7 +11,6 @@ page{
 	margin-top: -40rpx;
 }
 .member_ranking{
-	border-radius: 14rpx;
 	position: relative;
 	top: 180rpx;
 	}

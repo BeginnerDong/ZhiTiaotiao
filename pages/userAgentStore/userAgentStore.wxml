@@ -1,7 +1,7 @@
 <!--index3.wxml-->
 <view class="piece_top flex">
 	<view class="w690">
-		<view class="member_ranking  bg1" style="border-radius:10rpx">
+		<view class="member_ranking  bg1">
 			<view class="member_tlt font30 colorb">
 				店铺会员数量前三名
 			</view>
@@ -14,7 +14,7 @@
 							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
 						</view>
 						<view>
-							<view class="font26">{{item.name}}</view>
+							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.name}}</view>
 							<view class="font24">{{item.mem_num}}</view>
 						</view>
 					</view>
@@ -34,7 +34,7 @@
 							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
 						</view>
 						<view>
-							<view class="font26">{{item.name}}</view>
+							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.name}}</view>
 							<view class="font24">{{item.score}}</view>
 						</view>
 					</view>

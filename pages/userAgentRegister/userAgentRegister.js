@@ -90,10 +90,12 @@ Page({
 			web_submitData: self.data.submitData,
 		});
 	},
-	
+  
+
+
+  // 上传代理凭证
 	upLoadBillImg() {
 		const self = this;
-	
 		wx.showLoading({
 			mask: true,
 			title: '图片上传中',

@@ -53,7 +53,6 @@
 	    </view>
 	</view>
     
-    
     <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userAttention/userAttention" style="margin-top: 20rpx;">
         <view class="user_left flexRowBetween">
             <image src="../../images/images/user-icon3.png"></image>
@@ -65,7 +64,7 @@
     </view>
     <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userContact/userContact">
         <view class="user_left flexRowBetween">
-            <image src="../../images/user_icon8.png"></image>
+            <image src="../../images/user_icon9.png"></image>
             <text>关于知条条</text>
         </view>
         <view class="next_page">

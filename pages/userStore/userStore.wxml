@@ -39,7 +39,7 @@
 	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="../../images/store-icon5A.png"></image>
-	            <view class="font28 color3">知条特惠</view>
+	            <view class="font28 color3">商品展示</view>
 	        </view>
 	    </view>
 	</view>

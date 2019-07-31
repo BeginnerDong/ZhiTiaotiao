@@ -1,9 +1,9 @@
 <!--index3.wxml-->
 <view class="status-top">
 	<view class="top-text1">{{web_totalCount?web_totalCount:'0'}}</view>
-	<view class="top-text2" wx:if="{{web_currentId==0}}">货款总额（￥）</view>
-	<view class="top-text2" wx:if="{{web_currentId==1}}">联盟金总额（￥）</view>
-	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算总额（￥）</view>
+	<view class="top-text2" wx:if="{{web_currentId==0}}">货款总额(￥)</view>
+	<view class="top-text2" wx:if="{{web_currentId==1}}">联盟金总额(￥)</view>
+	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算总额(￥)</view>
 </view>
 <view class="tab font30 flexRowBetween">
     <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="tab">

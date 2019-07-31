@@ -150,9 +150,9 @@
 }
 .top-text1{
 	color: #fff;
-	font-size: 70rpx;
 	text-align: center;
 	padding-top: 100rpx;
+  font-size: 110rpx;
 }
 .top-text2{
 	color: #BDDEF1;

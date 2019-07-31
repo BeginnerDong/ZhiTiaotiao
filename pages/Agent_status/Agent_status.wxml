@@ -1,15 +1,15 @@
 
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">用户姓名</view>
-	<input class="input" placeholder="请输入真实的姓名" value="{{web_submitData.user_name}}"data-key="user_name" bindblur="changeBind"></input>
+	<view class="input_before color8">用户姓名：</view>
+	<input class="input" placeholder="请你的输入真实姓名" value="{{web_submitData.user_name}}"data-key="user_name" bindblur="changeBind"></input>
 </view>
 
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">身份证号</view>
-	<input class="input" placeholder="请输入您的身份证号" value="{{web_submitData.cert_id}}"data-key="cert_id" bindblur="changeBind"></input>
+	<view class="input_before color8">身份证号：</view>
+	<input class="input" placeholder="请输入你的身份证号" value="{{web_submitData.cert_id}}"data-key="cert_id" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证件到期时间</view>
+	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证件到期时间：</view>
 	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertEndChange" class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_certEnd?web_certEnd:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
@@ -17,31 +17,33 @@
 	</picker>
 </view>
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">手机号码</view>
-	<input class="input" placeholder="请输入您的手机号码" value="{{web_submitData.user_mobile}}"data-key="user_mobile" bindblur="changeBind"></input>
+	<view class="input_before color8">手机号码：</view>
+	<input class="input" placeholder="请输入你的手机号码" value="{{web_submitData.user_mobile}}"data-key="user_mobile" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex w690">
-	<view class="input_before color8">邮箱</view>
-	<input class="input" placeholder="请输入您的常用邮箱" value="{{web_submitData.user_email}}"data-key="user_email" bindblur="changeBind"></input>
+	<view class="input_before color8">邮箱：</view>
+	<input class="input" placeholder="请输入你的常用邮箱" value="{{web_submitData.user_email}}"data-key="user_email" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx">职业</view>
+	<view class="input_before color8" style="font-size: 28rpx">职业：</view>
 	<picker bindchange="occupationChange" value="{{index}}" range="{{occupationData}}" range-key="name" class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{occupationData[web_index1].name?occupationData[web_index1].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
 		</view>
 	</picker>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户省份</view>
+<view class="input_list1 font28  flex w690 pr">
+	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户省份：</view>
+  <view class="tips">须与身份证省份保持一致</view>
 	<picker bindchange="userProvinceChange" value="{{index}}" range="{{web_pArrayTwo}}" range-key="name"  class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_pArrayTwo[web_index5].name?web_pArrayTwo[web_index5].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
 		</view>
 	</picker>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户地区</view>
+<view class="input_list1 font28  flex w690 pr">
+	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户地区：</view>
+  <view class="tips">须与身份证地区保持一致</view>
 	<picker bindchange="userCityChange" value="{{index}}" range="{{web_cArrayTwo}}" range-key="name"  class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_cArrayTwo[web_index6].name?web_cArrayTwo[web_index6].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
@@ -53,7 +55,7 @@
 	<input class="input" placeholder="请填写证件上的住址" value="{{web_submitData.cust_address}}"data-key="cust_address" bindblur="changeBind"></input>
 </view> -->
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;">开户银行</view>
+	<view class="input_before color8" style="font-size: 28rpx;">开户银行：</view>
 	<picker bindchange="bankChange" value="{{index}}" range="{{bankData}}" range-key="name" class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{bankData[web_index].name?bankData[web_index].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
@@ -61,15 +63,15 @@
 	</picker>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">开户银行账号</view>
+	<view class="input_before color8"  style="width:30%;">开户银行账号：</view>
 		<input class="input" placeholder="请输入开户银行账号" value="{{web_submitData.bank_acct_no}}"data-key="bank_acct_no" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">开户支行名称</view>
+	<view class="input_before color8"  style="width:30%;">开户支行名称：</view>
 		<input class="input" placeholder="请输入开户支行名称" value="{{web_submitData.bank_branch}}"data-key="bank_branch" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:27%">开户银行省份</view>
+	<view class="input_before color8" style="font-size: 28rpx;width:29%">开户银行省份：</view>
 	<picker bindchange="provinceChange" value="{{index}}" range="{{web_pArray}}" range-key="name"  class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_pArray[web_index3].name?web_pArray[web_index3].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
@@ -77,7 +79,7 @@
 	</picker>
 </view>
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:27%">开户银行地区</view>
+	<view class="input_before color8" style="font-size: 28rpx;width:29%">开户银行地区：</view>
 	<picker bindchange="cityChange" value="{{index}}" range="{{web_cArray}}" range-key="name"  class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_cArray[web_index4].name?web_cArray[web_index4].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		

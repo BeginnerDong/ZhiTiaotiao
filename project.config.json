@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 81,
+			"current": 104,
 			"list": [
 				{
 					"id": -1,
@@ -570,6 +570,167 @@
 					"id": -1,
 					"name": "pages/userContact/userContact",
 					"pathName": "pages/userContact/userContact",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreMember/userStoreMember",
+					"pathName": "pages/userStoreMember/userStoreMember",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreRegister/userStoreRegister",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgent/userAgent",
+					"pathName": "pages/userAgent/userAgent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreCash/userStoreCash",
+					"pathName": "pages/userStoreCash/userStoreCash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreCash/userStoreCash",
+					"pathName": "pages/userStoreCash/userStoreCash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentService/userAgentService",
+					"pathName": "pages/userAgentService/userAgentService",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentService/userAgentService",
+					"pathName": "pages/userAgentService/userAgentService",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentStore/userAgentStore",
+					"pathName": "pages/userAgentStore/userAgentStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentDetail/userAgentDetail",
+					"pathName": "pages/userAgentDetail/userAgentDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/storeDetail/storeDetail",
+					"pathName": "pages/storeDetail/storeDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userPeiceOffer/userPeiceOffer",
+					"pathName": "pages/userPeiceOffer/userPeiceOffer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store/store",
+					"pathName": "pages/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreRegister/userStoreRegister",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Agent_status/Agent_status",
+					"pathName": "pages/Agent_status/Agent_status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userRegisterInfor/userRegisterInfor",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userRegisterInforaa/userRegisterInforaa",
+					"pathName": "pages/userRegisterInforaa/userRegisterInforaa",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentCash/userAgentCash",
+					"pathName": "pages/userAgentCash/userAgentCash",
 					"scene": null
 				}
 			]

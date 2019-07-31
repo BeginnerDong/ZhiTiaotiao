@@ -32,26 +32,26 @@
     <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
-				<view class="store_name font32 color2 avoidOverflow">
+				<view class="store_name font36 color2 avoidOverflow">
 					{{item.name}}
 				</view>
-				<view class="store_item flex" style="width:300rpx">
+				<view class="store_item flex" style="width:200rpx">
 					<!-- <image src="/images/position_icon2.png"></image> -->
 					<view class="font26 color5" style="padding-top: 10rpx;">{{item.distance}}Km</view>
 				</view>
 			</view>
-            <view class="store_infor flex " style="width:89%">
+            <view class="store_infor flex " style="width:100%">
                 <view class="store_item flex">
                     <image src="/images/images/near-icon2.png"></image>
-                    <view class="font26 color5">{{item.follow_count}}</view>
+                    <view class="font28 color5">{{item.follow_count}}</view>
                 </view>
                 <view class="store_item flex">
                     <image src="../../images/images/near-icon3.png"></image>
-                    <view class="font26 color5">{{item.favor_count}}</view>
+                    <view class="font28 color5">{{item.favor_count}}</view>
                 </view>
                 <view class="store_item flex">
                     <image src="../../images/images/near-icon4.png"></image>
-                    <view class="font26 color5">{{item.view_count}}</view>
+                    <view class="font28 color5">{{item.view_count}}</view>
                 </view>
                 
             </view>  

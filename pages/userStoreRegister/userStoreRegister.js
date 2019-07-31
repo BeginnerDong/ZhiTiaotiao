@@ -121,6 +121,7 @@ Page({
 	bindRegionChange(e) {
 		this.setData({
 			region: e.detail.value
+
 		})
 	},
 

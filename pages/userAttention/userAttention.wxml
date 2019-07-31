@@ -3,27 +3,26 @@
  <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
-				<view class="store_name font32 color2 avoidOverflow">
+				<view class="store_name font36 color2 avoidOverflow">
 					{{item.name}}
 				</view>
-				<view class="store_item flex" style="width:300rpx">
+				<view class="store_item flex" style="width:220rpx">
 					<view class="font24 color5" style="padding-top:10rpx;">{{item.distance}}Km</view>
 				</view>
 			</view>
            <view class="store_infor flex ">
                <view class="store_item flex">
                    <image src="/images/images/near-icon2.png"></image>
-                   <view class="font24 color5">{{item.follow_count}}</view>
+                   <view class="font26 color5">{{item.follow_count}}</view>
                </view>
                <view class="store_item flex">
                    <image src="../../images/images/near-icon3.png"></image>
-                   <view class="font24 color5">{{item.favor_count}}</view>
+                   <view class="font26 color5">{{item.favor_count}}</view>
                </view>
                <view class="store_item flex">
                    <image src="../../images/images/near-icon4.png"></image>
-                   <view class="font24 color5">{{item.view_count}}</view>
+                   <view class="font26 color5">{{item.view_count}}</view>
                </view>
-               
            </view>  
         </view>
         <view class="store_right">

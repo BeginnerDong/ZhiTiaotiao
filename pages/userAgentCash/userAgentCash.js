@@ -149,7 +149,13 @@ Page({
 		};
 		api.hfInfoGet(postData, callback);
 	},
-
+  rule() {
+    const self = this;
+    self.data.is_rule = !self.data.is_rule;
+    self.setData({
+      is_rule: self.data.is_rule
+    })
+  },
 	flowLogAdd() {
 		const self = this
 		const postData = {

@@ -28,17 +28,13 @@ page{
 	margin-right:80rpx;
   position: absolute;
   right: 1%;
-  top: 20rpx;
-  
+  top: 26rpx;
 }
 .commnet_item image{
 	width:24rpx;
 	height:24rpx;
 	margin-right:6rpx;
 }
-
-
-
 
 .store_product{
 	background:none;

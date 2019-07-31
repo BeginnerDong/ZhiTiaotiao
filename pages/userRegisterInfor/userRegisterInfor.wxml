@@ -1,6 +1,6 @@
 
 <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:33%">企业证照类型</view>
+	<view class="input_before color8" style="font-size: 28rpx;width:33%">个体户证照类型</view>
 	<picker bindchange="comCertTypeChange" value="{{index}}" range="{{comCertType}}" range-key="name" class="input">
 		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{comCertType[web_index5].name?comCertType[web_index5].name:'请选择'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
@@ -27,50 +27,50 @@
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view> -->
-<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
-	<view class="color8" >营业执照照片</view>
+<view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
+	<view class="color8 line_tit" >营业执照照片</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="00">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8" >组织机构代码照片</view>
+<view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
+	<view class="color8  line_tit" >组织机构代码照片</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="01">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 320rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8" >税务登记证</view>
+<view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
+	<view class="color8  line_tit" >税务登记证</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="02">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 320rpx;">
-	<view class="color8" >法人身份证照片（正面）</view>
+<view class="input_list2  w690" style="height: 360rpx;">
+	<view class="color8  line_tit" >法人身份证照片（正面）</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="03">
 		<image src="../../images/Upload-icon.png"></image>
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 320rpx;" >
-	<view class="color8" >法人身份证照片（反面）</view>
+<view class="input_list2  w690" style="height: 360rpx;" >
+	<view class="color8 line_tit" >法人身份证照片（反面）</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="09">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 320rpx;">
-	<view class="color8" >对公银行账户信息照片</view>
+<view class="input_list2  w690" style="height: 360rpx;">
+	<view class="color8 line_tit" >法人银行账户信息照片</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="04">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
 </view>
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">个体户名称</view>
-	<input class="input" placeholder="输入个体户名称" value="{{web_submitData.user_name}}"data-key="user_name" bindblur="changeBind"></input>
+	<input class="input" placeholder="输入个体户名称须与营业执照一致" value="{{web_submitData.user_name}}"data-key="user_name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
-	<input class="input" placeholder="请输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
+	<input class="input" placeholder="输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照起始日期</view>
@@ -102,7 +102,7 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">经营范围</view>
-		<input class="input" placeholder="请输入企业的经营范围" value="{{web_submitData.business_scope}}"data-key="business_scope" bindblur="changeBind"></input>
+		<input class="input" placeholder="请输入个体户的经营范围" value="{{web_submitData.business_scope}}"data-key="business_scope" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">经营者姓名</view>
@@ -122,7 +122,7 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width: 30%;">经营者证件号</view>
-	<input class="input" placeholder="输入的证件号须于证件类型对应" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
+	<input class="input" placeholder="输入的证件号须与证件类型一致" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
 </view>
 
 <view class="input_list1 font28  flex w690">

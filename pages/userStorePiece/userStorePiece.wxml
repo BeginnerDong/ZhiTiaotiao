@@ -1,6 +1,6 @@
 <view class="status-top">
 	<view class="top-text1">{{web_userInfoData.score}}</view>
-	<view class="top-text2">知条数量（个）</view>
+	<view class="top-text2">知条数量(个)</view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCashb/userStoreCashb">兑换</view>
 </view>
 <block wx:for="{{web_mainData}}" wx:key="id">

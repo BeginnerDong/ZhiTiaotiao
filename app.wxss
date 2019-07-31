@@ -217,7 +217,7 @@ page{
 	background:#0d6fb8;
 	position:fixed;
 	right:0;
-	bottom:15%;
+	bottom:20%;
 	color:#fff;
 }
 .reword_in{
@@ -270,4 +270,7 @@ page{
 	line-height: 35rpx;
 }
 
+.pr{
+  position: relative;
+}
 

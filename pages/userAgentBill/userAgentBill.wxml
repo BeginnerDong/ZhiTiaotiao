@@ -1,7 +1,7 @@
 <!--index3.wxml-->
 <view class="status-top">
 	<view class="top-text1">{{web_totalCount?web_totalCount:'0.00'}}</view>
-	<view class="top-text2">佣金总额（￥）</view>
+	<view class="top-text2">佣金总额(￥)</view>
 </view>
 <view class="tab flexRowBetween">
     <view class="tab_item">

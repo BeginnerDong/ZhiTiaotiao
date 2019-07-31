@@ -8,7 +8,7 @@ page{
 .stroe{
 	height:200rpx;
 	overflow:hidden;
-	border-bottom:4rpx solid #e3e3e3;
+	border-bottom:10rpx solid #e3e3e3;
 }
 .store_left{
 	width:65%;
@@ -22,7 +22,7 @@ page{
 	text-align: right;
 }
 .store_right image{
-	width:200rpx;
+	width:230rpx;
 	height:160rpx;
 }
 .store_name{

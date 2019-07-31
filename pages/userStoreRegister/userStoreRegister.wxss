@@ -8,6 +8,8 @@
 }
 .input_list1 .input_before{
 	width:22%;
+  padding-left: 10rpx;
+  box-sizing: border-box;
 }
 .input_list1 input{
 	width:76%;
@@ -24,11 +26,12 @@
 	margin:100rpx auto;
 	font-size: 30rpx;
   background: #0d6fb8;
-
 }
 
 .message_left{
 	width:22%;
+  box-sizing:border-box;
+  padding-left: 10rpx;
 }
 .message_right{
 	width:70%;

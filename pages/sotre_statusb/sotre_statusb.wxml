@@ -11,7 +11,7 @@
 	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.owner}}"  data-key="owner" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
-	<view class="store-texta">店长手机号：</view>
+	<view class="store-texta">店长手机号码：</view>
 	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
 </view>
 <view class="store-row">

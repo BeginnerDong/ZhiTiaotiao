@@ -37,12 +37,25 @@
 	<input placeholder="请输入常用邮箱"  disabled="{{is_edit}}" value="{{web_submitData.email}}"  data-key="email" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">地区:</view>
+	<view class="input_before">代理地区:</view>
 	<input placeholder="请输入省市区(县)"  disabled="{{is_edit}}" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
 </view>
 
+<view class="input_list1 font28 flex  w690" style="height: 260rpx;">
+	<view class="input_before" style="width:26%; position: relative; top: -90rpx;">身份证正面</view>
+  <view  style="width:310rpx;height:200rpx">
+		<image src="../../images/idA.jpg" style="width:100%;height:100%"></image>
+	</view>
+</view>
+<view class="input_list1 font28 flex  w690" style="height: 260rpx;">
+	<view class="input_before" style="width:26%; position: relative; top: -90rpx;">身份证反面</view>
+  <view style="width:310rpx;height:200rpx">
+		<image src="../../images/idA.jpg" style="width:100%;height:100%"></image>
+	</view>
+</view>
+
 <view class="input_list1 font28 flex  w690" style="height: 300rpx;">
-	<view class="input_before" style="width:26%; position: relative; top: -110rpx;">打款凭证</view>
+	<view class="input_before" style="width:26%; position: relative; top: -110rpx;">代理凭证</view>
 	<view style="width:30%;height:240rpx" wx:for="{{web_submitData.bill_img}}">
 		<image src="{{item.url}}" style="width:100%;height:240rpx"></image>
 	</view>

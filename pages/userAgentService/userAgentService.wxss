@@ -5,7 +5,6 @@
 	margin-top: -30rpx;
 }
 .member_ranking{
-	border-radius: 14rpx;
 	position: relative;
 	top: 140rpx;
 	}

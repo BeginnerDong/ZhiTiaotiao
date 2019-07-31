@@ -25,6 +25,16 @@ Page({
 		self.getUserInfoData()
 		self.getAboutData()
 	},
+  choose(e) {
+    const self = this;
+    var type = api.getDataSet(e, 'type');
+    if (type != self.data.chooseType) {
+      self.data.chooseType = type;
+      self.setData({
+        web_chooseType: self.data.chooseType
+      })
+    }
+  },
 
 	getUserInfoData() {
 		const self = this;

@@ -12,6 +12,7 @@ page{
 	font-size: 28rpx;
 	
 }
+.line_tit{ padding: 30rpx 0 20rpx 0 ;}
 .input_list3{
 	height: 140rpx;
 	border-bottom:solid 1px #e0e0e0;
@@ -22,7 +23,6 @@ page{
 .input_list2-img{
 	width: 200rpx;
 	height: 240rpx;
-	margin-top: 10px;
 	background: #ECECEC;
 	overflow: hidden;
 }

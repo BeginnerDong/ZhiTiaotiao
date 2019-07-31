@@ -12,6 +12,12 @@ page{
 	font-size: 28rpx;
 	
 }
+.tips{
+  position: absolute;
+  left: 22%;
+  font-size: 28rpx;
+  color: #999;
+}
 .input_list3{
 	height: 140rpx;
 	border-bottom:solid 1px #e0e0e0;
