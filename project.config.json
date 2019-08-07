@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 110,
+			"current": 112,
 			"list": [
 				{
 					"id": -1,
@@ -773,6 +773,20 @@
 					"id": -1,
 					"name": "pages/userStoreRegister/userStoreRegister",
 					"pathName": "pages/userStoreRegister/userStoreRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreRegister/userStoreRegister",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sotre_statusb/sotre_statusb",
+					"pathName": "pages/sotre_statusb/sotre_statusb",
 					"scene": null
 				}
 			]

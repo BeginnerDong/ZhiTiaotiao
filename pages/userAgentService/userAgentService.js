@@ -34,6 +34,22 @@ Page({
 
 	},
 
+  deleteImg(e) {
+    const self = this;
+    var index = api.getDataSet(e, 'index');
+    var type = api.getDataSet(e, 'type');
+    if (type == 'bill_img') {
+      self.data.submitData.bill_img.splice(index, 1);
+    }else{
+      console.log(123)
+    };
+    console.log(self.data.submitData);
+    self.setData({
+      web_submitData: self.data.submitData
+    })
+  },
+
+
 	getMainData() {
 		const self = this;
 		const postData = {};
@@ -156,20 +172,6 @@ Page({
 		};
 	},
 	
-	deleteImg(e){
-		const self = this;
-		var index = api.getDataSet(e,'index');
-		var type = api.getDataSet(e,'type');
-		if(type=='mainImg'){
-			self.data.submitData.mainImg.splice(index,1);
-		}else if(type=='bannerImg'){
-			self.data.submitData.bannerImg.splice(index,1);
-		};
-		console.log(self.data.submitData);
-		self.setData({
-			web_submitData:self.data.submitData
-		})
-	},
 
 	edit() {
 		const self = this;

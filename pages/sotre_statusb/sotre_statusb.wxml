@@ -39,17 +39,17 @@
 		<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
 	</view>
 <view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;color: #000000;">店铺环境图：</view>
-	<view style="width:80%; margin:0 auto">
+	<view style="width:80%; margin:0 auto; overflow:hidden;padding-top:30rpx;">
 		<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
 		<view style="width: 50%;position: relative;display: flex;justify-content: center;align-items: center;margin-bottom: 16px;float:left">
 				<image class="picCloseBtn"  src="/images/Uploadqualification-icon.png" 
 				wx:if="{{!is_edit}}"  bindtap="deleteImg" data-type="bannerImg" data-index="{{index}}"/>
 				<image src="{{item.url}}" mode="aspectFill" style="width: 135px; height: 160px"></image>
-			
 		</view>
 		</block>
+    <view class="business-2" bindtap="upLoadBannerImg" style="display: flex;align-items: center;justify-content: center;" wx:if="{{!is_edit}}">
+      <image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
+    </view>
 	</view>
-	<view class="business-2" bindtap="upLoadBannerImg" style="display: flex;align-items: center;justify-content: center;" wx:if="{{!is_edit}}">
-		<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
-	</view>
+	
 <button bindtap="{{is_edit?'edit':'submit'}}">{{is_edit?'编辑':'提交'}}</button>

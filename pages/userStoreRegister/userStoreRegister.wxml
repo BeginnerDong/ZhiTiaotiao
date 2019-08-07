@@ -51,8 +51,9 @@
 </view> -->
 <view class="message flex1 w690">
 	<view class="message_left font28 color2">店铺地址：</view>
-	<view class="message_right font28 color2"  bindtap="chooseLocation">
-		<textarea value="{{web_submitData.address}}" disabled="true"  data-key="address" bindblur="bindInputChange"></textarea>
+	<view class="message_right font28 color2" >
+    <view class="shop_adrsBtn" bindtap="chooseLocation" data-key="address">{{web_submitData.address}}</view>
+		<!-- <textarea value="{{web_submitData.address}}" disabled="true"  data-key="address" bindblur="bindInputChange"></textarea> -->
 	</view>
 </view>
 <button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>

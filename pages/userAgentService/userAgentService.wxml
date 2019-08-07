@@ -57,10 +57,13 @@
 <view class=" font28   w690">
 	<view class="input_before" style="width:26%;margin-top: 10px;color:#04132c">代理凭证</view>
 	<view style="display: flex;width: 100%;flex-wrap: wrap;">
-		<view style="width:30%;height:240rpx;margin-top: 20px;margin-right: 2%;" wx:for="{{web_submitData.bill_img}}">
-			<image src="{{item.url}}" style="width:100%;height:100%"></image>
-		</view>
-	
+    <block wx:for="{{web_submitData.bill_img}}" wx:key="{{index}}" >
+      <view class="pr" style="width:30%;height:240rpx;margin-top: 20px;margin-right: 2%;" >
+        <image class="picCloseBtn"  src="/images/Uploadqualification-icon.png" 
+          wx:if="{{!is_edit}}"  bindtap="deleteImg" data-type="bill_img" data-index="{{index}}"/>
+        <image src="{{item.url}}"  mode="aspectFill" style="width:100%;height:100%"></image>
+      </view>
+    </block>
 		<view class="upload" style="margin-top: 20px;margin-right: 2%" bindtap="upLoadBillImg" wx:if="{{!is_edit}}">
 			<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 		</view>

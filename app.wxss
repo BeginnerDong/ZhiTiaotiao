@@ -7,6 +7,9 @@ page{
 	min-height:100%;
 	font-family: PingFang-SC-Medium;
 } 
+.pr{
+  position: relative;
+}
 .flexRowBetween{
 	display:flex;
 	flex-direction:row;
