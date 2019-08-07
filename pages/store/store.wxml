@@ -3,32 +3,19 @@
 	<view class="stroe_search flex">
 	    <view class="stroe_search_left flex" style="width:30%" bindtap="isShowStore">
 	        <image src="/images/store_icon8.png"></image>
-	        <view class="font28 color2" style="width:35%">分类</view>
+	        <view class="font30 color2" style="width:35%">分类</view>
 			<image src="../../images/up.png" style="margin-left:0rpx"></image>
 	    </view>
-	    <view class="stroe_search_right">
+	    <view class="stroe_search_right" style="display: flex;align-items: center;">
 	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;">
-	            <input class="font28 color9" value="{{web_sForm.name}}"  data-key="name" bindblur="bindInputChange"></input> 
-	            <view class="search_btn">
-	                <image src="/images/store_icon9.png" bindtap="search"></image>
-	            </view>
+	            <input class="font28 color9" placeholder="请输入你想要的商品名称" value="{{web_sForm.name}}"  data-key="name" bindblur="bindInputChange"></input> 
+	            
 	        </view>
+			<view style="margin-left: 20px;border-radius:15px;width: 50px;height:30px;font-size: 14px;background:#ff5f17 ;color: #fff;line-height: 30px;text-align: center;" bindtap="search">
+				搜索
+			</view>
 	    </view>
 	</view>
-    <!-- <view class="stroe_search flex">
-        <view class="stroe_search_left flex" bindtap="isShowStore">
-            <image src="/images/store_icon8.png"></image>
-            <view class="font28 color2">分类</view>
-        </view>
-        <view class="stroe_search_right">
-            <view class="search flex">
-                <input placeholder="请搜索相关店铺" class="font28 color9" value="{{web_sForm.keyswords}}"  data-key="keyswords" bindblur="bindInputChange"></input> 
-                <view class="search_btn">
-                    <image src="/images/store_icon9.png" bindtap="search"></image>
-                </view>
-            </view>
-        </view>
-    </view> -->
     <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
         <view class="store_left">
 			<view style="display:flex">
@@ -61,14 +48,14 @@
         </view>
     </view>
 </view>
-<view class="maskStore" wx:if="{{isShowStore}}" catchtouchmove="true">
+<view class="maskStore" wx:if="{{isShowStore}}" bindtap="isShowStore" catchtouchmove="true">
 	
 </view>
 <view class="storeChoose" wx:if="{{isShowStore}}" style="padding: 0 5%;">
 	
 		<view style="display:  flex;width:100%;flex-wrap: wrap;">
 			<block wx:for="{{web_typeData}}" wx:key="id" >
-				<view class="font28 color5" style="width:33%;height:40px;line-height: 40px;text-align: center;{{web_menu_id==item.id?'font-weight: 700':''}}" data-id="{{item.id}}" bindtap="{{web_buttonCanClick?'changeType':''}}">{{item.title}}</view>
+				<view class="font32 color5" style="width:33%;height:40px;line-height: 40px;text-align: center;{{web_menu_id==item.id?'font-weight: 700;color:#ff5f17 ;':''}}" data-id="{{item.id}}" bindtap="{{web_buttonCanClick?'changeType':''}}">{{item.title}}</view>
 			
 			</block>
 		</view>

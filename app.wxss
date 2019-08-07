@@ -131,7 +131,7 @@ page{
 	background:#fff;
 	display:flex;
 	justify-content:center;
-	border-top:solid 1px #dbdbdb;
+
 	align-items:center;
 }
 .nav_img image{
@@ -139,8 +139,11 @@ page{
 	height:42rpx;
 }
 .navbar_item{
-	width:33.3%;
+	width:25%;
 	text-align:center;
+	height: 42px;
+
+	
 }
 .navbar .text{
 	color:#6d5c53;

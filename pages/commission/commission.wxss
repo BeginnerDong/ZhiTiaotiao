@@ -126,7 +126,7 @@
 	line-height:80rpx;
 }
 .w50{
-	width:50%;
+	width:33%;
 	text-align:center;
 	height:80rpx;
 	line-height:80rpx;

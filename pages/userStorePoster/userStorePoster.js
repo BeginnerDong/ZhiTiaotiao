@@ -53,7 +53,7 @@ Page({
 			label: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['会员规则']],
+					title: ['=', ['店铺会员规则']],
 				},
 				middleKey: 'menu_id',
 				key: 'id',

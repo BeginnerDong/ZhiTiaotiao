@@ -11,14 +11,14 @@ var token = new Token();
 Page({
 
 	data: {
-		region: ['陕西省', '西安市', '雁塔区'],
+		region: ['', '西安市', '雁塔区'],
 		submitData: {
 			name: '',
 			password: '',
 			phone: '',
 			email: '',
 			address: '',
-		
+			owner:'',
 			menu_id: '',
 			thirdapp_id: 2,
 			longitude: '',
@@ -46,7 +46,7 @@ Page({
 			caseData: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['行业类型']],
+					title: ['=', ['店铺分类']],
 				},
 				middleKey: 'parentid',
 				key: 'id',
@@ -94,9 +94,17 @@ Page({
 		const self = this;
 		api.buttonCanClick(self);
 		var phone = self.data.submitData.phone;
-		const pass = api.checkComplete(self.data.submitData);
+		var newObject = api.cloneForm(self.data.submitData);
+		var password = self.data.submitData.password;
+		delete newObject.email;
+		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
 		if (pass) {
+			if(!/^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/.test(password)){
+				api.buttonCanClick(self, true);
+				api.showToast('密码格式错误', 'none');
+				return
+			};
 			if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
 				api.buttonCanClick(self, true);
 				api.showToast('手机格式错误', 'none')
@@ -123,6 +131,7 @@ Page({
 			region: e.detail.value
 
 		})
+		
 	},
 
 	bindPickerChange(e) {

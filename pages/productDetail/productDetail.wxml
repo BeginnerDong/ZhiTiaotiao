@@ -1,5 +1,5 @@
 <view class="banner">
-	<image src="{{web_mainData.bannerImg[0].url}}"></image>
+	<image src="{{web_mainData.mainImg[0].url}}"></image>
 </view>
 <view class="store_introduce w690 bg1">
 	<view class="store_tlt font34 color2 avoidOverflow">
@@ -7,7 +7,7 @@
 	</view>
   <view class="rightSee commnet_item flexCenter" style="margin-right:0;">
       <image src="../../images/images/near-icon4.png" style="width: 26rpx; height: 18rpx;"></image>
-      <view class="font24 color5">2322</view>
+      <view class="font24 color5">{{web_mainData.view_count}}</view>
   </view>
 	<!-- <view class="font24 color8">{{web_mainData.description}}</view> -->
 	<view class="product_pro  flex avoidOverflow">
@@ -21,10 +21,23 @@
 	<image src="../../images/pic.png" style="width: 42rpx; height: 36rpx; position: relative; top: 10rpx;"></image>
 	商品图片
 	</view>
-	<block wx:for="{{web_mainData.mainImg}}">
+	<block wx:for="{{web_mainData.bannerImg}}">
 		<view class="condition" style="margin-top: 10rpx;">
 			<image src="{{item.url}}"></image>
 		</view>
 	</block>
 	
+</view>
+<view class="store_bottom flex bg1">
+	<view class="store_left flex">
+		<view class="store_btn" bindtap="clickFollow">
+			<image src="{{web_shopData.followMe.length>0&&web_shopData.followMe[0].status==1?'/images/follow-active.png':'/images/follow.png'}}"></image>
+			<view class="font22 color2" style="line-height: 1.2;">关注</view>
+		</view>
+		<view class="store_btn" bindtap="clickGood">
+			<image src="{{web_shopData.goodMe.length>0&&web_shopData.goodMe[0].status==1?'/images/store-icon123.png':'/images/store-icon16.png'}}"></image>
+			<view class="font22 color2" style="line-height: 1.2;">点赞</view>
+		</view>
+	</view>
+	<view class="store_right bg3 font34 color1" style="background: #DE5D1C;" bindtap="intoMap">到店光顾</view>
 </view>

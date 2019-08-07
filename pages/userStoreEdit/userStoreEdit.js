@@ -15,7 +15,7 @@ Page({
 			score:'',
 			mainImg:[],
 			bannerImg:[],
-			content:''
+		
 		}
   },
 
@@ -39,7 +39,7 @@ Page({
 				self.data.submitData.title = res.info.data[0].title;
 				self.data.submitData.price = res.info.data[0].price;
 				self.data.submitData.score = res.info.data[0].score;
-				self.data.submitData.content = res.info.data[0].content;
+				
 				self.data.submitData.mainImg = res.info.data[0].mainImg;
 				self.data.submitData.bannerImg = res.info.data[0].bannerImg;
 
@@ -59,10 +59,13 @@ Page({
 		postData.tokenFuncName = 'getStoreToken';
 		postData.data = {};
 		postData.data = api.cloneForm(self.data.submitData);
+		postData.searchItem = {
+			id:self.data.id
+		};
 		const callback = (data) => {
 			if (data.solely_code == 100000) {
 				api.buttonCanClick(self, true);
-				api.showToast('完善成功', 'none')
+				api.showToast('编辑成功', 'none')
 				setTimeout(function() {
 					wx.navigateBack({
 						delta: 1
@@ -111,7 +114,8 @@ Page({
 			if (res.solely_code == 100000) {
 	
 				self.data.submitData.bannerImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
@@ -155,7 +159,8 @@ Page({
 			if (res.solely_code == 100000) {
 	
 				self.data.submitData.mainImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
@@ -210,9 +215,9 @@ Page({
 	
   bindInputChange(e){
     const self = this;
-    api.fillChange(e,self,'sForm');
+    api.fillChange(e,self,'submitData');
     self.setData({
-      web_sForm:self.data.sForm,
+      web_submitData:self.data.submitData,
     });
   },
 	

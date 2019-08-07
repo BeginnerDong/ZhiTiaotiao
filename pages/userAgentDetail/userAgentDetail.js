@@ -15,7 +15,7 @@ Page({
   	const self = this;
   	api.commonInit(self);
   	self.data.user_no = options.user_no;
-		if(options.type){
+		
 			self.data.getAfter = {
 				distribution:{
 					tableName:'Distribution',
@@ -35,13 +35,22 @@ Page({
 						status:1
 					},
 					condition:'='
+				},
+				ShopUserInfo:{
+					tableName:'UserInfo',
+					middleKey:'user_no',
+					key:'user_no',
+					searchItem:{
+						status:1
+					},
+					condition:'='
 				}
 			}
 			self.setData({
 				web_type:options.type
 			})
 			console.log('options.type',options.type)
-		};
+		
   	self.getMainData();
   	
   },

@@ -47,7 +47,7 @@ Page({
 			caseData: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['首页轮播']],
+					title: ['=', ['首页轮播图']],
 				},
 				middleKey: 'parentid',
 				key: 'id',

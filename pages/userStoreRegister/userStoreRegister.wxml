@@ -3,10 +3,13 @@
 	<view class="input_before color8">店铺名称：</view>
 	<input placeholder="请输入店铺名称简称" value="{{web_submitData.name}}"  data-key="name" bindblur="bindInputChange"></input>
 </view>
-
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:45%">店主登录手机号码：</view>
-	<input placeholder="请输入手机号码" value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"></input>
+	<view class="input_before color8">店主姓名：</view>
+	<input placeholder="请输入法人姓名" value="{{web_submitData.owner}}"  data-key="owner" bindblur="bindInputChange"></input>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">登录账号：</view>
+	<input type="number" placeholder="请输入手机号码" value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"></input>
 </view>
 
 <view class="input_list1 font28 flex  w690">
@@ -19,7 +22,7 @@
 </view>	
 
 <view class="input_list1 font28 flex  w690" style="height:96rpx;">
-	<view class="input_before color8" >行业类型：</view>
+	<view class="input_before color8" >店铺分类：</view>
 	<view class="input">
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{web_typeData}}" range-key="title">
         <view class="flex picker_in">
@@ -29,15 +32,15 @@
       </picker>
     </view>
 </view>
-<view class="input_list1 font28 flex  w690" style="height:96rpx;">
+<!-- <view class="input_list1 font28 flex  w690" style="height:96rpx;">
 	<view class="input_before color8" >所在地区：</view>
 	<view class="input">
       <view style="width:100%;" class="city">
 		<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" >
      <view class="flex">
-     <!--  picker_in -->
+ 
 	    <view class="picker picker_in">
-	      <!-- {{region[0]}}{{region[1]}}{{region[2]}} -->
+	  
          {{web_submitData.address}}
 	    </view>
       <view class="down flex"><image src="/images/down.png"></image></view>
@@ -45,11 +48,11 @@
 	  </picker>
 	</view>
     </view>
-</view>
-<view class="message flex1 w690" bindtap="chooseLocation">
+</view> -->
+<view class="message flex1 w690">
 	<view class="message_left font28 color2">店铺地址：</view>
-	<view class="message_right font28 color2">
-		<textarea value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"></textarea>
+	<view class="message_right font28 color2"  bindtap="chooseLocation">
+		<textarea value="{{web_submitData.address}}" disabled="true"  data-key="address" bindblur="bindInputChange"></textarea>
 	</view>
 </view>
 <button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>

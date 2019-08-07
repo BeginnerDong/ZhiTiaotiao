@@ -85,7 +85,7 @@
 		</view>
 	</view>
 	<view class="index_product flexRowBetween">
-		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<8}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<10}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
 			<view class="recommend_top">
 				<image src="{{item.mainImg[0].url}}"></image>
 			</view>
@@ -109,7 +109,7 @@
 </view>
 <view class="space_bottom"></view>
 <view class="navbar">
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
+	<view class="navbar_item"  bindtap="intoPathRedirect" data-path="/pages/index/index">
 		<view class="nav_img">
 			<image src="/images/navbar1-a.png"></image>
 		</view>

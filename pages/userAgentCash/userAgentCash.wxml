@@ -42,9 +42,11 @@
       <view class="rule bg1" style="height: 90%;">
           <scroll-view scroll-y style="height:70vh;">
               <view class="rule_cont">
-                  <view class="font28 color2 rule_tlt">提现规则</view>
+                  <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
                   <view class=" content font24 color2 w690">
-                    <view class="content ql-editor">这是兑换规则内容这是兑换规则内容这是提现规兑换规则兑换规则兑换规则兑换规则兑换规则兑换规则兑换规则。
+                    <view class="content ql-editor">
+                      <import src="../../wxParse/wxParse.wxml"/>
+                      <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
                     </view>
                   </view>
                 </view>

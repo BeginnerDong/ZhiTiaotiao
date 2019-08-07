@@ -1,4 +1,4 @@
-<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">{{web_userInfoData.check_status==1?'审核中':(web_userInfoData.check_status==2?'已授权':'已拒绝')}}</text> </view>
+<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">{{web_userInfoData.check_status==1||web_userInfoData.check_status==0?'审核中':(web_userInfoData.check_status==2?'已授权':'已拒绝')}}</text> </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">用户姓名</view>
 	<view class="input">{{web_hfInfoData.user_name}}</view>

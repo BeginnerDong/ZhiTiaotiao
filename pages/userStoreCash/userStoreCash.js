@@ -220,6 +220,21 @@ Page({
 				api.showToast('请选择提现方式', 'none');
 				return
 			}
+			if(self.data.type==1){
+				if(parseFloat(self.data.submitData.count)>parseFloat(self.data.userInfoData.balance)){
+					api.buttonCanClick(self, true);
+					
+					api.showToast('货款不足', 'none');
+					return
+				}
+			}else{
+				if(self.data.submitData.count>self.data.userInfoData.reward){
+					api.buttonCanClick(self, true);
+					
+					api.showToast('联盟金不足', 'none');
+					return
+				}
+			}		
 			self.flowLogAdd()
 		} else {
 			api.buttonCanClick(self, true);
@@ -238,12 +253,15 @@ Page({
 			label: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['联盟金提现规则']],
+					title: ['=', ['货款提现规则']],
 				},
 				middleKey: 'menu_id',
 				key: 'id',
 				condition: 'in'
 			},
+		};
+		if(self.data.type==2){
+			postData.getBefore.label.searchItem.title = ['=',['联盟金提现规则']]
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {

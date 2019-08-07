@@ -26,7 +26,7 @@
         </view>
     </view>
     <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
-        <view class="user_left flexRowBetween">
+        <view class="user_left flexRowBetween" style="border: none;">
             <image src="/images/user_icon1.png"></image>
             <text>我的消息</text>
         </view>
@@ -44,7 +44,7 @@
 	    </view>
 	</view>       
 	<view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userAgentLogin/userAgentLogin">
-	    <view class="user_left flexRowBetween">
+	    <view class="user_left flexRowBetween" style="border: none;">
 	        <image src="../../images/images/user-icon6.png"></image>
 	        <text>我要代理</text>
 	    </view>
@@ -63,7 +63,7 @@
         </view>
     </view>
     <view class="user_infor flexRowBetween" bindtap="intoPath" data-path="/pages/userContact/userContact">
-        <view class="user_left flexRowBetween">
+        <view class="user_left flexRowBetween" style="border: none;">
             <image src="../../images/user_icon9.png"></image>
             <text>关于知条条</text>
         </view>

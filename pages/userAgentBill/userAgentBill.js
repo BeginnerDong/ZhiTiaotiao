@@ -77,20 +77,27 @@ Page({
 				info: ['name']
 			}
 		};
+		postData.compute = {
+		  totalCount:[
+			'sum',
+			'count',
+			{status:['in',[1,0,-1]],type:5,user_no:wx.getStorageSync('agentInfo').user_no,count:['>',0]}
+		  ],
+		  serviceCount:[
+		  		'sum',
+		  		'count',
+		  		{status:['in',[1,0,-1]],type:5,user_no:wx.getStorageSync('agentInfo').user_no,count:['>',0],benefit_type:1}
+		  ],
+		  helpCount:[
+		  		'sum',
+		  		'count',
+		  		{status:['in',[1,0,-1]],type:5,user_no:wx.getStorageSync('agentInfo').user_no,count:['>',0],benefit_type:2}
+		  ],
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
-				for (var i = 0; i < self.data.mainData.length; i++) {
-					if(self.data.mainData[i].count>0){
-						self.data.totalCount +=parseFloat(self.data.mainData[i].count)
-					};
-					if(self.data.mainData[i].count>0&&self.data.mainData[i].benefit_type ==1){
-						self.data.serviceCount +=parseFloat(self.data.mainData[i].count)
-					};
-					if(self.data.mainData[i].count>0&&self.data.mainData[i].benefit_type ==2){
-						self.data.helpCount +=parseFloat(self.data.mainData[i].count)
-					};
-				}
+				
 			} else {
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none');
@@ -101,9 +108,9 @@ Page({
 			  wx.stopPullDownRefresh();
 			},300);
 			self.setData({
-				web_totalCount:self.data.totalCount.toFixed(2),
-				web_serviceCount:self.data.serviceCount.toFixed(2),
-				web_helpCount:self.data.helpCount.toFixed(2),
+				web_totalCount:res.info.compute.totalCount,
+				web_serviceCount:res.info.compute.serviceCount,
+				web_helpCount:res.info.compute.helpCount,
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)

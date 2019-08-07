@@ -212,7 +212,7 @@
 	height:100%;
 	position:relative;
 }
-.rule image{
+.c{
 	width:50rpx;
 	height:50rpx;
 	position:absolute;

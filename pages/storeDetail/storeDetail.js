@@ -81,7 +81,7 @@ Page({
 	phoneCall() {
 		const self = this;
 		wx.makePhoneCall({
-			phoneNumber: self.data.mainData.phone,
+			phoneNumber: self.data.mainData.csphone,
 		})
 	},
 	
@@ -131,7 +131,7 @@ Page({
 					status: 1,
 					id: res.info.id
 				});
-
+				api.showToast('点赞成功', 'none', 1000)
 			} else {
 				api.showToast('点赞失败', 'none', 1000)
 			};
@@ -161,7 +161,11 @@ Page({
 			api.buttonCanClick(self, true);
 			if (res.solely_code == 100000) {
 				self.data.mainData.goodMe[0].status = -self.data.mainData.goodMe[0].status;
-
+				if(self.data.mainData.goodMe[0].status==1){
+					api.showToast('点赞成功', 'none', 1000)
+				}else{
+					api.showToast('取消成功', 'none', 1000)
+				}
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};
@@ -199,7 +203,7 @@ Page({
 					status: 1,
 					id: res.info.id
 				});
-
+				api.showToast('关注成功', 'none', 1000)
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};
@@ -229,7 +233,11 @@ Page({
 			api.buttonCanClick(self, true);
 			if (res.solely_code == 100000) {
 				self.data.mainData.followMe[0].status = -self.data.mainData.followMe[0].status;
-
+				if(self.data.mainData.followMe[0].status==1){
+					api.showToast('关注成功', 'none', 1000)
+				}else{
+					api.showToast('取消成功', 'none', 1000)
+				}
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};

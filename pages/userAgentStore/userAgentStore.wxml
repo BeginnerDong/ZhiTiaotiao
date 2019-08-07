@@ -14,7 +14,7 @@
 							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
 						</view>
 						<view>
-							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.name}}</view>
+							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.shopInfo.name}}</view>
 							<view class="font24">{{item.mem_num}}</view>
 						</view>
 					</view>
@@ -34,7 +34,7 @@
 							<image src="/images/img4.png" wx:if="{{index==2}}"></image>
 						</view>
 						<view>
-							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.name}}</view>
+							<view class="font26 avoidOverflow" style="width:150rpx;">{{item.shopInfo.name}}</view>
 							<view class="font24">{{item.score}}</view>
 						</view>
 					</view>
@@ -48,11 +48,9 @@
 <view class="w690">
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="record_list flex" bindtap="intoPath" data-path="/pages/userAgentDetail/userAgentDetail?user_no={{item.user_no}}">
-			<view class="w33 color6 font28">{{item.name}}</view>
+			<view class="w33 color6 font28 avoidOverflow">{{item.shopInfo.name}}</view>
 			<view class="w33 www color6 font26">{{item.create_time}}</view>
 		</view>
 	</block>
 </view>
-<view class="blank" wx:if="{{web_mainData.length==0}}">
-    <image src="/images/members-img.png"></image>
-</view>
+

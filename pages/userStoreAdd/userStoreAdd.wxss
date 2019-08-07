@@ -24,7 +24,7 @@ page{
 	border:solid 1px #e0e0e0;
 	background:#f2f2f2;
 	text-align: center;
-  margin: 0 auto;
+
 }
 .input image{
 	width:80rpx;

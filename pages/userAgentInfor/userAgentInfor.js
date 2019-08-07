@@ -16,7 +16,9 @@ Page({
 			bank:'',
 			bank_no:'',
 			bill_img:[],
-			address:''
+			address:'',
+			id_img_back:[],
+			id_img_front:[]
 		},
 		isFirstLoadAllStandard: ['getMainData']
 	},
@@ -52,6 +54,8 @@ Page({
 				self.data.submitData.bill_img = res.info.data[0].bill_img;
 				self.data.submitData.address = res.info.data[0].address;
 				self.data.submitData.agent_no = res.info.data[0].agent_no;
+				self.data.submitData.id_img_back = res.info.data[0].id_img_back;
+				self.data.submitData.id_img_front = res.info.data[0].id_img_front;
 			};
 			self.setData({
 				web_submitData: self.data.submitData,
@@ -100,7 +104,8 @@ Page({
 			if (res.solely_code == 100000) {
 				console.log('self.data.submitData.bill_img',self.data.submitData.bill_img)
 				self.data.submitData.bill_img.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData

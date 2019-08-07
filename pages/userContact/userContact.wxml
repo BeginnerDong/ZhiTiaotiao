@@ -16,8 +16,8 @@
             <image src="/images/next_page.jpg"></image>
         </view>
     </view>
-    <view class="feedBack shadow1 flex bg1 w710" bindtap="statement" data-path="/pages/userFeedBack/userFeedBack">
-        <view class="feed_left font30 color2">法律声明即隐私政策</view>
+    <view class="feedBack shadow1 flex bg1 w710" bindtap="statement">
+        <view class="feed_left font30 color2">隐私政策</view>
         <view class="feed_right">
             <image src="/images/next_page.jpg"></image>
         </view>
@@ -37,11 +37,11 @@
 	    <view class="rule bg1" style="height: 90%; border-radius:12rpx;">
 	        <scroll-view scroll-y style="height:70vh;">
 	            <view class="rule_cont">
-	                <view class="font28 color2 rule_tlt">用户服务协议</view>
+	                <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
                   <view class=" content font24 color2 w690">
                     <view class="content ql-editor">
-                      《用户服务协议》
-                      欢迎使用知条条及服务！
+                      <import src="../../wxParse/wxParse.wxml"/>
+                      <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
                     </view>
                   </view>				
 				      </view>
@@ -50,16 +50,16 @@
 	    </view>
 	</view>
 
-  	<!-- 法律声明即隐私政策 -->
+  	<!-- 隐私政策 -->
   <view class="mask"  wx:if="{{is_statement}}">
 	    <view class="rule bg1" style="height: 90%; border-radius:12rpx;">
 	        <scroll-view scroll-y style="height:70vh;">
 	            <view class="rule_cont">
-	                <view class="font28 color2 rule_tlt">法律声明即隐私政策</view>
+	                <view class="font28 color2 rule_tlt">{{web_aboutDataTwo.title}}</view>
                   <view class=" content font24 color2 w690">
                     <view class="content ql-editor">
-                      《法律声明即隐私政策》
-                      欢迎使用知条条及服务！
+                      <import src="../../wxParse/wxParse.wxml"/>
+                      <template is="wxParse" data="{{wxParseData:web_aboutDataTwo.content}}"/>
                     </view>
                   </view>				
 				      </view>

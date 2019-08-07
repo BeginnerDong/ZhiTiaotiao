@@ -106,7 +106,8 @@ Page({
 			if (res.solely_code == 100000) {
 
 				self.data.submitData.bannerImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
@@ -150,7 +151,8 @@ Page({
 			if (res.solely_code == 100000) {
 
 				self.data.submitData.mainImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData

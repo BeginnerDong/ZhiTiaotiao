@@ -23,7 +23,7 @@
           </view>
         </view>
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:100rpx;">
-            <button class="submit_info" bindtap="payment">确认</button>
+            <button class="submit_info" bindtap="{{currentId?'payment':'submit'}}">确认</button>
         </view>
       </view>
   </view>
@@ -38,7 +38,7 @@
       </view>
       <view class="confirm_btn flex">
         <view class="confirm_item font26 color6" bindtap="cancle">取消</view>
-        <button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>
+        <button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx"  bindtap="{{web_buttonCanClick?'submit':''}}">确认</button>
       </view>
   </view>
   <view class="get_peice" wx:if="{{is_peice}}">

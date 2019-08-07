@@ -13,9 +13,9 @@ Page({
 		time: 2019 - 9 - 9,
 		currentId: 0,
 		searchItem: {
-			status:['in',[1]],
+			status:['in',[0,1,-1]],
 			type:2,
-			
+			user_no:wx.getStorageSync('storeInfo').user_no
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
@@ -33,6 +33,7 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
+		self.data.searchItem.user_no = wx.getStorageSync('storeInfo').user_no;
 		self.getMainData();
 		self.getUserInfoData();
 		self.setData({
@@ -84,12 +85,23 @@ Page({
 				info: ['nickname']
 			}
 		};
+		postData.compute = {
+		  totalCount:[
+			'sum',
+			'count',
+			api.cloneForm(self.data.searchItem)
+		  ],
+		  
+		};
+		postData.compute.totalCount[2].count = ['>',0]
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
-				for (var i = 0; i < self.data.mainData.length; i++) {
-					totalCount += parseFloat(self.data.mainData[i].count)
-				};
+				/* for (var i = 0; i < self.data.mainData.length; i++) {
+					if(self.data.mainData[i].count>0){
+						totalCount += parseFloat(self.data.mainData[i].count)
+					}	
+				}; */
 			} else {
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none');
@@ -100,7 +112,7 @@ Page({
 			  wx.stopPullDownRefresh();
 			},300);
 			self.setData({
-					web_totalCount: totalCount.toFixed(2),
+					web_totalCount: res.info.compute.totalCount,
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
@@ -125,19 +137,20 @@ Page({
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:4,
-				
+					user_no:wx.getStorageSync('storeInfo').user_no
 				}
 			}else if(self.data.currentId==0){
 				self.data.searchItem = {
-					status:['in',[1]],
+					status:['in',[1,0,-1]],
 					type:2,
-					
+					user_no:wx.getStorageSync('storeInfo').user_no
 				}
 			}if(self.data.currentId==2){
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:4,
-					behavior:2
+					behavior:2,
+					user_no:wx.getStorageSync('storeInfo').user_no
 				}
 			}
 			self.getMainData(true);

@@ -8,13 +8,15 @@
 
 <view>
 	<view class="record_tlt flex" style="background:#f5f5f5;">
-	  <view class="w50 color2 font30">时间</view>
-	  <view class="w50 color2 font30">金额</view>
+	  <view class="w50 color2 font30" style="width: 40%;">时间</view>
+	  <view class="w50 color2 font30" style="width: 20%;">金额</view>
+	  <view class="w50 color2 font30"style="width: 40%;">类型</view>
 	</view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
-		<view class="record_list flex">
-			<view class="w50 color6 font24">{{item.create_time}}</view>
-			<view class="w50 color6 font24">{{item.count}}</view>
+		<view class="record_list flex" wx:if="{{item.count>0}}">
+			<view class="w50 color6 font24" style="width: 40%;">{{item.create_time}}</view>
+			<view class="w50 color6 font24" style="width: 20%;">{{item.count}}</view>
+			<view class="w50 color6 font24" style="width: 40%;">{{item.trade_info}}</view>
 		</view>	
 	</block>
 	<view class="blank" wx:if="{{web_mainData.length==0}}">

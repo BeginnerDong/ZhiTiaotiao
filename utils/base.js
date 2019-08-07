@@ -567,18 +567,8 @@ class Base{
 
 
 
-    checkComplete(obj){
-        var pass = true;
-        for(var key in obj){
-          if(!obj[key]||obj[key]=='0'){
-            console.log(obj[key]);
-            pass = false;
-          };
-        };
-        return pass;
-        console.log(pass);
-    };
-/*
+  
+
     checkComplete(obj){
         var pass = true;
         for(var key in obj){
@@ -591,7 +581,7 @@ class Base{
           };
         };
         return pass;
-    };*/
+    };
 
     getcurrentPage(){
         var pages = getCurrentPages();

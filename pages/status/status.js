@@ -31,7 +31,7 @@ Page({
 		api.commonInit(self);
 		 var date=new Date;
 		 var year=date.getFullYear(); 
-		 var month=date.getMonth()+1;
+		 var month=date.getMonth();
 		 self.data.select_data = year+'年'+month+'月',
 		self.getMainData();
 		
@@ -144,7 +144,7 @@ Page({
 			label: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['知条条奖励规则']],
+					title: ['=', ['用户知条规则']],
 				},
 				middleKey: 'menu_id',
 				key: 'id',

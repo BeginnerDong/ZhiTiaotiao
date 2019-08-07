@@ -35,7 +35,8 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getAgentToken';
 		postData.searchItem = {
-			user_type: 1
+			user_type: 1,
+		
 		};
 		postData.getBefore = {
 			child: {
@@ -48,10 +49,23 @@ Page({
 				fixSearchItem: {
 					parent_no: ['in', [wx.getStorageSync('agentInfo').user_no]],
 					level: ['in', [1]],
+					type:1
 				},
 				condition: 'in'
 			}
 		};
+		postData.getAfter = {
+			shopInfo: {
+				tableName: 'ShopInfo',
+				middleKey: 'user_no',
+				key: 'user_no',
+				searchItem: {
+					status: 1,
+				},
+				condition: 'in',
+				info:['name']
+			}
+		},
 		postData.order = {
 			create_time: 'desc'
 		}
@@ -72,7 +86,8 @@ Page({
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
 		postData.searchItem = {
-			user_type: 1
+			user_type: 1,
+			
 		};
 		postData.getBefore = {
 			child: {
@@ -85,10 +100,23 @@ Page({
 				fixSearchItem: {
 					parent_no: ['in', [wx.getStorageSync('agentInfo').user_no]],
 					level: ['in', [1]],
+					type:1
 				},
 				condition: 'in'
 			}
 		};
+		postData.getAfter = {
+			shopInfo: {
+				tableName: 'ShopInfo',
+				middleKey: 'user_no',
+				key: 'user_no',
+				searchItem: {
+					status: 1,
+				},
+				condition: 'in',
+				info:['name']
+			}
+		},
 		postData.order = {
 			score: 'desc'
 		}
@@ -112,7 +140,8 @@ Page({
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
 		postData.searchItem = {
-			user_type: 1
+			user_type: 1,
+			
 		};
 		postData.getBefore = {
 			child: {
@@ -125,10 +154,23 @@ Page({
 				fixSearchItem: {
 					parent_no: ['in', [wx.getStorageSync('agentInfo').user_no]],
 					level: ['in', [1]],
+					type:1
 				},
 				condition: 'in'
 			}
 		};
+		postData.getAfter = {
+			shopInfo: {
+				tableName: 'ShopInfo',
+				middleKey: 'user_no',
+				key: 'user_no',
+				searchItem: {
+					status: 1,
+				},
+				condition: 'in',
+				info:['name']
+			}
+		},
 		postData.order = {
 			mem_num: 'desc'
 		}

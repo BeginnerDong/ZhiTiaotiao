@@ -56,6 +56,7 @@ Page({
 				info:['nickname','headImgUrl']
 			}
 		};
+		
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
@@ -63,6 +64,7 @@ Page({
 				self.data.isLoadAll = true;
 			};
 			self.setData({
+				web_total:res.info.total,
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)

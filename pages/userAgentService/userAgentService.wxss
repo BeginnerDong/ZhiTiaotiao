@@ -45,3 +45,11 @@
 	height:76%;
 	border-radius:16rpx;
 }
+.upload{
+	width:30%;
+	height:240rpx;
+	line-height:240rpx;
+	border:solid 1px #e0e0e0;
+	background:#f2f2f2;
+	text-align: center;
+}

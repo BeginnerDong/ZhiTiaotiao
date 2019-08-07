@@ -11,7 +11,7 @@ const token = new Token();
 
 Page({
 	data: {
-				bankData: [{
+		bankData: [{
 			name: '兴业银行',
 			value: '03090000'
 		}, {
@@ -95,23 +95,28 @@ Page({
 		submitData: {
 			count: ''
 		},
-		isFirstLoadAllStandard: ['getUserInfoData','getHfInfoData']
+		chooseType: 0,
+		isFirstLoadAllStandard: ['getUserInfoData', 'getHfInfoData','getAboutData']
 	},
 
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
 		self.getUserInfoData()
-
+		self.getAboutData();
 		self.getHfInfoData()
+		self.setData({
+			web_type:self.data.type,
+			web_chooseType:self.data.chooseType
+		})
 	},
 
 	getUserInfoData() {
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem  = {
-			user_no:wx.getStorageSync('agentInfo').user_no
+		postData.searchItem = {
+			user_no: wx.getStorageSync('agentInfo').user_no
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
@@ -129,18 +134,18 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem  = {
-			user_no:wx.getStorageSync('agentInfo').user_no
+		postData.searchItem = {
+			user_no: wx.getStorageSync('agentInfo').user_no
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.hfData = res.info.data[0];
 				for (var i = 0; i < self.data.bankData.length; i++) {
-					if(self.data.bankData[i].value==self.data.hfData.bank_id){
+					if (self.data.bankData[i].value == self.data.hfData.bank_id) {
 						self.data.hfData.bank_name = self.data.bankData[i].name
 					}
 				}
-				self.data.hfData.bank_acct_no = self.data.hfData.bank_acct_no.substring(self.data.hfData.bank_acct_no.length-4);
+				self.data.hfData.bank_acct_no = self.data.hfData.bank_acct_no.substring(self.data.hfData.bank_acct_no.length - 4);
 			};
 			self.setData({
 				web_hfData: self.data.hfData
@@ -149,13 +154,13 @@ Page({
 		};
 		api.hfInfoGet(postData, callback);
 	},
-  rule() {
-    const self = this;
-    self.data.is_rule = !self.data.is_rule;
-    self.setData({
-      is_rule: self.data.is_rule
-    })
-  },
+	rule() {
+		const self = this;
+		self.data.is_rule = !self.data.is_rule;
+		self.setData({
+			is_rule: self.data.is_rule
+		})
+	},
 	flowLogAdd() {
 		const self = this
 		const postData = {
@@ -165,9 +170,9 @@ Page({
 				status: 0,
 				type: 5,
 				thirdapp_id: 2,
-				behavior:2,
-				withdraw_type:self.data.chooseType,
-				user_no:wx.getStorageSync('agentInfo').user_no
+				behavior: 2,
+				withdraw_type: self.data.chooseType,
+				user_no: wx.getStorageSync('agentInfo').user_no
 			}
 		};
 		postData.tokenFuncName = 'getAgentToken';
@@ -181,7 +186,7 @@ Page({
 						delta: 1
 					})
 				}, 1000);
-			}else{
+			} else {
 				api.showToast(res.msg, 'none');
 			}
 		};
@@ -194,6 +199,18 @@ Page({
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {
+			if (self.data.chooseType == 0) {
+				api.buttonCanClick(self, true);
+
+				api.showToast('请选择提现方式', 'none');
+				return
+			}
+			if (parseFloat(self.data.submitData.count) > parseFloat(self.data.userInfoData.benefit)) {
+				api.buttonCanClick(self, true);
+
+				api.showToast('佣金不足', 'none');
+				return
+			}
 			self.flowLogAdd()
 		} else {
 			api.buttonCanClick(self, true);
@@ -201,14 +218,14 @@ Page({
 			api.showToast('请输入提现金额', 'none')
 		};
 	},
-	
-	choose(e){
+
+	choose(e) {
 		const self = this;
-		var type = api.getDataSet(e,'type');	
-		if(type!=self.data.chooseType){
+		var type = api.getDataSet(e, 'type');
+		if (type != self.data.chooseType) {
 			self.data.chooseType = type;
 			self.setData({
-				web_chooseType:self.data.chooseType
+				web_chooseType: self.data.chooseType
 			})
 		}
 	},
@@ -223,7 +240,7 @@ Page({
 			label: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['联盟金提现规则']],
+					title: ['=', ['佣金提现规则']],
 				},
 				middleKey: 'menu_id',
 				key: 'id',

@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 104,
+			"current": 108,
 			"list": [
 				{
 					"id": -1,
@@ -731,6 +731,34 @@
 					"id": -1,
 					"name": "pages/userAgentCash/userAgentCash",
 					"pathName": "pages/userAgentCash/userAgentCash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Agent_status/Agent_status",
+					"pathName": "pages/Agent_status/Agent_status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
 					"scene": null
 				}
 			]

@@ -43,6 +43,16 @@ Page({
 		wx.removeStorageSync('agentInfo');
 		api.pathTo('/pages/userAgentLogin/userAgentLogin','redi');
 	},
+	
+	intoStatus(e){
+		const self = this;
+		if(self.data.userInfoData.check_status==2){
+			api.showToast('您已开户','none');
+			
+		}else{
+			api.pathTo(api.getDataSet(e,'path'),'nav');
+		}
+	},
  
   intoPath(e){
     const self = this;

@@ -1,5 +1,5 @@
 <view class="status-top">
-	<view class="top-text1">{{web_mainData.length}}</view>
+	<view class="top-text1">{{web_total}}</view>
 	<view class="top-text2" wx:if="{{web_currentId==0}}">会员总量</view>
 	<view class="top-text2" wx:if="{{web_currentId==2}}">本月新增</view>
 	<view class="top-text2" wx:if="{{web_currentId==3}}">本月重消</view>

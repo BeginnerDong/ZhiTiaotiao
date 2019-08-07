@@ -162,10 +162,15 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
+		var password = self.data.submitData.password;
 		setTimeout(function() {
 			const pass = api.checkComplete(self.data.submitData);
 			if (pass) {
-
+				if(!/^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/.test(password)){
+					api.buttonCanClick(self, true);
+					api.showToast('密码格式错误', 'none');
+					return
+				};
 				self.resetPassword();
 			} else {
 				api.buttonCanClick(self, true);

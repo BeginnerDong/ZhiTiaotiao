@@ -61,9 +61,18 @@ Page({
 		const pass = api.checkComplete(self.data.submitData);
 		if (pass) {
 			if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
+				api.buttonCanClick(self, true);
 				api.showToast('手机格式错误', 'none')
 			} else {
-				self.userInfoUpdate()
+				if(!self.data.is_rule){
+					api.buttonCanClick(self, true);
+					api.showToast('请阅读服务协议', 'none');
+				}
+				
+				const callback = (user, res) => {
+					self.userInfoUpdate()
+				};
+				api.getAuthSetting(callback);
 			}
 		} else {
 			api.buttonCanClick(self, true);

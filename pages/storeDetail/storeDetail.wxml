@@ -52,7 +52,7 @@
     </view>
     <view class="peice" style="{{currentId == 1?'display:block':'display:none'}}">
       <view class="index_product flexRowBetween">
-        <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail?id={{item.id}}">
+        <view class="recommend_left bg1 shadow1" wx:for="{{web_productData}}" bindtap="intoPath" data-path="/pages/productDetail/productDetail?id={{item.id}}&shop_id={{web_mainData.id}}">
           <view class="recommend_top">
             <image src="{{item.mainImg[0].url}}"></image>
           </view>
@@ -60,7 +60,7 @@
           {{item.title}}
             <view class="rightSee commnet_item flexCenter" style="margin-right:0;">
               <image src="../../images/images/near-icon4.png" style="width: 26rpx; height: 18rpx;"></image>
-			        <view class="font24 color5">2322</view>
+			        <view class="font24 color5">{{item.view_count}}</view>
             </view>
           </view>
           <view class="product_pro ">

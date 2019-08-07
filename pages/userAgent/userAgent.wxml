@@ -44,7 +44,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/Agent_status/Agent_status">
+	<view class="sort_item flex" bindtap="intoStatus" data-path="/pages/Agent_status/Agent_status">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon8.png"></image>

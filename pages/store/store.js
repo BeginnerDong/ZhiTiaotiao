@@ -20,7 +20,8 @@ Page({
 		},
 		La1: '',
 		lo1: '',
-		order:{}
+		order: {},
+		getBefore: {}
 	},
 	//事件处理函数
 	preventTouchMove: function(e) {
@@ -39,11 +40,13 @@ Page({
 		const self = this;
 		var lat = self.data.la1;
 		var lon = self.data.lo1;
-		var orderKey = 'ACOS(SIN(('+ lat +'* 3.1415) / 180 ) *SIN((latitude * 3.1415) / 180 ) +COS(('+ lat +' * 3.1415) / 180 ) * COS((latitude * 3.1415) / 180 ) *COS(('+ lon +' * 3.1415) / 180 - (longitude * 3.1415) / 180 ) ) * 6379';
+		var orderKey = 'ACOS(SIN((' + lat + '* 3.1415) / 180 ) *SIN((latitude * 3.1415) / 180 ) +COS((' + lat +
+			' * 3.1415) / 180 ) * COS((latitude * 3.1415) / 180 ) *COS((' + lon +
+			' * 3.1415) / 180 - (longitude * 3.1415) / 180 ) ) * 6379';
 
-		
-	
-		self.data.order[orderKey]= 'asc';
+
+
+		self.data.order[orderKey] = 'asc';
 		if (isNew) {
 			api.clearPageIndex(self)
 		};
@@ -53,8 +56,12 @@ Page({
 		postData.searchItem = api.cloneForm(self.data.searchItem);
 		postData.searchItem.user_type = 1
 		postData.order = api.cloneForm(self.data.order)
+		if (JSON.stringify(self.data.getBefore) != '{}') {
+			postData.getBefore = api.cloneForm(self.data.getBefore);
+		}
+
 		const callback = (res) => {
-			api.buttonCanClick(self,true);
+			api.buttonCanClick(self, true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				for (var i = 0; i < self.data.mainData.length; i++) {
@@ -66,6 +73,11 @@ Page({
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none')
 			}
+			setTimeout(function()
+			{
+			  wx.hideNavigationBarLoading();
+			  wx.stopPullDownRefresh();
+			},300);
 			self.setData({
 				web_mainData: self.data.mainData
 			});
@@ -84,7 +96,7 @@ Page({
 			caseData: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['行业类型']],
+					title: ['=', ['店铺分类']],
 				},
 				middleKey: 'parentid',
 				key: 'id',
@@ -118,18 +130,49 @@ Page({
 			menu_id: menu_id
 		};
 		self.setData({
-			web_menu_id:menu_id
+			web_menu_id: menu_id
 		})
 		self.getMainData(true)
 	},
 
+	onPullDownRefresh() {
+		const self = this;
+		wx.showNavigationBarLoading();
+		self.data.getBefore = {};
+		delete self.data.searchItem.menu_id;
+		self.data.sForm.name = '';
+		self.getMainData(true);
+		self.setData({
+			web_sForm:self.data.sForm,
+			web_menu_id: ''
+		})
+
+	},
+
 	search() {
 		const self = this;
-		if(self.data.sForm.name==''){
-			api.showToast('搜索条件无效','none');
+		if (self.data.sForm.name == '') {
+			api.showToast('搜索条件无效', 'none');
 			return
 		};
-		self.data.searchItem.name =['LIKE', ['%' + self.data.sForm.name + '%']];
+		if(self.data.searchItem.menu_id){
+			delete self.data.searchItem.menu_id;
+			self.setData({
+				web_menu_id:''
+			})
+		};
+		self.data.getBefore = {
+			caseData: {
+				tableName: 'Product',
+				searchItem: {
+					title: ['LIKE', ['%' + self.data.sForm.name + '%']]
+				},
+				middleKey: 'user_no',
+				key: 'user_no',
+				condition: 'in',
+			},
+		};
+
 		self.getMainData(true)
 	},
 
@@ -155,7 +198,7 @@ Page({
 		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
 	},
 
-	
+
 
 	intoPath(e) {
 		const self = this;

@@ -1,32 +1,29 @@
 <view class="store-row">
 	<view class="store-texta">店铺名称：</view>
-	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"></input>
+	<input class="store-textb"  disabled="true" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">店铺地址：</view>
-	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
+	<input class="store-textb" style="width: 74%;"  disabled="true" value="{{web_submitData.address}}"  data-key="address" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
-	<view class="store-texta">店长姓名：</view>
-	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.owner}}"  data-key="owner" bindblur="changeBind"></input>
+	<view class="store-texta">店主姓名：</view>
+	<input class="store-textb"  disabled="true" value="{{web_submitData.owner}}"  data-key="owner" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
-	<view class="store-texta">店长手机号码：</view>
-	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
+	<view class="store-texta">登录账号：</view>
+	<input class="store-textb"  disabled="true" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
 </view>
 <view class="store-row">
 	<view class="store-texta">营业时间：</view>
 	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.description}}"  data-key="description" bindblur="changeBind"></input>
 </view>
-<view class="store-row">
-	<view class="store-texta">主营商品：</view>
-	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.keywords}}"  data-key="keywords" bindblur="changeBind"></input>
-</view>
+
 <view class="store-row">
 	<view class="store-texta">店铺电话：</view>
 	<input class="store-textb"  disabled="{{is_edit}}" value="{{web_submitData.csphone}}"  data-key="csphone" bindblur="changeBind"></input>
 </view>
-<view class="store-textc" style="margin-left: 20rpx;">店铺主图：</view>
+<view class="store-textc" style="margin-left: 20rpx;color: #000000;">店铺主图：</view>
 	<view style="display: flex;justify-content: center;align-items: center;position: relative;	">
 		<block  wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
 			<image class="picCloseBtn"  src="/images/Uploadqualification-icon.png" 
@@ -41,7 +38,7 @@
 	<view class="business" bindtap="upLoadMainImg" style="display: flex;align-items: center;justify-content: center;" wx:if="{{web_submitData.mainImg==0&&!is_edit}}">
 		<image src="../../images/Upload-icon.png" style="width: 50rpx; height: 60rpx"></image>
 	</view>
-<view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;">店铺环境图：</view>
+<view class="store-textc" style="text-indent: 20rpx; border-top:solid 1rpx #F0F0F0 ; margin-top: 30rpx;color: #000000;">店铺环境图：</view>
 	<view style="width:80%; margin:0 auto">
 		<block  wx:for="{{web_submitData.bannerImg}}" wx:key="{{index}}">
 		<view style="width: 50%;position: relative;display: flex;justify-content: center;align-items: center;margin-bottom: 16px;float:left">

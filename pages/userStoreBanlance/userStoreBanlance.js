@@ -11,7 +11,7 @@ Page({
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:2,
-			
+			count:['>',0]
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData','getAboutData'],
@@ -36,6 +36,7 @@ Page({
 			self.data.currentId = currentId;
 			if(currentId==1){
 				self.data.searchItem.type=2;
+				self.data.searchItem.count=['>',0]
 			}else if(currentId==2){
 				
 				self.data.searchItem.type=4;
@@ -122,7 +123,7 @@ Page({
 			label: {
 				tableName: 'Label',
 				searchItem: {
-					title: ['=', ['联盟金提现规则']],
+					title: ['=', ['联盟金结算规则']],
 				},
 				middleKey: 'menu_id',
 				key: 'id',

@@ -59,7 +59,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreContact/userStoreContact">
+	<view class="sort_item flex" bindtap="intoStatus" data-path="/pages/userStoreContact/userStoreContact">
 	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon8.png"></image>

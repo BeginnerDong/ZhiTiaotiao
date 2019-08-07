@@ -15,7 +15,7 @@
 </view>
 <view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
-		<view class="piece_list w690 flex">
+		<view class="piece_list w690 flex" wx:if="{{item.count<0}}">
 		   <view class="piece_item font28 color2" style="text-align:left;">
 				<view class="font28 color2"> {{item.shopInfo.name}}</view>
 				<view class="font24 color2 ilblock">{{item.create_time}}</view>

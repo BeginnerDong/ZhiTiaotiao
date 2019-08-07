@@ -15,7 +15,7 @@ Page({
 			category_id:7,
 			price:'',
 			score:'',
-			content:''
+			
 		}
   },
 
@@ -29,8 +29,8 @@ Page({
 	
 	upLoadBannerImg() {
 		const self = this;
-		if (self.data.submitData.bannerImg.length > 2) {
-			api.showToast('仅限3张', 'fail');
+		if (self.data.submitData.bannerImg.length > 9) {
+			api.showToast('仅限10张', 'fail');
 			return;
 		};
 		wx.showLoading({
@@ -42,7 +42,8 @@ Page({
 			if (res.solely_code == 100000) {
 	
 				self.data.submitData.bannerImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
@@ -86,7 +87,8 @@ Page({
 			if (res.solely_code == 100000) {
 	
 				self.data.submitData.mainImg.push({
-					url: res.info.url
+					url: res.info.url,
+					type:'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData

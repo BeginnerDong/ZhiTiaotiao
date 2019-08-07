@@ -18,7 +18,7 @@ page{
 	border-radius:16rpx;
 }
 .input{
-	width:30%;
+	width:50%;
 	height:240rpx;
 	line-height:240rpx;
 	border:solid 1px #e0e0e0;

@@ -5,11 +5,11 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">店铺价格：</view>
-	<input placeholder="请输入商品价格" value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
+	<input placeholder="请输入商品价格" type="number" value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">知条特惠：</view>
-	<input placeholder="请输入知条数量" value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
+	<input placeholder="请输入知条数量" type="number" value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
 </view>
 
 <view class="message w690">
@@ -27,7 +27,7 @@
 				</view> 
 			
 		</block>
-		<view class="input" style="margin:0 auto" bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg.length==0}}">
+		<view class="input"  bindtap="upLoadMainImg" wx:if="{{web_submitData.mainImg.length==0}}">
 			<image src="/images/Upload-icon.png"></image>
 		</view>
 		

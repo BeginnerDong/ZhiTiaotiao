@@ -38,13 +38,13 @@
 	border: none;
 }
 .get_check{
-	line-height:50rpx;
+	line-height:100rpx;
 	background: #fff;
 	color:#0d6fb8;
 	font-size:24rpx;
   position: absolute;
   right: -60rpx;
-  top: 30rpx;
+  top: 0rpx;
 }
 .submit_info{
 	border-radius:10rpx;

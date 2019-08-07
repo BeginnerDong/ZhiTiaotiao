@@ -180,10 +180,9 @@ Page({
 		console.log('pass', pass)
 		if (pass) {
 			
-			const callback = (user, res) => {
+			
 				self.pay()
-			};
-			api.getAuthSetting(callback);
+			
 			
 		} else {
 			api.buttonCanClick(self, true);

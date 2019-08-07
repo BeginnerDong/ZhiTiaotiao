@@ -1,0 +1,16 @@
+<view style="width:100%">
+	<view class="has-card  font30">
+		<!-- {{web_mainData.info.bank_code}}<span class="font28" style="margin-left: 15rpx;">{{web_mainData.info.enc_bank_no}}</span> -->
+		<view style="width:100%;margin-top: 5px;display: flex;">
+			
+			<view style="margin-left: 20px;">
+				<view style="font-size:24rpx;line-height: 60rpx;color: black;">{{web_hfInfoData.bankName}}</view>
+				<view class="font24">储蓄卡</view>
+				<view style="font-size:30rpx;font-weight: 700;line-height: 60rpx;color: black;">**** **** **** **** {{web_hfInfoData.bank_acct_no}}</view>
+			</view>
+			
+		</view>
+
+	</view>
+	<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx">本服务由金融机构监管提供</view>
+</view>

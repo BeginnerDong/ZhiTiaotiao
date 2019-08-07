@@ -171,6 +171,7 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.vali_date = e.detail.value.replace(/-/g, "");
+		self.data.submitData.vali_date = e.detail.value.replace(/-/g, "");
 		self.setData({
 			web_certEnd: e.detail.value
 		})
@@ -223,12 +224,16 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.userInfoData = res.info.data[0];
-				if (self.data.userInfoData.check_status != 0&&self.data.hfInfoData.type==3) {
+				if (self.data.hfInfoData.bank_acct_no !=''&&self.data.hfInfoData.type==3&&self.data.userInfoData.check_status==0) {
 					wx.redirectTo({
 						url:'/pages/userAgentDetailb/userAgentDetailb'
 					})
 					
-				}else{
+				}else if(self.data.hfInfoData.bank_acct_no !=''&&self.data.userInfoData.check_status==2&&self.data.hfInfoData.type==3){
+					wx.redirectTo({
+						url:'/pages/bank/bank'
+					})
+				}else if(self.data.userInfoData.check_status==-1||self.data.userInfoData.check_status==0){
 					self.getMainData();
 				}
 			};
@@ -243,7 +248,7 @@ Page({
 		postData.searchItem = {
 			user_no: wx.getStorageSync('agentInfo').user_no
 		};
-		postData.data = api.cloneForm(self.data.submitData);
+		/* postData.data = api.cloneForm(self.data.submitData); */
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.hfInfoData = res.info.data[0]
@@ -308,13 +313,37 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				api.showToast('开户成功','none')
-
+				setTimeout(function()
+				{
+				  wx.redirectTo({
+				  	url:'/pages/userAgentDetailb/userAgentDetailb'
+				  })
+				},500);
+				
 			}else{
 				api.showToast(res.msg,'none')
 			}
 		};
 		api.hfInfoUpdate(postData, callback);
 	},
+	
+	submit() {
+		const self = this;
+		api.buttonCanClick(self);
+		var phone = self.data.submitData.phone;
+		const pass = api.checkComplete(self.data.submitData);
+		console.log('pass', pass)
+		if (pass) {
+			
+				self.hfInfoUpdate();
+			
+		} else {
+			api.buttonCanClick(self, true);
+			api.showToast('请补全信息', 'none');
+		};
+	},
+	
+	
 
 	/* bindWithdrawCard() {
 		const self = this;
@@ -358,7 +387,7 @@ Page({
 	userProvinceChange(e) {
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.cArray = [];
+		self.data.cArrayTwo = [];
 		self.data.submitData.cust_prov = self.data.pArrayTwo[e.detail.value].value;
 		console.log(self.data.submitData);
 		for (var i = 0; i < self.data.mainData.length; i++) {
