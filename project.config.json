@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 108,
+			"current": 110,
 			"list": [
 				{
 					"id": -1,
@@ -759,6 +759,20 @@
 					"id": -1,
 					"name": "pages/userAgentRegister/userAgentRegister",
 					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentRegister/userAgentRegister",
+					"pathName": "pages/userAgentRegister/userAgentRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreRegister/userStoreRegister",
+					"pathName": "pages/userStoreRegister/userStoreRegister",
 					"scene": null
 				}
 			]
