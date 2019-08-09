@@ -17,6 +17,10 @@
 	<view class="top-text1">{{web_currentId==1?web_userInfoData.balance:web_userInfoData.reward}}</view>
 	<view class="top-text2" wx:if="{{web_currentId==1}}">货款余额(￥)</view>
 	<view class="top-text2" wx:if="{{web_currentId==2}}">结算金余额(￥)</view>
+  <view class="hklisBox">
+    <view >当日货款：99999元</view>
+    <view>当日笔数：88888笔</view>
+  </view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>
 <view class="tab font30 flexRowBetween">
@@ -61,19 +65,21 @@
 </view>
 <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1" style="height: 90%;">
-        <scroll-view scroll-y style="height:70vh;">
+        <scroll-view scroll-y style="height:90%">
             <view class="rule_cont">
-                <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
-				<view class=" content font24 color2 w690">
-					 <view class="content ql-editor">
-					  <import src="../../wxParse/wxParse.wxml"/>
-					  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
-					</view>
-				</view>
-				
-			</view>
+              <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+              <view class=" content font24 color2 w690">
+                <view class="content ql-editor">
+                  <import src="../../wxParse/wxParse.wxml"/>
+                  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+                </view>
+              </view>
+			      </view>
         </scroll-view>
-		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+        <view style="height: 10%;display: flex;align-items: center;justify-content: center;">
+          <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+        </view>
+		
     </view>
 </view>
 <view class="blank" wx:if="{{web_mainData.length==0}}">

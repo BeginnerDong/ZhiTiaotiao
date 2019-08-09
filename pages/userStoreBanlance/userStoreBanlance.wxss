@@ -240,3 +240,9 @@
 .bg1{
 	border-radius:12rpx ;
 }
+/* 当日货款和当日笔数 */
+.hklisBox{flex-wrap: wrap; display: flex;justify-content: space-around;padding-top:80rpx}
+.hklisBox>view{width:50%;color: #BDDEF1;font-size:26rpx; text-align: center;}
+
+
+

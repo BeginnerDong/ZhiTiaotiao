@@ -1,5 +1,10 @@
 <view class="status-top">
 	<view class="w690">
+      <view class="seachbox">
+      <view></view>
+        <input type="text" placeholder="请输入代理NO."></input>
+        <image class="btn" src="/images/store_icon9.png"></image>
+      </view>
 	    <view class="member_ranking bg1">
 	        <view class="member_cont flex">
 	            <view class="member_item">

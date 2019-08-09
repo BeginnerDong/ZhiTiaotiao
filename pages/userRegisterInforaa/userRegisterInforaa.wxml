@@ -64,7 +64,7 @@
 </view> -->
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业名称</view>
-	<input class="input" placeholder="输入的企业名称须与营业执照一致" value="{{web_submitData.corp_name}}"data-key="corp_name" bindblur="changeBind"></input>
+	<input class="input" placeholder="请输入的企业名称须与营业执照一致" value="{{web_submitData.corp_name}}"data-key="corp_name" bindblur="changeBind"></input>
 </view>
 <!-- <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
@@ -100,11 +100,11 @@
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">企业营业地址</view>
-	<input class="input" placeholder="输入的地址须与营业执照上一致" value="{{web_submitData.corp_business_address}}"data-key="corp_business_address" bindblur="changeBind"></input>
+	<input class="input" placeholder="请输入企业营业地址" value="{{web_submitData.corp_business_address}}"data-key="corp_business_address" bindblur="changeBind"></input>
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">企业注册地址</view>
-	<input class="input" placeholder="输入的地址须与营业执照上一致" value="{{web_submitData.corp_reg_address}}"data-key="corp_reg_address" bindblur="changeBind"></input>
+	<input class="input" placeholder="请输入的地址须与营业执照上一致" value="{{web_submitData.corp_reg_address}}"data-key="corp_reg_address" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width:26%;">企业固定电话</view>
@@ -136,7 +136,7 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width: 30%;">法人证件号</view>
-	<input class="input" placeholder="输入的证件号须于证件类型一致" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
+	<input class="input" placeholder="请输入的证件号须与证件类型一致" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
 </view>
 
 <view class="input_list1 font28  flex w690">

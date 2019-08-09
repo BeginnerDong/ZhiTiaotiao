@@ -8,11 +8,13 @@ page{
 	height: 440rpx;
 	width: 100%;
 	background: #0d6fb8;
-	margin-top: -40rpx;
+	/* margin-top: -40rpx; */
+  padding-top: 50rpx;
+  box-sizing:border-box;
 }
 .member_ranking{
 	position: relative;
-	top: 180rpx;
+	top: 80rpx;
 	}
 .member_tlt{
 	width:100%;
@@ -30,6 +32,7 @@ page{
 .member_item .numb{
   font-size: 30rpx;
   padding-top: 10rpx;
+  height: 60rpx;
 }
 .member_item>view{
 	text-align:center;
@@ -71,6 +74,19 @@ page{
 	height:280rpx;
 	margin-top:200rpx;
 }
+
+/* 添加搜索 */
+.seachbox{width:100%;box-sizing:border-box; padding-right:100rpx;background: #fff; position: relative;}
+.seachbox input{ width:100%;margin: 0 auto; line-height: 64rpx; height: 64rpx; padding: 0 20rpx;box-sizing: border-box;font-size: 26rpx;}
+.seachbox .btn{width: 40rpx; height: 40rpx;display: block; padding: 12rpx 40rpx; position: absolute;right: 0; top: 0;background: #f5f5f5;}
+
+
+
+
+
+
+
+
 
 
 

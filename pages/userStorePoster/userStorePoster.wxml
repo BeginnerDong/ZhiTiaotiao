@@ -23,17 +23,20 @@
 
 <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1" style="height: 90%;">
-        <scroll-view scroll-y>
+        <scroll-view scroll-y style="height:90%;">
             <view class="rule_cont">
                 <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
-				<view class=" content font24 color2 w690">
-					<view class="content ql-editor">
-					  <import src="../../wxParse/wxParse.wxml"/>
-					  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
-					</view>
-				</view>	
-			</view>
+          <view class=" content font24 color2 w690">
+            <view class="content ql-editor">
+              <import src="../../wxParse/wxParse.wxml"/>
+              <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+            </view>
+          </view>	
+        </view>
         </scroll-view>
-		<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+        <view style="height:10%;display: flex;align-items: center;justify-content: center;">
+          <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+        </view>
+		
     </view>
 </view>
