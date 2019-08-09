@@ -89,7 +89,17 @@
 		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 	</view>
 </view>
-
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8" style="width:34%">上传合同：</view>
+	<view class="upload" wx:for="{{web_submitData.bill_img}}" style="position: relative;">
+		<image src="{{item.url}}"></image>
+		<image bindtap="deleteImg" data-type="bill_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+	</view>
+	<view class="upload" bindtap="upLoadBillImg" wx:if="{{web_submitData.bill_img.length==0}}">
+		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+	</view>
+</view>
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传代理凭证：</view>
 	<view class="upload" wx:for="{{web_submitData.bill_img}}" style="position: relative;">

@@ -143,7 +143,7 @@ Page({
 			cust_area: '',
 			/* cust_address: '', */
 			occupation: '',
-			user_email: '',
+			
 			bank_acct_no: '',
 			bank_branch: '',
 			bank_prov: '',
@@ -167,15 +167,7 @@ Page({
 
 
 
-	bindCertEndChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.vali_date = e.detail.value.replace(/-/g, "");
-		self.data.submitData.vali_date = e.detail.value.replace(/-/g, "");
-		self.setData({
-			web_certEnd: e.detail.value
-		})
-	},
+
 
 	getMainData() {
 		const self = this;
@@ -333,31 +325,15 @@ Page({
 		var phone = self.data.submitData.phone;
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
-		if (pass) {
-			
-				self.hfInfoUpdate();
-			
+		if (pass) {		
+				self.hfInfoUpdate();		
 		} else {
 			api.buttonCanClick(self, true);
 			api.showToast('请补全信息', 'none');
 		};
 	},
 	
-	
 
-	/* bindWithdrawCard() {
-		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getAgentToken';
-		const callback = (res) => {
-			if (res.solely_code == 100000) {
-				api.showToast('开户成功','none')
-			}else{
-				api.showToast(res.msg,'none')
-			}
-		};
-		api.bindWithdrawCard(postData, callback);
-	}, */
 
 	bankChange(e) {
 		const self = this;

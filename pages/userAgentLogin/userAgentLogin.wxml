@@ -10,8 +10,8 @@
 					<input placeholder="请输入手机号码" data-key="login_name" bindinput="bindInputChange"></input>
 				</view>
 				<view class="list_input flexRowBetween">
-					 <input type="{{web_type}}" placeholder="请输入登录密码"  data-key="password" bindinput="bindInputChange"></input>
-					<view class="get_check" bindtap="changeType">
+					 <input type="{{web_type}}" placeholder="请输入登录密码" style="width: 75%;"  data-key="password" bindinput="bindInputChange"></input>
+					<view class="get_check" bindtap="changeType" style="width: 20%;height: 99rpx;">
 						<image src="../../images/eay.png" style="width: 40rpx; height: 25rpx"></image>
 					</view>
 				</view>

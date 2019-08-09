@@ -69,7 +69,9 @@ Page({
 	provinceChange(e){
 		const self = this;
 		self.data.cityIndex = '';
-		
+		self.data.submitData.city_id = '';
+		self.data.submitData.country_id = '';
+		self.data.submitData.city_no = '';
 		self.data.submitData.province_id = self.data.mainData[e.detail.value].id;
 		self.data.provinceIndex = e.detail.value;
 
@@ -84,6 +86,8 @@ Page({
 	
 	cityChange(e){
 		const self = this;
+		self.data.submitData.country_id = '';
+		self.data.submitData.city_no = '';
 		self.data.submitData.city_id = self.data.mainData[self.data.provinceIndex].child[e.detail.value].id;
 		self.data.cityIndex = e.detail.value;
 		self.setData({
@@ -99,7 +103,7 @@ Page({
 		self.setData({
 			web_country:self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].title	
 		});
-		self.data.submitData.address = self.data.mainData[e.detail.value].title+self.data.mainData[self.data.provinceIndex].child[e.detail.value].title+self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].title
+		self.data.submitData.address = self.data.mainData[self.data.provinceIndex].title+self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].title+self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].title
 	},
 
 	register() {

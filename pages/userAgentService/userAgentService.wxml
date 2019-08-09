@@ -13,7 +13,7 @@
 	            </view>
 	            <view class="member_item">
 	                <view class="font30">剩余数量</view>
-	                <view class="numb">{{web_mainData.shop_num-web_mainData.auth_num}}</view>
+	                <view class="numb">{{web_mainData.shop_num-web_mainData.auth_num?web_mainData.shop_num-web_mainData.auth_num:''}}</view>
 	            </view>
 	        </view>
 	    </view>
@@ -29,7 +29,7 @@
 	<input placeholder="请输入姓名"  disabled="true" value="{{web_submitData.name}}"  data-key="name" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before">手机号码:</view>
+	<view class="input_before">登录账号:</view>
 	<input placeholder="请输入手机号码"  disabled="true" value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">

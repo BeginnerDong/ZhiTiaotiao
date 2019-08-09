@@ -1,32 +1,51 @@
-import {Api} from '../../utils/api.js';
+import {
+	Api
+} from '../../utils/api.js';
 var api = new Api();
 
-import {Token} from '../../utils/token.js';
+import {
+	Token
+} from '../../utils/token.js';
 var token = new Token();
 
 Page({
 
-  data: {
-		buttonCanClick:true,
-		submitData:{
-			title:'',
-			mainImg:[],
-			bannerImg:[],
-			category_id:7,
-			price:'',
-			score:'',
-			
-		}
-  },
+	data: {
+		buttonCanClick: true,
+		submitData: {
+			title: '',
+			mainImg: [],
+			bannerImg: [],
+			category_id: 7,
+			price: '',
+			score: '',
 
-  onLoad(){
-    const self = this;
-    self.setData({
-		web_submitData:self.data.submitData,
-      web_buttonCanClick:self.data.buttonCanClick
-    })
-  },
-	
+		}
+	},
+
+	onLoad() {
+		const self = this;
+		self.setData({
+			web_submitData: self.data.submitData,
+			web_buttonCanClick: self.data.buttonCanClick
+		})
+	},
+
+	deleteImg(e) {
+		const self = this;
+		var index = api.getDataSet(e, 'index');
+		var type = api.getDataSet(e, 'type');
+		if (type == 'mainImg') {
+			self.data.submitData.mainImg.splice(index, 1);
+		} else if (type == 'bannerImg') {
+			self.data.submitData.bannerImg.splice(index, 1);
+		};
+		console.log(self.data.submitData);
+		self.setData({
+			web_submitData: self.data.submitData
+		})
+	},
+
 	upLoadBannerImg() {
 		const self = this;
 		if (self.data.submitData.bannerImg.length > 9) {
@@ -40,21 +59,21 @@ Page({
 		const callback = (res) => {
 			console.log('res', res)
 			if (res.solely_code == 100000) {
-	
+
 				self.data.submitData.bannerImg.push({
 					url: res.info.url,
-					type:'image'
+					type: 'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
-				console.log('self.data.submitData',self.data.submitData)
+				console.log('self.data.submitData', self.data.submitData)
 			} else {
 				api.showToast('网络故障', 'none')
 			}
 		};
-	
+
 		wx.chooseImage({
 			count: 1,
 			success: function(res) {
@@ -63,7 +82,7 @@ Page({
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
 					tokenFuncName: 'getStoreToken',
-					type:'image'
+					type: 'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -71,7 +90,7 @@ Page({
 			}
 		})
 	},
-	
+
 	upLoadMainImg() {
 		const self = this;
 		if (self.data.submitData.mainImg.length > 2) {
@@ -85,21 +104,21 @@ Page({
 		const callback = (res) => {
 			console.log('res', res)
 			if (res.solely_code == 100000) {
-	
+
 				self.data.submitData.mainImg.push({
 					url: res.info.url,
-					type:'image'
+					type: 'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
-				console.log('self.data.submitData',self.data.submitData)
+				console.log('self.data.submitData', self.data.submitData)
 			} else {
 				api.showToast('网络故障', 'none')
 			}
 		};
-	
+
 		wx.chooseImage({
 			count: 1,
 			success: function(res) {
@@ -108,7 +127,7 @@ Page({
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
 					tokenFuncName: 'getStoreToken',
-					type:'image'
+					type: 'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -116,7 +135,7 @@ Page({
 			}
 		})
 	},
-	
+
 	productAdd() {
 		const self = this;
 		const postData = {};
@@ -128,51 +147,74 @@ Page({
 				api.buttonCanClick(self, true);
 				api.showToast('添加成功', 'none')
 				self.data.submitData = {
-					title:'',
-					mainImg:[],
-					bannerImg:[],
-					category_id:7,
-					price:'',
-					score:''
+					title: '',
+					mainImg: [],
+					bannerImg: [],
+					category_id: 7,
+					price: '',
+					score: ''
 				};
 				self.setData({
-				  web_submitData:self.data.submitData,
+					web_submitData: self.data.submitData,
 				});
 			} else {
 				api.showToast('网络故障', 'none')
-			};	
+			};
 		};
 		api.productAdd(postData, callback);
 	},
-	
+
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-	  
+
 		const pass = api.checkComplete(self.data.submitData);
-		console.log('pass',pass)
+		console.log('pass', pass)
 		if (pass) {
-				self.productAdd()
+			self.productAdd()
 		} else {
-			api.buttonCanClick(self,true);
+			api.buttonCanClick(self, true);
 			api.showToast('请补全信息', 'none');
 		};
 	},
-	
-  bindInputChange(e){
-    const self = this;
-    api.fillChange(e,self,'submitData');
-    self.setData({
-      web_submitData:self.data.submitData,
-    });
-  },
-	
-	
-  intoPath(e){
-    const self = this;
-    api.pathTo(api.getDataSet(e,'path'),'nav');
-  },
-  
-})
 
-  
+	bindInputChange(e) {
+		const self = this;
+		console.log(e);
+		var key = e.target.dataset.key;
+		api.fillChange(e, self, 'submitData');
+		if(key=="score"||key=="price"){
+			if(self.data.submitData[key]!=''){
+				var name = self.data.submitData[key];
+				
+				if(!/^[0-9]{1,9}([.]{1}[0-9]{1,2})?$/.test(name)){
+					api.buttonCanClick(self, true);
+					api.showToast('价格格式错误', 'none');
+					if(key=='score'){
+						self.data.submitData.score=''
+					}else if(key=='price'){
+						self.data.submitData.price=''
+					}
+					self.setData({
+						web_submitData: self.data.submitData,
+					});
+					return
+				};
+			}
+			
+		}
+		self.setData({
+			web_submitData: self.data.submitData,
+		});
+		
+		
+		
+	},
+
+
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	},
+
+})

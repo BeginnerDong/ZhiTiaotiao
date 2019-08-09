@@ -101,8 +101,8 @@ Page({
 	
 	upLoadBannerImg() {
 		const self = this;
-		if (self.data.submitData.bannerImg.length > 2) {
-			api.showToast('仅限3张', 'fail');
+		if (self.data.submitData.bannerImg.length > 9) {
+			api.showToast('仅限10张', 'fail');
 			return;
 		};
 		wx.showLoading({

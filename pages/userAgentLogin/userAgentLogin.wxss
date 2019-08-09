@@ -96,9 +96,7 @@ page{
 	background: #fff;
 	color:#0d6fb8;
 	font-size:24rpx;
-  position: absolute;
-  right: -65rpx;
-  top: 0rpx;
+
 }
 .submit_info{
 	border-radius:10rpx;

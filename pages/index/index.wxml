@@ -44,7 +44,7 @@
 <view class="w690" style="border-bottom: 10rpx solid rgb(240,240,240);border-top: 10rpx solid rgb(240,240,240);margin-top:90rpx">
 	<view class="new_store">
 		<view class="indexTitle flex" style="height:80rpx">
-			<image src="../../images/Homepage-icon1.png"  style="margin-right:16rpx"></image>
+			<image src="../../images/Homepage-icon1.png" style="margin-right:16rpx"></image>
 			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
 				<swiper-item wx:for="{{web_messageData}}">
 					<view class="font28 color2">
@@ -54,83 +54,90 @@
 					</view>
 				</swiper-item>
 			</swiper>
-      <view class="moreBtn" bindtap="intoPath" data-path="/pages/userMessage/userMessage">更多...</view>
-		</view>
-	</view>
-</view>
+			<view class="moreBtn" style="position:relative" bindtap="intoPath" data-path="/pages/userMessage/userMessage">更多...
+				<view wx:if="{{web_num>0}}" style="position: absolute;top:-2rpx;right:8rpx;width: 20rpx;height: 20rpx;background: #DE5D1C;color: #fff;border-radius:50%;text-align: center;line-height: 20rpx;">
+					
+				</view>
+			</view>
 
-<view class="w690">
-	<view class="new_store">
-		<view class="indexTitle flex">
-			<image src="/images/index_icon2.jpg"></image>
-			<view class="font34 color2">最新店铺</view>
 		</view>
 	</view>
-	<view class="scroll_img">
-		<scroll-view class="recommend_scroll_x_box" scroll-x="true">
-			<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
-				<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
-				<view class="store_name font30 color1"><view class="tex">{{item.name}}</view></view>
-			</view>
-		</scroll-view>
-	</view>
-</view>
-<view style="height:10rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
-</view>
-<view class="w690">
-	<view class="new_store">
-		<view class="indexTitle flex">
-			<image src="/images/index_icon3.jpg"></image>
-			<view class="font34 color2">热门店铺</view>
-		</view>
-	</view>
-	<view class="index_product flexRowBetween">
-		<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<10}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
-			<view class="recommend_top">
-				<image src="{{item.mainImg[0].url}}"></image>
-			</view>
-			<view class="product_name font30 color2">{{item.name}}</view>
-			<view class="product_pro flex">
-				<view class="product_item flexCenter">
-					<image src="../../images/images/near-icon2.png"></image>
-					<view class="color5 font22">{{item.follow_count}}</view>
-				</view>
-				<view class="product_item flexCenter">
-					<image src="../../images/images/near-icon3.png"></image>
-					<view class="color6 font22">{{item.favor_count}}</view>
-				</view>
-				<view class="product_item flexCenter">
-					<image src="../../images/images/near-icon4.png"></image>
-					<view class="color7 font22">{{item.view_count}}</view>
-				</view>
+
+	<view class="w690">
+		<view class="new_store">
+			<view class="indexTitle flex">
+				<image src="/images/index_icon2.jpg"></image>
+				<view class="font34 color2">最新店铺</view>
 			</view>
 		</view>
-	</view>
-</view>
-<view class="space_bottom"></view>
-<view class="navbar">
-	<view class="navbar_item"  bindtap="intoPathRedirect" data-path="/pages/index/index">
-		<view class="nav_img">
-			<image src="/images/navbar1-a.png"></image>
+		<view class="scroll_img">
+			<scroll-view class="recommend_scroll_x_box" scroll-x="true">
+				<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+					<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
+					<view class="store_name font30 color1">
+						<view class="tex">{{item.name}}</view>
+					</view>
+				</view>
+			</scroll-view>
 		</view>
-		<view class="text this-text">首页</view>
 	</view>
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/store/store">
-		<view class="nav_img">
-			<image src="/images/navbar2.png"></image>
-		</view>
-		<view class="text">附近</view>
+	<view style="height:10rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
 	</view>
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/userLogin/userLogin">
-		<view class="nav_img">
-			<image src="../../images/navbar3.png"></image>
+	<view class="w690">
+		<view class="new_store">
+			<view class="indexTitle flex">
+				<image src="/images/index_icon3.jpg"></image>
+				<view class="font34 color2">热门店铺</view>
+			</view>
 		</view>
-		<view class="text">知条</view>
+		<view class="index_product flexRowBetween">
+			<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<10}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+				<view class="recommend_top">
+					<image src="{{item.mainImg[0].url}}"></image>
+				</view>
+				<view class="product_name font30 color2">{{item.name}}</view>
+				<view class="product_pro flex">
+					<view class="product_item flexCenter">
+						<image src="../../images/images/near-icon2.png"></image>
+						<view class="color5 font22">{{item.follow_count}}</view>
+					</view>
+					<view class="product_item flexCenter">
+						<image src="../../images/images/near-icon3.png"></image>
+						<view class="color6 font22">{{item.favor_count}}</view>
+					</view>
+					<view class="product_item flexCenter">
+						<image src="../../images/images/near-icon4.png"></image>
+						<view class="color7 font22">{{item.view_count}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/user/user">
-		<view class="nav_img">
-			<image src="/images/navbar4.png"></image>
+	<view class="space_bottom"></view>
+	<view class="navbar">
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
+			<view class="nav_img">
+				<image src="/images/navbar1-a.png"></image>
+			</view>
+			<view class="text this-text">首页</view>
 		</view>
-		<view class="text">我的</view>
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/store/store">
+			<view class="nav_img">
+				<image src="/images/navbar2.png"></image>
+			</view>
+			<view class="text">附近</view>
+		</view>
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/userLogin/userLogin">
+			<view class="nav_img">
+				<image src="../../images/navbar3.png"></image>
+			</view>
+			<view class="text">知条</view>
+		</view>
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/user/user">
+			<view class="nav_img">
+				<image src="/images/navbar4.png"></image>
+			</view>
+			<view class="text">我的</view>
+		</view>
 	</view>
 </view>

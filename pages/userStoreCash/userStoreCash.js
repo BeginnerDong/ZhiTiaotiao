@@ -173,7 +173,8 @@ Page({
 			}
 		};
 		if(self.data.type==2){
-			postData.data.type = 4
+			postData.data.type = 4,
+			postData.data.behavior = 2
 		};
 		postData.tokenFuncName = 'getStoreToken';
 		if (self.data.userInfoData.cash_bind_card_id.length == 0) {

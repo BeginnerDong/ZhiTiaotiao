@@ -27,9 +27,20 @@ Page({
 	getMainData() {
 		const self = this;
 		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
+		postData.tokenFuncName = 'getStoreToken';
 		postData.searchItem = {
-			user_no:wx.getStorageSync('info').user_no
+			user_no:wx.getStorageSync('storeInfo').user_no
+		};
+		postData.getAfter = {
+			shopInfo: {
+				tableName: 'ShopInfo',
+				middleKey: 'user_no',
+				key: 'user_no',
+				searchItem: {
+					status: 1
+				},
+				condition: '='
+			}
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {

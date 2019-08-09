@@ -121,6 +121,8 @@ Page({
 	changeType(e) {
 		const self = this;
 		api.buttonCanClick(self);
+		self.data.getBefore = {};
+		self.data.sForm.name = '';
 		self.data.isShowStore = !self.data.isShowStore;
 		self.setData({
 			isShowStore: self.data.isShowStore
@@ -130,6 +132,7 @@ Page({
 			menu_id: menu_id
 		};
 		self.setData({
+			web_sForm:self.data.sForm,
 			web_menu_id: menu_id
 		})
 		self.getMainData(true)

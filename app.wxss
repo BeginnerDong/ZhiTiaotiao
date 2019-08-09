@@ -254,9 +254,7 @@ page{
 .rule image{
 	width:50rpx;
 	height:50rpx;
-	position:absolute;
-	top: 920rpx;
-	left: 320rpx;
+
 }
 .rule_tlt{
 	width:100%;

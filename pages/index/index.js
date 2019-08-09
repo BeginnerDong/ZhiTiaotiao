@@ -23,7 +23,8 @@ Page({
 		hotShopData: [],
 		messageData: [],
 		city: '',
-		order: {}
+		order: {},
+		redDotData:[]
 	},
 	//事件处理函数
 
@@ -34,7 +35,12 @@ Page({
 		self.getNewShopData();
 		self.getHotShopData();
 		self.getLocation();
-		self.getMessageData()
+		self.getMessageData();
+	},
+	
+	onShow(){
+		const self = this;
+		self.getRedDotData()
 	},
 
 	getSliderData() {
@@ -76,7 +82,7 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
-			status:1
+			status: 1
 		};
 		postData.order = {
 			create_time: 'desc'
@@ -105,7 +111,7 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
-			status:1
+			status: 1
 		};
 		postData.order = api.cloneForm(self.data.order);
 
@@ -121,6 +127,44 @@ Page({
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getHotShopData', self);
 		};
 		api.shopInfoGet(postData, callback);
+	},
+
+	getRedDotData() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {};
+		postData.searchItem.user_no = ['in', [wx.getStorageSync('info').user_no, 'U910872296194660']];
+		postData.searchItem.type = ['in', [1, 2, 3, 4, 5]];
+		postData.getAfter = {
+			log: {
+				tableName: 'Log',
+				middleKey: 'id',
+				key: 'relation_id',
+				searchItem: {
+					status: 1,
+					type: 6
+				},
+				condition: '=',
+			}
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.redDotData.push.apply(self.data.redDotData, res.info.data);
+				var num = 0;
+				for (var i = 0; i < self.data.redDotData.length; i++) {
+					if(self.data.redDotData[i].log.length==0){
+						num++
+					}
+				}
+			};
+			console.log(num)
+			self.setData({
+				web_num:num,
+				web_redDotData: self.data.redDotData
+			});
+		};
+		api.messageGet(postData, callback);
 	},
 
 	getMessageData() {

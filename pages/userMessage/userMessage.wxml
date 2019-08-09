@@ -18,7 +18,7 @@
 		<view class="message-item " bindtap="intoPath" data-path="/pages/userMessageNew/userMessageNew?id={{item.id}}">
 			<view class="message-img" style="position: relative;">
 				<image src="../../images/images/new-icon.png" wx:if="{{item.type==1}}"></image>
-				<image src="../../images/images/new-icon2.png"  wx:if="{{item.type==2||item.type==5}}"></image>
+				<image src="../../images/images/new-icon4.png"  wx:if="{{item.type==2||item.type==5}}"></image>
 				<image src="../../images/images/new-icon3@2x.png"  wx:if="{{item.type==3}}"></image>
 				<image src="../../images/images/new-icon4.png"  wx:if="{{item.type==4}}"></image>
 				<view style="width:10px;height:10px;background: red;border-radius: 50%;position: absolute;top:17px;right:6px;" wx:if="{{item.log.length==0}}"></view>

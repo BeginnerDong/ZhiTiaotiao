@@ -388,6 +388,21 @@ Page({
 		api.userInfoGet(postData, callback);
 	},
 	
+	submit() {
+		const self = this;
+		api.buttonCanClick(self);
+		var phone = self.data.submitData.phone;
+		const pass = api.checkComplete(self.data.submitData);
+		console.log('pass', pass)
+		if (pass) {
+			 
+				self.hfInfoUpdate();
+			
+		} else {
+			api.buttonCanClick(self, true);
+			api.showToast('请补全信息', 'none');
+		};
+	},
 
 	hfInfoGet() {
 		const self = this;
