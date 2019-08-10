@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 120,
+			"current": 122,
 			"list": [
 				{
 					"id": -1,
@@ -843,6 +843,20 @@
 					"id": -1,
 					"name": "pages/userAgentPayment/userAgentPayment",
 					"pathName": "pages/userAgentPayment/userAgentPayment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/productDetail/productDetail",
+					"pathName": "pages/productDetail/productDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/storeDetail/storeDetail",
+					"pathName": "pages/storeDetail/storeDetail",
 					"scene": null
 				}
 			]

@@ -9,7 +9,7 @@ page{
 }
 
 .stroe{
-	height:200rpx;
+	height:220rpx;
 	overflow:hidden;
 	border-bottom:10rpx solid #e3e3e3;
 }
@@ -21,12 +21,12 @@ page{
 }
 .store_right{
 	width:35%;
-	height:160rpx;
+	height:178rpx;
 	text-align: right;
 }
 .store_right image{
 	width:230rpx;
-	height:160rpx;
+	height:178rpx;
 }
 .store_name{
 	width:100%;
