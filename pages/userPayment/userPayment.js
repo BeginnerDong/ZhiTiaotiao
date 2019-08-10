@@ -110,9 +110,7 @@ Page({
 		const postData = {};
 		postData.pay = self.data.pay;
 		postData.tokenFuncName = 'getProjectToken';
-		if (!wx.getStorageSync('info') || !wx.getStorageSync('info').headImgUrl) {
-			postData.refreshToken = true;
-		};
+		
 		postData.data = {
 			shop_no: self.data.user_no,
 			price: self.data.submitData.money
@@ -154,7 +152,7 @@ Page({
 			} else {
 				
 				if(res.msg=='积分不足'){
-					api.showToast('知条不足', 'none');
+					api.showToast('知条数量不足', 'none');
 				}else{
 					api.showToast(res.msg, 'none');
 				}
