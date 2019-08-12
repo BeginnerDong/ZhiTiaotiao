@@ -14,7 +14,20 @@ Page({
 		mainData: [],
 		originData: [],
 		isFirstLoadAllStandard: ['getMainData', 'getTopData'],
-		topData: []
+		topData: [],
+		submitData:{
+			user_no:''
+		},
+		searchItem:{
+			
+			type: 1,
+			level: 2,
+		},
+		searchItemTwo:{
+			
+			type: 3,
+			level: 1,
+		}
 	},
 	//事件处理函数
 
@@ -22,8 +35,45 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
+		self.data.searchItem.parent_no=wx.getStorageSync('agentInfo').user_no;
+		self.data.searchItemTwo.parent_no=wx.getStorageSync('agentInfo').user_no;
 		self.getMainData();
 		self.getTopData()
+	},
+	
+	search(){
+		const self = this;
+		if(self.data.submitData.user_no==''){
+			api.showToast('请输入代理NO搜索','none')
+		}else{
+			self.data.isSearch = true;
+			self.data.searchItem.parent_no = self.data.submitData.user_no;
+			self.data.searchItem.level = 1;
+			self.data.searchItemTwo.child_no = self.data.submitData.user_no;
+			self.getMainData(true);
+			self.getTopData()
+		};
+		self.setData({
+			web_isSearch:self.data.isSearch
+		})
+	},
+	
+	onPullDownRefresh() {
+		const self = this;
+		wx.showNavigationBarLoading();
+		self.data.searchItem.parent_no=wx.getStorageSync('agentInfo').user_no;
+		self.data.searchItemTwo.parent_no=wx.getStorageSync('agentInfo').user_no;
+		self.data.searchItem.level = 2;
+		delete self.data.searchItemTwo.child_no;
+		self.data.isSearch = false;
+		self.data.submitData.user_no = '';
+		self.getMainData(true);
+		self.getTopData()
+		self.setData({
+			web_submitData:self.data.submitData,
+			web_isSearch:self.data.isSearch
+		})
+	
 	},
 
 	getMainData(isNew) {
@@ -34,11 +84,7 @@ Page({
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem = {
-			parent_no: wx.getStorageSync('agentInfo').user_no,
-			type: 1,
-			level: 2,
-		};
+		postData.searchItem = api.cloneForm(self.data.searchItem);
 		postData.getAfter = {
 			shopInfo: {
 				tableName: 'ShopInfo',
@@ -59,6 +105,11 @@ Page({
 			} else {
 				self.data.isLoadAll = true;
 			}
+			setTimeout(function()
+			{
+			  wx.hideNavigationBarLoading();
+			  wx.stopPullDownRefresh();
+			},300);
 			self.setData({
 				web_mainData: self.data.mainData
 			})
@@ -69,13 +120,10 @@ Page({
 
 	getTopData() {
 		const self = this;
+		self.data.topData = [];
 		const postData = {};
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem = {
-			parent_no: wx.getStorageSync('agentInfo').user_no,
-			type: 3,
-			level: 1,
-		};
+		postData.searchItem = api.cloneForm(self.data.searchItemTwo);
 		postData.getAfter = {
 			shopNum: {
 				tableName: 'UserInfo',
@@ -123,13 +171,15 @@ Page({
 				for (var i = 0; i < self.data.topData.length; i++) {
 					self.data.shopCount += self.data.topData[i].shopNum.num
 					self.data.authCount += self.data.topData[i].authNum.num
+					self.data.lessCount  = self.data.shopCount - self.data.authCount
 				}
 				
 			}
 			self.setData({
 				web_shopCount: self.data.shopCount,
 				web_authCount: self.data.authCount,
-				web_topData: self.data.topData
+				web_topData: self.data.topData,
+				web_lessCount:self.data.lessCount
 			})
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getTopData', self);
 		};
@@ -142,6 +192,15 @@ Page({
 			self.data.paginate.currentPage++;
 			self.getMainData();
 		};
+	},
+	
+	changeBind(e) {
+		const self = this;
+		api.fillChange(e, self, 'submitData');
+		console.log('self.data.submitData', self.data.submitData)
+		self.setData({
+			web_submitData: self.data.submitData,
+		});
 	},
 
 

@@ -52,7 +52,7 @@ Page({
 			data: {
 				count: -self.data.submitData.count,
 				trade_info: '提现',
-				status: 0,
+				status: 1,
 				type: 4,
 				thirdapp_id: 2
 			}

@@ -114,10 +114,10 @@ Page({
 				wx.openLocation({ //所以这里会显示你当前的位置
 					// longitude: 109.045249,
 					// latitude: 34.325841,
-					longitude: parseFloat(self.data.mainData.longitude),
-					latitude: parseFloat(self.data.mainData.latitude),
-					name: self.data.mainData.name,
-					address: self.data.mainData.address,
+					longitude: parseFloat(self.data.shopData.longitude),
+					latitude: parseFloat(self.data.shopData.latitude),
+					name: self.data.shopData.name,
+					address: self.data.shopData.address,
 					scale: 28
 				})
 			}

@@ -23,9 +23,10 @@ Page({
 			settlement:1,
 		
 		},
-		
-		isFirstLoadAllStandard: ['getMainData','getAboutData']
+		show:false,
+		isFirstLoadAllStandard: ['getMainData','getAboutData','check']
 	},
+	
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
@@ -34,13 +35,34 @@ Page({
 		 var month=date.getMonth();
 		 self.data.select_data = year+'年'+month+'月',
 		self.getMainData();
-		
+		self.check();
 		self.getAboutData();
 		self.setData({
 			web_select_data:self.data.select_data,
 			web_month:month,
 			web_num: self.data.num
 		})
+	},
+	
+	check() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+	
+				if (res.info.data[0].info.phone== '') {
+					api.pathTo('/pages/userLogin/userLogin', 'nav')
+				} else {
+					self.data.show = true
+				};
+				self.setData({
+					show: self.data.show
+				})
+			};
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'check', self);
+		};
+		api.userGet(postData, callback);
 	},
 
 	getMainData(isNew) {

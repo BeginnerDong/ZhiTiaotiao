@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "辅导店铺",
-	"navigationBarBackgroundColor": "#0d6fb8"
+	"navigationBarBackgroundColor": "#0d6fb8",
+	"enablePullDownRefresh": true
 }

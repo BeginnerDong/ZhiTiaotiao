@@ -203,6 +203,7 @@ Page({
 			}
 			
 		}
+		console.log(self.data.submitData)
 		self.setData({
 			web_submitData: self.data.submitData,
 		});

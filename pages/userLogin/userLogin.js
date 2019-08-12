@@ -13,7 +13,7 @@ var token = new Token();
 Page({
 	data: {
 		disabled: true,
-		isFirstLoadAllStandard: ['getMainData','getAboutData'],
+		isFirstLoadAllStandard: ['getAboutData'],
 		submitData: {
 			phone: '',
 		},
@@ -161,26 +161,7 @@ Page({
 		};
 	},
 
-	getMainData() {
-		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		const callback = (res) => {
-			if (res.info.data.length > 0) {
 
-				if (res.info.data[0].info.phone!= '') {
-					api.pathTo('/pages/status/status', 'redi')
-				} else {
-					self.data.isShow = true
-				};
-				self.setData({
-					web_isShow: self.data.isShow
-				})
-			};
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
-		};
-		api.userGet(postData, callback);
-	},
 
 	userInfoUpdate() {
 		const self = this;

@@ -113,8 +113,8 @@
 			</view>
 		</view>
 	</view>
-	<view class="space_bottom"></view>
-	<view class="navbar">
+	<!-- <view class="space_bottom"></view> -->
+	<!-- <view class="navbar">
 		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
 			<view class="nav_img">
 				<image src="/images/navbar1-a.png"></image>
@@ -139,5 +139,5 @@
 			</view>
 			<view class="text">我的</view>
 		</view>
-	</view>
+	</view> -->
 </view>

@@ -82,8 +82,8 @@
     </view> -->
 	
 </view>
-<view style="width:100%;height:150rpx;"></view>
-<view class="navbar">
+<!-- <view style="width:100%;height:150rpx;"></view> -->
+<!-- <view class="navbar">
     <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/index/index">
         <view class="nav_img">
           <image src="/images/navbar1.png"></image>
@@ -108,7 +108,7 @@
         </view>
         <view class="text this-text">我的</view>
     </view>
-</view>
+</view> -->
 <!-- <view class="user_banner flex">
 	<view class="user_box bg">
 	</view>

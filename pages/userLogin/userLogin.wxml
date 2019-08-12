@@ -57,7 +57,7 @@
         </view>
     </view>
 </view> -->
-<view class="navbar">
+<!-- <view class="navbar">
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
 		<view class="nav_img">
 			<image src="/images/navbar1.png"></image>
@@ -82,4 +82,4 @@
 		</view>
 		<view class="text">我的</view>
 	</view>
-</view>
+</view> -->

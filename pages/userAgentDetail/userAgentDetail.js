@@ -55,6 +55,21 @@ Page({
   	
   },
   
+  copyText(e) {
+    console.log(e)
+	const self = this;
+    wx.setClipboardData({
+      data: self.data.mainData.userInfo[0].user_no,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            api.showToast('复制成功','none')
+          }
+        })
+      }
+    })
+  },
+  
   getMainData() {
   	const self = this;
   	const postData = {};

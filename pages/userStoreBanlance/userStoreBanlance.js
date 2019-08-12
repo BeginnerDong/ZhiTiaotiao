@@ -14,7 +14,7 @@ Page({
 			count:['>',0]
 		},
 		mainData:[],
-		isFirstLoadAllStandard:['getMainData','getUserInfoData','getAboutData'],
+		isFirstLoadAllStandard:['getMainData','getUserInfoData','getAboutData','getTodayData'],
 	},
 	//事件处理函数
 	
@@ -24,9 +24,46 @@ Page({
 		self.getMainData();
 		self.getUserInfoData();
 		self.getAboutData();
+		self.getTodayData();
 		self.setData({
 			web_currentId: self.data.currentId
 		})
+	},
+	
+	getTodayData() {
+		const self = this;
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.searchItem.user_no=wx.getStorageSync('storeInfo').user_no;
+		postData.searchItem.create_time = ['between',[new Date(new Date().toLocaleDateString()).getTime()/1000,
+		new Date(new Date().toLocaleDateString()).getTime() +24 * 60 * 60  -1]]
+		postData.order = {
+			create_time: 'desc',
+		};
+		postData.compute = {
+		  totalCount:[
+			'sum',
+			'count',
+			api.cloneForm(self.data.searchItem)
+		  ],  
+		};
+		postData.compute.totalCount[2].user_no = wx.getStorageSync('storeInfo').user_no;
+		postData.compute.totalCount[2].create_time = ['between',[new Date(new Date().toLocaleDateString()).getTime()/1000,
+		new Date(new Date().toLocaleDateString()).getTime() +24 * 60 * 60  -1]]
+		const callback = (res) => {
+			if(res.solely_code==100000){
+				self.data.todayItem = res.info.total;
+				self.data.todayMoney = res.info.compute.totalCount
+			}
+			self.setData({
+				web_todayItem:self.data.todayItem,
+				web_todayMoney:self.data.todayMoney
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getTodayData', self)
+		};
+		api.flowLogGet(postData, callback);
 	},
 	
 	changeType(e){
@@ -36,7 +73,8 @@ Page({
 			self.data.currentId = currentId;
 			if(currentId==1){
 				self.data.searchItem.type=2;
-				self.data.searchItem.count=['>',0]
+				self.data.searchItem.count=['>',0],
+				delete self.data.searchItem.behavior
 			}else if(currentId==2){
 				
 				self.data.searchItem.type=4;

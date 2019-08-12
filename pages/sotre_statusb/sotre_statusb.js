@@ -48,11 +48,22 @@ Page({
 		postData.searchItem = {
 			user_no:wx.getStorageSync('storeInfo').user_no
 		};
+		postData.getAfter = {
+			user:{
+				tableName:'User',
+				middleKey:'user_no',
+				key:'user_no',
+				searchItem:{
+					status:1
+				},
+				condition:'='
+			}
+		};
 		const callback = (res) => {
 			self.data.mainData = {};
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
-				self.data.submitData.phone = res.info.data[0].phone;
+				self.data.submitData.phone = res.info.data[0].user[0].login_name;
 				self.data.submitData.name = res.info.data[0].name;
 				self.data.submitData.owner = res.info.data[0].owner;
 				self.data.submitData.csphone = res.info.data[0].csphone;

@@ -5,11 +5,11 @@
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">店铺价格：</view>
-	<input placeholder="请输入商品价格" type="number" value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
+	<input placeholder="请输入商品价格"  value="{{web_submitData.price}}"  data-key="price" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">知条特惠：</view>
-	<input placeholder="请输入知条数量" type="number" value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
+	<input placeholder="请输入知条数量"  value="{{web_submitData.score}}"  data-key="score" bindblur="bindInputChange"></input>
 </view>
 
 <view class="store-textc" style="margin-left: 20rpx;color: #000000;">商品主图：</view>

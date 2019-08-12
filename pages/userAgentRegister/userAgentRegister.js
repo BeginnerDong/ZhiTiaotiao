@@ -155,6 +155,7 @@ Page({
 		
 		var newObject = api.cloneForm(self.data.submitData);
 		delete newObject.email;
+		delete newObject.agent_no;
 		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
 		console.log('newObject', newObject)

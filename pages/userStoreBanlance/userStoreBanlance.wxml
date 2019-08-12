@@ -14,12 +14,12 @@
 </view> -->
 
 <view class="status-top">
-	<view class="top-text1">{{web_currentId==1?web_userInfoData.balance:web_userInfoData.reward}}</view>
+	<view class="top-text1">{{web_currentId==1?(web_userInfoData.balance?web_userInfoData.balance:'0.00'):(web_userInfoData.reward?web_userInfoData.reward:'0.00')}}</view>
 	<view class="top-text2" wx:if="{{web_currentId==1}}">货款余额(￥)</view>
 	<view class="top-text2" wx:if="{{web_currentId==2}}">结算金余额(￥)</view>
   <view class="hklisBox">
-    <view >当日货款：99999元</view>
-    <view>当日笔数：88888笔</view>
+    <view >当日货款：{{web_todayMoney?web_todayMoney:'0'}}元</view>
+    <view>当日笔数：{{web_todayItem?web_todayItem:'0'}}笔</view>
   </view>
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>

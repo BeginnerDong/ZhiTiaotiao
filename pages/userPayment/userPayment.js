@@ -147,7 +147,12 @@ Page({
 					};
 					api.realPay(res.info, payCallback);
 				} else {
-					console.log(777)
+					api.showToast('支付成功', 'none', 1000, function() {
+						self.data.is_peice = true;
+						self.setData({
+							is_peice:self.data.is_peice
+						})
+					});
 				};
 			} else {
 				
@@ -239,14 +244,16 @@ Page({
 	choose_payment(e) {
 		const self = this;
 		self.data.pay={};
-		console.log(self.data.currentId)
-		var currentId = api.getDataSet(e,'id');
-		if(self.data.currentId!=currentId){
-			self.data.currentId = currentId
-			self.setData({
-				currentId: self.data.currentId
-			})
+		/* console.log(self.data.currentId)
+		var currentId = api.getDataSet(e,'id'); */
+		if(self.data.currentId==0){
+			self.data.currentId = 1
+		}else{
+			self.data.currentId = 0	
 		}
+		self.setData({
+			currentId: self.data.currentId
+		})
 	},
 
 	intoPath(e) {

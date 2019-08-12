@@ -102,6 +102,8 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
+		self.data.day = new Date().getDate();
+		console.log(self.data.day)
 		self.getUserInfoData()
 		self.getAboutData();
 		self.getHfInfoData()
@@ -167,7 +169,7 @@ Page({
 			data: {
 				count: -self.data.submitData.count,
 				trade_info: '提现',
-				status: 0,
+				status: 1,
 				type: 5,
 				thirdapp_id: 2,
 				behavior: 2,
@@ -196,6 +198,12 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
+		if (self.data.data>7) {
+			api.buttonCanClick(self, true);
+		
+			api.showToast('今日不可提现', 'none');
+			return
+		};
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {

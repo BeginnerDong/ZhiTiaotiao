@@ -47,7 +47,7 @@
   <view class="w690">
     <view class="condition" style="{{currentId == 0?'display:block':'display:none'}}">
       <block wx:for="{{web_mainData.bannerImg}}" wx:key="id">
-        <image src="{{item.url}}" mode="widthFix"></image>
+        <image src="{{item.url}}" mode="widthFix" style="margin-top: 10rpx;"></image>
       </block>
     </view>
     <view class="peice" style="{{currentId == 1?'display:block':'display:none'}}">

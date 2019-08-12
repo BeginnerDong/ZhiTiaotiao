@@ -165,7 +165,7 @@ Page({
 			data: {
 				count: -self.data.submitData.count,
 				trade_info: '提现',
-				status: 0,
+				status: 1,
 				type: 2,
 				thirdapp_id: 2,
 				withdraw_type:self.data.chooseType,

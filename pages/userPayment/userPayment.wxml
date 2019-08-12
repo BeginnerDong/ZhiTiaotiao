@@ -13,10 +13,10 @@
             <input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}" type="number"></input>
         </view>
         <view class="payment_way bg1 w690">
-          <view class="payment_item flex" data-id="0" bindtap="choose_payment">
+          <!-- <view class="payment_item flex" data-id="0" bindtap="choose_payment">
             <image src="{{currentId==0?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
             <view class="font28 color2">微信支付</view>
-          </view>
+          </view> -->
           <view class="payment_item  flex" data-id="1" bindtap="choose_payment">
             <image src="{{currentId==1?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
             <view class="font28 color2">知条抵用</view>

@@ -26,7 +26,7 @@
 			</view>
 			<view style="display: flex;height:100%;align-items: center;margin-left: 0;margin-left: 40rpx;" bindtap="choose" data-type='1'>
 				<image src="{{web_chooseType==1?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:30rpx;height:30rpx"></image>
-				<view class="font26 color2" style="margin-left: 20rpx;">次日到账</view>
+				<view class="font26 color2" style="margin-left: 20rpx;">普通提现</view>
 			</view>
 		</view>
         <view class="cash_cont bg1" style="padding-top:70rpx;padding-bottom:30rpx;">
