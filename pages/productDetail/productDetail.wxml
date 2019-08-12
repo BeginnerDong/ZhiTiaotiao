@@ -28,7 +28,7 @@
 	</block>
 	
 </view>
-<view class="store_bottom flex bg1">
+<view class="store_bottom flex bg1" >
 	<view class="store_left flex">
 		<view class="store_btn" bindtap="clickFollow">
 			<image src="{{web_shopData.followMe.length>0&&web_shopData.followMe[0].status==1?'/images/follow-active.png':'/images/follow.png'}}"></image>
