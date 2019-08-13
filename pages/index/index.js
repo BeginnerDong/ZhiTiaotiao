@@ -104,7 +104,7 @@ Page({
 
 	getHotShopData() {
 		const self = this;
-		var orderKey = 'view_count * 0.495 + favor_count * 0.495 + follow_count * 0.1';
+		var orderKey = 'view_count * 0.1 + favor_count * 0.495 + follow_count * 495';
 		self.data.order[orderKey] = 'desc';
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
@@ -131,6 +131,7 @@ Page({
 
 	getRedDotData() {
 		const self = this;
+		var num = 0;
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {};
@@ -151,7 +152,7 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.redDotData.push.apply(self.data.redDotData, res.info.data);
-				var num = 0;
+				
 				for (var i = 0; i < self.data.redDotData.length; i++) {
 					if(self.data.redDotData[i].log.length==0){
 						num++
