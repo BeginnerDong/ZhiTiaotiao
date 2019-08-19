@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 126,
+			"current": 127,
 			"list": [
 				{
 					"id": -1,
@@ -885,6 +885,13 @@
 					"id": -1,
 					"name": "pages/userStroeBill/userStroeBill",
 					"pathName": "pages/userStroeBill/userStroeBill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/checkDetail/checkDetail",
+					"pathName": "pages/checkDetail/checkDetail",
 					"scene": null
 				}
 			]

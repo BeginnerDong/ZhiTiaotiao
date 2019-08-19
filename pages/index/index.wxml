@@ -24,7 +24,7 @@
 </view>
 
 
-<view class="w690" style="margin-top:90rpx">
+<view class="w690" style="margin-top:80rpx">
 	<view class="new_store"  bindtap="intoPath" data-path="/pages/userMessage/userMessage" style="border-top: 10rpx solid rgb(240,240,240);}">
 		<view class="indexTitle flex" style="height:80rpx">
 			<image src="../../images/Homepage-icon1.png" style="margin-right:16rpx"></image>
@@ -64,7 +64,7 @@
 			</scroll-view>
 		</view>
 	</view>
-	<view style="height:10rpx;background-color: rgb(240,240,240);margin-top:22.5rpx">
+	<view style="height:10rpx;background-color: rgb(240,240,240);margin-top:11rpx">
 	</view>
 	<view class="w690">
 		<view class="new_store">

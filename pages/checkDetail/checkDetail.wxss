@@ -16,14 +16,13 @@ page {
 .box-img{
 	border: solid 1rpx #fff;
 	width: 70rpx;
-	height: 140rpx;
 	margin: 0rpx auto;
 	box-sizing: border-box;
-	padding-top: 40rpx;
+	padding-top: 60rpx;
 }
 .box-img image{
-	width: 66rpx;
-	height: 95rpx;
+	width: 70rpx;
+	height: 70rpx;
 }
 
 .detail-name{
