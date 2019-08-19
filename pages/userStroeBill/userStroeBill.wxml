@@ -39,10 +39,10 @@
 	</view>
 
 <view style="{{web_currentId==2?'display:block':'display:none'}};margin-top:30rpx;">
-	<view class="record_tlt flex" style="background:#f5f5f5;">
+	<!-- <view class="record_tlt flex" style="background:#f5f5f5;">
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>
-	</view>
+	</view> -->
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="record_list flex">
 		  <view class="w50 color6 font24">{{item.create_time}}</view>
