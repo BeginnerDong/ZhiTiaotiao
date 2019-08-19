@@ -73,6 +73,7 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
+				self.addShopView()
 			};
 			self.setData({
 				web_mainData: self.data.mainData
@@ -81,6 +82,16 @@ Page({
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
 		api.shopInfoGet(postData, callback);
+	},
+	
+	addShopView() {
+		const self = this;
+		const postData = {};
+		postData.data = {
+			user_no:self.data.mainData.user_no
+		};
+		const callback = (res) => {};
+		api.addShopView(postData, callback);
 	},
 	
 	phoneCall() {

@@ -54,6 +54,19 @@ class Api extends Base {
 		this.request(allParams);
 	}
 	
+	addShopView(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/addShopView',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
 	getReward(param, callback) {
 		var allParams = {
 			url: 'Project/Solely/getReward',

@@ -32,7 +32,7 @@ Page({
 		const self = this;
 		api.commonInit(self);
 		self.getSliderData();
-		self.getNewShopData();
+		
 		
 		self.getLocation();
 		self.getMessageData();
@@ -41,8 +41,10 @@ Page({
 	onShow(){
 		const self = this;
 		self.data.hotShopData=[];
+		self.data.newShopData=[];
 		self.getRedDotData();
 		self.getHotShopData();
+		self.getNewShopData();
 	},
 
 	getSliderData() {

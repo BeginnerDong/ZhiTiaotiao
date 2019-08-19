@@ -11,8 +11,8 @@
   </view>
 	<!-- <view class="font24 color8">{{web_mainData.description}}</view> -->
 	<view class="product_pro  flex avoidOverflow">
-      <view class="font30" style="padding: 0 30rpx 0 10rpx;">店铺价格：￥{{web_mainData.price}}</view>
-      <view class="font30 color_r">知条特惠：{{web_mainData.score}}个</view>
+      <view class="font30" style="padding: 0 30rpx 0 10rpx;">店铺价格：{{web_mainData.price}}</view>
+      <view class="font30 color_r">知条特惠：{{web_mainData.score}}</view>
        
     </view>
 </view>

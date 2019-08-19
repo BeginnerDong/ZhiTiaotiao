@@ -103,20 +103,24 @@ Page({
 		postData.order = {
 			create_time: 'desc',
 		};
+	
+		postData.compute = {
+		  totalCount:[
+			'sum',
+			'count',
+			{type:3,user_no:wx.getStorageSync('info').user_no}
+		  ],  
+		};
 		const callback = (res) => {
 			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
-				for (var i = 0; i < res.info.data.length; i++) {
-					console.log(parseFloat(res.info.data[i].count))
-					totalCount += parseFloat(res.info.data[i].count)
-				};
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 			} else {
 				self.data.isLoadAll = true;
 				
 			};
 			self.setData({
-				web_totalCount: totalCount.toFixed(2),
+				web_totalCount: res.info.compute.totalCount,
 				web_mainData: self.data.mainData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
@@ -151,19 +155,33 @@ Page({
 				info: ['nickname','headImgUrl']
 			}
 		};
+		if(self.data.num==3){
+			postData.compute = {
+			  totalCount:[
+				'sum',
+				'consume',
+				api.cloneForm(self.data.searchItemTwo)
+			  ],  
+			};
+			postData.compute.totalCount[2].user_no = wx.getStorageSync('info').user_no;
+			postData.compute.totalCount[2].user_type= 0
+		}
+		
 		const callback = (res) => {
 			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
-				for (var i = 0; i < res.info.data.length; i++) {
-					totalCount += res.info.data[i].count
-				};
+				
 				self.data.rankData.push.apply(self.data.rankData, res.info.data);
 			} else {
 				self.data.isLoadAll = true;
 				
 			};
+			if(self.data.num==3){
+				self.setData({
+					web_totalCount: res.info.compute.totalCount,
+				});
+			}
 			self.setData({
-				web_totalCount: totalCount.toFixed(2),
 				web_rankData: self.data.rankData,
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getRankData', self)
@@ -214,6 +232,9 @@ Page({
 	changeNav(e) {
 		const self = this;
 		api.buttonCanClick(self);
+		self.setData({
+			web_totalCount:0.00
+		});
 		self.data.num = api.getDataSet(e, 'num');
 		if(self.data.num==2){
 			self.data.rankData = [];

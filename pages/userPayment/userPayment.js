@@ -39,7 +39,7 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			use:1
-		}
+		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.rewardData = res.info.data[0];
@@ -266,6 +266,11 @@ Page({
 		wx.navigateBack({
 			delta: 1
 		})
+	},
+	
+	intoSwitch(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'tab');
 	},
 
 	intoPathRedirect(e) {

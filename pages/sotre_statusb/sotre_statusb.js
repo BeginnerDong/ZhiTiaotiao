@@ -200,8 +200,11 @@ Page({
 		api.buttonCanClick(self);
 		var phone = self.data.submitData.phone;
 		var newObject = api.cloneForm(self.data.submitData);
-
 		delete newObject.bannerImg;
+		delete newObject.owner;
+		delete newObject.name;
+		delete newObject.phone;
+		delete newObject.address;
 		console.log('newObject', newObject)
 		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)

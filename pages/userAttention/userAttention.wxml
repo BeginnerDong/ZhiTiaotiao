@@ -1,6 +1,6 @@
 <!--index1.wxml-->
 <view class="w690">
- <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+ <view class="stroe bg1 w710 flex" wx:for="{{web_mainData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?user_no={{item.user_no}}">
         <view class="store_left">
 			<view style="display:flex">
 				<view class="store_name font36 color2 avoidOverflow">

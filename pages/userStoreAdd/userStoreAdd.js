@@ -167,8 +167,10 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-
-		const pass = api.checkComplete(self.data.submitData);
+		var newObject = api.cloneForm(self.data.submitData);
+		
+		delete newObject.bannerImg;
+		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
 		if (pass) {
 			self.productAdd()
@@ -183,7 +185,7 @@ Page({
 		console.log(e);
 		var key = e.target.dataset.key;
 		api.fillChange(e, self, 'submitData');
-		if(key=="score"||key=="price"){
+	/* 	if(key=="score"||key=="price"){
 			if(self.data.submitData[key]!=''){
 				var name = self.data.submitData[key];
 				
@@ -202,7 +204,7 @@ Page({
 				};
 			}
 			
-		}
+		} */
 		console.log(self.data.submitData)
 		self.setData({
 			web_submitData: self.data.submitData,

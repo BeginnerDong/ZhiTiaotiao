@@ -35,6 +35,14 @@ Page({
 		self.getTypeData();
 		self.getLocation()
 	},
+	
+	deleteName(){
+		const self = this;
+		self.data.sForm.name = '',
+		self.setData({
+			web_sForm:self.data.sForm
+		})
+	},
 
 	getMainData(isNew) {
 		const self = this;

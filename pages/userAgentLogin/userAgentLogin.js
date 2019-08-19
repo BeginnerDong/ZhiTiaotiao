@@ -51,7 +51,14 @@ Page({
 		})
 
 	},
-
+	
+	deleteName(){
+		const self = this;
+		self.data.sForm.password = '',
+		self.setData({
+			web_sForm:self.data.sForm
+		})
+	},
 
 	submit() {
 		const self = this;

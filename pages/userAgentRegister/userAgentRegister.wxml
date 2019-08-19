@@ -19,18 +19,6 @@
 	<view class="input_before color8">常用邮箱：</view>
 	<input placeholder="请输入你的常用邮箱(选填)" value="{{web_submitData.email}}" data-key="email" bindblur="bindInputChange"></input>
 </view>
-<!-- <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">代理地区：</view>
-  <view class="input pr" style="border:1px solid #d7d7d7">
-		<picker  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style="width:100%">
-	    <view class="picker" style="width:100%; height:48rpx">
-	      {{web_submitData.address}}
-        {{reginon[0]}}{{regin[1]}}{{regin[2]}}
-	    </view>
-	  </picker>
-    <view class="down flex" style="width:28rpx; position: absolute; right:3%;top:24rpx;"><image src="/images/down.png"></image></view>
-  </view>
-</view> -->
 <view class="input_list1 font28   w690" style="height: auto;padding: 15px 1%;">
 	<view class="input_before color8">代理地区：</view>
 	<view class=" font28 flex  w690" style="padding-top:10rpx;">
@@ -89,17 +77,21 @@
 		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 	</view>
 </view>
-<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
-	<view class="input_before  color8" style="width:34%">上传代理协议：</view>
-	<view class="upload" wx:for="{{web_submitData.agree_img}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
-		<image bindtap="deleteImg" data-type="agree_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
-		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+<view class="font28 w690" style="margin-top:30rpx;border-bottom: solid 1px #e0e0e0;">
+	<view class="input_before  color8" style="width:34%;margin-bottom: 20rpx;">上传代理协议：</view>
+	<view style="display: flex;width: 100%;flex-wrap: wrap;">
+		<view class="upload"   wx:for="{{web_submitData.agree_img}}" style="position: relative;width: 29%;margin-bottom: 20rpx;margin-right: 1.8%;margin-left: 1.8%;">
+			<image src="{{item.url}}"></image>
+			<image bindtap="deleteImg" data-type="agree_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+			 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+		</view>
+		<view class="upload" style="width: 29%;margin-bottom: 20rpx;margin-right: 1.8%;margin-left: 1.8%;" bindtap="upLoadAgreeImg" wx:if="{{web_submitData.agree_img.length<8}}">
+			<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+		</view>
 	</view>
-	<view class="upload" bindtap="upLoadAgreeImg" wx:if="{{web_submitData.agree_img.length==0}}">
-		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
-	</view>
+	
 </view>
+
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传代理凭证：</view>
 	<view class="upload" wx:for="{{web_submitData.bill_img}}" style="position: relative;">

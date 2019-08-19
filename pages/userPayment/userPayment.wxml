@@ -43,8 +43,9 @@
   </view>
   <view class="get_peice" wx:if="{{is_peice}}">
     <image src="/images/ztthb.png" style="margin-bottom:20rpx;position: relative;"></image>
-    <view class="font24 color1" style="position: absolute;bottom: 10%;text-align: center;width: 100%;text-decoration:underline">恭喜获得{{web_ztt}}知条</view>
-	   <view class="font24 color1" style="position: absolute;bottom: 5%;text-align: center;width: 100%;text-decoration:underline">(可到知条条附近店铺消费抵用)</view>
+    <view class="font24 color1" style="position: absolute;bottom: 15%;text-align: center;width: 100%;text-decoration:underline">恭喜您获得{{web_ztt}}个知条</view>
+	 <view class="font24 color1" style="position: absolute;bottom: 10%;text-align: center;width: 100%;text-decoration:underline">(1知条=1元券，可在知条条店铺消费抵用)</view>
+	 <view class="font24 color1" style="position: absolute;bottom: 5%;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">进入查看</view>
   </view>
   <view class="close" bindtap="close" wx:if="{{is_peice}}">
     <image src="/images/close.png"></image>

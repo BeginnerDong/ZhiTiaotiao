@@ -7,9 +7,10 @@
 			<image src="../../images/up.png" style="margin-left:0rpx"></image>
 	    </view>
 	    <view class="stroe_search_right" style="display: flex;align-items: center;">
-	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;">
+	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;position: relative;">
 	            <input class="font28 color9" placeholder="请输入您想要的商品名称" value="{{web_sForm.name}}"  data-key="name" bindinput="bindInputChange"></input> 
-	            
+	        
+				<image bindtap="deleteName" wx:if="{{web_sForm.name}}" src="../../images/Uploadqualification-icon.png" style="width: 30rpx;height: 30rpx;position: absolute;right: 3%;top: 27%;z-index: 6666;"></image>
 	        </view>
 			<view style="margin-left: 20px;border-radius:15px;width: 50px;height:30px;font-size: 14px;background:#ff5f17 ;color: #fff;line-height: 30px;text-align: center;" bindtap="search">
 				搜索

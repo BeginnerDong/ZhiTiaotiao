@@ -317,7 +317,26 @@ Page({
 		})
 	},
 
-
+	deleteImg(e){
+		const self = this;
+		var index = api.getDataSet(e,'index');
+		var type = api.getDataSet(e,'type');
+		console.log(type)
+		if(type=='id_img_front'){
+			self.data.submitData.id_img_front.splice(index,1);
+		}else if(type=='id_img_back'){
+			self.data.submitData.id_img_back.splice(index,1);
+		}
+		else if(type=='license_img'){
+			self.data.submitData.license_img.splice(index,1);
+		}else if(type=='agree_img'){
+			self.data.submitData.agree_img.splice(index,1);
+		};
+		console.log(self.data.submitData);
+		self.setData({
+			web_submitData:self.data.submitData
+		})
+	},
 
 
 	chooseLocation: function(e) {
