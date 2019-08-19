@@ -32,7 +32,7 @@
     </view>
 </view>
 
-<view style="margin-top:30rpx;" wx:if="{{web_currentId==1}}">
+<view  wx:if="{{web_currentId==1}}">
 	<view class="record_tlt flex" style="background:#f5f5f5;">
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>
@@ -44,7 +44,7 @@
 		</view>
 	</block>
 </view>
-<view style="margin-top:30rpx;"  wx:if="{{web_currentId==2}}">
+<view   wx:if="{{web_currentId==2}}">
     <view class="record_tlt flex" style="background:#f5f5f5;">
       <view class="w33 color2 font30">店比重额</view>
       <view class="w33 color2 font30">联盟金</view>

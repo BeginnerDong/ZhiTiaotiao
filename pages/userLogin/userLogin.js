@@ -36,7 +36,7 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.getMainData();
+	
 		self.getAboutData()
 	},
 
@@ -178,9 +178,9 @@ Page({
 		const callback = (data) => {
 			if (data.solely_code == 100000) {
 				api.showToast('登录成功', 'none');
-				api.pathTo('/pages/status/status', 'redi')
+				api.pathTo('/pages/status/status', 'rela')
 			} else {
-				api.showToast('网络故障', 'none')
+				api.showToast(res.msg, 'none')
 			};
 			api.buttonCanClick(self, true);
 		};
@@ -201,9 +201,10 @@ Page({
 		api.pathTo(api.getDataSet(e, 'path'), 'nav');
 	},
 
-	intoPathRedirect(e) {
+	redirectTo(e) {
 		const self = this;
-		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+		console.log(222)
+		api.pathTo(api.getDataSet(e,'path'), 'rela');
 	},
 
 

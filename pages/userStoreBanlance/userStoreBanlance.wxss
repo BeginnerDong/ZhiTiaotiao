@@ -91,8 +91,8 @@
 	text-align:right;
 }
 .tab{
-	height:46rpx;
-	margin:20rpx 0 30rpx 0;
+	height:70rpx;
+	
 }
 .tab_item{
 	width:50%;
@@ -116,7 +116,7 @@
 }
 .record_tlt{
 	width:100%;
-	height:88rpx;
+	height:50rpx;
 }
 .w33{
 	width:33.33%;

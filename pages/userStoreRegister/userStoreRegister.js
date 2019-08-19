@@ -22,7 +22,11 @@ Page({
 			menu_id: '',
 			thirdapp_id: 2,
 			longitude: '',
-			latitude: ''
+			latitude: '',
+			license_img:[],
+			agree_img:[],
+			id_img_back:[],
+			id_img_front:[],
 		},
 		typeData: [],
 		isFirstLoadAllStandard: ['getTypeData']
@@ -32,7 +36,9 @@ Page({
 		const self = this;
 		api.commonInit(self);
 		self.getTypeData();
-		
+		self.setData({
+			web_submitData:self.data.submitData,
+		})	
 	},
 
 
@@ -116,6 +122,172 @@ Page({
 			api.showToast('请补全信息', 'none');
 		};
 	},
+	
+	upLoadidBack() {
+			const self = this;
+			wx.showLoading({
+				mask: true,
+				title: '图片上传中',
+			});
+			const callback = (res) => {
+				console.log('res', res)
+				if (res.solely_code == 100000) {
+		
+					self.data.submitData.id_img_back.push({
+						url: res.info.url,
+						type:'image'
+					})
+					self.setData({
+						web_submitData: self.data.submitData
+					});
+					wx.hideLoading()
+					console.log('self.data.submitData', self.data.submitData)
+				} else {
+					api.showToast('网络故障', 'none')
+				}
+			};
+		
+			wx.chooseImage({
+				count: 1,
+				success: function(res) {
+					console.log(res);
+					var tempFilePaths = res.tempFilePaths;
+					console.log(callback)
+					api.uploadFile(tempFilePaths[0], 'file', {
+						tokenFuncName: 'getProjectToken',
+						type:'image'
+					}, callback)
+				},
+				fail: function(err) {
+					wx.hideLoading();
+				}
+			})
+		},
+		
+		upLoadIdFront() {
+			const self = this;
+			wx.showLoading({
+				mask: true,
+				title: '图片上传中',
+			});
+			const callback = (res) => {
+				console.log('res', res)
+				if (res.solely_code == 100000) {
+		
+					self.data.submitData.id_img_front.push({
+						url: res.info.url,
+						type:'image'
+					})
+					self.setData({
+						web_submitData: self.data.submitData
+					});
+					wx.hideLoading()
+					console.log('self.data.submitData', self.data.submitData)
+				} else {
+					api.showToast('网络故障', 'none')
+				}
+			};
+		
+			wx.chooseImage({
+				count: 1,
+				success: function(res) {
+					console.log(res);
+					var tempFilePaths = res.tempFilePaths;
+					console.log(callback)
+					api.uploadFile(tempFilePaths[0], 'file', {
+						tokenFuncName: 'getProjectToken',
+						type:'image'
+					}, callback)
+				},
+				fail: function(err) {
+					wx.hideLoading();
+				}
+			})
+		},
+	
+	
+	// 上传代理凭证
+		upLoadLicenseImg() {
+			const self = this;
+			wx.showLoading({
+				mask: true,
+				title: '图片上传中',
+			});
+			const callback = (res) => {
+				console.log('res', res)
+				if (res.solely_code == 100000) {
+		
+					self.data.submitData.license_img.push({
+						url: res.info.url,
+						type:'image'
+					})
+					self.setData({
+						web_submitData: self.data.submitData
+					});
+					wx.hideLoading()
+					console.log('self.data.submitData', self.data.submitData)
+				} else {
+					api.showToast('网络故障', 'none')
+				}
+			};
+		
+			wx.chooseImage({
+				count: 1,
+				success: function(res) {
+					console.log(res);
+					var tempFilePaths = res.tempFilePaths;
+					console.log(callback)
+					api.uploadFile(tempFilePaths[0], 'file', {
+						tokenFuncName: 'getProjectToken',
+						type:'image'
+					}, callback)
+				},
+				fail: function(err) {
+					wx.hideLoading();
+				}
+			})
+		},
+		
+		upLoadAgreeImg() {
+			const self = this;
+			wx.showLoading({
+				mask: true,
+				title: '图片上传中',
+			});
+			const callback = (res) => {
+				console.log('res', res)
+				if (res.solely_code == 100000) {
+		
+					self.data.submitData.agree_img.push({
+						url: res.info.url,
+						type:'image'
+					})
+					self.setData({
+						web_submitData: self.data.submitData
+					});
+					wx.hideLoading()
+					console.log('self.data.submitData', self.data.submitData)
+				} else {
+					api.showToast('网络故障', 'none')
+				}
+			};
+		
+			wx.chooseImage({
+				count: 1,
+				success: function(res) {
+					console.log(res);
+					var tempFilePaths = res.tempFilePaths;
+					console.log(callback)
+					api.uploadFile(tempFilePaths[0], 'file', {
+						tokenFuncName: 'getProjectToken',
+						type:'image'
+					}, callback)
+				},
+				fail: function(err) {
+					wx.hideLoading();
+				}
+			})
+		},
 
 	bindInputChange(e) {
 		const self = this;

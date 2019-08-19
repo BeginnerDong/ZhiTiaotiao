@@ -2,8 +2,8 @@
 <view class="w690 logout font24 color7" bindtap="loginOff">
     退出
 </view>
-<view class="sort flex shadow1 bg1">
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreBanlance/userStoreBanlance">
+<view class="sort flex  bg1">
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/userStoreBanlance/userStoreBanlance">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon5.png"></image>
@@ -11,15 +11,15 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStorePiece/userStorePiece">
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/userStorePiece/userStorePiece">
 	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon2.png" style="width: 48rpx;"></image>
 	            <view class="font28 color3">店铺知条</view>
 	        </view>
 	    </view>
-	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStroeBill/userStroeBill">
+	</view> 
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/userStroeBill/userStroeBill">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon4.png"></image>
@@ -75,7 +75,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" style="border-right:solid 1px #e1e1e1 ;box-sizing: content-box;border-bottom:none;" bindtap="show">
+	<view class="sort_item flex" style="border-right:solid 1px #e1e1e1 ;box-sizing: content-box;" bindtap="show">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon0.png"></image>

@@ -33,14 +33,16 @@ Page({
 		api.commonInit(self);
 		self.getSliderData();
 		self.getNewShopData();
-		self.getHotShopData();
+		
 		self.getLocation();
 		self.getMessageData();
 	},
 	
 	onShow(){
 		const self = this;
-		self.getRedDotData()
+		self.data.hotShopData=[];
+		self.getRedDotData();
+		self.getHotShopData();
 	},
 
 	getSliderData() {
@@ -104,7 +106,7 @@ Page({
 
 	getHotShopData() {
 		const self = this;
-		var orderKey = 'view_count * 0.1 + favor_count * 0.495 + follow_count * 495';
+		var orderKey = 'view_count * 0.001 + favor_count * 0.4995 + follow_count * 0.4995';
 		self.data.order[orderKey] = 'desc';
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
@@ -131,7 +133,8 @@ Page({
 
 	getRedDotData() {
 		const self = this;
-		var num = 0;
+		var num = false;
+		self.data.redDotData = [];
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {};
@@ -155,7 +158,7 @@ Page({
 				
 				for (var i = 0; i < self.data.redDotData.length; i++) {
 					if(self.data.redDotData[i].log.length==0){
-						num++
+						num = true
 					}
 				}
 			};
@@ -178,6 +181,13 @@ Page({
 		postData.order = {
 			create_time: 'desc'
 		};
+		postData.paginate={
+			count: 0,
+			currentPage: 1,
+			is_page: true,
+			pagesize: 2,
+		};
+		
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.messageData.push.apply(self.data.messageData, res.info.data);

@@ -44,7 +44,7 @@ Page({
 	search(){
 		const self = this;
 		if(self.data.submitData.user_no==''){
-			api.showToast('请输入代理NO搜索','none')
+			api.showToast('请输入代理NO.搜索','none')
 		}else{
 			self.data.isSearch = true;
 			self.data.searchItem.parent_no = self.data.submitData.user_no;
@@ -168,6 +168,7 @@ Page({
 				self.data.topData.push.apply(self.data.topData, res.info.data);
 				self.data.shopCount = 0;
 				self.data.authCount = 0;
+				self.data.lessCount =0;
 				for (var i = 0; i < self.data.topData.length; i++) {
 					self.data.shopCount += self.data.topData[i].shopNum.num
 					self.data.authCount += self.data.topData[i].authNum.num

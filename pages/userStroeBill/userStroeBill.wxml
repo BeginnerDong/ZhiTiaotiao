@@ -17,16 +17,16 @@
     </view>
 </view>
 
-	<view style="{{web_currentId==0||web_currentId==1?'display:block':'display:none'}};margin-top:30rpx;">
+	<view style="margin-top:30rpx;">
 		<block wx:for="{{web_mainData}}" wx:key="id">
-			<!-- <view class="piece_list w690 flex"  wx:if="{{item.count>0}}">
+			<view class="piece_list w690 flex"  wx:if="{{item.count>0&&web_currentId==1}}">
 				<view class="piece_item font28 color2" style="text-align:left;">
 					<view class="font28 color2">{{item.shopInfo.nickname?item.shopInfo.nickname:item.trade_info}}</view>
 					
 					<view class="font24 color9 ilblock">{{item.create_time}}</view>
 				</view>
 				<view class="piece_item font28 color3" style="text-align:right;">{{item.count}}</view>
-			</view> -->
+			</view>
 			<view class="piece_list w690 flex"  wx:if="{{item.count<0}}">
 			   <view class="piece_item font28 color2" style="text-align:left;">
 					<view class="font24 color2">提现</view>

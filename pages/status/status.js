@@ -34,14 +34,17 @@ Page({
 		 var year=date.getFullYear(); 
 		 var month=date.getMonth();
 		 self.data.select_data = year+'年'+month+'月',
-		self.getMainData();
-		self.check();
-		self.getAboutData();
+		
 		self.setData({
 			web_select_data:self.data.select_data,
 			web_month:month,
 			web_num: self.data.num
 		})
+	},
+	
+	onShow(e){
+		const self = this;
+		self.check();
 	},
 	
 	check() {
@@ -51,9 +54,12 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 	
-				if (res.info.data[0].info.phone== '') {
-					api.pathTo('/pages/userLogin/userLogin', 'nav')
+				if (res.info.data[0].info.phone=='') {
+					api.pathTo('/pages/userLogin/userLogin', 'redi')
 				} else {
+					self.getMainData();
+					self.getAboutData();
+					self.getZtt();
 					self.data.show = true
 				};
 				self.setData({
@@ -63,6 +69,25 @@ Page({
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'check', self);
 		};
 		api.userGet(postData, callback);
+	},
+	
+	getZtt() {
+		const self = this;
+		
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		const callback = (res) => {
+			
+			if (res.solely_code==100000) {
+				self.data.ztt = res.info
+			}
+			self.setData({
+				web_ztt:self.data.ztt
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getZtt', self)
+			console.log('self.data.mainData',self.data.mainData)
+		};
+		api.getZtt(postData, callback);
 	},
 
 	getMainData(isNew) {
@@ -88,7 +113,7 @@ Page({
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 			} else {
 				self.data.isLoadAll = true;
-				api.showToast('没有更多了', 'none');
+				
 			};
 			self.setData({
 				web_totalCount: totalCount.toFixed(2),
@@ -135,7 +160,7 @@ Page({
 				self.data.rankData.push.apply(self.data.rankData, res.info.data);
 			} else {
 				self.data.isLoadAll = true;
-				api.showToast('没有更多了', 'none');
+				
 			};
 			self.setData({
 				web_totalCount: totalCount.toFixed(2),
@@ -146,7 +171,7 @@ Page({
 		api.rankGet(postData, callback);
 	},
 
-
+	
 
 	onReachBottom() {
 		const self = this;

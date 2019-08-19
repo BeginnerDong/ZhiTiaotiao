@@ -243,8 +243,26 @@ Page({
 			name: '三证合一企业',
 			value: '01030101'
 		}],
-		isFirstLoadAllStandard: ['getMainData']
+		isFirstLoadAllStandard: ['getMainData'],
+		img:[
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''}
+		]
+			
+		
 	},
+	
+	onLoad(){
+		const self = this;
+		self.setData({
+			web_img:self.data.img,
+		});
+	},
+	
 
 	onShow() {
 		const self = this;
@@ -267,10 +285,30 @@ Page({
 			if (res.solely_code == 100000) {
 				var url = res.info.url;
 				var imgIdReg = /id(\S*)\./i;
-				var id = url.match(imgIdReg)[1]
+				var id = url.match(imgIdReg)[1];
 				console.log('id', id)
-				self.data.submitData.file.push(id)
+				self.data.submitData.file.push(id);
+				if(type=='00'){
+					self.data.img[0].url = url,
+					self.data.img[0].id = id
+				}else if(type=='01'){
+					self.data.img[1].url = url,
+					self.data.img[1].id = id
+				}else if(type=='02'){
+					self.data.img[2].url = url,
+					self.data.img[2].id = id
+				}else if(type=='03'){
+					self.data.img[3].url = url,
+					self.data.img[3].id = id
+				}else if(type=='09'){
+					self.data.img[4].url = url,
+					self.data.img[4].id = id
+				}else if(type=='04'){
+					self.data.img[5].url = url,
+					self.data.img[5].id = id
+				}
 				self.setData({
+					web_img:self.data.img,
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
@@ -296,6 +334,23 @@ Page({
 			
 		})
 		console.log(self.data.submitData.file)
+	},
+	
+	deleteImg(e){
+		const self = this;
+		var index = api.getDataSet(e,'index');
+		var id = api.getDataSet(e,'id');
+		var position = self.data.submitData.file.indexOf(id);
+		if (position >= 0) {
+			self.data.submitData.file.splice(position, 1);
+		};
+		self.data.img[index].url = '',
+		self.data.img[index].id = '',
+		self.setData({
+			web_submitData:self.data.submitData,
+			web_img:self.data.img
+		})
+		console.log(self.data.submitData)
 	},
 
 	bindLicenseStartChange(e) {

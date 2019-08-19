@@ -21,16 +21,21 @@ Page({
 		previousMargin: 0,
 		nextMargin: 0,
 		currentId: 0,
-		isFirstLoadAllStandard: ['getMainData','getProductData'],
+		isFirstLoadAllStandard: ['getMainData'],
 		productData:[]
 	},
 
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.data.id = options.id;
+		self.data.user_no = options.user_no;
 		self.getMainData();
 		
+	},
+	
+	onShow(){
+		const self = this;
+		self.getProductData(true)
 	},
 
 	getMainData() {
@@ -38,7 +43,7 @@ Page({
 		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
-			id: self.data.id,
+			user_no: self.data.user_no,
 			user_type: 1
 		};
 		postData.getAfter = {
@@ -72,7 +77,7 @@ Page({
 			self.setData({
 				web_mainData: self.data.mainData
 			});
-			self.getProductData();
+			/* self.getProductData(); */
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
 		api.shopInfoGet(postData, callback);
@@ -131,10 +136,12 @@ Page({
 					status: 1,
 					id: res.info.id
 				});
+				self.data.mainData.favor_count = self.data.mainData.favor_count+1;
 				api.showToast('点赞成功', 'none', 1000)
 			} else {
 				api.showToast('点赞失败', 'none', 1000)
 			};
+			
 			api.buttonCanClick(self, true);
 			self.setData({
 				web_mainData: self.data.mainData
@@ -162,13 +169,16 @@ Page({
 			if (res.solely_code == 100000) {
 				self.data.mainData.goodMe[0].status = -self.data.mainData.goodMe[0].status;
 				if(self.data.mainData.goodMe[0].status==1){
+					self.data.mainData.favor_count = self.data.mainData.favor_count+1;
 					api.showToast('点赞成功', 'none', 1000)
 				}else{
+					self.data.mainData.favor_count = self.data.mainData.favor_count-1;
 					api.showToast('取消成功', 'none', 1000)
 				}
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};
+			
 			self.setData({
 				web_mainData: self.data.mainData
 			})
@@ -203,10 +213,12 @@ Page({
 					status: 1,
 					id: res.info.id
 				});
+				self.data.mainData.follow_count = self.data.mainData.follow_count+1;
 				api.showToast('关注成功', 'none', 1000)
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};
+			
 			api.buttonCanClick(self, true);
 			self.setData({
 				web_mainData: self.data.mainData
@@ -234,13 +246,16 @@ Page({
 			if (res.solely_code == 100000) {
 				self.data.mainData.followMe[0].status = -self.data.mainData.followMe[0].status;
 				if(self.data.mainData.followMe[0].status==1){
+					self.data.mainData.follow_count = self.data.mainData.follow_count+1;
 					api.showToast('关注成功', 'none', 1000)
 				}else{
+					self.data.mainData.follow_count = self.data.mainData.follow_count-1;
 					api.showToast('取消成功', 'none', 1000)
 				}
 			} else {
 				api.showToast(res.msg, 'none', 1000)
 			};
+			
 			self.setData({
 				web_mainData: self.data.mainData
 			})
@@ -252,14 +267,20 @@ Page({
 	getProductData(isNew) {
 		const self = this;
 		if (isNew) {
-			api.clearPageIndex(self)
+			self.data.productData = [];
+			self.data.paginate = {
+				count: 0,
+				currentPage: 1,
+				is_page: true,
+				pagesize: 10
+			}
 		};
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 
-			user_no: self.data.mainData.user_no
+			user_no: self.data.user_no
 		};
 		postData.order = {
 			create_time: 'desc'
@@ -268,13 +289,12 @@ Page({
 			if (res.info.data.length > 0) {
 				self.data.productData.push.apply(self.data.productData, res.info.data);
 			} else {
-				self.data.isLoadAll = true;
-				api.showToast('没有更多了', 'none')
+				self.data.isLoadAll = true;	
 			}
 			self.setData({
 				web_productData: self.data.productData
 			});
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductData', self);
+		
 		};
 		api.productGet(postData, callback);
 	},

@@ -60,15 +60,15 @@ Page({
 		const callback = (res) => {
 			self.data.mainData = {};
 			if (res.info.data.length > 0) {
-				self.data.mainData = res.info.data[0];
-				self.data.submitData.phone = res.info.data[0].phone;
-				self.data.submitData.name = res.info.data[0].name;
-				self.data.submitData.email = res.info.data[0].email;
-				//self.data.submitData.bill_img = res.info.data[0].bill_img;
-				self.data.submitData.address = res.info.data[0].address;
-				self.data.submitData.user_no = res.info.data[0].user_no;
-				self.data.submitData.id_img_back = res.info.data[0].id_img_back;
-				self.data.submitData.id_img_front = res.info.data[0].id_img_front;
+				self.data.mainData = res.info.data[0].info;
+				self.data.submitData.phone = res.info.data[0].info.phone;
+				self.data.submitData.name = res.info.data[0].info.name;
+				self.data.submitData.email = res.info.data[0].info.email;
+				//self.data.submitData.bill_img = res.info.data[0].info.bill_img;
+				self.data.submitData.address = res.info.data[0].info.address;
+				self.data.submitData.user_no = res.info.data[0].distriParent;
+				self.data.submitData.id_img_back = res.info.data[0].info.id_img_back;
+				self.data.submitData.id_img_front = res.info.data[0].info.id_img_front;
 			};
 			self.setData({
 				web_submitData: self.data.submitData,
@@ -76,7 +76,7 @@ Page({
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
-		api.userInfoGet(postData, callback);
+		api.userGet(postData, callback);
 	},
 
 	userInfoUpdate() {

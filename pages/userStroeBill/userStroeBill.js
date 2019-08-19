@@ -120,12 +120,50 @@ Page({
 		api.flowLogGet(postData, callback);
 	},
 	
+	getReward(isNew) {
+		const self = this;
+		var totalCount = 0;
+		if (isNew) {
+			api.clearPageIndex(self);
+		};
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.tokenFuncName = 'getStoreToken';
+		
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				
+			} else {
+				self.data.isLoadAll = true;
+				api.showToast('没有更多了', 'none');
+			};
+			 setTimeout(function()
+			{
+			  wx.hideNavigationBarLoading();
+			  wx.stopPullDownRefresh();
+			},300);
+			self.setData({
+					web_totalCount: res.info.total_price,
+				web_mainData: self.data.mainData,
+			});
+			console.log(self.data.mainData)
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
+		};
+		api.getReward(postData, callback);
+	},
+	
 	
 	onReachBottom() {
 		const self = this;
 		if (!self.data.isLoadAll) {
 			self.data.paginate.currentPage++;
-			self.getMainData();
+			if(self.data.currentId!=1){
+				self.getMainData();
+			}else{
+				self.getReward();
+			}
+			
 		};
 	},
 	
@@ -134,17 +172,15 @@ Page({
 		if(self.data.currentId!=api.getDataSet(e,'id')){
 			self.data.currentId=api.getDataSet(e,'id');
 			if(self.data.currentId==1){
-				self.data.searchItem = {
-					status:['in',[1,0,-1]],
-					type:4,
-					user_no:wx.getStorageSync('storeInfo').user_no
-				}
+				self.getReward(true)
+				
 			}else if(self.data.currentId==0){
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:2,
 					user_no:wx.getStorageSync('storeInfo').user_no
-				}
+				};
+				self.getMainData(true);
 			}if(self.data.currentId==2){
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
@@ -152,8 +188,9 @@ Page({
 					behavior:2,
 					user_no:wx.getStorageSync('storeInfo').user_no
 				}
+				self.getMainData(true);
 			}
-			self.getMainData(true);
+			
 			self.setData({
 				web_currentId: self.data.currentId
 			})

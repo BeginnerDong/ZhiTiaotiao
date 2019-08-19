@@ -21,8 +21,8 @@
 </view>
 
 <view class="input_list1 font28 flex w690">
-	<view class="input_before">辅导NO:</view>
-	<input placeholder="请输入NO"   disabled="true" value="{{web_submitData.user_no}}"></input>
+	<view class="input_before">辅导NO.:</view>
+	<input placeholder="请输入NO."   disabled="true" value="{{web_submitData.user_no!=''?web_submitData.user_no:'无'}}"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before">代理姓名:</view>

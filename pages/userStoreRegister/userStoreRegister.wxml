@@ -32,6 +32,58 @@
       </picker>
     </view>
 </view>
+<view class="message flex1 w690" style="height: 190rpx;border-bottom: 1px solid #e0e0e0;">
+	<view class="message_left font28 color2">店铺地址：</view>
+	<view class="message_right font28 color2" >
+    <view class="shop_adrsBtn" bindtap="chooseLocation" data-key="address">{{web_submitData.address}}</view>
+		<!-- <textarea value="{{web_submitData.address}}" disabled="true"  data-key="address" bindblur="bindInputChange"></textarea> -->
+	</view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8" style="width:34%">上传营业执照：</view>
+	<view class="upload" wx:for="{{web_submitData.license_img}}" style="position: relative;">
+		<image src="{{item.url}}"></image>
+		<image bindtap="deleteImg" data-type="license_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+	</view>
+	<view class="upload" bindtap="upLoadLicenseImg" wx:if="{{web_submitData.license_img.length==0}}">
+		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+	</view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8" style="width:34%">上传身份证正面：</view>
+	<view class="upload" wx:for="{{web_submitData.id_img_front}}" style="position: relative;">
+		<image src="{{item.url}}"></image>
+		<image bindtap="deleteImg" data-type="id_img_front" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+	</view>
+	<view class="upload" bindtap="upLoadIdFront" wx:if="{{web_submitData.id_img_front.length==0}}">
+		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+	</view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8" style="width:34%">上传身份证反面：</view>
+	<view class="upload" wx:for="{{web_submitData.id_img_back}}" style="position: relative;">
+		<image src="{{item.url}}"></image>
+		<image bindtap="deleteImg" data-type="id_img_back" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+	</view>
+	<view class="upload" bindtap="upLoadidBack" wx:if="{{web_submitData.id_img_back.length==0}}">
+		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+	</view>
+</view>
+<view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
+	<view class="input_before  color8" style="width:34%">上传店铺协议：</view>
+	<view class="upload" wx:for="{{web_submitData.agree_img}}" style="position: relative;">
+		<image src="{{item.url}}"></image>
+		<image bindtap="deleteImg" data-type="agree_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
+		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
+	</view>
+	<view class="upload" bindtap="upLoadAgreeImg" wx:if="{{web_submitData.agree_img.length==0}}">
+		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
+	</view>
+</view>
+
 <!-- <view class="input_list1 font28 flex  w690" style="height:96rpx;">
 	<view class="input_before color8" >所在地区：</view>
 	<view class="input">
@@ -49,13 +101,7 @@
 	</view>
     </view>
 </view> -->
-<view class="message flex1 w690">
-	<view class="message_left font28 color2">店铺地址：</view>
-	<view class="message_right font28 color2" >
-    <view class="shop_adrsBtn" bindtap="chooseLocation" data-key="address">{{web_submitData.address}}</view>
-		<!-- <textarea value="{{web_submitData.address}}" disabled="true"  data-key="address" bindblur="bindInputChange"></textarea> -->
-	</view>
-</view>
+
 <button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>
 
 

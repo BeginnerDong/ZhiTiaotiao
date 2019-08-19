@@ -1,10 +1,10 @@
 
 <view class="w690 logout font24 color7">
-    <view class="agent_code font28 color8">代理NO：{{web_userInfoData.user_no}}</view>
+    <view class="agent_code font28 color8">代理NO.：{{web_userInfoData.user_no}}</view>
     <view class="logout_page" bindtap="loginOff">退出</view>
 </view>
-<view class="sort flex shadow1 bg1">
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/commission/commission">
+<view class="sort flex  bg1">
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/commission/commission">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon5.png"></image>
@@ -12,7 +12,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/userAgentBill/userAgentBill">
 	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;border-right:solid 1px #e1e1e1">
 	        <view style="width:100%;">
 	            <image src="/images/agency-icon3.png"></image>
@@ -20,7 +20,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userAgentService/userAgentService">
+	<view class="sort_item flex" style="border-top: solid 1px #e1e1e1" bindtap="intoPath" data-path="/pages/userAgentService/userAgentService">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/agency-icon.png"></image>
@@ -52,5 +52,12 @@
 	        </view>
 	    </view>
 	</view>
-
+	<view class="sort_item flex"  style="border-right: solid 1px #e1e1e1;width: 33.5%;" bindtap="intoPath" data-path="/pages/userAgentUpload/userAgentUpload">
+	    <view class="item_box flex">
+	        <view style="width:100%;">
+	            <image src="/images/upload.png"></image>
+	            <view class="font28 color3">上传凭证</view>
+	        </view>
+	    </view>
+	</view>
 </view>

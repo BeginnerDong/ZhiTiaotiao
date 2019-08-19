@@ -90,6 +90,18 @@
   padding:10rpx 20rpx;
   box-sizing: border-box;
 }
+.upload{
+	width:30%;
+	height:240rpx;
+	line-height:240rpx;
+	border:solid 1px #e0e0e0;
+	background:#f2f2f2;
+	text-align: center;
+}
+.upload image{
+	width:100%;
+	height:100%;
+}
 
 
 

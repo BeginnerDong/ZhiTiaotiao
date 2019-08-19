@@ -22,27 +22,10 @@
 		</view>
 	</view>
 </view>
-<!-- <view class="goodnews-box" style="background:#F0F0F0 ;">
-	<view class=" goodnews">
-		<view class="good-img" style="background: url(../../images/Homepage-icon1.png) no-repeat 35rpx center; background-size: 45%;">
-			
-		</view>
-		<view class="good-text">
-			<view style="width: 100%;">
-				特大喜讯：知条条用户量超过1000万。
-			</view>
-			<view style="width: 100%;">
-				特大喜讯：知条条用户量超过1000万。
-			</view>
-			<view style="width: 100%;">
-				特大喜讯：知条条用户量超过1000万。
-			</view>
-		</view>
-	</view>
-</view> -->
 
-<view class="w690" style="border-bottom: 10rpx solid rgb(240,240,240);border-top: 10rpx solid rgb(240,240,240);margin-top:90rpx">
-	<view class="new_store">
+
+<view class="w690" style="border-top: 10rpx solid rgb(240,240,240);margin-top:90rpx">
+	<view class="new_store"  bindtap="intoPath" data-path="/pages/userMessage/userMessage">
 		<view class="indexTitle flex" style="height:80rpx">
 			<image src="../../images/Homepage-icon1.png" style="margin-right:16rpx"></image>
 			<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
@@ -54,15 +37,15 @@
 					</view>
 				</swiper-item>
 			</swiper>
-			<view class="moreBtn" style="position:relative" bindtap="intoPath" data-path="/pages/userMessage/userMessage">更多...
-				<view wx:if="{{web_num>0}}" style="position: absolute;top:-2rpx;right:8rpx;width: 20rpx;height: 20rpx;background: #DE5D1C;color: #fff;border-radius:50%;text-align: center;line-height: 20rpx;">
+			<view class="moreBtn" style="position:relative">更多...
+				<view wx:if="{{web_num}}" style="position: absolute;top:-2rpx;right:8rpx;width: 20rpx;height: 20rpx;background: #DE5D1C;color: #fff;border-radius:50%;text-align: center;line-height: 20rpx;">
 					
 				</view>
 			</view>
 
 		</view>
 	</view>
-
+	<view style="height:10rpx;background-color: rgb(240,240,240)"></view>
 	<view class="w690">
 		<view class="new_store">
 			<view class="indexTitle flex">
@@ -72,7 +55,7 @@
 		</view>
 		<view class="scroll_img">
 			<scroll-view class="recommend_scroll_x_box" scroll-x="true">
-				<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+				<view class="recommend_hot_box bg1" wx:for="{{web_newShopData}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?user_no={{item.user_no}}">
 					<image src="{{item.mainImg[0].url}}" class="recommend_hot_image"></image>
 					<view class="store_name font30 color1">
 						<view class="tex">{{item.name}}</view>
@@ -91,7 +74,7 @@
 			</view>
 		</view>
 		<view class="index_product flexRowBetween">
-			<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<10}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?id={{item.id}}">
+			<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<10}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?user_no={{item.user_no}}">
 				<view class="recommend_top">
 					<image src="{{item.mainImg[0].url}}"></image>
 				</view>

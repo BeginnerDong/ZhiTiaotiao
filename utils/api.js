@@ -41,9 +41,48 @@ class Api extends Base {
 		});
 	}
 	
+	getZtt(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/getZtt',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	getReward(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/getReward',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
 	rewardParamGet(param, callback) {
 		var allParams = {
 			url: 'Common/RewardParam/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	addBill(param, callback) {
+		var allParams = {
+			url: 'Common/Bill/add',
 			type: 'post',
 			noToken: true,
 			data: param,
