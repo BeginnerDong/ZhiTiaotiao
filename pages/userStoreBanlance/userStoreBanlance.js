@@ -68,8 +68,14 @@ Page({
 	
 	changeType(e){
 		const self = this;
+		
+		self.data.mainData = [];
+		self.setData({
+			web_mainData:self.data.mainData
+		});
 		var currentId = api.getDataSet(e,'id');
 		if(self.data.currentId!=currentId){
+			api.buttonCanClick(self);
 			self.data.currentId = currentId;
 			if(currentId==1){
 				self.data.searchItem.type=2;
@@ -133,8 +139,14 @@ Page({
 			}
 		};
 		const callback = (res) => {
+			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				if(self.data.currentId==2){
+					for (var i = 0; i < self.data.mainData.length; i++) {
+						self.data.mainData[i].create_time = self.data.mainData[i].create_time.substring(0,10)
+					}
+				}
 			} else {
 				self.data.isLoadAll = true;
 			};

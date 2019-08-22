@@ -95,6 +95,7 @@ Page({
 		};
 		postData.compute.totalCount[2].count = ['>',0]
 		const callback = (res) => {
+			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				/* for (var i = 0; i < self.data.mainData.length; i++) {
@@ -131,6 +132,7 @@ Page({
 		postData.tokenFuncName = 'getStoreToken';
 		
 		const callback = (res) => {
+			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				
@@ -169,7 +171,13 @@ Page({
 	
 	tab(e) {
 		const self = this;
+		
+		self.data.mainData = [];
+		self.setData({
+			web_mainData:self.data.mainData
+		});
 		if(self.data.currentId!=api.getDataSet(e,'id')){
+			api.buttonCanClick(self);
 			self.data.currentId=api.getDataSet(e,'id');
 			if(self.data.currentId==1){
 				self.getReward(true)

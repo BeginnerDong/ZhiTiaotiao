@@ -13,7 +13,7 @@
 	            </view>
 	            <view class="member_item">
 	                <view class="font30">剩余数量</view>
-	                <view class="numb">{{web_mainData.shop_num-web_mainData.auth_num?web_mainData.shop_num-web_mainData.auth_num:''}}</view>
+	                <view class="numb">{{web_lessCount}}</view>
 	            </view>
 	        </view>
 	    </view>

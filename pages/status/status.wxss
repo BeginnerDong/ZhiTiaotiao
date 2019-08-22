@@ -204,7 +204,7 @@ page{
 	top: -20rpx;
 } */
 .status_right-b{
-	color:#de5d1c;
+	
   font-size: 34rpx;
   margin-top: 10rpx;
 }

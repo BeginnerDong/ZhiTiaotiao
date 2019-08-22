@@ -9,7 +9,7 @@
 		<view class="font30 color2">{{item.count>0?item.shopInfo.nickname:'兑换'}}</view>
 		<view class="font24 color9 ilblock">{{item.create_time}}</view>
 	</view>
-	<view class="piece_item font30 color5"style="text-align:right;line-height: 84rpx;{{item.count>0?'color: #0d6fb8;':''}}">+{{item.count}}
+	<view class="piece_item font30 color5"style="text-align:right;line-height: 84rpx;{{item.count>0?'color: #0d6fb8;':''}}">{{item.count>0?'+':'-'}}{{item.count}}
 		<text style="font-size: 24rpx;" wx:if="{{item.count<0}}">\n兑换成功</text>
 	</view>
 </view>

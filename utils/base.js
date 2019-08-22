@@ -671,7 +671,7 @@ class Base{
             success: setting => {
               if(!setting.authSetting['scope.userInfo']){
                 wx.hideLoading();
-                this.showToast('授权请点击同意','fail');
+                this.showToast('授权请点击同意','none');
               }else{
                 wx.getUserInfo({
                     success: function(user) {

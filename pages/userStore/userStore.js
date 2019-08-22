@@ -17,8 +17,24 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.getUserInfoData()
+		self.hfInfoGet()
 	
+	},
+	
+	hfInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
+	
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				if (res.solely_code == 100000) {
+					self.data.hfInfoData  = res.info.data[0]
+					self.getUserInfoData();
+				};
+			};
+		};
+		api.hfInfoGet(postData, callback);
 	},
 	
 	getUserInfoData() {
@@ -54,7 +70,11 @@ Page({
 		if (self.data.userInfoData.check_status == 2) {
 			api.showToast('您已开户', 'none');
 
-		} else {
+		} else if(self.data.userInfoData.check_status == 1&&self.data.hfInfoData.type==1){
+			api.pathTo('/pages/userRegisterInforaa/userRegisterInforaa', 'nav');
+		} else if(self.data.userInfoData.check_status == 1&&self.data.hfInfoData.type==2){
+			api.pathTo('/pages/userRegisterInfor/userRegisterInfor', 'nav');
+		}else{
 			api.pathTo(api.getDataSet(e, 'path'), 'nav');
 		}
 	},

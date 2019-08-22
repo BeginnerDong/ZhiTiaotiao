@@ -23,15 +23,15 @@
 		    <view class="piece_item font28 color2" style="text-align:left;width: 40%;">
 		    	<view class="font26 color2 ilblock"><view class="font24 color2 ilblock">{{item.create_time}}</view></view>
 			</view>
-			<view class="font24 color2 ilblock middlea {{item.count>0?'redd':''}}" 
+			<view class="font24 color2 ilblock middlea" 
 			style="text-align: center;width: 40%;" wx:if="{{item.user_ztt==1}}">奖励知条</view>
-			<view class="font24 color2 ilblock middlea {{item.count>0?'redd':''}}" 
+			<view class="font24 color2 ilblock middlea" 
 			style="text-align: center;width: 40%;" wx:if="{{item.user_ztt==2}}">月奖知条</view>
-			<view class="font24 color2 ilblock middlea {{item.count>0?'redd':''}}" 
+			<view class="font24 color2 ilblock middlea" 
 			style="text-align: center;width: 40%;" wx:if="{{item.user_ztt==3}}">知条抵用</view>
-			<view class="font24 color2 ilblock middlea {{item.count>0?'redd':''}}" 
+			<view class="font24 color2 ilblock middlea" 
 			style="text-align: center;width: 40%;" wx:if="{{item.user_ztt==4}}">过期知条</view>
-		    <view class="piece_item font26 color5 {{item.count>0?'redd':''}}" style="text-align:right;width: 20%;">{{item.count}}</view>
+		    <view class="piece_item font26 color5" style="text-align:right;width: 20%;">{{item.count}}</view>
 		</view>		
 	</block>
 </view>
@@ -101,52 +101,11 @@
 			</view>
 		</view>
 	</block>
-
-<!--    <view class="status bg1 flex shadow1">
-        <view class="status_number color">
-            我
-        </view>
-        <view class="status_left flex">
-            <view class="user_img" >
-              <open-data type="userAvatarUrl"></open-data>
-            </view>
-            <view class="font28 color2 avoidOverflow">名称名称</view>
-        </view>
-        <view class="status_right font24 color5">月奖知条
-        	<view class="status_right-b">566.99</view>
-        </view>
-    </view> -->
 </view>
 <view class="reword font24 color1 flex" bindtap="rule">
     <view class="reword_in color1">知条规则</view>
 </view>
-<!-- <view class="space_bottom"></view>
-<view class="navbar">
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/index/index">
-        <view class="nav_img">
-          <image src="/images/navbar1.png"></image>
-        </view>
-        <view class="text">首页</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/store/store">
-        <view class="nav_img">
-           <image src="/images/navbar2.png"></image>
-        </view>
-        <view class="text">附近</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/userLogin/userLogin">
-        <view class="nav_img">
-           <image src="/images/navbar3-a.png" style="width:42rpx;"></image>
-        </view>
-        <view class="text this-text">知条</view>
-    </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/user/user">
-        <view class="nav_img">
-            <image src="/images/navbar4.png"></image>
-        </view>
-        <view class="text">我的</view>
-    </view>
-</view> -->
+
 
 <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1" style="height: 90%;">

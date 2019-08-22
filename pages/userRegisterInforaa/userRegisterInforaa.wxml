@@ -17,7 +17,7 @@
 	</picker>
 </view> -->
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
-	<view class="color8 line_tit">统一社会信用码照片</view>
+	<view class="color8 line_tit">营业执照照片</view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="05">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
@@ -90,13 +90,10 @@
 		</view>
 	</picker>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照结束日期</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseEndChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseEnd?web_licenseEnd:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:33%;">证照结束日期</view>
+	<input class="input" placeholder="请填写形如'20190822'或'永久'" value="{{web_submitData.license_end_date}}"data-key="license_end_date" bindblur="changeBind"></input>
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">企业营业地址</view>
@@ -147,13 +144,10 @@
 		</view>
 	</picker>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">法人证件到期时间</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertEndChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_endStart?web_endStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:55%;">经营者证件到期时间</view>
+	<input class="input" placeholder="请填写形如'20190822'或'永久'" value="{{web_submitData.legal_cert_end_date}}"data-key="legal_cert_end_date" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">联系人姓名</view>
@@ -167,18 +161,7 @@
 	<view class="input_before color8"  style="width:30%;">联系人邮箱</view>
 		<input class="input" placeholder="请输入联系人邮箱" value="{{web_submitData.contact_email}}"data-key="contact_email" bindblur="changeBind"></input>
 </view>
-<!-- <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx">职业</view>
-	<picker bindchange="occupationChange" value="{{index}}" range="{{occupationData}}" range-key="name" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{occupationData[web_index1].name?occupationData[web_index1].name:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
-</view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:10%">住址</view>
-		<input class="input" placeholder="请输入联系人的住址" value="{{web_submitData.address}}"data-key="address" bindblur="changeBind"></input>
-</view> -->
+
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;">开户银行</view>
 	<picker bindchange="bankChange" value="{{index}}" range="{{bankData}}" range-key="name" class="input">

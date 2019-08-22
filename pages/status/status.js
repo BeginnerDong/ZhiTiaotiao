@@ -40,6 +40,7 @@ Page({
 			web_month:month,
 			web_num: self.data.num
 		})
+		self.getMainData();
 	},
 	
 	onShow(e){
@@ -57,7 +58,7 @@ Page({
 				if (res.info.data[0].info.phone=='') {
 					api.pathTo('/pages/userLogin/userLogin', 'redi')
 				} else {
-					self.getMainData();
+					
 					self.getAboutData();
 					self.getZtt();
 					self.data.show = true

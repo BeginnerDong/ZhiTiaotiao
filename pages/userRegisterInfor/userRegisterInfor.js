@@ -207,7 +207,7 @@ Page({
 			bank_id: '',
 			address: '',
 			corp_license_type: '',
-			corp_name: '',
+			
 			business_code: '',
 			license_start_date: '',
 			license_end_date: '',
@@ -220,7 +220,7 @@ Page({
 			contact_name: '',
 			contact_mobile: '',
 			contact_email: '',
-			bank_acct_name: '',
+			business_scope:'',
 			bank_acct_no: '',
 			bank_branch: '',
 			bank_prov: '',
@@ -251,7 +251,8 @@ Page({
 			{url:'',id:''},
 			{url:'',id:''},
 			{url:'',id:''}
-		]
+		],
+		show:false
 			
 		
 	},
@@ -259,6 +260,7 @@ Page({
 	onLoad(){
 		const self = this;
 		self.setData({
+			web_show:self.data.show,
 			web_img:self.data.img,
 		});
 	},
@@ -357,8 +359,9 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.license_start_date = e.detail.value.replace('-', '');
+		self.data.submitData.license_start_date = self.data.submitData.license_start_date.replace('-', '');
 		self.setData({
-			web_licenseStart: e.detail.value
+			web_licenseStart: self.data.submitData.license_start_date 
 		})
 	},
 
@@ -366,6 +369,7 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.license_end_date = e.detail.value.replace('-', '');
+		self.data.submitData.license_end_date = self.data.submitData.license_end_date.replace('-', '');
 		self.setData({
 			web_licenseEnd: e.detail.value
 		})
@@ -375,8 +379,9 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.legal_cert_start_date = e.detail.value.replace('-', '');
+		self.data.submitData.legal_cert_start_date = self.data.submitData.legal_cert_start_date.replace('-', '');
 		self.setData({
-			web_certStart: e.detail.value
+			web_certStart: self.data.submitData.legal_cert_start_date
 		})
 	},
 
@@ -384,6 +389,7 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.legal_cert_end_date = e.detail.value.replace('-', '');
+		self.data.submitData.legal_cert_end_date = self.data.submitData.legal_cert_end_date.replace('-', '');
 		self.setData({
 			web_certEnd: e.detail.value
 		})
@@ -411,8 +417,10 @@ Page({
 
 				}
 			}
+			self.data.show = true;
+			
 			self.setData({
-
+				web_show:self.data.show,
 				web_pArray: self.data.pArray,
 				web_mainData: self.data.mainData
 			});
@@ -431,12 +439,13 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.userInfoData = res.info.data[0];
-				if (self.data.userInfoData.check_status != 0&&self.data.hfInfoData.type==2) {
+				if (self.data.userInfoData.check_status != 0&&self.data.userInfoData.check_status != 3&&self.data.hfInfoData.type==2) {
 					wx.redirectTo({
 						url:'/pages/userRegisterInforb/userRegisterInforb'
 					})
 				}else{
 					self.getMainData();
+				
 				}
 			};
 		};
@@ -467,7 +476,33 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				if (res.solely_code == 100000) {
-					self.data.hfInfoData  = res.info.data[0]
+					self.data.hfInfoData  = res.info.data[0];
+					self.data.submitData.address = self.data.hfInfoData.address;
+					
+					self.data.submitData.business_code = self.data.hfInfoData.business_code;
+					self.data.submitData.license_start_date = self.data.hfInfoData.license_start_date;
+					self.data.submitData.license_end_date = self.data.hfInfoData.license_end_date;
+					self.data.submitData.legal_name = self.data.hfInfoData.legal_name;
+					self.data.submitData.legal_cert_id = self.data.hfInfoData.legal_cert_id;
+					self.data.submitData.legal_cert_start_date = self.data.hfInfoData.legal_cert_start_date;
+					self.data.submitData.legal_cert_end_date = self.data.hfInfoData.legal_cert_end_date;
+					self.data.submitData.legal_mobile = self.data.hfInfoData.legal_mobile;
+					self.data.submitData.contact_name = self.data.hfInfoData.contact_name;
+					self.data.submitData.contact_mobile = self.data.hfInfoData.contact_mobile;
+					self.data.submitData.contact_email = self.data.hfInfoData.contact_email;
+					self.data.submitData.bank_acct_no = self.data.hfInfoData.bank_acct_no;
+					self.data.submitData.user_name = self.data.hfInfoData.user_name;
+					self.data.submitData.solo_business_address = self.data.hfInfoData.solo_business_address;
+					self.data.submitData.solo_reg_address = self.data.hfInfoData.solo_reg_address;
+					self.data.submitData.solo_fixed_telephone = self.data.hfInfoData.solo_fixed_telephone;
+					self.data.submitData.bank_branch = self.data.hfInfoData.bank_branch;
+					self.data.submitData.business_scope = self.data.hfInfoData.business_scope;
+					
+				
+			
+					self.setData({
+						web_submitData:self.data.submitData
+					})
 					self.userInfoGet();
 				};
 			};
@@ -498,6 +533,7 @@ Page({
 			tableName: 'UserInfo',
 			FuncName: 'update',
 			data: {
+				check_status:1,
 				/* bank: self.data.submitData.bank_branch, */
 				bank_id: self.data.submitData.bank_id,
 				card_no: self.data.submitData.bank_acct_no,
@@ -512,7 +548,9 @@ Page({
 			if (res.solely_code == 100000) {
 				if (res.solely_code == 100000) {
 					api.showToast('申请成功','none')
-				
+					wx.redirectTo({
+						url:'/pages/userRegisterInforb/userRegisterInforb'
+					})
 				}else{
 					api.showToast(res.msg,'none')
 				}

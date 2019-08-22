@@ -198,10 +198,10 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-		if (self.data.data>7) {
+		if (self.data.day>7) {
 			api.buttonCanClick(self, true);
 		
-			api.showToast('今日不可提现', 'none');
+			api.showToast('不在提现日期内', 'none');
 			return
 		};
 		const pass = api.checkComplete(self.data.submitData);

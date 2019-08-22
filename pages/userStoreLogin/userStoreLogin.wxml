@@ -10,12 +10,12 @@
                     <input placeholder="请输入手机号码" style="text-indent: 10rpx;" data-key="login_name" bindinput="bindInputChange" type="number" maxlength="11"></input>
                 </view>
                 <view class="list_input flexRowBetween">
-					<input style="width:60%" type="text" placeholder="请输入登录密码" style="text-indent: 10rpx;" 
+					<input style="width:60%" type="text" placeholder="请输入登录密码" style="text-indent: 10rpx;{{web_sForm.password?'width:90%':''}}" 
 					data-key="password" bindinput="bindInputChange" wx:if="{{web_type=='text'}}" value="{{web_sForm.password}}"></input>
-                    <input style="width:60%" type="password" placeholder="请输入登录密码" style="text-indent: 10rpx;" 
-					value="{{web_sForm.password}}"  data-key="password" bindinput="bindInputChange" wx:if="{{web_type=='password'}}"></input>
-					<view style="position: absolute;width: 50rpx;height: 100rpx;display: flex;justify-content: center;align-items: center;right: 0;z-index: 9999;">
-						<image bindtap="deleteName" wx:if="{{web_sForm.password}}" src="../../images/Uploadqualification-icon.png" style="width: 30rpx;height: 30rpx"></image>
+                    <input style="width:60%" type="password" placeholder="请输入登录密码" style="text-indent: 10rpx;{{web_sForm.password?'width:90%':''}}" 
+					value="{{web_sForm.password}}"   data-key="password" bindinput="bindInputChange" wx:if="{{web_type=='password'}}"></input>
+					<view  wx:if="{{web_sForm.password}}" style="position: absolute;width: 10%;height: 100rpx;display: flex;justify-content: center;align-items: center;right: 0;z-index: 9999;" bindtap="deleteName">
+						<image  src="../../images/Uploadqualification-icon.png" style="width: 30rpx;height: 30rpx"></image>
 					</view>
                     <view class="get_check" bindtap="changeType">
 						<image src="../../images/eay.png" style="width: 40rpx; height: 25rpx"></image>

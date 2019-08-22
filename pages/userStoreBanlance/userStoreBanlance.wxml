@@ -24,10 +24,10 @@
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>
 <view class="tab font30 flexRowBetween">
-    <view class="tab_item" data-id="1"  bindtap="changeType" style="display: flex;align-items: center;justify-content: center;">
+    <view class="tab_item" data-id="1"  bindtap="{{web_buttonCanClick?'changeType':''}}" style="display: flex;align-items: center;justify-content: center;">
        <view class="{{web_currentId==1?'tab_this':''}}" style="width:90rpx">货款</view>
     </view>
-    <view class="tab_item" data-id="2"  bindtap="changeType" style="display: flex;align-items: center;justify-content: center;">
+    <view class="tab_item" data-id="2"  bindtap="{{web_buttonCanClick?'changeType':''}}" style="display: flex;align-items: center;justify-content: center;">
         <view class="{{web_currentId==2?'tab_this':''}}" style="width:160rpx">联盟金结算</view>
     </view>
 </view>

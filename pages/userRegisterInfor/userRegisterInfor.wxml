@@ -1,4 +1,5 @@
 
+<view wx:if="{{web_show}}">
 <view class="input_list1 font28  flex w690">
 	<view class="input_before color8" style="font-size: 28rpx;width:33%">个体户证照类型</view>
 	<picker bindchange="comCertTypeChange" value="{{index}}" range="{{comCertType}}" range-key="name" class="input">
@@ -109,25 +110,22 @@
 	<view class="input_before color8">个体户名称</view>
 	<input class="input" placeholder="输入个体户名称须与营业执照一致" value="{{web_submitData.user_name}}"data-key="user_name" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
+	<view class="input_before color8" style="width:37%;">统一社会信用代码</view>
+	<input class="input" placeholder="输入统一社会信用代码" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
+</view>
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
 	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
 	<input class="input" placeholder="输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照起始日期</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseStartChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseStart?web_licenseStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:33%;">证照起始日期</view>
+	<input class="input" placeholder="请填写形如'20190822'" value="{{web_submitData.license_start_date}}"data-key="license_start_date" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照结束日期</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseEndChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseEnd?web_licenseEnd:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:33%;">证照结束日期</view>
+	<input class="input" placeholder="请填写形如'20190822'或'永久'" value="{{web_submitData.license_end_date}}"data-key="license_end_date" bindblur="changeBind"></input>
 </view>
 <view class="input_list3 font28 w690">
 	<view style="display: inline;" class="color8">个体工商户经营地址</view>
@@ -166,22 +164,16 @@
 	<input class="input" placeholder="输入的证件号须与证件类型一致" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
 </view>
 
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">经营者证件起始时间</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertStartChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_certStart?web_certStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:55%;">经营者证件起始时间</view>
+	<input class="input" placeholder="请填写形如'20190822'" value="{{web_submitData.legal_cert_start_date}}"data-key="legal_cert_start_date" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">经营者证件到期时间</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertEndChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_endStart?web_endStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:55%;">经营者证件到期时间</view>
+	<input class="input" placeholder="请填写形如'20190822'或'永久'" value="{{web_submitData.legal_cert_end_date}}"data-key="legal_cert_end_date" bindblur="changeBind"></input>
 </view>
+
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">联系人姓名</view>
 		<input class="input" placeholder="请输入联系人姓名" value="{{web_submitData.contact_name}}"data-key="contact_name" bindblur="changeBind"></input>
@@ -240,7 +232,7 @@
 </view>
 <button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
 <view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
-
+</view>
 
 
 

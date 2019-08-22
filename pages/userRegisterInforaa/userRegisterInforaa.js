@@ -354,12 +354,14 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.userInfoData = res.info.data[0];
-				if (self.data.userInfoData.check_status != 0&&self.data.hfInfoData.type==1) {
+				
+				if (self.data.userInfoData.check_status != 0&&self.data.userInfoData.check_status != 3&&self.data.hfInfoData.type==2) {
 					wx.redirectTo({
 						url:'/pages/userRegisterInforbb/userRegisterInforbb'
 					})
 				}else{
 					self.getMainData();
+				
 				}
 			};
 		};

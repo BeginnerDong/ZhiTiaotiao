@@ -203,12 +203,7 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-		if(parseFloat(self.data.userInfoData.score)<parseFloat(self.data.submitData.count)){
-			api.buttonCanClick(self, true);
-			
-			api.showToast('知条数量不足', 'none');
-			return
-		};
+		
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {
@@ -218,6 +213,18 @@ Page({
 				api.showToast('请选择提现方式', 'none');
 				return
 			}
+			if(parseFloat(self.data.submitData.count)==0){
+				api.buttonCanClick(self, true);
+				
+				api.showToast('知条数量有误', 'none');
+				return
+			};
+			if(parseFloat(self.data.userInfoData.score)<parseFloat(self.data.submitData.count)){
+				api.buttonCanClick(self, true);
+				
+				api.showToast('知条数量不足', 'none');
+				return
+			};
 			self.flowLogAdd()
 		} else {
 			api.buttonCanClick(self, true);

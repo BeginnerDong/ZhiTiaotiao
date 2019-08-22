@@ -5,13 +5,13 @@
 	<view class="top-text2" wx:if="{{web_currentId==3}}">本月重消</view>
 </view>
 <view class="tab font30 flexRowBetween">
-	<view class="tab_item" data-id="0"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+	<view class="tab_item" data-id="0"  bindtap="{{web_buttonCanClick?'tab':''}}" style="display: flex;align-items: center;justify-content: center;">
 	  <view class="{{web_currentId==0?'tab_this':''}}" style="width:140rpx">会员列表</view>
 	</view>
-    <view class="tab_item" data-id="2"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+    <view class="tab_item" data-id="2"  bindtap="{{web_buttonCanClick?'tab':''}}" style="display: flex;align-items: center;justify-content: center;">
        <view class="{{web_currentId==2?'tab_this':''}}" style="width:140rpx">本月新增</view>
     </view>
-    <view class="tab_item" data-id="3"  bindtap="tab" style="display: flex;align-items: center;justify-content: center;">
+    <view class="tab_item" data-id="3"  bindtap="{{web_buttonCanClick?'tab':''}}" style="display: flex;align-items: center;justify-content: center;">
        <view class="{{web_currentId==3?'tab_this':''}}" style="width:140rpx">本月重消</view>
     </view>
 </view>
@@ -26,45 +26,3 @@
 	</view>
 </block>
 
-<view class="blank" wx:if="{{web_mainData.length==0}}">
-    <!-- <image src="/images/members-img.png"></image> -->
-</view>
-
-<!-- <view class="piece_top flex">
-    <view style="width:100%;text-align: center;">
-		<view class="color1" style="text-align:center;" style="font-size:60rpx">{{web_mainData.length}}</view>
-        <view class="piece_row flexCenter">
-            <view class="color1 font24" style="margin-top: 20rpx;" wx:if="{{web_currentId==0}}">会员总量</view>
-			<view class="color1 font24" style="margin-top: 20rpx;" wx:if="{{web_currentId==1}}">今日新增</view>
-			<view class="color1 font24" style="margin-top: 20rpx;" wx:if="{{web_currentId==2}}">本月新增</view>
-            <view class="color1 font24" style="margin-top: 20rpx;" wx:if="{{web_currentId==3}}">本月复购</view>
-        </view> 
-    </view>
-</view>
-<view class="tab font30 flexRowBetween">
-    <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="tab">
-        会员列表
-    </view>
-    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
-        今日新增
-    </view>
-    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
-        本月新增
-    </view>
-    <view class="tab_item {{web_currentId == 3?'tab_this':''}}" data-id="3"  bindtap="tab">
-        本月复购
-    </view>
-</view>
-<block wx:for="{{web_mainData}}" wx:key="id">
-	<view class="piece_list w690 flex">
-		<view style="width:20%;display: flex;align-items: center;">
-			<image src="{{item.userInfo.headImgUrl}}" class="user_img"></image>
-		</view>
-		<view class="piece_item font28 color8" style="text-align:left;width:30%">{{item.userInfo.nickname}}</view>
-		<view class="piece_item font26 color8" style="text-align:right;">{{item.create_time}}</view>
-	</view>
-</block>
-
-<view class="blank" wx:if="{{web_mainData.length==0}}">
-    <image src="/images/members-img.png"></image>
-</view> -->

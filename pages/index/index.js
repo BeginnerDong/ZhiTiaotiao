@@ -108,7 +108,7 @@ Page({
 
 	getHotShopData() {
 		const self = this;
-		var orderKey = 'view_count * 0.001 + favor_count * 0.4995 + follow_count * 0.4995';
+		var orderKey = 'view_count * 0.0002 + favor_count * 0.4999 + follow_count * 0.4999';
 		self.data.order[orderKey] = 'desc';
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);

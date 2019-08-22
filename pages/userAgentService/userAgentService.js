@@ -69,8 +69,10 @@ Page({
 				self.data.submitData.user_no = res.info.data[0].distriParent;
 				self.data.submitData.id_img_back = res.info.data[0].info.id_img_back;
 				self.data.submitData.id_img_front = res.info.data[0].info.id_img_front;
+				self.data.lessCount  = self.data.mainData.shop_num - self.data.mainData.auth_num;
 			};
 			self.setData({
+				web_lessCount:self.data.lessCount,
 				web_submitData: self.data.submitData,
 				web_mainData: self.data.mainData
 			});

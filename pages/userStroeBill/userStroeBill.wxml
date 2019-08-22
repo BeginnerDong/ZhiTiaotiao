@@ -6,13 +6,13 @@
 	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算总额(￥)</view>
 </view>
 <view class="tab font30 flexRowBetween">
-    <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="tab">
+    <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="{{web_buttonCanClick?'tab':''}}">
        货款
     </view>
-    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="{{web_buttonCanClick?'tab':''}}">
         联盟金
     </view>
-    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="tab">
+    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="{{web_buttonCanClick?'tab':''}}">
         结算金
     </view>
 </view>

@@ -67,6 +67,7 @@ Page({
 				if(!self.data.is_rule){
 					api.buttonCanClick(self, true);
 					api.showToast('请阅读服务协议', 'none');
+					return
 				}
 				
 				const callback = (user, res) => {
