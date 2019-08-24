@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 128,
+			"current": 129,
 			"list": [
 				{
 					"id": -1,
@@ -899,6 +899,13 @@
 					"id": -1,
 					"name": "pages/userStoreCashb/userStoreCashb",
 					"pathName": "pages/userStoreCashb/userStoreCashb",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userRegisterInfor/userRegisterInfor",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
 					"scene": null
 				}
 			]

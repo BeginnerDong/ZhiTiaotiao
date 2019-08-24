@@ -3,6 +3,11 @@
 @import "../../wxParse/wxParse.wxss"; 
 page{
 }
+.notes{
+  color: red;
+  font-size: 22rpx;
+  padding-top: 6rpx
+}
 .input_list1{
 	height:88rpx;
 	border-bottom:solid 1px #e0e0e0;
