@@ -15,7 +15,8 @@ Page({
 		searchItem: {
 			status:['in',[0,1,-1]],
 			type:2,
-			user_no:wx.getStorageSync('storeInfo').user_no
+			user_no:wx.getStorageSync('storeInfo').user_no,
+			count:['<',0]
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
@@ -186,15 +187,17 @@ Page({
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:2,
-					user_no:wx.getStorageSync('storeInfo').user_no
+					user_no:wx.getStorageSync('storeInfo').user_no,
+					count:['<',0]
 				};
 				self.getMainData(true);
 			}if(self.data.currentId==2){
 				self.data.searchItem = {
 					status:['in',[1,0,-1]],
 					type:4,
-					behavior:2,
-					user_no:wx.getStorageSync('storeInfo').user_no
+					
+					user_no:wx.getStorageSync('storeInfo').user_no,
+					count:['<',0]
 				}
 				self.getMainData(true);
 			}

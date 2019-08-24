@@ -11,8 +11,6 @@ Page({
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:5,
-			behavior:2
-
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
@@ -57,10 +55,8 @@ Page({
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getAgentToken';
-		postData.searchItem = api.cloneForm(self.data.searchItem)
-		postData.searchItem = {
-			user_no:wx.getStorageSync('agentInfo').user_no
-		}
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.searchItem.user_no = wx.getStorageSync('agentInfo').user_no;
 		postData.order = {
 			create_time: 'desc',
 		};

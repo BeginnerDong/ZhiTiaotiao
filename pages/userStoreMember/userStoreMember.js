@@ -65,9 +65,11 @@ Page({
 			api.buttonCanClick(self,true);
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				
 			} else {
 				self.data.isLoadAll = true;
 			};
+			
 			self.setData({
 				web_total: res.info.total,
 				web_mainData: self.data.mainData,
@@ -99,7 +101,7 @@ Page({
 		});
 		var monthStart = parseInt(data.getTime() / 1000);
 		var dayStart = new Date(new Date().setHours(0, 0, 0, 0)).getTime() / 1000;
-		var nowTime = (new Date()).getTime() / 1000;
+		var nowTime = Date.parse(new Date()) / 1000;
 		console.log('monthStart', monthStart)
 		console.log('dayStart', dayStart)
 		console.log('nowTime', nowTime)
@@ -110,9 +112,10 @@ Page({
 				self.data.searchItem.create_time = ['between', [dayStart, nowTime]]
 			} else if (self.data.currentId == 2) {
 				self.data.getBefore = {};
-				self.data.searchItem.create_time = ['between', [monthStart, nowTime]]
+				self.data.searchItem.create_time = ['between', [monthStart, nowTime]];
+				
 			} else if (self.data.currentId == 3) {
-				self.data.searchItem.create_time = ['between', [monthStart, nowTime]],
+				self.data.searchItem.create_time = ['<', monthStart];
 					self.data.getBefore.relation = {
 						tableName: 'FlowLog',
 						searchItem: {
@@ -121,7 +124,7 @@ Page({
 						fixSearchItem: {
 							user_no: ['in', [wx.getStorageSync('info').user_no]],
 							type: ['in', 3],
-
+							create_time:['between', [monthStart, nowTime]],
 						},
 						middleKey: 'child_no',
 						key: 'user_no',

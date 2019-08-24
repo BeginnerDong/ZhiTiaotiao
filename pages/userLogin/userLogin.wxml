@@ -8,13 +8,17 @@
                 <view class="login_input">
                     <view class="list_input" style="display: flex;align-items: center;">
 						<image class="img-phone" src="../../images/register-icon1.png"></image>
-                        <input placeholder="请输入手机号码" style="font-size:28rpx;margin-left: 10px;"  value="{{web_submitData.phone}}"  data-key="phone" bindblur="changeBind" maxlength="11"></input>
+                        <input placeholder="请输入手机号码" style="font-size:28rpx;margin-left: 10px;"  value="{{web_submitData.phone}}"  data-key="phone" bindinput="changeBind" maxlength="11"></input>
                     </view>
                     <view class="list_input flexRowBetween">
-                        <input style="width:60%" value="{{web_submitData.code}}"  data-key="code" bindblur="changeBind"></input>
-                       <view class="get_check" bindtap="{{web_buttonCanClick?'getCode':''}}">{{text}}</view>
+                        <input style="width:60%" value="{{web_submitData.code}}"  data-key="code" bindinput="changeBind"></input>
+                       <view class="get_check" bindtap="{{web_codeClick?'getCode':''}}">{{text}}</view>
                     </view>
-					<radio style="transform: scale(0.5); margin-left: -120rpx; margin-top: 10rpx; font-size:26px;" bindtap="rule">《用户服务协议》</radio>
+					<view style="display: flex;height:100%;align-items: center;margin-left: 0;margin-top: 10px;">
+						<image src="{{web_choose?'/images/circle_a.jpg':'/images/circle.jpg'}}" style="width:30rpx;height:30rpx"  bindtap="choose"></image>
+						<view class="font28 color2" style="margin-left: 20rpx;"  bindtap="rule">《用户服务协议》</view>
+					</view>
+					<!-- <radio style="transform: scale(0.5); margin-left: -120rpx; margin-top: 10rpx; font-size:26px;" bindtap="rule">《用户服务协议》</radio> -->
                     <button class="submit_info"  open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">登录</button>
                 </view>
 				

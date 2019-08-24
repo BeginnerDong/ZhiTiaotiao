@@ -8,56 +8,83 @@
 	</picker>
 </view>
 
-<!-- <view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width:33%">附件类型</view>
-	<picker bindchange="attachChange" value="{{index}}" range="{{fileData}}" range-key="name" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{fileData[web_index4].name?fileData[web_index4].name:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
-</view> -->
+
+
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
-	<view class="color8 line_tit">营业执照照片</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="05">
+	<view class="color8 line_tit" >营业执照照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="05" wx:if="{{web_img[0].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
+	</view>
+	<view class="input_list2-img"  data-type="05" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="0" data-id="{{web_img[0].id}}"/>
+		<image src="{{web_img[0].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8 line_tit" >营业执照照片</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="00">
+	<view class="color8 line_tit" >营业执照照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="00" wx:if="{{web_img[1].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
+	</view>
+	<view class="input_list2-img"  data-type="00" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="1" data-id="{{web_img[1].id}}"/>
+		<image src="{{web_img[1].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8 line_tit" >组织机构代码照片</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="01">
+	<view class="color8 line_tit" >组织机构代码照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="01" wx:if="{{web_img[2].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
+	</view>
+	<view class="input_list2-img"  data-type="01" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="2" data-id="{{web_img[2].id}}"/>
+		<image src="{{web_img[2].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8 line_tit" >税务登记证</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="02">
+	<view class="color8 line_tit" >税务登记证<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="02" wx:if="{{web_img[3].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
+	<view class="input_list2-img"  data-type="02" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="3" data-id="{{web_img[3].id}}"/>
+		<image src="{{web_img[3].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+	</view>
 </view>
+
 <view class="input_list2  w690" style="height: 360rpx;">
-	<view class="color8 line_tit" >法人身份证照片（正面）</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="03">
+	<view class="color8 line_tit" >法人身份证正反面照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="03" wx:if="{{web_img[4].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
-</view>
-<view class="input_list2  w690" style="height: 360rpx;" >
-	<view class="color8 line_tit" >法人身份证照片（反面）</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="09">
-		<image src="../../images/Upload-icon.png"></image>
+	<view class="input_list2-img"  data-type="03" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="4" data-id="{{web_img[4].id}}"/>
+		<image src="{{web_img[4].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
+
 <view class="input_list2  w690" style="height: 360rpx;">
-	<view class="color8 line_tit" >对公银行账户信息照片</view>
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="04">
+	<view class="color8 line_tit" >对公银行账户信息照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="04" wx:if="{{web_img[6].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
+	<view class="input_list2-img"  data-type="04" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="6" data-id="{{web_img[6].id}}"/>
+		<image src="{{web_img[6].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+	</view>
 </view>
+
 <!-- <view class="input_list1 font28 flex w690">
 	<view class="input_before color8">企业类型</view>
 	<input class="input" placeholder="普通企业" value="{{web_submitData.corp_type}}"data-key="corp_type" bindblur="changeBind"></input>
@@ -66,29 +93,25 @@
 	<view class="input_before color8">企业名称</view>
 	<input class="input" placeholder="请输入的企业名称须与营业执照一致" value="{{web_submitData.corp_name}}"data-key="corp_name" bindblur="changeBind"></input>
 </view>
-<!-- <view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
 	<view class="input_before color8" style="width:33%;">营业执照注册号</view>
 	<input class="input" placeholder="请输入营业执照注册号" value="{{web_submitData.business_code}}"data-key="business_code" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
 	<view class="input_before color8" style="width:33%;">组织机构代码</view>
 	<input class="input" placeholder="请输入组织机构代码" value="{{web_submitData.institution_code}}"data-key="institution_code" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
 	<view class="input_before color8" style="width:33%;">税务登记证号</view>
 	<input class="input" placeholder="请输入税务登记证号" value="{{web_submitData.tax_code}}"data-key="tax_code" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030101'}}">
 	<view class="input_before color8" style="width:38%;">统一社会信用代码</view>
 	<input class="input" placeholder="请输入统一社会信用代码" value="{{web_submitData.social_credit_code}}"data-key="social_credit_code" bindblur="changeBind"></input>
-</view> -->
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">证照起始日期</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindLicenseStartChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_licenseStart?web_licenseStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+</view>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:33%;">证照起始日期</view>
+	<input class="input" placeholder="请填写形如'20190822'" value="{{web_submitData.license_start_date}}"data-key="license_start_date" bindblur="changeBind"></input>
 </view>
 
 <view class="input_list1 font28 flex  w690">
@@ -111,10 +134,10 @@
 	<view class="input_before color8">经营范围</view>
 		<input class="input" placeholder="请输入企业的经营范围" value="{{web_submitData.business_scope}}"data-key="business_scope" bindblur="changeBind"></input>
 </view>
-<view class="input_list1 font28 flex  w690">
+<!-- <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">控股股东</view>
 	<input class="input" placeholder="请输入企业的实际控股人" value="{{web_submitData.controlling_shareholder[0].custName}}"data-key="legal_name" bindblur="changeBind"></input>
-</view>
+</view> -->
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">法人姓名</view>
 	<input class="input" placeholder="请输入法人姓名" value="{{web_submitData.legal_name}}"data-key="legal_name" bindblur="changeBind"></input>
@@ -136,17 +159,13 @@
 	<input class="input" placeholder="请输入的证件号须与证件类型一致" value="{{web_submitData.legal_cert_id}}"data-key="legal_cert_id" bindblur="changeBind"></input>
 </view>
 
-<view class="input_list1 font28  flex w690">
-	<view class="input_before color8" style="font-size: 28rpx;width: 48%;">法人证件起始时间</view>
-	<picker mode="date" value="{{date}}" start="2000-09-01" end="2050-09-01" bindchange="bindCertStartChange" class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_certStart?web_certStart:'请选择'}}
-			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
-		</view>
-	</picker>
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8" style="width:40%;">法人证件起始时间</view>
+	<input class="input" placeholder="请填写形如'20190822'" value="{{web_submitData.legal_cert_start_date}}"data-key="legal_cert_start_date" bindblur="changeBind"></input>
 </view>
 
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:55%;">经营者证件到期时间</view>
+	<view class="input_before color8" style="width:40%;">法人证件到期时间</view>
 	<input class="input" placeholder="请填写形如'20190822'或'永久'" value="{{web_submitData.legal_cert_end_date}}"data-key="legal_cert_end_date" bindblur="changeBind"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
@@ -199,6 +218,6 @@
 	</picker>
 </view>
 <button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
-<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构（上海汇付）监管提供</view>
 
 

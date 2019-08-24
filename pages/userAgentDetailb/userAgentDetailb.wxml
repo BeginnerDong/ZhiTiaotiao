@@ -15,7 +15,7 @@
 	<view class="input">{{web_hfInfoData.cust_prov}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
-	<view class="input_before color8">地址</view>
+	<view class="input_before color8">用户地区</view>
 	<view class="input">{{web_hfInfoData.cust_area}}</view>
 </view>
 <view class="input_list1 font28 flex  w690">
@@ -48,7 +48,7 @@
     </view>
 </view>
 
-<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构（上海汇付）监管提供</view>
 
 
 

@@ -63,6 +63,7 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = api.cloneForm(self.data.searchItem);
 		postData.searchItem.user_type = 1
+		postData.searchItem.is_show = 1;
 		postData.order = api.cloneForm(self.data.order)
 		if (JSON.stringify(self.data.getBefore) != '{}') {
 			postData.getBefore = api.cloneForm(self.data.getBefore);

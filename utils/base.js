@@ -666,23 +666,20 @@ class Base{
         }
     };
 
-    getAuthSetting(callback){
-        wx.getSetting({
-            success: setting => {
-              if(!setting.authSetting['scope.userInfo']){
-                wx.hideLoading();
-                this.showToast('授权请点击同意','none');
-              }else{
-                wx.getUserInfo({
-                    success: function(user) {
-                        callback&&callback(user.userInfo,setting);  
-                    }
-                });
-                
-              };
-            }
-        });
-    };
+    
+	
+	getAuthSetting(callback) {
+		wx.getSetting({
+			success: setting => {
+				if (!setting.authSetting['scope.userInfo']) {
+					wx.hideLoading();
+					this.showToast('授权请点击同意', 'fail');
+				} else {
+					callback && callback();
+				};
+			}
+		});
+	};
 
     getAuthSettingOfImg(callback){
         wx.getSetting({

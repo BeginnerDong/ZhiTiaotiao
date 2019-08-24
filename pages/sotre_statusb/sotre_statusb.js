@@ -22,6 +22,7 @@ Page({
 			
 			mainImg: [],
 			address: '',
+			is_show:1
 		},
 		isFirstLoadAllStandard: ['getMainData']
 	},

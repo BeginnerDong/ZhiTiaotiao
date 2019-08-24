@@ -19,11 +19,11 @@
 	<view class="input_before color8" style="width:30%;">证照结束时间</view>
 	<view class="input">{{web_hfInfoData.license_end_date}}</view>
 </view>
-<view class="input_list3 font28 w690">
+<view class="input_list3 font28 w690" style="height: auto;">
 	<view style="display: inline;" class="color8">企业经营地址</view>
 	<view style="display: inline;" class="input"><text>\n</text>{{web_hfInfoData.corp_business_address}}</view>
 </view>
-<view class="input_list3 font28 w690">
+<view class="input_list3 font28 w690" style="height: auto;">
 	<view style="display: inline;" class="color8">企业注册地址</view>
 	<view style="display: inline;" class="input"><text>\n</text>{{web_hfInfoData.corp_reg_address}}</view>
 </view>
@@ -31,18 +31,13 @@
 	<view class="input_before color8" style="width:50%;">企业固定电话</view>
 	<view class="input">{{web_hfInfoData.corp_fixed_telephone}}</view>
 </view>
-<view class="input_list1 font28 flex  w690">
+<view class="input_list1 font28 flex  w690" style="height: auto;"> 
 	<view class="input_before color8">经营范围</view>
 	<view class="input">
      {{web_hfInfoData.business_scope}}
     </view>
 </view>
-<view class="input_list1 font28 flex  w690">
-	<view class="input_before color8"  style="width:30%;">控股股东</view>
-	<view class="input avoidOverflow">
-     	张明瑞
-    </view>
-</view>
+
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8"  style="width:30%;">法人姓名</view>
 	<view class="input avoidOverflow">
@@ -131,7 +126,7 @@
     </view>
 </view>
 
-<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+<view class="font24" style="text-align: center; margin-top: 100rpx; margin-bottom: 40rpx;">本服务由金融机构（上海汇付）监管提供</view>
 
 
 

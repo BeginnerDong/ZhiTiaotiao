@@ -29,7 +29,7 @@
 	</view>
 </view> -->
 <view class="input_list2  w690" style="height: 360rpx;">
-	<view class="color8 line_tit" >营业执照照片</view>
+	<view class="color8 line_tit" >营业执照照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="00" wx:if="{{web_img[0].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
 	</view>
@@ -41,7 +41,7 @@
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8  line_tit" >组织机构代码照片</view>
+	<view class="color8  line_tit" >组织机构代码照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
 	
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="01" wx:if="{{web_img[1].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
@@ -54,7 +54,7 @@
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
-	<view class="color8  line_tit" >税务登记证</view>
+	<view class="color8  line_tit" >税务登记证<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
 	
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="02" wx:if="{{web_img[2].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
@@ -67,7 +67,7 @@
 	</view>
 </view>
 <view class="input_list2  w690" style="height: 360rpx;">
-	<view class="color8  line_tit" >法人身份证照片（正面）</view>
+	<view class="color8  line_tit" >法人身份证正反面照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
 	
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="03" wx:if="{{web_img[3].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
@@ -79,21 +79,9 @@
 		<image src="{{web_img[3].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
-<view class="input_list2  w690" style="height: 360rpx;" >
-	<view class="color8 line_tit" >法人身份证照片（反面）</view>
-	
-	<view class="input_list2-img" bindtap="upLoadImg" data-type="09" wx:if="{{web_img[4].url==''}}">
-		<image src="../../images/Upload-icon.png"></image>
-	</view>
-	<view class="input_list2-img"   wx:else style="position: relative;">
-		<image  src="/images/Uploadqualification-icon.png"
-		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
-		bindtap="deleteImg" data-index="4" data-id="{{web_img[4].id}}"/>
-		<image src="{{web_img[4].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
-	</view>
-</view>
+
 <view class="input_list2  w690" style="height: 360rpx;">
-	<view class="color8 line_tit" >法人银行账户信息照片</view>
+	<view class="color8 line_tit" >法人银行账户信息照片<span style="color: red;font-size:12px">（*须加盖有色公章，无公章须手印并签字）</span></view>
 
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="04" wx:if="{{web_img[5].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
@@ -231,7 +219,7 @@
 	</picker>
 </view>
 <button class="font28" style="background: #0d6fb8; margin-top: 50rpx; width: 80%; color: #C8D8FA;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
-<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构监管提供</view>
+<view class="font24" style="text-align: center; margin-top: 80rpx; margin-bottom: 40rpx;">本服务由金融机构（上海汇付）监管提供</view>
 </view>
 
 

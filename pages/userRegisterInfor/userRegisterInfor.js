@@ -355,45 +355,7 @@ Page({
 		console.log(self.data.submitData)
 	},
 
-	bindLicenseStartChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_start_date = e.detail.value.replace('-', '');
-		self.data.submitData.license_start_date = self.data.submitData.license_start_date.replace('-', '');
-		self.setData({
-			web_licenseStart: self.data.submitData.license_start_date 
-		})
-	},
-
-	bindLicenseEndChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_end_date = e.detail.value.replace('-', '');
-		self.data.submitData.license_end_date = self.data.submitData.license_end_date.replace('-', '');
-		self.setData({
-			web_licenseEnd: e.detail.value
-		})
-	},
-
-	bindCertStartChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_start_date = e.detail.value.replace('-', '');
-		self.data.submitData.legal_cert_start_date = self.data.submitData.legal_cert_start_date.replace('-', '');
-		self.setData({
-			web_certStart: self.data.submitData.legal_cert_start_date
-		})
-	},
-
-	bindCertEndChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_end_date = e.detail.value.replace('-', '');
-		self.data.submitData.legal_cert_end_date = self.data.submitData.legal_cert_end_date.replace('-', '');
-		self.setData({
-			web_certEnd: e.detail.value
-		})
-	},
+	
 
 	getMainData() {
 		const self = this;

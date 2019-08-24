@@ -29,7 +29,7 @@ Page({
 		api.commonInit(self);
 		self.data.user_no = options.user_no;
 		self.getMainData();
-
+		
 		console.log('self.data.user_no', self.data.user_no)
 	},
 	
@@ -129,10 +129,15 @@ Page({
 					const payCallback = (payData) => {
 						if (payData == 1) {
 							api.showToast('支付成功', 'none', 1000, function() {
-								self.data.is_peice = true;
-								self.setData({
-									is_peice:self.data.is_peice
-								})
+								if(!self.data.pay.wxPay.price<10){
+									self.data.is_peice = true;
+									self.setData({
+										is_peice:self.data.is_peice
+									})
+								}else{
+									api.pathTo('/pages/index/index', 'tab');
+								}
+								
 							});
 							
 						} else {
@@ -148,11 +153,10 @@ Page({
 					api.realPay(res.info, payCallback);
 				} else {
 					api.showToast('支付成功', 'none', 1000, function() {
-						self.data.is_peice = true;
-						self.setData({
-							is_peice:self.data.is_peice
-						})
+						api.pathTo('/pages/index/index', 'tab');			
 					});
+						
+					
 				};
 			} else {
 				

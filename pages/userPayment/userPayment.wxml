@@ -2,52 +2,56 @@
 
 
 <view class="w710">
-  <view class="cash" style="margin-top:30rpx;">
+	<view class="cash" style="margin-top:30rpx;">
 
-      <view class="case_box">
-        <view class="cash_tlt color2 font32 bg1">
-            {{currentId==0?'支付金额':'抵用数量'}}
-        </view>
-        <view class="cash_input flexRowBetween bg1">
-            <view class="input_masks color2">{{currentId==0?'¥':'个'}}</view>
-            <input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}"></input>
-        </view>
-        <view class="payment_way bg1" style="width: 87%;padding: 0 6.5%">
-          <!-- <view class="payment_item flex" data-id="0" bindtap="choose_payment">
+		<view class="case_box">
+			<view class="cash_tlt color2 font32 bg1">
+				{{currentId==0?'支付金额':'抵用数量'}}
+			</view>
+			<view class="cash_input flexRowBetween bg1">
+				<view class="input_masks color2">{{currentId==0?'¥':'个'}}</view>
+				<input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}"></input>
+			</view>
+			<view class="payment_way bg1" style="width: 87%;padding: 0 6.5%">
+				<!-- <view class="payment_item flex" data-id="0" bindtap="choose_payment">
             <image src="{{currentId==0?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
             <view class="font28 color2">微信支付</view>
           </view> -->
-          <view class="payment_item  flex" data-id="1" bindtap="choose_payment">
-            <image src="{{currentId==1?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
-            <view class="font28 color2">知条抵用</view>
-          </view>
-        </view>
-        <view class="cash_cont bg1" style="padding-bottom:100rpx;">
-            <button class="submit_info" bindtap="{{currentId?'payment':'submit'}}">确认</button>
-        </view>
-      </view>
-  </view>
+				<view class="payment_item  flex" data-id="1" bindtap="choose_payment">
+					<image src="{{currentId==1?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
+					<view class="font28 color2">知条抵用</view>
+				</view>
+			</view>
+			<view class="cash_cont bg1" style="padding-bottom:100rpx;">
+				<button class="submit_info" bindtap="{{currentId?'payment':'submit'}}">确认</button>
+			</view>
+		</view>
+	</view>
 </view>
 <view class="mask" wx:if="{{is_show||is_peice}}">
-  <view class="confirm bg1" wx:if="{{is_show}}">
-      <view class="confirm_tlt" style="font-weight: 700;">
-          确认抵用
-      </view>
-      <view class="confirm_notice font26 color6">
-        请确保此抵用是本人操作
-      </view>
-      <view class="confirm_btn flex">
-        <view class="confirm_item font26 color6" bindtap="cancle">取消</view>
-        <button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx"  bindtap="{{web_buttonCanClick?'submit':''}}">确认</button>
-      </view>
-  </view>
-  <view class="get_peice" wx:if="{{is_peice}}">
-    <image src="/images/ztthb.png" style="margin-bottom:20rpx;position: relative;"></image>
-    <view class="font24 color1" style="position: absolute;bottom: 15%;text-align: center;width: 100%;text-decoration:underline">恭喜您获得{{web_ztt}}个知条</view>
-	 <view class="font24 color1" style="position: absolute;bottom: 10%;text-align: center;width: 100%;text-decoration:underline">(1知条券=1元，可在知条条店铺消费抵用)</view>
-	 <view class="font24 color1" style="position: absolute;bottom: 5%;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">进入查看</view>
-  </view>
-  <view class="close" bindtap="close" wx:if="{{is_peice}}">
-    <image src="/images/close.png"></image>
-  </view>
+	<view class="confirm bg1" wx:if="{{is_show}}">
+		<view class="confirm_tlt" style="font-weight: 700;">
+			确认抵用
+		</view>
+		<view class="confirm_notice font26 color6">
+			请确保此抵用是本人操作
+		</view>
+		<view class="confirm_btn flex">
+			<view class="confirm_item font26 color6" bindtap="cancle">取消</view>
+			<button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx" bindtap="{{web_buttonCanClick?'submit':''}}">确认</button>
+		</view>
+	</view>
+	<view class="get_peice" wx:if="{{is_peice}}" style="margin-top: 10%;">
+		<view class="img" style="position: relative;" bindtap="intoSwitch" data-path="/pages/status/status">
+			<image src="/images/ztthb.png" style="margin-bottom:20rpx;position: relative;"></image>
+			<view class="font24 color1" style="position: absolute;bottom: 15%;text-align: center;width: 100%;text-decoration:underline">恭喜您获得{{web_ztt}}个知条</view>
+			<view class="font24 color1" style="position: absolute;bottom: 10%;text-align: center;width: 100%;text-decoration:underline">(1知条券=1元，可在知条条店铺消费抵用)</view>
+			<view class="font24 color1" style="position: absolute;bottom: 5%;text-align: center;width: 100%;text-decoration:underline">进入查看</view>
+		</view>
+
+		<view class="close" bindtap="close" wx:if="{{is_peice}}">
+			<image src="/images/close.png"></image>
+		</view>
+	</view>
+	
 </view>

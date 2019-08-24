@@ -130,27 +130,30 @@ page{
 	line-height:96rpx;
 	text-align:center;
 }
-.get_peice{
+.img{
 	position:absolute;
 	left:0;
-	width:300px;
+	width:100%;
 
 	text-align:center;
-	height:425px;
-	top:10%;
-	left:10%;
+	height:100%;
+
 	
 }
-.get_peice image{
+.img image{
+	width: 300px;
+	height: 425px;
+}
+/* .get_peice image{
 	width:100%;
 	height:100%;
 	margin:0 auto;
-}
+} */
 .close{
-	position:absolute;
-	left:0;
+
+	
 	width:100%;
-	bottom:10%;
+	
 	text-align:center;
 }
 .close image{

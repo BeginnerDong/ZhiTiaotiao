@@ -162,13 +162,13 @@ Page({
 		submitData: {
 			type: 1,
 			corp_license_type: "",
-			controlling_shareholder: [{
+			/* controlling_shareholder: [{
 				custName: '',
 				certType: '',
 				certId: '',
 				shareholderAddr: '',
 				ratio: ''
-			}],
+			}], */
 			corp_name: '',
 			license_start_date: "",
 			license_end_date: "",
@@ -191,8 +191,12 @@ Page({
 			bank_branch: '',
 			bank_prov: '',
 			bank_area: '',
-
-			file: []
+			
+			file: [],
+			business_code:'',
+			institution_code:'',
+			tax_code:'',
+			social_credit_code:''
 		},
 		
 		
@@ -207,16 +211,70 @@ Page({
 		pArray: [],
 		cArray: [],
 		mainData: [],
-		isFirstLoadAllStandard: ['getMainData']
+		isFirstLoadAllStandard: ['getMainData'],
+		img:[
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''},
+			{url:'',id:''}
+		],
+		show:false
 	},
 
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
-		
+		self.setData({
+			web_show:self.data.show,
+			web_img:self.data.img,
+		});
 		
 		self.hfInfoGet();
 
+	},
+	
+	hfInfoGet() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
+		const callback = (res) => {
+
+			if (res.solely_code == 100000) {
+				self.data.hfInfoData  = res.info.data[0];
+				self.data.submitData.corp_name = self.data.hfInfoData.corp_name;				
+				
+				self.data.submitData.license_start_date = self.data.hfInfoData.license_start_date;
+				self.data.submitData.license_end_date = self.data.hfInfoData.license_end_date;
+				self.data.submitData.corp_business_address = self.data.hfInfoData.corp_business_address;
+				self.data.submitData.corp_reg_address = self.data.hfInfoData.corp_reg_address;
+				self.data.submitData.corp_fixed_telephone = self.data.hfInfoData.corp_fixed_telephone;
+				self.data.submitData.business_scope = self.data.hfInfoData.business_scope;
+				self.data.submitData.legal_name = self.data.hfInfoData.legal_name;
+				self.data.submitData.legal_cert_id = self.data.hfInfoData.legal_cert_id;
+				self.data.submitData.legal_cert_start_date = self.data.hfInfoData.legal_cert_start_date;
+				self.data.submitData.legal_cert_end_date = self.data.hfInfoData.legal_cert_end_date;
+				self.data.submitData.legal_mobile = self.data.hfInfoData.legal_mobile;
+				self.data.submitData.contact_name = self.data.hfInfoData.contact_name;
+				self.data.submitData.contact_mobile = self.data.hfInfoData.contact_mobile;
+				self.data.submitData.contact_email = self.data.hfInfoData.contact_email;
+				self.data.submitData.bank_acct_name = self.data.hfInfoData.bank_acct_name;
+				self.data.submitData.bank_acct_no = self.data.hfInfoData.bank_acct_no;
+				self.data.submitData.bank_branch = self.data.hfInfoData.bank_branch;
+				self.data.submitData.business_code = self.data.hfInfoData.business_code;
+				self.data.submitData.institution_code = self.data.hfInfoData.institution_code;
+				self.data.submitData.tax_code = self.data.hfInfoData.tax_code;
+				self.data.submitData.social_credit_code = self.data.hfInfoData.social_credit_code;
+				
+				self.setData({
+					web_submitData:self.data.submitData
+				})
+				self.userInfoGet();
+			};
+		};
+		api.hfInfoGet(postData, callback);
 	},
 
 	upLoadImg(e) {
@@ -235,7 +293,31 @@ Page({
 				var id = url.match(imgIdReg)[1]
 				console.log('id', id)
 				self.data.submitData.file.push(id)
+				if(type=='05'){
+					self.data.img[0].url = url,
+					self.data.img[0].id = id
+				}else if(type=='00'){
+					self.data.img[1].url = url,
+					self.data.img[1].id = id
+				}else if(type=='01'){
+					self.data.img[2].url = url,
+					self.data.img[3].id = id
+				}else if(type=='02'){
+					self.data.img[3].url = url,
+					self.data.img[3].id = id
+				}else if(type=='03'){
+					self.data.img[4].url = url,
+					self.data.img[4].id = id
+				}else if(type=='09'){
+					self.data.img[5].url = url,
+					self.data.img[5].id = id
+				}else if(type=='04'){
+					self.data.img[6].url = url,
+					self.data.img[6].id = id
+				}
+				console.log('self.data.img',self.data.img)
 				self.setData({
+					web_img:self.data.img,
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
@@ -260,44 +342,25 @@ Page({
 			}
 		})
 	},
-
-
-
-	bindLicenseStartChange(e) {
+	
+	deleteImg(e){
 		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_start_date = e.detail.value.replace('-', '');
+		var index = api.getDataSet(e,'index');
+		var id = api.getDataSet(e,'id');
+		var position = self.data.submitData.file.indexOf(id);
+		if (position >= 0) {
+			self.data.submitData.file.splice(position, 1);
+		};
+		self.data.img[index].url = '',
+		self.data.img[index].id = '',
 		self.setData({
-			web_licenseStart: e.detail.value
+			web_submitData:self.data.submitData,
+			web_img:self.data.img
 		})
+		console.log(self.data.submitData)
 	},
 
-	bindLicenseEndChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.license_end_date = e.detail.value.replace('-', '');
-		self.setData({
-			web_licenseEnd: e.detail.value
-		})
-	},
 
-	bindCertStartChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_start_date = e.detail.value.replace('-', '');
-		self.setData({
-			web_certStart: e.detail.value
-		})
-	},
-
-	bindCertEndChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.submitData.legal_cert_end_date = e.detail.value.replace('-', '');
-		self.setData({
-			web_certEnd: e.detail.value
-		})
-	},
 
 	getMainData() {
 		const self = this;
@@ -355,7 +418,7 @@ Page({
 			if (res.solely_code == 100000) {
 				self.data.userInfoData = res.info.data[0];
 				
-				if (self.data.userInfoData.check_status != 0&&self.data.userInfoData.check_status != 3&&self.data.hfInfoData.type==2) {
+				if (self.data.userInfoData.check_status != 0&&self.data.userInfoData.check_status != 3&&self.data.hfInfoData.type==1) {
 					wx.redirectTo({
 						url:'/pages/userRegisterInforbb/userRegisterInforbb'
 					})
@@ -368,27 +431,35 @@ Page({
 		api.userInfoGet(postData, callback);
 	},
 
-	hfInfoGet() {
-		const self = this;
-		const postData = {};
-		postData.tokenFuncName = 'getStoreToken';
-		const callback = (res) => {
-			if (res.solely_code == 100000) {
-				self.data.hfInfoData  = res.info.data[0]
-				self.userInfoGet();
-			};
-		};
-		api.hfInfoGet(postData, callback);
-	},
+	
 
 	hfInfoUpdate() {
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
 		postData.data = api.cloneForm(self.data.submitData);
+		postData.saveAfter = [{
+			tableName: 'UserInfo',
+			FuncName: 'update',
+			data: {
+				check_status:1,
+				/* bank: self.data.submitData.bank_branch, */
+				bank_id: self.data.submitData.bank_id,
+				card_no: self.data.submitData.bank_acct_no,
+				card_prov: self.data.submitData.bank_prov,
+				card_area: self.data.submitData.bank_area,
+			},
+			searchItem: {
+				user_no: wx.getStorageSync('storeInfo').user_no
+			}
+		}];
 		const callback = (res) => {
+			api.buttonCanClick(self, true);
 			if (res.solely_code == 100000) {
-
+				api.showToast('申请成功','none')
+				wx.redirectTo({
+					url:'/pages/userRegisterInforbb/userRegisterInforbb'
+				})
 			};
 		};
 		api.hfInfoUpdate(postData, callback);
@@ -397,13 +468,23 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-		var phone = self.data.submitData.phone;
-		const pass = api.checkComplete(self.data.submitData);
+		var newObject = api.cloneForm(self.data.submitData);
+	
+		if(newObject.file.length==0){
+			delete self.data.submitData.file
+		};
+		delete newObject.file;
+		if(self.data.submitData.corp_license_type=='01030101'){
+			delete newObject.business_code;
+			delete newObject.institution_code;
+			delete newObject.tax_code;
+		}else if(self.data.submitData.corp_license_type=='01030100'){
+			delete newObject.social_credit_code;
+		};
+		const pass = api.checkComplete(newObject);
 		console.log('pass', pass)
-		if (pass) {
-			 
-				self.hfInfoUpdate();
-			
+		if (pass) {		 
+			self.hfInfoUpdate();		
 		} else {
 			api.buttonCanClick(self, true);
 			api.showToast('请补全信息', 'none');
@@ -414,24 +495,12 @@ Page({
 		const self = this;
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		self.data.submitData.bank_id = self.data.bankData[e.detail.value].value;
-		self.submitData.bank_acct_name =
-			console.log(self.data.submitData);
 		self.setData({
 			web_index: e.detail.value,
 			web_submitData: self.data.submitData
 		})
 	},
 
-	attachChange(e) {
-		const self = this;
-		console.log('picker发送选择改变，携带值为', e.detail.value)
-		self.data.attach_type = self.data.fileData[e.detail.value].value;
-		console.log(self.data.submitData);
-		self.setData({
-			web_index4: e.detail.value,
-			web_submitData: self.data.submitData
-		})
-	},
 
 	comCertTypeChange(e) {
 		const self = this;

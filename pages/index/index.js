@@ -86,7 +86,8 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
-			status: 1
+			status: 1,
+			is_show:1
 		};
 		postData.order = {
 			create_time: 'desc'
@@ -115,7 +116,8 @@ Page({
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
-			status: 1
+			status: 1,
+			is_show:1
 		};
 		postData.order = api.cloneForm(self.data.order);
 

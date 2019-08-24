@@ -11,7 +11,7 @@
             <view class="user_img" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U629044112041762" >
               <open-data type="userAvatarUrl"></open-data>
             </view>
-            <view class="font30 color2" style="text-align: center;margin-top:30rpx;" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U713080314554678"><open-data type="userNickName"></open-data></view>
+            <view class="font30 color2" style="text-align: center;margin-top:30rpx;" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U821864372200999"><open-data type="userNickName"></open-data></view>
         </view>
     </view>
 </view>
