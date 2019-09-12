@@ -21,7 +21,8 @@ Page({
 		La1: '',
 		lo1: '',
 		order: {},
-		getBefore: {}
+		getBefore: {},
+		is_show:false
 	},
 	//事件处理函数
 	preventTouchMove: function(e) {
@@ -33,6 +34,18 @@ Page({
 		api.commonInit(self);
 
 		self.getTypeData();
+		
+	},
+	
+	onShow(){
+		const self = this;
+		console.log(22)
+		
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
+		wx.showLoading()
 		self.getLocation()
 	},
 	
@@ -71,6 +84,7 @@ Page({
 
 		const callback = (res) => {
 			api.buttonCanClick(self, true);
+			wx.hideLoading();
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				for (var i = 0; i < self.data.mainData.length; i++) {
@@ -200,16 +214,43 @@ Page({
 		const self = this;
 		const callback = (res) => {
 			if (res) {
+				console.log(res)
+				if(res.authSetting){
+					self.data.is_show=true;
+					self.setData({
+						is_show:self.data.is_show
+					})
+					api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
+					api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self)
+					return
+				}
 				self.data.la1 = res.latitude;
 				self.data.lo1 = res.longitude
+				
+				/* self.data.la1 = 34.23652;
+				self.data.lo1 = 108.89122 */
 			};
-			self.getMainData();
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
+			self.getMainData(true);
 		};
 
 		api.getLocation('getGeocoder', callback);
-		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
+		
 	},
+	
+	
 
+	
+	
+	
+	cancle(e) {
+		const self = this;
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
+	},
+	
 
 
 	intoPath(e) {
@@ -225,6 +266,15 @@ Page({
 			isShowStore: self.data.isShowStore
 		})
 	},
+	
+	close(){
+		const self = this;	
+		self.data.isShowStore = false;
+		self.setData({
+			isShowStore: self.data.isShowStore
+		})
+	},
+	
 	onReachBottom() {
 		const self = this;
 		if (!self.data.isLoadAll) {

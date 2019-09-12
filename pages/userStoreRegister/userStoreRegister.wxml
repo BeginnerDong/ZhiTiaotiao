@@ -106,7 +106,7 @@
     </view>
 </view> -->
 
-<button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">保 存</button>
+<button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">提 交</button>
 
 
 

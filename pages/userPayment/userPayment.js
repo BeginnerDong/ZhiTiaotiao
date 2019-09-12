@@ -80,7 +80,6 @@ Page({
 	},
 
 	countPrice() {
-
 		const self = this;
 		var wxPay = self.data.submitData.money;
 		console.log('wxPay', wxPay);
@@ -143,7 +142,6 @@ Page({
 						} else {
 							api.showToast('调起微信支付失败', 'none');
 						};
-
 						self.data.submitData.money = '';
 						self.data.is_show = false;
 						self.setData({
@@ -186,18 +184,25 @@ Page({
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
 		if (pass) {
-			
-			
+			api.buttonCanClick(self, true);
+			if(self.data.currentId==1){
+				const callback = (user, res) => {
+					self.pay()
+				};
+				api.getAuthSetting(callback);
+			}else{
 				self.pay()
-			
-			
+			}		
 		} else {
+			console.log(222)
 			api.buttonCanClick(self, true);
 			if (self.data.currentId == 0) {
 				api.showToast('请输入支付金额', 'none')
+			
 			} else if (self.data.currentId == 1) {
 				api.showToast('请输入支条数量', 'none')
-			}
+			
+			};
 			self.data.is_show = false;
 			self.setData({
 				is_show: self.data.is_show

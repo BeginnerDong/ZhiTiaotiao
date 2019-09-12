@@ -20,8 +20,10 @@ Page({
 			type: 3,
 		},
 		searchItemTwo:{
-			settlement:1,
-		
+				
+		},
+		searchItemThree:{
+				
 		},
 		show:false,
 		isFirstLoadAllStandard: ['getMainData','getAboutData','check']
@@ -30,12 +32,16 @@ Page({
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
-		 var date=new Date;
-		 var year=date.getFullYear(); 
-		 var month=date.getMonth();
-		 self.data.select_data = year+'年'+month+'月',
-		
+		var date=new Date;
+		var year=date.getFullYear(); 
+		var month=date.getMonth();
+		self.data.select_data = year+'年'+month+'月';
+		self.data.monthCheck =  new Date(year, month - 1, 1).getTime()/1000;
+		console.log('self.data.monthCheck',self.data.monthCheck)
+		self.data.searchItemThree.period = self.data.monthCheck;
+	
 		self.setData({
+			web_me:wx.getStorageSync('info').user_no,
 			web_select_data:self.data.select_data,
 			web_month:month,
 			web_num: self.data.num
@@ -60,7 +66,7 @@ Page({
 				} else {
 					
 					self.getAboutData();
-					self.getZtt();
+				
 					self.data.show = true
 				};
 				self.setData({
@@ -72,24 +78,7 @@ Page({
 		api.userGet(postData, callback);
 	},
 	
-	getZtt() {
-		const self = this;
-		
-		const postData = {};
-		postData.tokenFuncName = 'getProjectToken';
-		const callback = (res) => {
-			
-			if (res.solely_code==100000) {
-				self.data.ztt = res.info
-			}
-			self.setData({
-				web_ztt:self.data.ztt
-			});
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getZtt', self)
-			console.log('self.data.mainData',self.data.mainData)
-		};
-		api.getZtt(postData, callback);
-	},
+	
 
 	getMainData(isNew) {
 		const self = this;
@@ -134,57 +123,37 @@ Page({
 		const self = this;
 		var totalCount = 0;
 		if (isNew) {
-			api.clearPageIndex(self);
+			self.data.rankData = [];
 		};
 		const postData = {};
-		postData.paginate = api.cloneForm(self.data.paginate);
-		postData.tokenFuncName = 'getProjectToken';
-		postData.searchItem = api.cloneForm(self.data.searchItemTwo);
-		postData.searchItem.user_type = 0;
-		postData.order = {
-			consume:'desc'
-		};
-		postData.getAfter = {
-			user: {
-				tableName: 'User',
-				middleKey: 'user_no',
-				key: 'user_no',
-				searchItem: {
-					status: 1
-				},
-				condition: '=',
-				info: ['nickname','headImgUrl']
-			}
-		};
-		if(self.data.num==3){
-			postData.compute = {
-			  totalCount:[
-				'sum',
-				'consume',
-				api.cloneForm(self.data.searchItemTwo)
-			  ],  
-			};
-			postData.compute.totalCount[2].user_no = wx.getStorageSync('info').user_no;
-			postData.compute.totalCount[2].user_type= 0
-		}
 		
+		postData.tokenFuncName = 'getProjectToken';
+		postData.data = api.cloneForm(self.data.searchItemTwo);	
+		if(self.data.num==3){
+			postData.data = api.cloneForm(self.data.searchItemThree);
+		}
 		const callback = (res) => {
-			api.buttonCanClick(self,true);
+			
 			if (res.info.data.length > 0) {
 				
 				self.data.rankData.push.apply(self.data.rankData, res.info.data);
-			} else {
-				self.data.isLoadAll = true;
-				
-			};
-			if(self.data.num==3){
-				self.setData({
-					web_totalCount: res.info.compute.totalCount,
-				});
+				console.log('self.data.rankData',self.data.rankData)
+				console.log(api.cloneForm(self.data.rankData).length-2)
+				if(self.data.rankData.length>2){
+					self.data.rankDataTwo = api.cloneForm(self.data.rankData).splice(api.cloneForm(self.data.rankData).length-2,1)
+				}else{
+					self.data.rankDataTwo = self.data.rankData
+				}
+					
+				console.log('self.data.rankData',self.data.rankData)
+				console.log('self.data.rankDataTwo',self.data.rankDataTwo)
 			}
 			self.setData({
+				web_totalCount: res.info.total,
 				web_rankData: self.data.rankData,
+				web_rankDataTwo: self.data.rankDataTwo,
 			});
+			api.buttonCanClick(self,true);
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getRankData', self)
 		};
 		api.rankGet(postData, callback);
@@ -196,7 +165,10 @@ Page({
 		const self = this;
 		if (!self.data.isLoadAll) {
 			self.data.paginate.currentPage++;
-			self.getMainData();
+			if(self.data.num == 1){
+				self.getMainData();
+			}
+			
 		};
 	},
 	
@@ -239,17 +211,36 @@ Page({
 		self.data.num = api.getDataSet(e, 'num');
 		if(self.data.num==2){
 			self.data.rankData = [];
+			self.data.rankDataTwo = [];
+			self.setData({
+				web_rankDataTwo:self.data.rankDataTwo,
+				web_rankData:self.data.rankData
+			});
+			var date=new Date;
+			var year=date.getFullYear(); 
+			var month=date.getMonth();
+			self.data.monthStart =  new Date(year, month, 1).getTime()/1000;
 			self.data.searchItemTwo = {
-				settlement:1,
-				
+				period:self.data.monthStart
 			}
 			self.getRankData(true)
 		}else if(self.data.num==3){
 			self.data.rankData = [];
-			self.data.searchItemTwo = {
-				settlement:2,
-				isget:1
-			}
+			self.data.rankDataTwo = [];
+			var date=new Date;
+			var year=date.getFullYear(); 
+			var month=date.getMonth();
+			self.data.select_data = year+'年'+month+'月';
+			self.data.monthCheck =  new Date(year, month - 1, 1).getTime()/1000;
+			console.log('self.data.monthCheck',self.data.monthCheck)
+			self.data.searchItemThree.period = self.data.monthCheck;
+			self.setData({
+				web_rankDataTwo:self.data.rankDataTwo,
+				web_select_data:self.data.select_data,
+				web_rankData:self.data.rankData,
+				web_month:month,
+			});
+			
 			self.getRankData(true)
 		}else if(self.data.num==1){
 			self.getMainData(true)
@@ -271,11 +262,15 @@ Page({
 		var dateArray = e.detail.value.split('-');
 		console.log(dateArray)
 		self.data.select_data =dateArray[0]+'年'+dateArray[1]+'月';
+		self.data.monthCheck =  new Date(dateArray[0], dateArray[1] - 1, 1).getTime()/1000;
+		self.data.searchItemThree.period = self.data.monthCheck;
 		self.setData({
 			web_month:dateArray[1],
 			web_select_data: self.data.select_data
 		})
+		self.getRankData(true)
 	},
+	
 	rule(e) {
 		const self = this;
 		self.data.is_rule = !self.data.is_rule;
@@ -283,6 +278,7 @@ Page({
 			is_rule: self.data.is_rule
 		})
 	},
+	
 	intoPathRedi(e) {
 		const self = this;
 		wx.navigateBack({

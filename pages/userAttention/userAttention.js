@@ -20,6 +20,11 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
+		
+	},
+	
+	onShow(){
+		const self = this;
 		self.getLocation()
 	},
 
@@ -86,7 +91,7 @@ Page({
 				self.data.la1 = res.latitude;
 				self.data.lo1 = res.longitude
 			};
-			self.getMainData();
+			self.getMainData(true);
 		};
 
 		api.getLocation('getGeocoder', callback);

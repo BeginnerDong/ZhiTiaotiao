@@ -16,7 +16,7 @@ Page({
 			status:['in',[0,1,-1]],
 			type:2,
 			user_no:wx.getStorageSync('storeInfo').user_no,
-			count:['<',0]
+			
 		},
 		mainData:[],
 		isFirstLoadAllStandard:['getMainData','getUserInfoData'],
@@ -148,6 +148,7 @@ Page({
 			},300);
 			self.setData({
 					web_totalCount: res.info.total_price,
+					web_today:res.info.today_price,
 				web_mainData: self.data.mainData,
 			});
 			console.log(self.data.mainData)
@@ -188,7 +189,7 @@ Page({
 					status:['in',[1,0,-1]],
 					type:2,
 					user_no:wx.getStorageSync('storeInfo').user_no,
-					count:['<',0]
+					
 				};
 				self.getMainData(true);
 			}if(self.data.currentId==2){
@@ -197,7 +198,7 @@ Page({
 					type:4,
 					
 					user_no:wx.getStorageSync('storeInfo').user_no,
-					count:['<',0]
+					
 				}
 				self.getMainData(true);
 			}

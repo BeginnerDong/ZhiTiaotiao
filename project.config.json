@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 129,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -193,10 +193,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 25,
 					"name": "支付",
 					"pathName": "pages/userPayment/userPayment",
-					"query": "",
+					"query": "user_no=U823306747822285",
 					"scene": null
 				},
 				{
@@ -906,6 +906,7 @@
 					"id": -1,
 					"name": "pages/userRegisterInfor/userRegisterInfor",
 					"pathName": "pages/userRegisterInfor/userRegisterInfor",
+					"query": "",
 					"scene": null
 				}
 			]

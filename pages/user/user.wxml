@@ -8,10 +8,10 @@
 <view id="order" class="w690">
     <view class="order">
         <view class="order_cont">
-            <view class="user_img" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U629044112041762" >
+            <view class="user_img">
               <open-data type="userAvatarUrl"></open-data>
             </view>
-            <view class="font30 color2" style="text-align: center;margin-top:30rpx;" bindtap="intoPath" data-path="/pages/userPayment/userPayment?user_no=U821864372200999"><open-data type="userNickName"></open-data></view>
+            <view class="font30 color2" style="text-align: center;margin-top:30rpx;"><open-data type="userNickName"></open-data></view>
         </view>
     </view>
 </view>

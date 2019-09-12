@@ -37,7 +37,7 @@ class Token {
         if((postData&&postData.refreshToken)||!wx.getStorageSync('storeToken')){
             wx.removeStorageSync('storeToken');
             wx.removeStorageSync('storeInfo');
-            wx.reLaunch({
+            wx.redirectTo({
               url: '/pages/userStoreLogin/userStoreLogin'
             });
         }else{
@@ -50,7 +50,7 @@ class Token {
 	    if((postData&&postData.refreshToken)||!wx.getStorageSync('agentToken')){
 	        wx.removeStorageSync('agentToken');
 	        wx.removeStorageSync('agentInfo');
-	        wx.reLaunch({
+	        wx.redirectTo({
 	          url: '/pages/userAgentLogin/userAgentLogin'
 	        });
 	    }else{

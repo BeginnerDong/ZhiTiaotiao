@@ -13,10 +13,6 @@
 				<input data-key="money" bindinput="changeBind" value="{{web_submitData.money}}"></input>
 			</view>
 			<view class="payment_way bg1" style="width: 87%;padding: 0 6.5%">
-				<!-- <view class="payment_item flex" data-id="0" bindtap="choose_payment">
-            <image src="{{currentId==0?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
-            <view class="font28 color2">微信支付</view>
-          </view> -->
 				<view class="payment_item  flex" data-id="1" bindtap="choose_payment">
 					<image src="{{currentId==1?'/images/circle_a.jpg':'/images/circle.jpg'}}"></image>
 					<view class="font28 color2">知条抵用</view>
@@ -38,7 +34,7 @@
 		</view>
 		<view class="confirm_btn flex">
 			<view class="confirm_item font26 color6" bindtap="cancle">取消</view>
-			<button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx" bindtap="{{web_buttonCanClick?'submit':''}}">确认</button>
+			<button class="confirm_item font26 color" style="border:none;background: #fff;height:95rpx" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>
 		</view>
 	</view>
 	<view class="get_peice" wx:if="{{is_peice}}" style="margin-top: 10%;">

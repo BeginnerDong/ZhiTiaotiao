@@ -29,13 +29,14 @@ Page({
 		const self = this;
 		api.commonInit(self);
 		self.data.user_no = options.user_no;
-		self.getMainData();
+		self.addShopView()
 		
 	},
 	
 	onShow(){
 		const self = this;
 		self.getProductData(true)
+		self.getMainData();
 	},
 
 	getMainData() {
@@ -73,7 +74,7 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
-				self.addShopView()
+
 			};
 			self.setData({
 				web_mainData: self.data.mainData
@@ -88,7 +89,7 @@ Page({
 		const self = this;
 		const postData = {};
 		postData.data = {
-			user_no:self.data.mainData.user_no
+			user_no:self.data.user_no
 		};
 		const callback = (res) => {};
 		api.addShopView(postData, callback);
@@ -315,7 +316,7 @@ Page({
 		const self = this;
 		if (!self.data.isLoadAll) {
 			self.data.paginate.currentPage++;
-			self.getMainData();
+			self.getProductData();
 		};
 	},
 

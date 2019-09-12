@@ -109,6 +109,9 @@
 	color:#0d6fb8;
 	border-bottom:solid 2px #0d6fb8;
 }
+.noBorder{
+	border-bottom:solid 2px #fff;
+}
 .blank{
 	text-align:center;
 }

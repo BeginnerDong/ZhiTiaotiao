@@ -8,7 +8,7 @@
 	    </view>
 	    <view class="stroe_search_right" style="display: flex;align-items: center;">
 	        <view class="search flex" style="border-radius: 40rpx; border: solid 1rpx #D3D3D3;position: relative;">
-	            <input class="font28 color9" style="{{web_sForm.name?'width:80%':''}}" placeholder="请输入您想要的商品名称" value="{{web_sForm.name}}"  data-key="name" bindinput="bindInputChange" ></input> 
+	            <input bindfocus="close" class="font28 color9" style="{{web_sForm.name?'width:80%':''}}" placeholder="请输入您想要的商品名称" value="{{web_sForm.name}}"  data-key="name" bindinput="bindInputChange" ></input> 
 				<view style="width: 20%;height: 66rpx;display: flex;align-items: center;justify-content: center;position: absolute;right: 3%;top: 0;z-index: 6666;" bindtap="deleteName" wx:if="{{web_sForm.name}}">
 					
 					<image  src="../../images/Uploadqualification-icon.png" style="width: 30rpx;height: 30rpx"></image>
@@ -67,7 +67,20 @@
 	
 </view>
 
-
+<view class="mask" wx:if="{{is_show}}">
+		<view class="confirm bg1">
+			<view class="confirm_tlt" style="font-weight: 700;">
+				是否授权当前位置
+			</view>
+			<view class="confirm_notice font26 color6">
+				需要获取您的地理位置，请确认授权，否则您无法获取所需数据
+			</view>
+			<view class="confirm_btn flex">
+				<view class="confirm_item font26 color6" bindtap="cancle">取消</view>
+				<button class="confirm_item font26 color" open-type='openSetting' style="border:none;background: #fff;height:95rpx" bindopensetting="{{web_buttonCanClick?'cancle':''}}">确认</button>
+			</view>
+		</view>	
+	</view>
 
 
 <!-- <view class="space_bottom"></view> -->

@@ -19,7 +19,7 @@
 						<view class="font28 color2" style="margin-left: 20rpx;"  bindtap="rule">《用户服务协议》</view>
 					</view>
 					<!-- <radio style="transform: scale(0.5); margin-left: -120rpx; margin-top: 10rpx; font-size:26px;" bindtap="rule">《用户服务协议》</radio> -->
-                    <button class="submit_info"  open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">登录</button>
+                    <button class="submit_info" bindtap="{{web_buttonCanClick?'submit':''}}">登录</button>
                 </view>
 				
             </view>

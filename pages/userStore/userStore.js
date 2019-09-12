@@ -53,7 +53,7 @@ Page({
 			})
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getUserInfoData', self);
 		};
-		api.userInfoGet(postData, callback);
+		api.userGet(postData, callback);
 	},
 
 	loginOff() {
@@ -67,13 +67,23 @@ Page({
 
 	intoStatus(e) {
 		const self = this;
-		if (self.data.userInfoData.check_status == 2) {
+		if (self.data.userInfoData.info.check_status == 2) {
 			api.showToast('您已开户', 'none');
 
-		} else if((self.data.userInfoData.check_status == 1||self.data.userInfoData.check_status == 3)&&self.data.hfInfoData.type==1){
+		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 3)&&self.data.hfInfoData.type==1){
 			api.pathTo('/pages/userRegisterInforaa/userRegisterInforaa', 'nav');
-		} else if((self.data.userInfoData.check_status == 1||self.data.userInfoData.check_status == 3)&&self.data.hfInfoData.type==2){
+		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 3)&&self.data.hfInfoData.type==2){
 			api.pathTo('/pages/userRegisterInfor/userRegisterInfor', 'nav');
+		}else{
+			api.pathTo(api.getDataSet(e, 'path'), 'nav');
+		}
+	},
+	
+	intoQr(e) {
+		const self = this;
+		if (self.data.userInfoData.qrCode == '') {
+			api.showToast('收款码暂未生成', 'none')
+			
 		}else{
 			api.pathTo(api.getDataSet(e, 'path'), 'nav');
 		}

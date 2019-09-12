@@ -24,7 +24,8 @@ Page({
 		messageData: [],
 		city: '',
 		order: {},
-		redDotData:[]
+		redDotData:[],
+		isShow:false
 	},
 	//事件处理函数
 
@@ -34,17 +35,22 @@ Page({
 		self.getSliderData();
 		
 		
-		self.getLocation();
+		
 		self.getMessageData();
 	},
 	
 	onShow(){
 		const self = this;
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
 		self.data.hotShopData=[];
 		self.data.newShopData=[];
 		self.getRedDotData();
 		self.getHotShopData();
 		self.getNewShopData();
+		self.getLocation();
 	},
 
 	getSliderData() {
@@ -215,6 +221,14 @@ Page({
 		const callback = (res) => {
 			if (res) {
 				console.log('res', res)
+				if(res.authSetting){
+					self.data.is_show=true;
+					self.setData({
+						is_show:self.data.is_show
+					})
+					return
+				}
+				
 				self.data.city = res.address_component.city
 			};
 			self.setData({
@@ -223,6 +237,16 @@ Page({
 		};
 		api.getLocation('reverseGeocoder', callback);
 		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
+	},
+	
+	
+	
+	cancle(e) {
+		const self = this;
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
 	},
 
 	intoPath(e) {

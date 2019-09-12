@@ -184,7 +184,7 @@ class Api extends Base {
 
 	rankGet(param, callback) {
 		var allParams = {
-			url: 'Common/Rank/get',
+			url: 'Project/Solely/getRank',
 			type: 'post',
 			noToken: true,
 			data: param,

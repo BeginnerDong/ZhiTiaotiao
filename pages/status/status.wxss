@@ -42,7 +42,9 @@ page{
 	color: #de5d1c;
 	border-bottom: solid 2px #de5d1c;
 }
-
+.noBorder{
+	border-bottom:solid 2px #f0f0f0;
+}
 .status{
 	height:160rpx;
 	border-radius:10rpx;

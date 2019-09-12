@@ -175,3 +175,5 @@
 .time{
 	margin-left: 20rpx;
 }
+.hklisBox{flex-wrap: wrap; display: flex;justify-content: space-around;padding-top:80rpx}
+.hklisBox>view{width:50%;color: #BDDEF1;font-size:26rpx; text-align: center;}

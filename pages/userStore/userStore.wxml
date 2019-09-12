@@ -51,7 +51,7 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStorePoster/userStorePoster">
+	<view class="sort_item flex" bindtap="intoQr" data-path="/pages/userStorePoster/userStorePoster">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon1.png"></image>

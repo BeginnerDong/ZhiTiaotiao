@@ -75,10 +75,8 @@ Page({
 					return
 				};
 				api.buttonCanClick(self, true);
-				const callback = (user, res) => {
-					self.userInfoUpdate()
-				};
-				api.getAuthSetting(callback);
+						
+				self.userInfoUpdate()
 			}
 		} else {
 			api.buttonCanClick(self, true);

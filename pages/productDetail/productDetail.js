@@ -31,6 +31,7 @@ Page({
 		const self = this;
 		self.data.id = options.id;
 		self.data.shop_id = options.shop_id;
+	
 		api.commonInit(self);
 		self.getMainData();
 		self.getShopData()

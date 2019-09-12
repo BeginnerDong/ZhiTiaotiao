@@ -11,7 +11,7 @@ var token = new Token();
 Page({
 
 	data: {
-		isFirstLoadAllStandard: ['getQrData', 'getMainData','getAboutData'],
+		isFirstLoadAllStandard: ['getMainData','getAboutData'],
 		QrData: [],
 		is_rule: false
 	},
@@ -19,7 +19,7 @@ Page({
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
-		self.getQrData();
+		
 		self.getMainData();
 		self.getAboutData()
 	},
@@ -51,7 +51,7 @@ Page({
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
-		api.userInfoGet(postData, callback);
+		api.userGet(postData, callback);
 	},
 
 	getAboutData() {
@@ -90,7 +90,7 @@ Page({
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken'
 		postData.qrInfo = {
-			scene: wx.getStorageSync('info').user_no,
+			scene: wx.getStorageSync('storeInfo').user_no,
 			path: 'pages/userPayment/userPayment',
 		};
 		postData.output = 'url';

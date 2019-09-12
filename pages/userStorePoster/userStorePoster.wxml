@@ -13,7 +13,7 @@
 <view class="flex" style="width:100%;height:90vh">
     <view class="poster">
 		<view class="poster-texta">{{web_mainData.shopInfo[0].name}}</view>
-        <image src="{{web_QrData.info.url}}"></image>
+        <image src="{{web_mainData.qrCode}}"></image>
         <view class="font30 color7" class="poster-textb" bindtap="save">保存到本地</view>
     </view>
 </view>
