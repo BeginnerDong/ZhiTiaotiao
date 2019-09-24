@@ -1,0 +1,8 @@
+
+
+.messageLis{padding: 0 4%}
+.messageLis .item{padding: 30rpx 0;border-bottom: 2rpx solid #e7e7e7;}
+.tit{font-size: 32rpx;color: #2a0f06;}
+.time{font-size: 26rpx;color: #999;padding: 10rpx 0;}
+.text{box-sizing: border-box;font-size: 28rpx;width: 100%;line-height: 40rpx;color: #666;}
+

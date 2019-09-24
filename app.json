@@ -58,7 +58,8 @@
 		"pages/Agent_status/Agent_status",
 		"pages/userAgentDetailb/userAgentDetailb",
 		"pages/bank/bank",
-		"pages/userAgentUpload/userAgentUpload"
+		"pages/userAgentUpload/userAgentUpload",
+    "pages/userStoreMsg/userStoreMsg"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

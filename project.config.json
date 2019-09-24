@@ -36,8 +36,12 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": 101,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -707,9 +711,9 @@
 					"scene": null
 				},
 				{
-					"id": 101,
-					"name": "pages/userRegisterInforb/userRegisterInforb",
-					"pathName": "pages/userRegisterInforb/userRegisterInforb",
+					"id": -1,
+					"name": "pages/userRegisterInfor/userRegisterInfor",
+					"pathName": "pages/userRegisterInfor/userRegisterInfor",
 					"query": "",
 					"scene": null
 				},
@@ -911,9 +915,8 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/userStoreCash/userStoreCash",
-					"pathName": "pages/userStoreCash/userStoreCash",
-					"query": "",
+					"name": "pages/userStoreMsg/userStoreMsg",
+					"pathName": "pages/userStoreMsg/userStoreMsg",
 					"scene": null
 				}
 			]

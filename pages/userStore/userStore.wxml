@@ -75,11 +75,19 @@
 	        </view>
 	    </view>
 	</view>
-	<view class="sort_item flex" style="border-right:solid 1px #e1e1e1 ;box-sizing: content-box;" bindtap="show">
+	<view class="sort_item flex" bindtap="show">
 	    <view class="item_box flex">
 	        <view style="width:100%;">
 	            <image src="/images/store-icon0.png"></image>
 	            <view class="font28 color3">品牌贸易</view>
+	        </view>
+	    </view>
+	</view>
+  <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userStoreMsg/userStoreMsg">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;box-sizing: content-box;border-right:solid 1px #e1e1e1;">
+	        <view style="width:100%;">
+	            <image src="/images/store-icon10.png"></image>
+	            <view class="font28 color3">我的消息</view>
 	        </view>
 	    </view>
 	</view>
