@@ -41,6 +41,19 @@ class Api extends Base {
 		});
 	}
 	
+	thirdAppGet(param, callback) {
+		var allParams = {
+			url: 'Common/ThirdApp/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
 	getZtt(param, callback) {
 		var allParams = {
 			url: 'Project/Solely/getZtt',

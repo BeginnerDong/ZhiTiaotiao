@@ -14,16 +14,16 @@
 					    <view class="get_check" bindtap="{{web_buttonCanClick?'getCode':''}}">{{text}}</view>
 					</view>
                     <view class="list_input flexRowBetween">
-                        <input style="width:100%;" type="text"  placeholder="请输入新密码(6-16位字母与数字混合)"
+                        <input style="width:100%;" type="text"  placeholder="输入6-16位大小写字母与数字"
 						value="{{web_submitData.password_new}}"  data-key="password_new" bindblur="changeBind" wx:if="{{web_type=='text'}}"></input>
-						<input style="width:100%;" type="password"  placeholder="请输入新密码(6-16位字母与数字混合)"
+						<input style="width:100%;" type="password"  placeholder="输入6-16位大小写字母与数字"
 						value="{{web_submitData.password_new}}"  data-key="password_new" bindblur="changeBind" wx:if="{{web_type=='password'}}"></input>
                         <view class="get_check" bindtap="changeType" style="width: 40rpx; height: 100rpx;line-height:100rpx;z-index: 999;">
 							<image src="../../images/eay.png" style="width: 40rpx;height: 30rpx;"></image>
 						</view>
                     </view>
 					<view class="list_input flexRowBetween">
-					    <input style="width:100%"   type="password"  placeholder="请再次输入新密码" value="{{web_submitData.password_new_copy}}"  data-key="password_new_copy" bindblur="changeBind"></input>
+					    <input style="width:100%"   type="password"  placeholder="再次输入密码" value="{{web_submitData.password_new_copy}}"  data-key="password_new_copy" bindblur="changeBind"></input>
 					</view>
                     <button class="submit_info" style="background: #0d6fb8;"   bindtap="submit">确认</button>
                 </view>

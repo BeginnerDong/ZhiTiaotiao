@@ -23,6 +23,14 @@ Page({
 		self.getMainData();
 		self.getAboutData()
 	},
+	
+	onShow(){
+		const self = this;
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
+	},
 
 	getMainData() {
 		const self = this;
@@ -125,22 +133,19 @@ Page({
 					wx.authorize({
 						scope: 'scope.writePhotosAlbum',
 						success() { //用户允许授权，保存图片到相册
+						console.log(111)
 							self.savePhoto();
 						},
 						fail() { //用户点击拒绝授权，跳转到设置页，引导用户授权
-							wx.openSetting({
-								success() {
-									wx.authorize({
-										scope: 'scope.writePhotosAlbum',
-										success() {
-											self.savePhoto();
-										}
-									})
-								}
-							})
+						console.log(222)
+								self.data.is_show = true;
+								self.setData({
+									is_show: self.data.is_show
+								})
 						}
 					})
 				} else { //用户已授权，保存到相册
+				console.log(333)
 					self.savePhoto()
 				}
 			}
@@ -150,7 +155,7 @@ Page({
 	savePhoto() {
 		let self = this
 		wx.downloadFile({
-			url: self.data.QrData.info.url,
+			url: self.data.mainData.qrCode,
 			success: function(res) {
 				wx.saveImageToPhotosAlbum({
 					filePath: res.tempFilePath,
@@ -165,6 +170,16 @@ Page({
 			}
 		})
 	},
+	
+	
+	cancle(e) {
+		const self = this;
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
+	},
+	
 
 	rule() {
 		const self = this;

@@ -11,32 +11,47 @@
 </view> -->
 
 <view class="flex" style="width:100%;height:90vh">
-    <view class="poster">
+	<view class="poster">
 		<view class="poster-texta">{{web_mainData.shopInfo[0].name}}</view>
-        <image src="{{web_mainData.qrCode}}"></image>
-        <view class="font30 color7" class="poster-textb" bindtap="save">保存到本地</view>
-    </view>
+		<image src="{{web_mainData.qrCode}}"></image>
+		<view class="font30 color7" class="poster-textb" bindtap="save">保存到本地</view>
+	</view>
 </view>
 <view class="reword font24 color1 flex" bindtap="rule">
-    <view class="reword_in">会员规则</view>
+	<view class="reword_in">会员规则</view>
 </view>
 
 <view class="mask" wx:if="{{is_rule}}">
-    <view class="rule bg1" style="height: 90%;">
-        <scroll-view scroll-y style="height:90%;">
-            <view class="rule_cont">
-                <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
-          <view class=" content font24 color2 w690">
-            <view class="content ql-editor">
-              <import src="../../wxParse/wxParse.wxml"/>
-              <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
-            </view>
-          </view>	
-        </view>
-        </scroll-view>
-        <view style="height:10%;display: flex;align-items: center;justify-content: center;">
-          <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
-        </view>
-		
-    </view>
+	<view class="rule bg1" style="height: 90%;">
+		<scroll-view scroll-y style="height:90%;">
+			<view class="rule_cont">
+				<view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+				<view class=" content font24 color2 w690">
+					<view class="content ql-editor">
+						<import src="../../wxParse/wxParse.wxml" />
+						<template is="wxParse" data="{{wxParseData:web_aboutData.content}}" />
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+		<view style="height:10%;display: flex;align-items: center;justify-content: center;">
+			<image src="/images/Uploadqualification-icon.png" style="width: 50rpx;height: 50rpx;" bindtap="rule"></image>
+		</view>
+
+	</view>
+</view>
+<view class="mask" wx:if="{{is_show}}">
+	<view class="confirm bg1">
+		<view class="confirm_tlt" style="font-weight: 700;">
+			是否授权相册权限
+		</view>
+		<view class="confirm_notice font26 color6">
+			需要获取您的相册权限，请确认授权，否则将无法保存二维码
+		</view>
+		<view class="confirm_btn flex">
+			<view class="confirm_item font26 color6" bindtap="cancle">取消</view>
+			<button class="confirm_item font26 color" open-type='openSetting' style="border:none;background: #fff;height:95rpx"
+			 bindopensetting="{{web_buttonCanClick?'cancle':''}}">确认</button>
+		</view>
+	</view>
 </view>

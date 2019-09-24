@@ -36,6 +36,16 @@ Page({
 		self.getMainData();
 		self.getShopData()
 	},
+	
+	onShareAppMessage(res) {
+		const self = this;
+	    if (res.from === 'button') {}
+	    return {
+			title:self.data.mainData.title,
+			path:'/pages/productDetail/productDetail?id='+self.data.mainData.id+'&shop_id='+self.data.shopData.id,
+			imageUrl:self.data.mainData.mainImg[0].url,     
+	    }
+	 },
 
 
 

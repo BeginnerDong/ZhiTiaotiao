@@ -7,8 +7,8 @@
 		    </view>
 		    <view class="product_name font30 color2 avoidOverflow2">{{item.title}}</view>
 		    <view class="product_pro">
-          <view class="textinlin color9" style="font-size: 26rpx;">店铺价格:{{item.price}}</view>
-          <view class="text-red" style="font-size: 26rpx; color: #de5d1c;">知条数量：{{item.score}}</view>
+          <view class="textinlin color9 avoidOverflow" style="font-size: 26rpx;">店铺价格:{{item.price}}</view>
+          <view class="text-red avoidOverflow" style="font-size: 26rpx; color: #de5d1c;">知条数量：{{item.score}}</view>
 		    </view>
 				
 			<image src="{{item.isSelect?'/images/circle_a.png':'/images/circle.png'}}" data-index="{{index}}" bindtap="choose" wx:if="{{web_showDelete}}" style="position:absolute;width:40rpx;height:40rpx;top:10rpx;right:10rpx"></image>

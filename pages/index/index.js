@@ -3,6 +3,10 @@ import {
 } from '../../utils/api.js';
 var api = new Api();
 const app = getApp();
+import {
+	Token
+} from '../../utils/token.js';
+const token = new Token();
 
 
 Page({
@@ -17,7 +21,7 @@ Page({
 		duration: 500,
 		previousMargin: 0,
 		nextMargin: 0,
-		isFirstLoadAllStandard: ['getSliderData', 'getNewShopData', 'getLocation', 'getMessageData', 'getHotShopData'],
+		isFirstLoadAllStandard: ['getSliderData','getLocation', 'getMessageData'],
 		sliderData: [],
 		newShopData: [],
 		hotShopData: [],
@@ -32,25 +36,67 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.getSliderData();
 		
-		
-		
-		self.getMessageData();
+		self.getSliderData();		
 	},
 	
 	onShow(){
 		const self = this;
 		self.data.is_show = false;
-		self.setData({
-			is_show: self.data.is_show
-		})
 		self.data.hotShopData=[];
 		self.data.newShopData=[];
-		self.getRedDotData();
-		self.getHotShopData();
-		self.getNewShopData();
-		self.getLocation();
+		self.setData({
+			is_show: self.data.is_show,
+		});
+		const callback = (res) =>{
+			self.getRedDotData();
+			self.getMessageData();
+			self.getLocation();
+		};
+		token.getProjectToken(callback,{refreshToken:true})
+		
+		//self.getThirdAppData()
+	},
+	
+/* 	getThirdAppData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			
+		};
+		const callback = (res) => {
+			console.log(1000, res);
+			if (res.info.data.length > 0) {
+				self.data.thirdAppData = res.info.data[0]			
+			};
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'thirdAppGet', self);
+		};
+		api.thirdAppGet(postData, callback);
+	}, */
+	
+
+	
+	getCityData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			thirdapp_id: getApp().globalData.thirdapp_id,
+			title:self.data.city
+		};
+		const callback = (res) => {
+			console.log(1000, res);
+			if (res.info.data.length > 0) {
+				self.data.cityData = res.info.data[0]			
+			};
+			self.data.city_id = self.data.cityData&&self.data.cityData.id?self.data.cityData.id:wx.getStorageSync('info').thirdApp.view_count;	
+			self.setData({
+				web_city: self.data.cityData&&self.data.cityData.title?self.data.cityData.title:wx.getStorageSync('info').thirdApp.codeName
+			});
+			self.getHotShopData();
+			self.getNewShopData();	
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getCityData', self);
+		};
+		api.labelGet(postData, callback);
 	},
 
 	getSliderData() {
@@ -98,17 +144,77 @@ Page({
 		postData.order = {
 			create_time: 'desc'
 		};
-
+		postData.getBefore = {
+			city: {
+				tableName: 'UserInfo',
+				searchItem: {
+					city_id: ['in',[self.data.city_id]],
+				},
+				middleKey: 'user_no',
+				key: 'user_no',
+				condition: 'in',
+			},
+		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
 
 			if (res.info.data.length > 0) {
 				self.data.newShopData.push.apply(self.data.newShopData, res.info.data)
-			};
+				
+			}else{
+				self.data.city_id = wx.getStorageSync('info').thirdApp.view_count;
+				
+				self.setData({
+					web_city: wx.getStorageSync('info').thirdApp.codeName
+				});
+				self.getNewShopTwoData()
+			}
 			self.setData({
 				web_newShopData: self.data.newShopData
 			});
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getNewShopData', self);
+			
+		};
+		api.shopInfoGet(postData, callback);
+	},
+	
+	getNewShopTwoData() {
+		const self = this;
+	
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_type: 1,
+			status: 1,
+			is_show:1
+		};
+		postData.order = {
+			create_time: 'desc'
+		};
+		postData.getBefore = {
+			city: {
+				tableName: 'UserInfo',
+				searchItem: {
+					city_id: ['in',[self.data.city_id]],
+				},
+				middleKey: 'user_no',
+				key: 'user_no',
+				condition: 'in',
+			},
+		};
+		/* postData.order[orderKey]= orderKey; */
+		const callback = (res) => {
+	
+			if (res.info.data.length > 0) {
+				self.data.newShopData.push.apply(self.data.newShopData, res.info.data)
+				
+			}else{
+				api.showToast('城市暂未开通','none')
+			}
+			self.setData({
+				web_newShopData: self.data.newShopData
+			});
+			
 		};
 		api.shopInfoGet(postData, callback);
 	},
@@ -126,20 +232,80 @@ Page({
 			is_show:1
 		};
 		postData.order = api.cloneForm(self.data.order);
-
+		postData.getBefore = {
+			city: {
+				tableName: 'UserInfo',
+				searchItem: {
+					city_id: ['in',[self.data.city_id]],
+				},
+				middleKey: 'user_no',
+				key: 'user_no',
+				condition: 'in',
+			},
+		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
 
 			if (res.info.data.length > 0) {
 				self.data.hotShopData.push.apply(self.data.hotShopData, res.info.data)
-			};
+				
+			}else{
+				self.data.city_id = wx.getStorageSync('info').thirdApp.view_count;
+				
+				self.setData({
+					web_city: wx.getStorageSync('info').thirdApp.codeName
+				});
+				self.getHotShopTwoData()
+			}
 			self.setData({
 				web_hotShopData: self.data.hotShopData
 			});
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getHotShopData', self);
+			
 		};
 		api.shopInfoGet(postData, callback);
 	},
+	
+	getHotShopTwoData() {
+		const self = this;
+		var orderKey = 'view_count * 0.0002 + favor_count * 0.4999 + follow_count * 0.4999';
+		self.data.order[orderKey] = 'desc';
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_type: 1,
+			status: 1,
+			is_show:1
+		};
+		postData.order = api.cloneForm(self.data.order);
+		postData.getBefore = {
+			city: {
+				tableName: 'UserInfo',
+				searchItem: {
+					city_id: ['in',[self.data.city_id]],
+				},
+				middleKey: 'user_no',
+				key: 'user_no',
+				condition: 'in',
+			},
+		};
+		/* postData.order[orderKey]= orderKey; */
+		const callback = (res) => {
+	
+			if (res.info.data.length > 0) {
+				self.data.hotShopData.push.apply(self.data.hotShopData, res.info.data)
+				
+			}else{
+				api.showToast('城市暂未开通','none')
+			}
+			self.setData({
+				web_hotShopData: self.data.hotShopData
+			});
+			
+		};
+		api.shopInfoGet(postData, callback);
+	},
+	
 
 	getRedDotData() {
 		const self = this;
@@ -201,12 +367,9 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.messageData.push.apply(self.data.messageData, res.info.data);
-				for (var i = 0; i < self.data.messageData.length; i++) {
+				/* for (var i = 0; i < self.data.messageData.length; i++) {
 					self.data.messageData[i].content = api.wxParseReturn(res.info.data[i].content).nodes;
-				}
-			} else {
-				self.data.isLoadAll = true;
-				api.showToast('没有更多了', 'none')
+				} */
 			}
 			self.setData({
 				web_messageData: self.data.messageData
@@ -230,6 +393,7 @@ Page({
 				}
 				
 				self.data.city = res.address_component.city
+				self.getCityData();
 			};
 			self.setData({
 				web_city: self.data.city

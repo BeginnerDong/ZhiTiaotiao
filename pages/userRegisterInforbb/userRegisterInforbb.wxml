@@ -1,4 +1,4 @@
-<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">{{web_userInfoData.check_status==1?'审核中':(web_userInfoData.check_status==2?'已授权':'已拒绝')}}</text> </view>
+<view class="font28" style="text-align: center;color: #000; line-height: 70rpx;">状态:<text style="color: #0d6fb8;">{{web_userInfoData.check_status==1||web_userInfoData.check_status==4?'审核中':(web_userInfoData.check_status==2?'已授权':'已拒绝')}}</text></view>
 <view class="input_list1 font28 flex w690">
 	<view class="input_before color8" style="width: 40%;">企业证件照类型</view>
 	<view class="input">{{web_hfInfoData.corp_license_type}}</view>
@@ -6,9 +6,9 @@
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8" style="width:30%;">企业类型</view>
 	<view class="input">普通企业</view>
-</view><view class="input_list1 font28 flex  w690">
-	<view class="input_before color8" style="width:30%;">企业名称</view>
-	<view class="input">{{web_hfInfoData.bank_acct_name}}</view>
+</view><view class="input_list3 font28 w690" style="height: auto;">
+	<view style="display: inline;" class="color8">企业名称</view>
+	<view class="input" style="display: inline;"><text>\n</text>{{web_hfInfoData.bank_acct_name}}</view>
 </view>
 
 <view class="input_list1 font28 flex  w690">
@@ -32,9 +32,9 @@
 	<view class="input">{{web_hfInfoData.corp_fixed_telephone}}</view>
 </view>
 <view class="input_list1 font28 flex  w690" style="height: auto;"> 
-	<view class="input_before color8">经营范围</view>
-	<view class="input">
-     {{web_hfInfoData.business_scope}}
+	<view style="display: inline;" class="color8">经营范围</view>
+	<view style="display: inline;" class="input">
+     <text>\n</text>{{web_hfInfoData.business_scope}}
     </view>
 </view>
 

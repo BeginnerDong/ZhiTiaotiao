@@ -51,7 +51,7 @@
               </view>
         </scroll-view>
         <view style="height:10%;display: flex;align-items: center;justify-content: center;">
-          <image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+          <image src="/images/Uploadqualification-icon.png" style="width: 50rpx;height: 50rpx;" bindtap="rule"></image>
         </view>
     </view>
 </view>

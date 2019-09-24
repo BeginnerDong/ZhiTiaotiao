@@ -64,7 +64,7 @@
             </view>
           </view>
           <view class="product_pro ">
-          <view class="textinlin color9" style="font-size: 26rpx;">店铺价格：{{item.price}}</view>
+          <view class="textinlin color9 avoidOverflow" style="font-size: 26rpx;">店铺价格：{{item.price}}</view>
           <view class="text-red" style="font-size: 26rpx; color: #de5d1c;">知条特惠：{{item.score}}</view>
           </view>
         </view>

@@ -13,7 +13,7 @@
 
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">登录密码：</view>
-	<input placeholder="密码为6-16位字母与数字混合" value="{{web_submitData.password}}" data-key="password" bindblur="bindInputChange"></input>
+	<input placeholder="请输入6-16位大小写字母与数字" value="{{web_submitData.password}}" data-key="password" bindblur="bindInputChange"></input>
 </view>
 <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">常用邮箱：</view>

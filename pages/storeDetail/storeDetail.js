@@ -33,11 +33,24 @@ Page({
 		
 	},
 	
+	 
 	onShow(){
 		const self = this;
 		self.getProductData(true)
 		self.getMainData();
 	},
+	
+	
+	onShareAppMessage(res) {
+		const self = this;
+	    if (res.from === 'button') {}
+	    console.log(self.data.mainData.name)
+	    return {
+			title:self.data.mainData.name,
+			path:'/pages/storeDetail/storeDetail?user_no='+self.data.user_no,
+			imageUrl:self.data.mainData.mainImg[0].url,     
+	    }
+	 },
 
 	getMainData() {
 		const self = this;

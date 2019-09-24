@@ -26,7 +26,7 @@
 		</view>
 		<view class="register-box">
 			<view style="text-align: right;" bindtap="intoPath" data-path="/pages/userAgentRegister/userAgentRegister">注册 | </view>
-			<view style="text-indent: 10rpx;" bindtap="intoPath" data-path="/pages/forget/forget">忘记密码</view>
+			<view style="text-indent: 10rpx;" bindtap="intoPath" data-path="/pages/forget/forget?num=60">忘记密码</view>
 		</view>
 		<image class="img-phone" src="../../images/register-icon1.png"></image>
 		<image class="img-lock" src="../../images/register-icon2.png"></image>

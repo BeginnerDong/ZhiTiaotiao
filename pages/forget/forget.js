@@ -30,12 +30,15 @@ Page({
 
 
 
-	onLoad() {
+	onLoad(options) {
 		const self = this;
+		self.data.primary_scope = options.num;
+		console.log(self.data.primary_scope)
 		self.setData({
 			web_type: self.data.type,
 			web_type1: self.data.type1,
-			web_buttonCanClick: self.data.buttonCanClick
+			web_buttonCanClick: self.data.buttonCanClick,
+			
 		})
 		
 	},
@@ -77,15 +80,23 @@ Page({
 		};
 		postData.data = {
 			password: self.data.submitData.password_new,
-			phone:self.data.submitData.phone
+			phone:self.data.submitData.phone,
+			primary_scope:self.data.primary_scope
 		};
 		const callback = (res) => {
-			const pass = api.dealRes(res);
-			if (pass) {
-				api.showToast('修改成功', 'none');
-				wx.navigateBack({
-					delta: 1
-				})
+			
+			if (res.solely_code==100000) {
+				api.showToast(res.msg, 'none');
+				setTimeout(function()
+				{
+				  wx.navigateBack({
+				  	delta: 1
+				  })
+				},800);
+				
+			}else{
+				api.buttonCanClick(self, true);
+				api.showToast(res.msg, 'none');
 			}
 		};
 		api.resetPassword(postData, callback);
@@ -162,7 +173,7 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-		var password = self.data.submitData.password;
+		var password = self.data.submitData.password_new;
 		setTimeout(function() {
 			const pass = api.checkComplete(self.data.submitData);
 			if (pass) {

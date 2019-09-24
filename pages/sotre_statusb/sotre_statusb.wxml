@@ -1,6 +1,6 @@
 <view class="store-row" style="background: #f5f5f5;">
 	<view class="store-texta">店铺名称：</view>
-	<input class="store-textb" disabled="true" value="{{web_submitData.name}}" data-key="name" bindblur="changeBind"></input>
+	<input class="store-textb" style="width: 74%;" disabled="true" value="{{web_submitData.name}}" data-key="name" bindblur="changeBind"></input>
 </view>
 <view class="store-row"  style="background: #f5f5f5;">
 	<view class="store-texta">店铺地址：</view>

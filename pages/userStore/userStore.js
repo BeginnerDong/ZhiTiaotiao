@@ -70,10 +70,14 @@ Page({
 		if (self.data.userInfoData.info.check_status == 2) {
 			api.showToast('您已开户', 'none');
 
-		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 3)&&self.data.hfInfoData.type==1){
-			api.pathTo('/pages/userRegisterInforaa/userRegisterInforaa', 'nav');
-		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 3)&&self.data.hfInfoData.type==2){
+		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 4)&&self.data.hfInfoData.type==1){
+			api.pathTo('/pages/userRegisterInforbb/userRegisterInforbb', 'nav');
+		} else if((self.data.userInfoData.info.check_status == 1||self.data.userInfoData.info.check_status == 4)&&self.data.hfInfoData.type==2){
+			api.pathTo('/pages/userRegisterInforb/userRegisterInforb', 'nav');
+		}else if(self.data.userInfoData.info.check_status == 3&&self.data.hfInfoData.type==2){
 			api.pathTo('/pages/userRegisterInfor/userRegisterInfor', 'nav');
+		}else if(self.data.userInfoData.info.check_status == 3&&self.data.hfInfoData.type==1){
+			api.pathTo('/pages/userRegisterInforaa/userRegisterInforaa', 'nav');
 		}else{
 			api.pathTo(api.getDataSet(e, 'path'), 'nav');
 		}

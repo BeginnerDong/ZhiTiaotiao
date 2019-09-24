@@ -38,7 +38,7 @@
 		<block wx:for="{{web_rankDataTwo}}" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view class="status bg1 flex shadow1">
 				<view class="status_number">
-					{{index!=web_rankData.length?index+1:'1/4'}}
+					{{index+1}}
 				</view>
 				<view class="status_left flex">
 					<view class="user_img">
@@ -52,7 +52,7 @@
 			</view>
 		</block>
 		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
-			<view class="status_number color" style="width: 28%;">
+			<view style="font-size:46rpx;line-height:200rpx;color: #222;padding-left: 30rpx;">
 				· · · · · ·
 			</view>
 
@@ -122,10 +122,9 @@
 			</view>
 		</block>
 		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
-			<view class="status_number color" style="width: 28%;">
+			<view style="font-size:46rpx;line-height:200rpx;color: #222;padding-left: 30rpx;">
 				· · · · · ·
 			</view>
-
 		</view>
 		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view class="status_number color">
@@ -177,7 +176,7 @@
 				</view>
 			</scroll-view>
 			<view style="height:10%;display: flex;align-items: center;justify-content: center;">
-				<image src="/images/Uploadqualification-icon.png" bindtap="rule"></image>
+				<image src="/images/Uploadqualification-icon.png" style="width: 50rpx;height: 50rpx;" bindtap="rule"></image>
 			</view>
 
 		</view>

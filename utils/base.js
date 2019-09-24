@@ -20,8 +20,11 @@ class Base {
 		getApp().globalData.buttonClick = true;
 		var baseRestUrl = 'https://www.zhitt.com/api/public/index.php/api/v1/';
 		var url = baseRestUrl + params.url;
-		const callback = (res) => {
-			that.request(params);
+		const callback = (res)=>{
+		    if(res){
+		        params.data.refreshToken=false;
+		    };
+		    that.request(params);
 		};
 
 		if (params.data.tokenFuncName) {
@@ -173,7 +176,8 @@ class Base {
 					  success: function (res) {
 					    var latitude = res.latitude
 					    var longitude = res.longitude
-					    
+						/* var latitude = 33.0678400000
+						var longitude = 107.0319400000 */
 					    if(type=='getGeocoder'){
 					        callback&&callback(res)
 					        return;

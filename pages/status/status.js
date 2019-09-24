@@ -138,9 +138,14 @@ Page({
 				
 				self.data.rankData.push.apply(self.data.rankData, res.info.data);
 				console.log('self.data.rankData',self.data.rankData)
-				console.log(api.cloneForm(self.data.rankData).length-2)
-				if(self.data.rankData.length>2){
-					self.data.rankDataTwo = api.cloneForm(self.data.rankData).splice(api.cloneForm(self.data.rankData).length-2,1)
+				console.log(self.data.rankData.length-2)
+				var newArray = api.cloneForm(self.data.rankData);
+				if(newArray.length>2){
+					for (var i = 0; i < newArray.length; i++) {
+						if(i!=newArray.length-1&&i!=newArray.length-2){
+							self.data.rankDataTwo.push(newArray[i])
+						}
+					}
 				}else{
 					self.data.rankDataTwo = self.data.rankData
 				}
