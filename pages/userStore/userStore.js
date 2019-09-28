@@ -18,7 +18,52 @@ Page({
 		const self = this;
 		api.commonInit(self);
 		self.hfInfoGet()
+		
+	},
 	
+	onShow(){
+		const self = this;
+		self.getRedDotData()
+	},
+	
+	getRedDotData() {
+		const self = this;
+		var num = false;
+		self.data.redDotData = [];
+		const postData = {};
+		postData.tokenFuncName = 'getStoreToken';
+		postData.searchItem = {};
+		postData.searchItem.user_no = ['in', [wx.getStorageSync('storeInfo').user_no]];
+		postData.searchItem.type = ['in', [7]];
+		postData.getAfter = {
+			log: {
+				tableName: 'Log',
+				middleKey: 'id',
+				key: 'relation_id',
+				searchItem: {
+					status: 1,
+					type: 6
+				},
+				condition: '=',
+			}
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.redDotData.push.apply(self.data.redDotData, res.info.data);
+				
+				for (var i = 0; i < self.data.redDotData.length; i++) {
+					if(self.data.redDotData[i].log.length==0){
+						num = true
+					}
+				}
+			};
+			console.log(num)
+			self.setData({
+				web_num:num,
+				web_redDotData: self.data.redDotData
+			});
+		};
+		api.messageGet(postData, callback);
 	},
 	
 	hfInfoGet() {

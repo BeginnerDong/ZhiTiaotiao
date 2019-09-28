@@ -67,6 +67,21 @@ class Api extends Base {
 		this.request(allParams);
 	}
 	
+	realDelImg(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/realDelImg',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	
+	
 	addShopView(param, callback) {
 		var allParams = {
 			url: 'Project/Solely/addShopView',

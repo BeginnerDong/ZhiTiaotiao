@@ -226,11 +226,31 @@ Page({
 		const self = this;
 		var index = api.getDataSet(e,'index');
 		var type = api.getDataSet(e,'type');
+		
 		if(type=='mainImg'){
+			//var url = self.data.submitData.mainImg[index].url;
+			
 			self.data.submitData.mainImg.splice(index,1);
 		}else if(type=='bannerImg'){
+			//var url = self.data.submitData.bannerImg[index].url;
 			self.data.submitData.bannerImg.splice(index,1);
 		};
+		/* var imgIdReg = /id(\S*)\./i;
+		var id = url.match(imgIdReg)[1];
+		console.log('id',id)
+		const postData = {
+			searchItem:{
+				id:id
+			}
+		};
+		const callback = (data) => {
+			if (data.solely_code == 100000) {
+				
+			} else {
+				api.showToast(res.msg, 'none')
+			};
+		};
+		api.realDelImg(postData, callback); */
 		console.log(self.data.submitData);
 		self.setData({
 			web_submitData:self.data.submitData

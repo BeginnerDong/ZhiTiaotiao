@@ -29,7 +29,8 @@ Page({
 		city: '',
 		order: {},
 		redDotData:[],
-		isShow:false
+		isShow:false,
+		timeSecret:0
 	},
 	//事件处理函数
 
@@ -39,13 +40,23 @@ Page({
 		
 		self.getSliderData();		
 	},
+	onHide(){
+		const self = this;
+		self.data.hotShopData=[];
+		self.data.newShopData=[];
+		console.log('onHide')
+	},
 	
 	onShow(){
 		const self = this;
+		self.data.timeSecret = new Date().getTime();
+		console.log('onshow',(new Date().getTime()));
 		self.data.is_show = false;
 		self.data.hotShopData=[];
 		self.data.newShopData=[];
 		self.setData({
+			/* web_hotShopData:self.data.hotShopData,
+			web_newShopData:self.data.newShopData, */
 			is_show: self.data.is_show,
 		});
 		const callback = (res) =>{
@@ -79,12 +90,14 @@ Page({
 	getCityData() {
 		const self = this;
 		const postData = {};
+		postData.timeSecret = self.data.timeSecret;
 		postData.searchItem = {
 			thirdapp_id: getApp().globalData.thirdapp_id,
 			title:self.data.city
 		};
 		const callback = (res) => {
-			console.log(1000, res);
+			console.log('1000', self.data.timeSecret);
+			
 			if (res.info.data.length > 0) {
 				self.data.cityData = res.info.data[0]			
 			};

@@ -1,18 +1,13 @@
-
 <view class="messageLis">
-  <view class="item">
-    <view class="tit">标题标题标题标题标题标题标题标题</view>
-    <view class="time">2019-09-24</view>
-    <view class="text">祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功</view>
-  </view>
-  <view class="item">
-    <view class="tit">标题标题标题标题标题标题标题标题</view>
-    <view class="time">2019-09-24</view>
-    <view class="text">祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功</view>
-  </view>
-  <view class="item">
-    <view class="tit">标题标题标题标题标题标题标题标题</view>
-    <view class="time">2019-09-24</view>
-    <view class="text">祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功祝贺汉中成为知条条收个城市运营中心落地成功</view>
-  </view>
+	<block wx:for="{{web_mainData}}">
+		<view class="item" style="position: relative;" bindtap="addLog" data-index="{{index}}">
+			<view class="tit">{{item.title}}</view>
+			<view class="time">{{item.create_time}}</view>
+			<view class="text">{{item.description}}</view>
+			<view wx:if="{{item.log.length==0}}" style="position: absolute;top:30rpx;right:550rpx;width: 20rpx;height: 20rpx;background: #DE5D1C;color: #fff;border-radius:50%;text-align: center;line-height: 20rpx;">
+				
+			</view>
+		</view>
+		
+	</block>
 </view>
