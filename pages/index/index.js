@@ -52,8 +52,8 @@ Page({
 		self.data.timeSecret = new Date().getTime();
 		console.log('onshow',(new Date().getTime()));
 		self.data.is_show = false;
-		self.data.hotShopData=[];
-		self.data.newShopData=[];
+/* 		self.data.hotShopData=[];
+		self.data.newShopData=[]; */
 		self.setData({
 			/* web_hotShopData:self.data.hotShopData,
 			web_newShopData:self.data.newShopData, */
@@ -90,13 +90,13 @@ Page({
 	getCityData() {
 		const self = this;
 		const postData = {};
-		postData.timeSecret = self.data.timeSecret;
+		//postData.timeSecret = self.data.timeSecret;
 		postData.searchItem = {
 			thirdapp_id: getApp().globalData.thirdapp_id,
 			title:self.data.city
 		};
 		const callback = (res) => {
-			console.log('1000', self.data.timeSecret);
+			//console.log('1000', self.data.timeSecret);
 			
 			if (res.info.data.length > 0) {
 				self.data.cityData = res.info.data[0]			
@@ -170,7 +170,7 @@ Page({
 		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
-
+			self.data.newShopData=[];
 			if (res.info.data.length > 0) {
 				self.data.newShopData.push.apply(self.data.newShopData, res.info.data)
 				
@@ -191,8 +191,7 @@ Page({
 	},
 	
 	getNewShopTwoData() {
-		const self = this;
-	
+		const self = this;	
 		const postData = {};
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.tokenFuncName = 'getProjectToken';
@@ -217,7 +216,7 @@ Page({
 		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
-	
+			self.data.newShopData=[];
 			if (res.info.data.length > 0) {
 				self.data.newShopData.push.apply(self.data.newShopData, res.info.data)
 				
@@ -258,8 +257,9 @@ Page({
 		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
-
+			self.data.hotShopData=[];
 			if (res.info.data.length > 0) {
+				
 				self.data.hotShopData.push.apply(self.data.hotShopData, res.info.data)
 				
 			}else{
@@ -304,7 +304,7 @@ Page({
 		};
 		/* postData.order[orderKey]= orderKey; */
 		const callback = (res) => {
-	
+			self.data.hotShopData = [];
 			if (res.info.data.length > 0) {
 				self.data.hotShopData.push.apply(self.data.hotShopData, res.info.data)
 				
