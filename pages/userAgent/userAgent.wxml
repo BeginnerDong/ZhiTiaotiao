@@ -60,4 +60,15 @@
 	        </view>
 	    </view>
 	</view>
+	<view class="sort_item flex" style="position: relative;" bindtap="intoPath" data-path="/pages/userStoreMsg/userStoreMsg?type=agent">
+	    <view class="item_box flex" style="border-left:solid 1px #e1e1e1;box-sizing: content-box;border-right:solid 1px #e1e1e1;">
+	        <view style="width:100%;">
+	            <image src="/images/store-icon10.png"></image>
+	            <view class="font28 color3">系统消息</view>
+	        </view>
+	    </view>
+		<view wx:if="{{web_num}}" style="position: absolute;top:74rpx;right:90rpx;width: 20rpx;height: 20rpx;background: #DE5D1C;color: #fff;border-radius:50%;text-align: center;line-height: 20rpx;">
+			
+		</view>
+	</view>
 </view>

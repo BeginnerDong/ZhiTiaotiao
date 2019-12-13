@@ -216,7 +216,7 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.userInfoData = res.info.data[0];
-				if (self.data.hfInfoData.bank_acct_no !=''&&self.data.hfInfoData.type==3&&self.data.userInfoData.check_status==0) {
+				if (self.data.hfInfoData.bank_acct_no !=''&&self.data.hfInfoData.type==3&&self.data.userInfoData.check_status==1) {
 					wx.redirectTo({
 						url:'/pages/userAgentDetailb/userAgentDetailb'
 					})
@@ -225,7 +225,7 @@ Page({
 					wx.redirectTo({
 						url:'/pages/bank/bank'
 					})
-				}else if(self.data.userInfoData.check_status==-1||self.data.userInfoData.check_status==0){
+				}else if(self.data.userInfoData.check_status==3||self.data.userInfoData.check_status==0){
 					self.getMainData();
 				}
 			};
@@ -244,19 +244,15 @@ Page({
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				self.data.hfInfoData = res.info.data[0]
-				/* self.data.submitData.user_name = res.info.data[0].user_name
+				self.data.submitData.user_name = res.info.data[0].user_name
 				self.data.submitData.cert_id = res.info.data[0].cert_id
 				self.data.submitData.user_mobile = res.info.data[0].user_mobile
-				self.data.submitData.cust_prov = res.info.data[0].cust_prov
-				self.data.submitData.cust_area = res.info.data[0].cust_area
-				self.data.submitData.occupation = res.info.data[0].occupation
-				self.data.submitData.user_email = res.info.data[0].user_email
-				
+	
+			
 				self.data.submitData.bank_acct_no = res.info.data[0].bank_acct_no
 				self.data.submitData.bank_branch = res.info.data[0].bank_branch
-				self.data.submitData.bank_prov = res.info.data[0].bank_prov
-				self.data.submitData.bank_area = res.info.data[0].bank_area
-				self.data.submitData.bank_id = res.info.data[0].bank_id */
+		
+				self.data.submitData.bank_id = res.info.data[0].bank_id
 				self.userInfoGet();
 			};	
 			
@@ -292,6 +288,7 @@ Page({
 			tableName: 'UserInfo',
 			FuncName: 'update',
 			data: {
+				check_status:1,
 				/* bank: self.data.submitData.bank_branch, */
 				bank_id: self.data.submitData.bank_id,
 				card_no: self.data.submitData.bank_acct_no,
@@ -325,6 +322,7 @@ Page({
 		var phone = self.data.submitData.phone;
 		const pass = api.checkComplete(self.data.submitData);
 		console.log('pass', pass)
+		console.log('self.data.submitData', self.data.submitData)
 		if (pass) {		
 				self.hfInfoUpdate();		
 		} else {
@@ -367,7 +365,7 @@ Page({
 		self.data.submitData.cust_prov = self.data.pArrayTwo[e.detail.value].value;
 		console.log(self.data.submitData);
 		for (var i = 0; i < self.data.mainData.length; i++) {
-			if (self.data.mainData[i].province_no == self.data.pArrayTwo[e.detail.value].value) {
+			if (self.data.mainData[i].province_no == self.data.pArrayTwo[e.detail.value].value&&self.data.mainData[i].type==2) {
 				if (api.findItemInArray(self.data.cArrayTwo, 'name', self.data.mainData[i].city) == false) {
 					self.data.cArrayTwo.push({
 						name: self.data.mainData[i].city,
@@ -406,7 +404,7 @@ Page({
 		self.data.submitData.bank_prov = self.data.pArray[e.detail.value].value;
 		console.log(self.data.submitData);
 		for (var i = 0; i < self.data.mainData.length; i++) {
-			if (self.data.mainData[i].province_no == self.data.pArray[e.detail.value].value) {
+			if (self.data.mainData[i].province_no == self.data.pArray[e.detail.value].value&&self.data.mainData[i].type==2) {
 				if (api.findItemInArray(self.data.cArray, 'name', self.data.mainData[i].city) == false) {
 					self.data.cArray.push({
 						name: self.data.mainData[i].city,

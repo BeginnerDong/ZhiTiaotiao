@@ -24,18 +24,18 @@
 </view>
 <view class="input_list1 font28  flex w690 pr">
 	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户省份：</view>
-  <view class="tips">须与身份证省份保持一致</view>
+ <!-- <view class="tips">须与身份证省份保持一致</view> -->
 	<picker bindchange="userProvinceChange" value="{{index}}" range="{{web_pArrayTwo}}" range-key="name"  class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_pArrayTwo[web_index5].name?web_pArrayTwo[web_index5].name:'请选择'}}
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_pArrayTwo[web_index5].name?web_pArrayTwo[web_index5].name:'须与身份证省份保持一致'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
 		</view>
 	</picker>
 </view>
 <view class="input_list1 font28  flex w690 pr">
 	<view class="input_before color8" style="font-size: 28rpx;width:27%">用户地区：</view>
-  <view class="tips">须与身份证地区保持一致</view>
+  <!-- <view class="tips">须与身份证地区保持一致</view> -->
 	<picker bindchange="userCityChange" value="{{index}}" range="{{web_cArrayTwo}}" range-key="name"  class="input">
-		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_cArrayTwo[web_index6].name?web_cArrayTwo[web_index6].name:'请选择'}}
+		<view class="font28" style="font-size: 28rpx;float: right;color: #999;">{{web_cArrayTwo[web_index6].name?web_cArrayTwo[web_index6].name:'须与身份证地区保持一致'}}
 			<image src="../../images/images/next-page.png" style="width: 16rpx; height: 20rpx; margin-left: 20rpx; "></image>		
 		</view>
 	</picker>

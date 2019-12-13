@@ -21,7 +21,7 @@ Page({
 		duration: 500,
 		previousMargin: 0,
 		nextMargin: 0,
-		isFirstLoadAllStandard: ['getSliderData','getLocation', 'getMessageData'],
+		isFirstLoadAllStandard: ['getSliderData'],
 		sliderData: [],
 		newShopData: [],
 		hotShopData: [],
@@ -37,14 +37,32 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		
+		self.getRedDotData();
+		self.getMessageData();
+		self.getLocation();
 		self.getSliderData();		
 	},
+	
+	onPullDownRefresh() {
+		const self = this;
+		wx.showNavigationBarLoading();
+		wx.showLoading();
+		self.getRedDotData();
+		self.getMessageData();
+		self.getLocation();
+		self.getSliderData();	
+	},
+	
 	onHide(){
 		const self = this;
 		self.data.hotShopData=[];
 		self.data.newShopData=[];
-		console.log('onHide')
+		/* self.setData({
+			web_hotShopData:self.data.hotShopData,
+			web_newShopData:self.data.newShopData
+		}); */
+		console.log('onHide');
+		wx.removeStorageSync('checkLoadAll')
 	},
 	
 	onShow(){
@@ -60,30 +78,11 @@ Page({
 			is_show: self.data.is_show,
 		});
 		const callback = (res) =>{
-			self.getRedDotData();
-			self.getMessageData();
-			self.getLocation();
-		};
-		token.getProjectToken(callback,{refreshToken:true})
-		
-		//self.getThirdAppData()
-	},
-	
-/* 	getThirdAppData() {
-		const self = this;
-		const postData = {};
-		postData.searchItem = {
 			
 		};
-		const callback = (res) => {
-			console.log(1000, res);
-			if (res.info.data.length > 0) {
-				self.data.thirdAppData = res.info.data[0]			
-			};
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'thirdAppGet', self);
-		};
-		api.thirdAppGet(postData, callback);
-	}, */
+		token.getProjectToken(callback,{refreshToken:true})
+
+	},
 	
 
 	
@@ -106,8 +105,14 @@ Page({
 				web_city: self.data.cityData&&self.data.cityData.title?self.data.cityData.title:wx.getStorageSync('info').thirdApp.codeName
 			});
 			self.getHotShopData();
-			self.getNewShopData();	
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getCityData', self);
+			self.getNewShopData();
+			setTimeout(function()
+			{
+			  wx.hideNavigationBarLoading();
+			  wx.stopPullDownRefresh();
+			  wx.hideLoading();
+			},300);
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getCityData', self);
 		};
 		api.labelGet(postData, callback);
 	},
@@ -147,7 +152,12 @@ Page({
 		const self = this;
 
 		const postData = {};
-		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.paginate = {
+			count: 0,
+			currentPage:1,
+			pagesize:20,
+			is_page:true,
+		};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
@@ -193,7 +203,12 @@ Page({
 	getNewShopTwoData() {
 		const self = this;	
 		const postData = {};
-		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.paginate =  {
+		    count: 0,
+		    currentPage:1,
+		    pagesize:20,
+		    is_page:true,
+		};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
@@ -236,7 +251,12 @@ Page({
 		var orderKey = 'view_count * 0.0002 + favor_count * 0.4999 + follow_count * 0.4999';
 		self.data.order[orderKey] = 'desc';
 		const postData = {};
-		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.paginate =  {
+		    count: 0,
+		    currentPage:1,
+		    pagesize:20,
+		    is_page:true,
+		};;
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
@@ -283,7 +303,12 @@ Page({
 		var orderKey = 'view_count * 0.0002 + favor_count * 0.4999 + follow_count * 0.4999';
 		self.data.order[orderKey] = 'desc';
 		const postData = {};
-		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.paginate =  {
+		    count: 0,
+		    currentPage:1,
+		    pagesize:20,
+		    is_page:true,
+		};;
 		postData.tokenFuncName = 'getProjectToken';
 		postData.searchItem = {
 			user_type: 1,
@@ -387,7 +412,7 @@ Page({
 			self.setData({
 				web_messageData: self.data.messageData
 			});
-			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMessageData', self);
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMessageData', self);
 		};
 		api.messageGet(postData, callback);
 	},
@@ -413,7 +438,7 @@ Page({
 			})
 		};
 		api.getLocation('reverseGeocoder', callback);
-		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
+		//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getLocation', self)
 	},
 	
 	

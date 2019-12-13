@@ -1221,6 +1221,18 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+	
+	searchShop(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/searchShop',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
 
 	orderGet(param, callback) {
 		var allParams = {

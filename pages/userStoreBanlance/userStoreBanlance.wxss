@@ -249,6 +249,16 @@
 /* 当日货款和当日笔数 */
 .hklisBox{flex-wrap: wrap; display: flex;justify-content: space-around;padding-top:80rpx}
 .hklisBox>view{width:50%;color: #BDDEF1;font-size:26rpx; text-align: center;}
-
+.piece_list{
+	height:110rpx;
+	border-bottom:solid 1px #f4f4f4;
+}
+.piece_item{
+	width:50%;
+}
+.ilblock{
+	display: inline-block;
+  padding-top: 8rpx;
+}
 
 

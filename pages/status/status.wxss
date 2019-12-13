@@ -78,7 +78,7 @@ page{
 }
 .status_left{
 	/* border: solid 1rpx red; */
-	width:43.5%;
+	width:50%;
 }
 .status_left view{
 	position: relative;
@@ -86,7 +86,7 @@ page{
 }
 .status_right{
 	/* border: solid 1rpx red; */
-	width:37.5%;
+	width:37%;
 	padding-right:5%;
 	text-align:right;
 	line-height: 40rpx;

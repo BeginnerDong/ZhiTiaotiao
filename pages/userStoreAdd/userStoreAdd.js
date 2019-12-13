@@ -75,15 +75,17 @@ Page({
 		};
 
 		wx.chooseImage({
-			count: 1,
+			count: 9,
 			success: function(res) {
 				console.log(res);
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
-				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken',
-					type: 'image'
-				}, callback)
+				for (var i = 0; i < tempFilePaths.length; i++) {
+					api.uploadFile(tempFilePaths[i], 'file', {
+						tokenFuncName: 'getStoreToken',
+						type:'image'
+					}, callback)
+				}
 			},
 			fail: function(err) {
 				wx.hideLoading();

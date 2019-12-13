@@ -343,6 +343,24 @@ Page({
 		})
 	},
 	
+	previewImg(e) {
+		const self = this;
+		var index = api.getDataSet(e,'index');
+		var urlArray = [];
+		
+		urlArray.push(self.data.img[index].url)
+		
+		console.log(index)
+		console.log('self.data.img',self.data.img)
+		wx.previewImage({
+			current: self.data.img[index].url,
+			urls: urlArray,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
+	},
+	
 	deleteImg(e){
 		const self = this;
 		var index = api.getDataSet(e,'index');
@@ -543,7 +561,7 @@ Page({
 		self.data.submitData.bank_prov = self.data.pArray[e.detail.value].value;
 		console.log(self.data.submitData);
 		for (var i = 0; i < self.data.mainData.length; i++) {
-			if (self.data.mainData[i].province_no == self.data.pArray[e.detail.value].value) {
+			if (self.data.mainData[i].province_no == self.data.pArray[e.detail.value].value&&self.data.mainData[i].type==2) {
 				if (api.findItemInArray(self.data.cArray, 'name', self.data.mainData[i].city) == false) {
 					self.data.cArray.push({
 						name: self.data.mainData[i].city,

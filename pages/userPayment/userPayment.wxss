@@ -142,7 +142,7 @@ page{
 }
 .img image{
 	width: 300px;
-	height: 425px;
+	height: 300px;
 }
 /* .get_peice image{
 	width:100%;

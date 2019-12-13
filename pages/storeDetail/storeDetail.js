@@ -28,6 +28,7 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
+		
 		self.data.user_no = options.user_no;
 		self.addShopView()
 		
@@ -37,7 +38,10 @@ Page({
 	onShow(){
 		const self = this;
 		self.getProductData(true)
-		self.getMainData();
+		setTimeout(function() {
+			self.getMainData();
+		}, 500);
+		
 	},
 	
 	

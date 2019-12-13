@@ -124,6 +124,7 @@ Page({
 		var totalCount = 0;
 		if (isNew) {
 			self.data.rankData = [];
+			self.data.rankDataTwo = [];
 		};
 		const postData = {};
 		

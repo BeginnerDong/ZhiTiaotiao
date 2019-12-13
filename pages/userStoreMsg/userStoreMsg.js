@@ -17,6 +17,9 @@ Page({
 
 	onLoad(options) {
 		const self = this;
+		if(options.type){
+			self.data.type = options.type
+		};
 		api.commonInit(self);
 
 	},
@@ -37,6 +40,10 @@ Page({
 		postData.searchItem = api.cloneForm(self.data.searchItem);
 		postData.searchItem.user_no = wx.getStorageSync('storeInfo').user_no;
 		postData.searchItem.type = ['in', [7]];
+		if(self.data.type){
+			postData.tokenFuncName = 'getAgentToken';
+			postData.searchItem.user_no = wx.getStorageSync('agentInfo').user_no;
+		}
 		postData.order = {
 			create_time: 'desc'
 		};
@@ -81,6 +88,10 @@ Page({
 			user_no: wx.getStorageSync('storeInfo').user_no,
 		};
 		postData.tokenFuncName = 'getStoreToken';
+		if(self.data.type){
+			postData.tokenFuncName = 'getAgentToken';
+			postData.data.user_no = wx.getStorageSync('agentInfo').user_no;
+		}
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				console.log('已阅读')

@@ -63,6 +63,7 @@ Page({
 	submit() {
 		const self = this;
 		wx.showLoading();
+		console.log(self.data.sForm);
 		if (api.checkComplete(self.data.sForm)) {
 
 			wx.setStorageSync('login', self.data.sForm);
@@ -89,6 +90,7 @@ Page({
 	bindInputChange(e) {
 		const self = this;
 		api.fillChange(e, self, 'sForm');
+		console.log('bindInputChange',self.data.sForm)
 		self.setData({
 			web_sForm: self.data.sForm,
 		});

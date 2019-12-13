@@ -14,6 +14,7 @@ Page({
 		searchItem: {
 			status:['in',[1,0,-1]],
 			type:3,
+			behavior:2
 		},
 		isFirstLoadAllStandard: ['getMainData', 'getUserInfoData']
 	},

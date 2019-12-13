@@ -17,10 +17,7 @@
 	<view class="top-text1">{{web_currentId==1?(web_userInfoData.balance?web_userInfoData.balance:'0.00'):(web_userInfoData.reward?web_userInfoData.reward:'0.00')}}</view>
 	<view class="top-text2" wx:if="{{web_currentId==1}}">货款余额(￥)</view>
 	<view class="top-text2" wx:if="{{web_currentId==2}}">结算金余额(￥)</view>
-  <view class="hklisBox">
-    <view >当日货款：{{web_todayMoney?web_todayMoney:'0'}}元</view>
-    <view>当日笔数：{{web_todayItem?web_todayItem:'0'}}笔</view>
-  </view>
+  
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>
 <view class="tab font30 flexRowBetween">
@@ -32,19 +29,28 @@
     </view>
 </view>
 
-<view  wx:if="{{web_currentId==1}}">
-	<view class="record_tlt flex" style="background:#f5f5f5;">
+<view>
+	<!-- <view class="record_tlt flex" style="background:#f5f5f5;"  wx:if="{{item.count>0}}">
 	  <view class="w50 color2 font30">时间</view>
 	  <view class="w50 color2 font30">金额</view>
-	</view>
+	</view> -->
+	<view style="height: 10rpx;background: #f5f5f5;"></view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
-		<view class="record_list flex" wx:if="{{item.count>0}}">
+		<view class="piece_list w690 flex"  wx:if="{{item.count<0}}">
+		   <view class="piece_item font28 color2" style="text-align:left;">
+				<view class="font24 color2">{{item.trade_info}}</view>
+				<!-- <view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view> -->
+				<view class="font24 color2 ilblock">{{item.create_time}}</view>
+			</view>
+			<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}</view>
+		</view>
+		<!-- <view class="record_list flex" wx:if="{{item.count>0}}">
 		  <view class="w50 color6 font26">{{item.create_time}}</view>
 		  <view class="w50 color3 font28">{{item.count}}</view>
-		</view>
+		</view> -->
 	</block>
 </view>
-<view   wx:if="{{web_currentId==2}}">
+<!-- <view   wx:if="{{web_currentId==2}}">
     <view class="record_tlt flex" style="background:#f5f5f5;">
       <view class="w33 color2 font30">店比重额</view>
       <view class="w33 color2 font30">联盟金</view>
@@ -62,7 +68,7 @@
 	<view class="reword font24 color1 flex">
 	    <view class="reword_in color1" bindtap="rule">结算规则</view>
 	</view>
-</view>
+</view> -->
 <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1" style="height: 90%;">
         <scroll-view scroll-y style="height:90%">

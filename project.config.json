@@ -13,7 +13,7 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.2",
+	"libVersion": "2.9.2",
 	"appid": "wxc8d1cbc1fcb04c31",
 	"projectname": "%E7%9F%A5%E6%9D%A1%E6%9D%A1",
 	"isGameTourist": false,
@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 131,
 			"list": [
 				{
 					"id": -1,
@@ -917,6 +917,63 @@
 					"id": -1,
 					"name": "pages/userStoreMsg/userStoreMsg",
 					"pathName": "pages/userStoreMsg/userStoreMsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentCash/userAgentCash",
+					"pathName": "pages/userAgentCash/userAgentCash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentLogin/userAgentLogin",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userAgentLogin/userAgentLogin",
+					"pathName": "pages/userAgentLogin/userAgentLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Agent_status/Agent_status",
+					"pathName": "pages/Agent_status/Agent_status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreContact/userStoreContact",
+					"pathName": "pages/userStoreContact/userStoreContact",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreLogin/userStoreLogin",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
 					"scene": null
 				}
 			]

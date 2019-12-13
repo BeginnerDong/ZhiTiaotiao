@@ -102,8 +102,7 @@ Page({
 	onLoad(options) {
 		const self = this;
 		api.commonInit(self);
-		self.data.day = new Date().getDate();
-		console.log(self.data.day)
+		self.data.week = new Date().getDay().toString();
 		self.getUserInfoData()
 		self.getAboutData();
 		self.getHfInfoData()
@@ -198,33 +197,36 @@ Page({
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
-		if (self.data.day>7) {
+		if (self.data.week==1||self.data.week==2) {
+			const pass = api.checkComplete(self.data.submitData);
+			console.log('pass', pass)
+			if (pass) {
+				if (self.data.chooseType == 0) {
+					api.buttonCanClick(self, true);
+			
+					api.showToast('请选择提现方式', 'none');
+					return
+				}
+				if (parseFloat(self.data.submitData.count) > parseFloat(self.data.userInfoData.benefit)) {
+					api.buttonCanClick(self, true);
+			
+					api.showToast('佣金不足', 'none');
+					return
+				}
+				self.flowLogAdd()
+			} else {
+				api.buttonCanClick(self, true);
+			
+				api.showToast('请输入提现金额', 'none')
+			};
+			
+		}else{
 			api.buttonCanClick(self, true);
-		
+					
 			api.showToast('不在提现日期内', 'none');
 			return
-		};
-		const pass = api.checkComplete(self.data.submitData);
-		console.log('pass', pass)
-		if (pass) {
-			if (self.data.chooseType == 0) {
-				api.buttonCanClick(self, true);
-
-				api.showToast('请选择提现方式', 'none');
-				return
-			}
-			if (parseFloat(self.data.submitData.count) > parseFloat(self.data.userInfoData.benefit)) {
-				api.buttonCanClick(self, true);
-
-				api.showToast('佣金不足', 'none');
-				return
-			}
-			self.flowLogAdd()
-		} else {
-			api.buttonCanClick(self, true);
-
-			api.showToast('请输入提现金额', 'none')
-		};
+		}
+		
 	},
 
 	choose(e) {

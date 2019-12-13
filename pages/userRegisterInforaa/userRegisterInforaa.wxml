@@ -20,7 +20,7 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="0" data-id="{{web_img[0].id}}"/>
-		<image src="{{web_img[0].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[0].url}}"  bindtap="previewImg" data-index="0" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="padding-bottom:20rpx" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
@@ -33,7 +33,7 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="1" data-id="{{web_img[1].id}}"/>
-		<image src="{{web_img[1].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[1].url}}" bindtap="previewImg" data-index="1" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="padding-bottom:20rpx" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
@@ -46,7 +46,7 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="2" data-id="{{web_img[2].id}}"/>
-		<image src="{{web_img[2].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[2].url}}" bindtap="previewImg" data-index="2" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 <view class="input_list2  w690" style="padding-bottom:20rpx" wx:if="{{web_submitData.corp_license_type&&web_submitData.corp_license_type=='01030100'}}">
@@ -59,12 +59,12 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="3" data-id="{{web_img[3].id}}"/>
-		<image src="{{web_img[3].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[3].url}}" bindtap="previewImg" data-index="3" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 
 <view class="input_list2  w690" style="padding-bottom:20rpx">
-	<view class="color8 line_tit" >法人身份证正反面照片
+	<view class="color8 line_tit" >法人身份证正面照片
   <view class="notes">（*须加盖有色公章，无公章须手印并签字）</view></view>
 	<view class="input_list2-img" bindtap="upLoadImg" data-type="03" wx:if="{{web_img[4].url==''}}">
 		<image src="../../images/Upload-icon.png"></image>
@@ -73,10 +73,22 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="4" data-id="{{web_img[4].id}}"/>
-		<image src="{{web_img[4].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[4].url}}" bindtap="previewImg" data-index="4" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
-
+<view class="input_list2  w690" style="padding-bottom:20rpx">
+	<view class="color8 line_tit" >法人身份证反面照片
+  <view class="notes">（*须加盖有色公章，无公章须手印并签字）</view></view>
+	<view class="input_list2-img" bindtap="upLoadImg" data-type="09" wx:if="{{web_img[5].url==''}}">
+		<image src="../../images/Upload-icon.png"></image>
+	</view>
+	<view class="input_list2-img"  data-type="09" style="position: relative;" wx:else style="position: relative;">
+		<image  src="/images/Uploadqualification-icon.png"
+		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
+		bindtap="deleteImg" data-index="5" data-id="{{web_img[5].id}}"/>
+		<image src="{{web_img[5].url}}" bindtap="previewImg" data-index="5" style="margin: 0;width: 100%;height: 100%;"></image>
+	</view>
+</view>
 <view class="input_list2  w690" style="padding-bottom:20rpx">
 	<view class="color8 line_tit" >对公银行账户信息照片
   <view class="notes">（*须加盖有色公章，无公章须手印并签字）</view></view>
@@ -87,7 +99,7 @@
 		<image  src="/images/Uploadqualification-icon.png"
 		style="width:30rpx;height:30rpx;position:absolute;top:-15rpx;right:-15rpx;margin: 0;"  
 		bindtap="deleteImg" data-index="6" data-id="{{web_img[6].id}}"/>
-		<image src="{{web_img[6].url}}" style="margin: 0;width: 100%;height: 100%;"></image>
+		<image src="{{web_img[6].url}}" bindtap="previewImg" data-index="6" style="margin: 0;width: 100%;height: 100%;"></image>
 	</view>
 </view>
 

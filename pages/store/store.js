@@ -108,6 +108,46 @@ Page({
 		};
 		api.shopInfoGet(postData, callback);
 	},
+	
+	searchShop(isNew) {
+		const self = this;
+		var lat = self.data.la1;
+		var lon = self.data.lo1;
+		var orderKey = 'ACOS(SIN((' + lat + '* 3.1415) / 180 ) *SIN((latitude * 3.1415) / 180 ) +COS((' + lat +
+			' * 3.1415) / 180 ) * COS((latitude * 3.1415) / 180 ) *COS((' + lon +
+			' * 3.1415) / 180 - (longitude * 3.1415) / 180 ) ) * 6379';
+		self.data.order[orderKey] = 'asc';
+		if (isNew) {
+			api.clearPageIndex(self)
+		};
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.searchItem = {
+			name: self.data.sForm.name
+		};
+		postData.searchItem.is_show = 1;
+		postData.order = api.cloneForm(self.data.order)
+		const callback = (res) => {
+			api.buttonCanClick(self, true);
+			wx.hideLoading();
+			if (res.info.data.length > 0) {
+				self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				for (var i = 0; i < self.data.mainData.length; i++) {
+					self.data.mainData[i].distance =
+						api.distance(self.data.la1, self.data.lo1, self.data.mainData[i].latitude, self.data.mainData[i].longitude)
+					console.log('self.data.mainData[i].distance', self.data.mainData[i].distance)
+				}
+			} else {
+				self.data.isLoadAll = true;
+				api.showToast('没有更多了', 'none')
+			}
+			self.setData({
+				web_mainData: self.data.mainData
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+		};
+		api.searchShop(postData, callback);
+	},
 
 	getTypeData() {
 		const self = this;
@@ -187,19 +227,7 @@ Page({
 				web_menu_id:''
 			})
 		};
-		self.data.getBefore = {
-			caseData: {
-				tableName: 'Product',
-				searchItem: {
-					title: ['LIKE', ['%' + self.data.sForm.name + '%']]
-				},
-				middleKey: 'user_no',
-				key: 'user_no',
-				condition: 'in',
-			},
-		};
-
-		self.getMainData(true)
+		self.searchShop(true)
 	},
 
 	bindInputChange(e) {
@@ -279,7 +307,12 @@ Page({
 		const self = this;
 		if (!self.data.isLoadAll) {
 			self.data.paginate.currentPage++;
-			self.getMainData();
+			if(self.data.sForm.name==''){
+				self.getMainData();
+			}else{
+				self.searchShop()
+			}
+			
 		};
 	},
 

@@ -51,6 +51,8 @@ Page({
 		api.rewardParamGet(postData, callback);
 	},
 	
+	
+	
 	getShopData() {
 		const self = this;
 		const postData = {};
@@ -63,6 +65,7 @@ Page({
 				self.data.shopData = res.info.data[0];
 			};
 			self.rewardParamGet()
+			
 		};
 		api.userInfoGet(postData, callback);
 	},
@@ -74,9 +77,13 @@ Page({
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0];
+				self.data.mainData.score = parseFloat(self.data.mainData.score)
 			};
 			self.getShopData()
-		
+			self.setData({
+				web_mainData:self.data.mainData
+			})
+			
 		};
 		api.userInfoGet(postData, callback);
 	},
@@ -131,7 +138,7 @@ Page({
 					const payCallback = (payData) => {
 						if (payData == 1) {
 							api.showToast('支付成功', 'none', 1000, function() {
-								if(!self.data.pay.wxPay.price<10){
+								if(parseFloat(self.data.pay.wxPay.price)>=10){
 									self.data.is_peice = true;
 									self.setData({
 										is_peice:self.data.is_peice

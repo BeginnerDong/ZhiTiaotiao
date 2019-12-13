@@ -4,39 +4,99 @@
 	<view class="top-text2" wx:if="{{web_currentId==0}}">货款总额(￥)</view>
 	<view class="top-text2" wx:if="{{web_currentId==1}}">联盟金总额(￥)</view>
 	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金结算总额(￥)</view>
+	<view class="hklisBox" wx:if="{{web_currentId==0}}">
+		<view>当日货款：{{web_todayMoney?web_todayMoney:'0'}}元</view>
+		<view>当日笔数：{{web_todayItem?web_todayItem:'0'}}笔</view>
+	</view>
 	<view class="hklisBox" wx:if="{{web_currentId==1}}">
-	  <view >当日联盟金：{{web_today}}元</view>
+		<view>当日交易差额：{{web_reduceMoney>0?web_reduceMoney+'元':'无'}}</view>
+		<view>当日待结算联盟金：{{web_today}}元</view>
 	</view>
 </view>
 <view class="tab font30 flexRowBetween">
-    <view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="{{web_buttonCanClick?'tab':''}}">
-       货款
-    </view>
-    <view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1"  bindtap="{{web_buttonCanClick?'tab':''}}">
-        联盟金
-    </view>
-    <view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2"  bindtap="{{web_buttonCanClick?'tab':''}}">
-        结算金
-    </view>
+	<view class="tab_item {{web_currentId == 0?'tab_this':''}}" data-id="0" bindtap="{{web_buttonCanClick?'tab':''}}">
+		货款
+	</view>
+	<view class="tab_item {{web_currentId == 1?'tab_this':''}}" data-id="1" bindtap="{{web_buttonCanClick?'tab':''}}">
+		联盟金
+	</view>
+	<view class="tab_item {{web_currentId == 2?'tab_this':''}}" data-id="2" bindtap="{{web_buttonCanClick?'tab':''}}">
+		结算金
+	</view>
+</view>
+<view wx:if="{{web_currentId==0}}">
+	<view class="record_tlt flex" style="background:#f5f5f5;">
+		<view class="w50 color2 font30" style="width: 40%;">时间</view>
+		<view class="w50 color2 font30" style="width: 30%;">货款金额</view>
+		<view class="w50 color2 font30" style="width: 30%;">交易金额</view>
+	</view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex" wx:if="{{item.count>0}}">
+			<view class="w50 color6 font26" style="width: 40%;">{{item.create_time}}</view>
+			<view class="w50 color3 font28" style="width: 30%;">{{item.count}}</view>
+			<view class="w50 color3 font28" style="width: 30%;">{{item.order.price}}</view>
+		</view>
+	</block>
+</view>
+<view wx:if="{{web_currentId==2}}">
+	<view class="record_tlt flex" style="background:#f5f5f5;">
+		<view class="w33 color2 font30">店比重额</view>
+		<view class="w33 color2 font30">联盟金</view>
+		<view class="w33 color2 font30">结算金</view>
+		<view class="w33 color2 font30">时间</view>
+	</view>
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="record_list flex" wx:if="{{item.count>0}}">
+			<view class="w33 color6 font24">{{item.ratio}}</view>
+			<view class="w33 color6 font24">{{item.total }}</view>
+			<view class="w33 color6 font24">{{item.count}}</view>
+			<view class="w33 color6 font24">{{item.create_time}}</view>
+		</view>
+	</block>
+	
+	
 </view>
 
-	<view style="margin-top:30rpx;">
-		<block wx:for="{{web_mainData}}" wx:key="id">
-			<view class="piece_list w690 flex"  wx:if="{{item.count>0&&web_currentId==1}}">
-				<view class="piece_item font28 color2" style="text-align:left;">
-					<view class="font28 color2">{{item.shopInfo.nickname?item.shopInfo.nickname:item.trade_info}}</view>
-					
-					<view class="font24 color9 ilblock">{{item.create_time}}</view>
-				</view>
-				<view class="piece_item font28 color3" style="text-align:right;">{{item.count}}</view>
+<view class="reword font24 color1 flex" wx:if="{{web_currentId==1||web_currentId==2}}">
+	<view class="reword_in color1" bindtap="rule">结算规则</view>
+</view>
+<view style="margin-top:30rpx;">
+	<block wx:for="{{web_mainData}}" wx:key="id">
+		<view class="piece_list w690 flex" wx:if="{{item.count>0&&web_currentId==1}}">
+			<view class="piece_item font28 color2" style="text-align:left;">
+				<view class="font28 color2">{{item.shopInfo.nickname?item.shopInfo.nickname:item.trade_info}}</view>
+
+				<view class="font24 color9 ilblock">{{item.create_time}}</view>
 			</view>
-			<view class="piece_list w690 flex"  wx:if="{{item.count<0}}">
-			   <view class="piece_item font28 color2" style="text-align:left;">
-					<view class="font24 color2">{{item.trade_info}}</view>
-					<!-- <view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view> -->
-					<view class="font24 color2 ilblock">{{item.create_time}}</view>
-				</view>
-				<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}<text style="font-size: 22rpx;">\n提现成功</text></view>
+			<view class="piece_item font28 color3" style="text-align:right;">{{item.count}}</view>
+		</view>
+		<view class="piece_list w690 flex" wx:if="{{item.count<0}}">
+			<view class="piece_item font28 color2" style="text-align:left;">
+				<view class="font24 color2">{{item.trade_info}}</view>
+				<!-- <view class="font24 color2 ilblock">2月3日</view><view class="font24 color2 ilblock time">15:41</view> -->
+				<view class="font24 color2 ilblock">{{item.create_time}}</view>
 			</view>
-		</block>
-	</view>
+			<view class="piece_item font26 color5" style="text-align:right;">{{item.count}}</view>
+		</view>
+	</block>
+</view>
+
+<view class="mask" wx:if="{{is_rule}}">
+    <view class="rule bg1" style="height: 90%;">
+        <scroll-view scroll-y style="height:90%">
+            <view class="rule_cont">
+              <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+              <view class=" content font24 color2 w690">
+                <view class="content ql-editor">
+                  <import src="../../wxParse/wxParse.wxml"/>
+                  <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+                </view>
+              </view>
+			      </view>
+        </scroll-view>
+        <view style="height: 10%;display: flex;align-items: center;justify-content: center;">
+          <image src="/images/Uploadqualification-icon.png" style="width:50rpx;height: 50rpx;" bindtap="rule"></image>
+        </view>
+		
+    </view>
+</view>
