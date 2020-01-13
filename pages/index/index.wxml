@@ -73,7 +73,7 @@
 				<view class="font34 color2">热门店铺</view>
 			</view>
 		</view>
-		<view class="index_product flexRowBetween">
+		<view class="index_product flex">
 			<view class="recommend_left shadow1" wx:for="{{web_hotShopData}}" wx:if="{{index<20}}" bindtap="intoPath" data-path="/pages/storeDetail/storeDetail?user_no={{item.user_no}}">
 				<view class="recommend_top">
 					<image src="{{item.mainImg[0].url}}"></image>

@@ -150,12 +150,14 @@ swiper{
 	height:100%
 }
 .recommend_left{
-	width:49.2%;
+	width:355rpx;
 	background: #fff;
 	padding-bottom: 20rpx;
 	height:355rpx;
-	margin-bottom:8rpx;
+	margin-bottom:10rpx;
+  margin-right: 10rpx;
 }
+.recommend_left:nth-of-type(2n){margin-right: 0}
 .new_store .moreBtn{ float: right; font-size: 28rpx;}
 .index_product .product_item{
   justify-content: left;
@@ -165,13 +167,11 @@ swiper{
 	height:60rpx;
 	line-height:64rpx;
 	overflow:hidden;
-	width:92%;
 	padding:0 5%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .product_pro{
-	width:92%;
 	padding:0 5%;
 }
 .product_item{
