@@ -78,7 +78,7 @@ page{
 	box-shadow:0 0 20rpx #e0e0e0;
 }
 .case_box{
-	margin-top:100rpx;
+	margin-top:0rpx;
 	border-radius:20rpx;
 }
 .payment_item{

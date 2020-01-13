@@ -150,11 +150,11 @@ swiper{
 	height:100%
 }
 .recommend_left{
-	width:49%;
+	width:49.2%;
 	background: #fff;
 	padding-bottom: 20rpx;
 	height:355rpx;
-	margin-bottom:16rpx;
+	margin-bottom:8rpx;
 }
 .new_store .moreBtn{ float: right; font-size: 28rpx;}
 .index_product .product_item{

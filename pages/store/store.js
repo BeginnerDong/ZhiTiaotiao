@@ -34,19 +34,18 @@ Page({
 		api.commonInit(self);
 
 		self.getTypeData();
-		
+		self.data.is_show = false;
+		self.setData({
+			is_show: self.data.is_show
+		})
+		self.getLocation()
 	},
 	
 	onShow(){
 		const self = this;
 		console.log(22)
 		
-		self.data.is_show = false;
-		self.setData({
-			is_show: self.data.is_show
-		})
-		wx.showLoading()
-		self.getLocation()
+		
 	},
 	
 	deleteName(){
@@ -141,6 +140,7 @@ Page({
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none')
 			}
+			
 			self.setData({
 				web_mainData: self.data.mainData
 			});

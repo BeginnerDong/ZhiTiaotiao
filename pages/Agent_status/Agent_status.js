@@ -11,85 +11,7 @@ var token = new Token();
 Page({
 
 	data: {
-		bankData: [{
-			name: '兴业银行',
-			value: '03090000'
-		}, {
-			name: '华夏银行',
-			value: '03040000'
-		}, {
-			name: '北京银行',
-			value: '03130011'
-		}, {
-			name: '招商银行',
-			value: '03080000'
-		}, {
-			name: '中国工商银行',
-			value: '01020000'
-		}, {
-			name: '中国建设银行',
-			value: '01050000'
-		}, {
-			name: '中国农业银行',
-			value: '01030000'
-		}, {
-			name: '光大银行',
-			value: '03030000'
-		}, {
-			name: '北京农村商业银行',
-			value: '04020011'
-		}, {
-			name: '中国银行',
-			value: '01040000'
-		}, {
-			name: '中国邮政储蓄银行',
-			value: '04030000'
-		}, {
-			name: '南京银行',
-			value: '03133201'
-		}, {
-			name: '杭州银行',
-			value: '03133301'
-		}, {
-			name: '浙商银行',
-			value: '03160000'
-		}, {
-			name: '上海银行',
-			value: '03130031'
-		}, {
-			name: '渤海银行',
-			value: '03180000'
-		}, {
-			name: '上海农村商业银行',
-			value: '04020031'
-		}, {
-			name: '广东发展银行',
-			value: '03060000'
-		}, {
-			name: '民生银行',
-			value: '03050000'
-		}, {
-			name: '浦东发展银行',
-			value: '04020031'
-		}, {
-			name: '平安银行',
-			value: '03134402'
-		}, {
-			name: '浙江民泰商业银行',
-			value: '03133307'
-		}, {
-			name: '浙江泰隆商业银行',
-			value: '31330000'
-		}, {
-			name: '深圳发展银行',
-			value: '03070000'
-		}, {
-			name: '中信银行',
-			value: '03020000'
-		}, {
-			name: '交通银行',
-			value: '03010000'
-		}],
+		bankData: [],
 		occupationData: [{
 				name: '国家机关、 党群机关、 企事业单位负责人',
 				value: '01'
@@ -155,7 +77,7 @@ Page({
 		cArray: [],
 		cArrayTwo:[],
 		mainData: [],
-		isFirstLoadAllStandard: ['getMainData']
+		isFirstLoadAllStandard: ['getMainData','getBankData']
 	},
 
 	onShow() {
@@ -163,9 +85,44 @@ Page({
 		api.commonInit(self);
 		
 		self.hfInfoGet()
+		self.getBankData()
 	},
 
-
+	getBankData(){
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			thirdapp_id: 2,
+		};
+		postData.getBefore = {
+			caseData: {
+				tableName: 'Label',
+				searchItem: {
+					title: ['in', ['个人取现银行列表']],
+				},
+				middleKey: 'parentid',
+				key: 'id',
+				condition: 'in',
+			},
+		};
+		postData.order = {
+			listorder:'desc'
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				for (var i = 0; i < res.info.data.length; i++) {
+					self.data.bankData.push({name:res.info.data[i].title,value:res.info.data[i].description})
+				}
+			}
+			self.setData({
+				bankData: self.data.bankData,
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getBankData', self);
+			console.log('self.data.bankData',self.data.bankData)
+		};
+		api.labelGet(postData, callback);
+	},
+	
 
 
 

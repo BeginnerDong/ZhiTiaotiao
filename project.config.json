@@ -975,6 +975,27 @@
 					"pathName": "pages/userPayment/userPayment",
 					"query": "scene=U917988757455925",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreLogin/userStoreLogin",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStroeBill/userStroeBill",
+					"pathName": "pages/userStroeBill/userStroeBill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStoreLogin/userStoreLogin",
+					"pathName": "pages/userPayment/userPayment",
+					"query": "scene=U917988757455925",
+					"scene": null
 				}
 			]
 		}

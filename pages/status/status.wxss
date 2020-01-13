@@ -47,8 +47,7 @@ page{
 }
 .status{
 	height:160rpx;
-	border-radius:10rpx;
-	margin-top:30rpx;
+	border-bottom: 1px solid #f0f0f0
 }
 
 .select image{
@@ -63,7 +62,7 @@ page{
 	margin:30rpx auto;
 }
 .status_number{
-	width:13%;
+	width:15%;
 	height:100%;
 	position:relative;
 	top: -16rpx;
@@ -86,7 +85,7 @@ page{
 }
 .status_right{
 	/* border: solid 1rpx red; */
-	width:37%;
+	width:35%;
 	padding-right:5%;
 	text-align:right;
 	line-height: 40rpx;
@@ -167,7 +166,7 @@ page{
 	line-height: 35rpx;
 }
 .bg1{
-	border-radius:12rpx ;
+	
 }
 
 

@@ -35,11 +35,16 @@ Page({
 		var date=new Date;
 		var year=date.getFullYear(); 
 		var month=date.getMonth();
-		self.data.select_data = year+'年'+month+'月';
+	
+		console.log('month',month)
 		self.data.monthCheck =  new Date(year, month - 1, 1).getTime()/1000;
 		console.log('self.data.monthCheck',self.data.monthCheck)
 		self.data.searchItemThree.period = self.data.monthCheck;
-	
+		if(month==0){
+			month = 12
+			year = year - 1
+		};
+		self.data.select_data = year+'年'+month+'月';
 		self.setData({
 			web_me:wx.getStorageSync('info').user_no,
 			web_select_data:self.data.select_data,
@@ -236,6 +241,10 @@ Page({
 			var date=new Date;
 			var year=date.getFullYear(); 
 			var month=date.getMonth();
+			if(month==0){
+				month = 12
+				year = year - 1
+			};
 			self.data.select_data = year+'年'+month+'月';
 			self.data.monthCheck =  new Date(year, month - 1, 1).getTime()/1000;
 			console.log('self.data.monthCheck',self.data.monthCheck)

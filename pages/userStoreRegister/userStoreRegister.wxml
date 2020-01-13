@@ -42,7 +42,7 @@
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传营业执照：</view>
 	<view class="upload" wx:for="{{web_submitData.license_img}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="license_img"></image>
 		<image bindtap="deleteImg" data-type="license_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -53,7 +53,7 @@
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传身份证正面：</view>
 	<view class="upload" wx:for="{{web_submitData.id_img_front}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="id_img_front"></image>
 		<image bindtap="deleteImg" data-type="id_img_front" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -64,7 +64,7 @@
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传身份证反面：</view>
 	<view class="upload" wx:for="{{web_submitData.id_img_back}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="id_img_back"></image>
 		<image bindtap="deleteImg" data-type="id_img_back" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -77,7 +77,7 @@
 	<view class="input_before  color8" style="width:34%;margin-bottom: 20rpx;">上传店铺协议：</view>
 	<view style="display: flex;width: 100%;flex-wrap: wrap;">
 		<view class="upload"   wx:for="{{web_submitData.agree_img}}" style="position: relative;width: 29%;margin-bottom: 20rpx;margin-right: 1.8%;margin-left: 1.8%;">
-			<image src="{{item.url}}"></image>
+			<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="agree_img"></image>
 			<image bindtap="deleteImg" data-type="agree_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 			 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 		</view>

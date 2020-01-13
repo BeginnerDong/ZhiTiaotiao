@@ -54,11 +54,14 @@
 		</view>
 	</view>
 </view>
-
+<view class="input_list1 font28 flex  w690">
+	<view class="input_before color8">通讯地址：</view>
+	<input placeholder="请输入你的通讯地址" value="{{web_submitData.postal_address}}" data-key="postal_address" bindblur="bindInputChange"></input>
+</view>
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传身份证正面：</view>
 	<view class="upload" wx:for="{{web_submitData.id_img_front}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="id_img_front"></image>
 		<image bindtap="deleteImg" data-type="id_img_front" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -69,7 +72,7 @@
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传身份证反面：</view>
 	<view class="upload" wx:for="{{web_submitData.id_img_back}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="id_img_back"></image>
 		<image bindtap="deleteImg" data-type="id_img_back" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -77,11 +80,11 @@
 		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 	</view>
 </view>
-<view class="font28 w690" style="margin-top:30rpx;border-bottom: solid 1px #e0e0e0;">
+<!-- <view class="font28 w690" style="margin-top:30rpx;border-bottom: solid 1px #e0e0e0;">
 	<view class="input_before  color8" style="width:34%;margin-bottom: 20rpx;">上传代理协议：</view>
 	<view style="display: flex;width: 100%;flex-wrap: wrap;">
 		<view class="upload"   wx:for="{{web_submitData.agree_img}}" style="position: relative;width: 29%;margin-bottom: 20rpx;margin-right: 1.8%;margin-left: 1.8%;">
-			<image src="{{item.url}}"></image>
+			<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="agree_img"></image>
 			<image bindtap="deleteImg" data-type="agree_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 			 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 		</view>
@@ -90,12 +93,12 @@
 		</view>
 	</view>
 	
-</view>
+</view> -->
 
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传代理凭证：</view>
 	<view class="upload" wx:for="{{web_submitData.bill_img}}" style="position: relative;">
-		<image src="{{item.url}}"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="bill_img"></image>
 		<image bindtap="deleteImg" data-type="bill_img" data-index="{{index}}" src="/images/Uploadqualification-icon.png"
 		 style="position: absolute;width: 40rpx;height: 40rpx;top: -20rpx;right: -20rpx;"></image>
 	</view>
@@ -103,4 +106,26 @@
 		<image src="/images/Upload-icon.png" style="width:58rpx;height:58rpx;"></image>
 	</view>
 </view>
-<button class="submit_info bg2" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
+<view style="display: flex;height:100%;align-items: center;margin-left: 0;padding: 20rpx;">
+	<image  bindtap="choose" src="{{web_isSelect?'/images/tixian-a.png':'/images/tixian.png'}}" style="width:40rpx;height:40rpx"></image>
+	<view class="font28 color2" style="margin-left: 20rpx;color:#0d6fb8" bindtap="rule">《代理协议须知》</view>
+</view>
+<button class="submit_info bg2" style="margin: 180rpx auto;" bindtap="{{web_buttonCanClick?'submit':''}}">提交</button>
+<view class="mask" wx:if="{{is_rule}}">
+    <view class="rule bg1" style="height: 90%;">
+        <scroll-view scroll-y style="height:90%;">
+            <view class="rule_cont">
+                <view class="font28 color2 rule_tlt">{{web_aboutData.title}}</view>
+                <view class=" content font24 color2 w690">
+                 <view class="content ql-editor">
+                   <import src="../../wxParse/wxParse.wxml"/>
+                   <template is="wxParse" data="{{wxParseData:web_aboutData.content}}"/>
+                 </view>
+                </view>
+              </view>
+        </scroll-view>
+        <view style="height:10%;display: flex;align-items: center;justify-content: center;">
+          <image src="/images/Uploadqualification-icon.png" style="width: 50rpx;height: 50rpx;" bindtap="rule"></image>
+        </view>
+    </view>
+</view>

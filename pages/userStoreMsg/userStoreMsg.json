@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+	"navigationBarTitleText": "店铺消息",
+	"navigationBarBackgroundColor": "#0d6fb8"
 }

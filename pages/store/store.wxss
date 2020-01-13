@@ -11,7 +11,7 @@ page{
 .stroe{
 	height:220rpx;
 	overflow:hidden;
-	border-bottom:10rpx solid #e3e3e3;
+	border-bottom:1rpx solid #e3e3e3;
 }
 .store_left{
 	width:65%;
@@ -22,7 +22,7 @@ page{
 .store_right{
 	width:35%;
 	height:178rpx;
-	text-align: right;
+	/* text-align: right; */
 }
 .store_right image{
 	width:230rpx;
@@ -48,7 +48,7 @@ page{
 	
 }
 .stroe_search{
-  padding-top: 20rpx;
+  
 	height:90rpx;
 }
 .stroe_search_left{
@@ -97,7 +97,7 @@ page{
 }
 .storeChoose{
 	width:90%;
-	height:450rpx;
+	/* height:450rpx; */
 	background:#fff;
 	position:absolute;
 	top:117rpx;

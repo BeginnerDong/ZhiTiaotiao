@@ -2,8 +2,9 @@
 
 
 <view class="w710">
-	<view class="cash" style="margin-top:30rpx;">
-
+	<view style="width: 100%;font-size:50rpx;font-weight: bold;text-align: center;line-height: 150rpx;line-height: 150rpx;color: #de5d1c;">{{web_shopInfoData.name}}</view>
+	<view class="cash">
+	
 		<view class="case_box">
 			<view class="cash_tlt color2 font32 bg1">
 				{{currentId==0?'支付金额':'抵用数量'}}

@@ -34,9 +34,9 @@
 		</block>
 	</view>
 
-	<view class="w690" wx:if="{{web_num==2}}">
+	<view class="w690" wx:if="{{web_num==2}}" style="margin-top: 30rpx;">
 		<block wx:for="{{web_rankDataTwo}}" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
-			<view class="status bg1 flex shadow1">
+			<view class="status bg1 flex ">
 				<view class="status_number">
 					{{index+1}}
 				</view>
@@ -51,15 +51,15 @@
 				</view>
 			</view>
 		</block>
-		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
+		<view class="status bg1 flex " wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view style="font-size:46rpx;line-height:200rpx;color: #222;padding-left: 30rpx;">
 				· · · · · ·
 			</view>
 
 		</view>
-		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
+		<view class="status bg1 flex " wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view class="status_number color">
-				1/4
+				1/10
 			</view>
 			<view class="status_left flex">
 				<view class="user_img">
@@ -71,7 +71,7 @@
 				<view>￥{{web_rankData[web_rankData.length-2].consume}}</view>
 			</view>
 		</view>
-		<view class="status bg1 flex shadow1" >
+		<view class="status bg1 flex " >
 			<view class="status_number color">
 				我
 			</view>
@@ -106,7 +106,7 @@
 			</view>
 		</view>
 		<block wx:for="{{web_rankDataTwo}}"  wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
-			<view class="status bg1 flex shadow1">
+			<view class="status bg1 flex ">
 				<view class="status_number">
 					{{index!=web_rankData.length?index+1:'1/4'}}
 				</view>
@@ -121,14 +121,14 @@
 				</view>
 			</view>
 		</block>
-		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
+		<view class="status bg1 flex " wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view style="font-size:46rpx;line-height:200rpx;color: #222;padding-left: 30rpx;">
 				· · · · · ·
 			</view>
 		</view>
-		<view class="status bg1 flex shadow1" wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
+		<view class="status bg1 flex " wx:if="{{web_rankDataTwo.length>1||(web_rankDataTwo.length==1&&web_rankDataTwo[0].user_no!=web_me)}}">
 			<view class="status_number color">
-				1/4
+				1/10
 			</view>
 			<view class="status_left flex">
 				<view class="user_img">
@@ -140,7 +140,7 @@
 				<view>￥{{web_rankData[web_rankData.length-2].reward}}</view>
 			</view>
 		</view>
-		<view class="status bg1 flex shadow1">
+		<view class="status bg1 flex ">
 			<view class="status_number color">
 				我
 			</view>

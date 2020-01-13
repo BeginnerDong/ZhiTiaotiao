@@ -35,6 +35,26 @@ Page({
 			web_submitData:self.data.submitData
 		})
 	},
+	
+	previewImg(e) {
+		const self = this;
+		var key = api.getDataSet(e,'key');
+		var index = api.getDataSet(e,'index');
+		var urlArray = [];
+		console.log(self.data.submitData[key])
+		for (var i = 0; i < self.data.submitData[key].length; i++) {
+			urlArray.push(self.data.submitData[key][i].url)
+		}
+		//urlArray.push(self.data.submitData[key].url)
+		console.log(index)
+		wx.previewImage({
+			current: self.data.submitData[key][index].url,
+			urls: urlArray,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
+	},
 
 
 	onShow() {

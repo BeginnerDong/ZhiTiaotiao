@@ -1,37 +1,61 @@
-import {Api} from '../../utils/api.js';
+import {
+	Api
+} from '../../utils/api.js';
 var api = new Api();
 
-import {Token} from '../../utils/token.js';
+import {
+	Token
+} from '../../utils/token.js';
 var token = new Token();
 
 Page({
 
-  data: {
-    is_edit:true,
-		isFirstLoadAllStandard:['getMainData'],
-		submitData:{
-			title:'',
-			price:'',
-			score:'',
-			mainImg:[],
-			bannerImg:[],
-		
-		}
-  },
+	data: {
+		is_edit: true,
+		isFirstLoadAllStandard: ['getMainData'],
+		submitData: {
+			title: '',
+			price: '',
+			score: '',
+			mainImg: [],
+			bannerImg: [],
 
-  onLoad(options){
-    const self = this;
+		}
+	},
+
+	onLoad(options) {
+		const self = this;
 		api.commonInit(self);
 		self.data.id = options.id;
 		self.getMainData()
-  },
-	
+	},
+
+	previewImg(e) {
+		const self = this;
+		var key = api.getDataSet(e, 'key');
+		var index = api.getDataSet(e, 'index');
+		var urlArray = [];
+		console.log(self.data.submitData[key])
+		for (var i = 0; i < self.data.submitData[key].length; i++) {
+			urlArray.push(self.data.submitData[key][i].url)
+		}
+		//urlArray.push(self.data.submitData[key].url)
+		console.log(index)
+		wx.previewImage({
+			current: self.data.submitData[key][index].url,
+			urls: urlArray,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
+	},
+
 	getMainData() {
 		const self = this;
 		const postData = {};
 		postData.tokenFuncName = 'getStoreToken';
 		postData.searchItem = {
-			id:self.data.id
+			id: self.data.id
 		};
 		const callback = (res) => {
 			if (res.info.data.length > 0) {
@@ -39,20 +63,20 @@ Page({
 				self.data.submitData.title = res.info.data[0].title;
 				self.data.submitData.price = res.info.data[0].price;
 				self.data.submitData.score = res.info.data[0].score;
-				
+
 				self.data.submitData.mainImg = res.info.data[0].mainImg;
 				self.data.submitData.bannerImg = res.info.data[0].bannerImg;
 
 			}
 			self.setData({
-				web_submitData:self.data.submitData,
+				web_submitData: self.data.submitData,
 				web_mainData: self.data.mainData
 			});
 			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
 		};
 		api.productGet(postData, callback);
 	},
-	
+
 	productUpdate() {
 		const self = this;
 		const postData = {};
@@ -60,7 +84,7 @@ Page({
 		postData.data = {};
 		postData.data = api.cloneForm(self.data.submitData);
 		postData.searchItem = {
-			id:self.data.id
+			id: self.data.id
 		};
 		const callback = (data) => {
 			if (data.solely_code == 100000) {
@@ -74,35 +98,35 @@ Page({
 			} else {
 				api.showToast('网络故障', 'none')
 			};
-			
+
 		};
 		api.productUpdate(postData, callback);
 	},
-	
+
 	submit() {
 		const self = this;
 		api.buttonCanClick(self);
 		var phone = self.data.submitData.phone;
-	  var newObject = api.cloneForm(self.data.submitData);
-	  
-	  delete newObject.bannerImg;
-		console.log('newObject',newObject)
+		var newObject = api.cloneForm(self.data.submitData);
+
+		delete newObject.bannerImg;
+		console.log('newObject', newObject)
 		const pass = api.checkComplete(newObject);
-		console.log('pass',pass)
+		console.log('pass', pass)
 		if (pass) {
-		
-				self.productUpdate();
+
+			self.productUpdate();
 
 		} else {
-			api.buttonCanClick(self,true);
+			api.buttonCanClick(self, true);
 			api.showToast('请补全信息', 'none');
 		};
 	},
-	
+
 	upLoadBannerImg() {
 		const self = this;
 		if (self.data.submitData.bannerImg.length > 9) {
-			api.showToast('仅限10张', 'fail');
+			api.showToast('仅限9张', 'fail');
 			return;
 		};
 		wx.showLoading({
@@ -115,35 +139,37 @@ Page({
 	
 				self.data.submitData.bannerImg.push({
 					url: res.info.url,
-					type:'image'
+					type: 'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
-				console.log('self.data.submitData',self.data.submitData)
+				console.log('self.data.submitData', self.data.submitData)
 			} else {
 				api.showToast('网络故障', 'none')
 			}
 		};
 	
 		wx.chooseImage({
-			count: 1,
+			count: 9,
 			success: function(res) {
 				console.log(res);
 				var tempFilePaths = res.tempFilePaths;
 				console.log(callback)
-				api.uploadFile(tempFilePaths[0], 'file', {
-					tokenFuncName: 'getStoreToken',
-					type:'image'
-				}, callback)
+				for (var i = 0; i < tempFilePaths.length; i++) {
+					api.uploadFile(tempFilePaths[i], 'file', {
+						tokenFuncName: 'getStoreToken',
+						type:'image'
+					}, callback)
+				}
 			},
 			fail: function(err) {
 				wx.hideLoading();
 			}
 		})
 	},
-	
+
 	upLoadMainImg() {
 		const self = this;
 		if (self.data.submitData.mainImg.length > 2) {
@@ -157,21 +183,21 @@ Page({
 		const callback = (res) => {
 			console.log('res', res)
 			if (res.solely_code == 100000) {
-	
+
 				self.data.submitData.mainImg.push({
 					url: res.info.url,
-					type:'image'
+					type: 'image'
 				})
 				self.setData({
 					web_submitData: self.data.submitData
 				});
 				wx.hideLoading()
-				console.log('self.data.submitData',self.data.submitData)
+				console.log('self.data.submitData', self.data.submitData)
 			} else {
 				api.showToast('网络故障', 'none')
 			}
 		};
-	
+
 		wx.chooseImage({
 			count: 1,
 			success: function(res) {
@@ -180,7 +206,7 @@ Page({
 				console.log(callback)
 				api.uploadFile(tempFilePaths[0], 'file', {
 					tokenFuncName: 'getStoreToken',
-					type:'image'
+					type: 'image'
 				}, callback)
 			},
 			fail: function(err) {
@@ -188,44 +214,42 @@ Page({
 			}
 		})
 	},
-	
-	deleteImg(e){
+
+	deleteImg(e) {
 		const self = this;
-		var index = api.getDataSet(e,'index');
-		var type = api.getDataSet(e,'type');
+		var index = api.getDataSet(e, 'index');
+		var type = api.getDataSet(e, 'type');
 		console.log(type)
-		if(type=='mainImg'){
-			self.data.submitData.mainImg.splice(index,1);
-		}else if(type=='bannerImg'){
-			self.data.submitData.bannerImg.splice(index,1);
+		if (type == 'mainImg') {
+			self.data.submitData.mainImg.splice(index, 1);
+		} else if (type == 'bannerImg') {
+			self.data.submitData.bannerImg.splice(index, 1);
 		};
 		console.log(self.data.submitData);
 		self.setData({
-			web_submitData:self.data.submitData
+			web_submitData: self.data.submitData
 		})
 	},
-	
-  edit(){
-    const self = this;
-    self.data.is_edit = !self.data.is_edit
-    self.setData({
-      is_edit:self.data.is_edit
-    })
-  },
-	
-  bindInputChange(e){
-    const self = this;
-    api.fillChange(e,self,'submitData');
-    self.setData({
-      web_submitData:self.data.submitData,
-    });
-  },
-	
-  intoPath(e){
-    const self = this;
-    api.pathTo(api.getDataSet(e,'path'),'nav');
-  },
-  
-})
 
-  
+	edit() {
+		const self = this;
+		self.data.is_edit = !self.data.is_edit
+		self.setData({
+			is_edit: self.data.is_edit
+		})
+	},
+
+	bindInputChange(e) {
+		const self = this;
+		api.fillChange(e, self, 'submitData');
+		self.setData({
+			web_submitData: self.data.submitData,
+		});
+	},
+
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	},
+
+})

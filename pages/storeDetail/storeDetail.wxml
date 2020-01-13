@@ -31,7 +31,7 @@
 </view>
 <view class="openTime flex">
 	<image src="../../images/dingwei1.png" style="width: 30rpx; height: 33rpx;"></image>
-	<view class=" font30 color2" style="width:77%">{{web_mainData.address}}</view>
+	<view class=" font30 color2 avoidOverflow2" style="width:77%">{{web_mainData.address}}</view>
 	<image  class="right-clickbtn" src="../../images/position_icon2.png" bindtap="intoMap"></image>
 </view>
 

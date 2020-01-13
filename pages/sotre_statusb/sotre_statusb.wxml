@@ -30,7 +30,7 @@
 	<block wx:for="{{web_submitData.mainImg}}" wx:key="{{index}}">
 		<image class="picCloseBtn" src="/images/Uploadqualification-icon.png" wx:if="{{!is_edit}}" style="top:-14rpx;right:180rpx"
 		 bindtap="deleteImg" data-type="mainImg" data-index="{{index}}" />
-		<image src="{{item.url}}" mode="aspectFill" style="width: 180px; height: 115px;"></image>
+		<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="mainImg" mode="aspectFill" style="width: 180px; height: 115px;"></image>
 	</block>
 
 </view>
@@ -45,7 +45,7 @@
 		<view style="width: 50%;position: relative;display: flex;justify-content: center;align-items: center;margin-bottom: 16px;float:left">
 			<image class="picCloseBtn" src="/images/Uploadqualification-icon.png" wx:if="{{!is_edit}}" bindtap="deleteImg"
 			 data-type="bannerImg" data-index="{{index}}" />
-			<image src="{{item.url}}" mode="aspectFill" style="width: 135px; height: 160px"></image>
+			<image src="{{item.url}}" bindtap="previewImg" data-index="{{index}}" data-key="bannerImg" mode="aspectFill" style="width: 135px; height: 160px"></image>
 		</view>
 	</block>
 	<view class="business-2" bindtap="upLoadBannerImg" style="display: flex;align-items: center;justify-content: center;"

@@ -21,7 +21,7 @@ Page({
 			agent_no:'',
 			thirdapp_id: 2,
 			bill_img:[],
-			agree_img:[],
+			//agree_img:[],
 			id_img_back:[],
 			id_img_front:[],
 			province_id:'',
@@ -29,21 +29,91 @@ Page({
 			country_id:'',
 			level:3,
 			city_no:'',
+			postal_address:''
 		},
 		mainData:[],
 		buttonCanClick:true,
-		isFirstLoadAllStandard:['getMainData']
-		
+		isFirstLoadAllStandard:['getMainData'],
+		isSelect:false,
+		is_rule:false
 	},
 
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
 		self.getMainData();
+		self.getAboutData();
 		self.setData({
+			web_isSelect:self.data.isSelect,
 			web_submitData:self.data.submitData,
 			web_buttonCanClick:self.data.buttonCanClick
 		})	
+	},
+	
+	choose(){
+		const self = this;
+		self.data.isSelect = !self.data.isSelect;
+		self.setData({
+			web_isSelect:self.data.isSelect
+		})
+	},
+	
+	rule() {
+	  const self = this;
+	  self.data.is_rule = !self.data.is_rule;
+	  self.setData({
+	    is_rule: self.data.is_rule
+	  })
+	},
+	
+	getAboutData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			thirdapp_id: 2,
+		};
+		postData.getBefore = {
+			label: {
+				tableName: 'Label',
+				searchItem: {
+					title: ['=', ['代理协议须知']],
+				},
+				middleKey: 'menu_id',
+				key: 'id',
+				condition: 'in'
+			},
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.aboutData = res.info.data[0];
+				self.data.aboutData.content = api.wxParseReturn(res.info.data[0].content).nodes;
+			}
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getAboutData', self);
+			self.setData({
+				web_aboutData: self.data.aboutData,
+			});
+		};
+		api.articleGet(postData, callback);
+	},
+	
+	previewImg(e) {
+		const self = this;
+		var key = api.getDataSet(e,'key');
+		var index = api.getDataSet(e,'index');
+		var urlArray = [];
+		console.log(self.data.submitData[key])
+		for (var i = 0; i < self.data.submitData[key].length; i++) {
+			urlArray.push(self.data.submitData[key][i].url)
+		}
+		//urlArray.push(self.data.submitData[key].url)
+		console.log(index)
+		wx.previewImage({
+			current: self.data.submitData[key][index].url,
+			urls: urlArray,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
 	},
 	
 	getMainData() {
@@ -124,7 +194,6 @@ Page({
 				api.buttonCanClick(self, true);
 				api.showToast(res.msg, 'none', 1000);
 			};
-
 		};
 		api.registerAgent(postData, callback);
 	},
@@ -163,6 +232,11 @@ Page({
 		console.log('pass', pass)
 		console.log('newObject', newObject)
 		if (pass) {
+			if(!self.data.isSelect){
+				api.buttonCanClick(self, true);
+				api.showToast('请查看并同意协议内容', 'none');
+				return
+			};
 			if(!/^(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/.test(password)){
 				api.buttonCanClick(self, true);
 				api.showToast('密码格式错误', 'none');

@@ -69,6 +69,24 @@ Page({
 		};
 		api.userInfoGet(postData, callback);
 	},
+	
+	getShopInfoData() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getProjectToken';
+		postData.searchItem = {
+			user_no:self.data.user_no
+		}
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.shopInfoData = res.info.data[0];
+			};
+			self.setData({
+				web_shopInfoData:self.data.shopInfoData
+			})
+		};
+		api.shopInfoGet(postData, callback);
+	},
 
 	getMainData() {
 		const self = this;
@@ -79,7 +97,8 @@ Page({
 				self.data.mainData = res.info.data[0];
 				self.data.mainData.score = parseFloat(self.data.mainData.score)
 			};
-			self.getShopData()
+			self.getShopData();
+			self.getShopInfoData();
 			self.setData({
 				web_mainData:self.data.mainData
 			})
@@ -152,7 +171,7 @@ Page({
 						} else {
 							api.showToast('支付失败', 'none');
 						};
-						self.data.submitData.money = '';
+						//self.data.submitData.money = '';
 						self.data.is_show = false;
 						self.setData({
 							is_show: self.data.is_show
@@ -175,7 +194,7 @@ Page({
 				}
 				
 				
-				self.data.submitData.money = '';
+				//self.data.submitData.money = '';
 				self.data.is_show = false;
 				self.setData({
 					is_show: self.data.is_show
@@ -265,12 +284,14 @@ Page({
 		self.data.pay={};
 		/* console.log(self.data.currentId)
 		var currentId = api.getDataSet(e,'id'); */
+		self.data.submitData.money = '';
 		if(self.data.currentId==0){
 			self.data.currentId = 1
 		}else{
 			self.data.currentId = 0	
 		}
 		self.setData({
+			web_submitData: self.data.submitData,
 			currentId: self.data.currentId
 		})
 	},

@@ -9,7 +9,7 @@
 		<view>当日笔数：{{web_todayItem?web_todayItem:'0'}}笔</view>
 	</view>
 	<view class="hklisBox" wx:if="{{web_currentId==1}}">
-		<view>当日交易差额：{{web_reduceMoney>0?web_reduceMoney+'元':'无'}}</view>
+		<!-- <view>当日交易差额：{{web_reduceMoney>0?web_reduceMoney+'元':'无'}}</view> -->
 		<view>当日待结算联盟金：{{web_today}}元</view>
 	</view>
 </view>
@@ -47,8 +47,8 @@
 	</view>
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="record_list flex" wx:if="{{item.count>0}}">
-			<view class="w33 color6 font24">{{item.ratio}}</view>
-			<view class="w33 color6 font24">{{item.total }}</view>
+			<view class="w33 color6 font24">-</view>
+			<view class="w33 color6 font24">{{item.total}}</view>
 			<view class="w33 color6 font24">{{item.count}}</view>
 			<view class="w33 color6 font24">{{item.create_time}}</view>
 		</view>

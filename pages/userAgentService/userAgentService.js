@@ -61,7 +61,7 @@ Page({
 			self.data.mainData = {};
 			if (res.info.data.length > 0) {
 				self.data.mainData = res.info.data[0].info;
-				self.data.submitData.phone = res.info.data[0].info.phone;
+				self.data.submitData.phone = res.info.data[0].login_name;
 				self.data.submitData.name = res.info.data[0].info.name;
 				self.data.submitData.email = res.info.data[0].info.email;
 				//self.data.submitData.bill_img = res.info.data[0].info.bill_img;

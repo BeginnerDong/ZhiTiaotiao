@@ -248,12 +248,12 @@ Page({
 				console.log('2',self.data.todayMoney)
 				console.log('3',self.data.rewardData.alliance_ratio);
 				var todayRatioMoney = parseFloat(self.data.todayMoney)*(1-parseFloat(self.data.userInfoData.ratio)/100)*(parseFloat(self.data.rewardData.alliance_ratio)/100);
-				var ratio = (1-parseFloat(self.data.userInfoData.ratio)/100)*(parseFloat(self.data.rewardData.alliance_ratio)/100);
+				var ratio = (1-parseFloat(self.data.userInfoData.ratio)/100)*(parseFloat(self.data.rewardData.alliance_ratio)/100)-(parseFloat(self.data.userInfoData.ratio)/100)*(parseFloat(self.data.rewardData.alliance)/100);
 				self.data.reduceMoney = Math.ceil((parseFloat(res.info.today_price) - parseFloat(todayRatioMoney))/ratio);
 				/* /(1-parseFloat(self.data.userInfoData.ratio)/100)*(parseFloat(self.data.rewardData.alliance_ratio)/100); */
 				console.log('self.data.reduceMoney',self.data.reduceMoney);
 				console.log('todayRatio',todayRatioMoney);
-			
+				console.log('ratio',parseFloat(self.data.userInfoData.alliance)/100);
 			} else {
 				self.data.isLoadAll = true;
 				api.showToast('没有更多了', 'none');

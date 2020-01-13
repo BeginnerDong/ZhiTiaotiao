@@ -133,11 +133,7 @@ Page({
   		if (res.info.data.length > 0) {
   			self.data.hfInfoData = res.info.data[0];
   			self.data.hfInfoData.bank_acct_no = self.data.hfInfoData.bank_acct_no.substring(self.data.hfInfoData.bank_acct_no.length-4);
-  			for (var i = 0; i < self.data.bankData.length; i++) {
-  				if(self.data.bankData[i].value==self.data.hfInfoData.bank_id){
-  					self.data.hfInfoData.bankName = self.data.bankData[i].name
-  				}
-  			}
+  			self.getBankData()
   		};
   		self.setData({
   			web_hfInfoData: self.data.hfInfoData
@@ -145,6 +141,49 @@ Page({
   		api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getHfInfoData', self);
   	};
   	api.hfInfoGet(postData, callback);
+  },
+  
+  getBankData(){
+  	const self = this;
+  	var type = ''
+  	if(self.data.hfInfoData.type==1){
+  		type="企业取现银行列表"
+  	}else if(self.data.hfInfoData.type==2){
+  		type="个人取现银行列表"
+  	};
+  	const postData = {};
+  	postData.searchItem = {
+  		thirdapp_id: 2,
+  	};
+  	postData.getBefore = {
+  		caseData: {
+  			tableName: 'Label',
+  			searchItem: {
+  				title: ['in', [type]],
+  			},
+  			middleKey: 'parentid',
+  			key: 'id',
+  			condition: 'in',
+  		},
+  	};
+  	postData.order = {
+  		listorder:'desc'
+  	};
+  	const callback = (res) => {
+  		if (res.info.data.length > 0) {
+  			
+  			for (var i = 0; i < res.info.data.length; i++) {
+  				if(res.info.data[i].description==self.data.hfInfoData.bank_id){
+  					self.data.hfInfoData.bankName = res.info.data[i].title
+  				}
+  			}
+  		}
+  		self.setData({
+  			web_hfInfoData: self.data.hfInfoData
+  		})
+  		console.log('self.data.bankData',self.data.bankData)
+  	};
+  	api.labelGet(postData, callback);
   },
 
 	getUserInfoData() {
