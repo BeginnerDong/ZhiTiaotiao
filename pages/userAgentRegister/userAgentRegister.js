@@ -29,7 +29,7 @@ Page({
 			country_id:'',
 			level:3,
 			city_no:'',
-			postal_address:''
+			//postal_address:''
 		},
 		mainData:[],
 		buttonCanClick:true,

@@ -54,10 +54,10 @@
 		</view>
 	</view>
 </view>
-<view class="input_list1 font28 flex  w690">
+<!-- <view class="input_list1 font28 flex  w690">
 	<view class="input_before color8">通讯地址：</view>
 	<input placeholder="请输入你的通讯地址" value="{{web_submitData.postal_address}}" data-key="postal_address" bindblur="bindInputChange"></input>
-</view>
+</view> -->
 <view class="input_list1 font28 w690" style="height:270rpx;display:flex;margin-top:30rpx;">
 	<view class="input_before  color8" style="width:34%">上传身份证正面：</view>
 	<view class="upload" wx:for="{{web_submitData.id_img_front}}" style="position: relative;">

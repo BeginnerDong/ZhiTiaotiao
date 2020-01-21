@@ -996,6 +996,12 @@
 					"pathName": "pages/userPayment/userPayment",
 					"query": "scene=U917988757455925",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userLogin/userLogin",
+					"pathName": "pages/userLogin/userLogin",
+					"scene": null
 				}
 			]
 		}

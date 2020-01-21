@@ -100,7 +100,7 @@ page{
 	/* height:450rpx; */
 	background:#fff;
 	position:absolute;
-	top:117rpx;
+	top:90rpx;
 	z-index:999;
 	left:0
 }
