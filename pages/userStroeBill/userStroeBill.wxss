@@ -91,10 +91,9 @@
 }
 .tab{
 	height:80rpx;
-	margin-bottom:36rpx;
 }
 .tab_item{
-	width:33.33%;
+	width:25%;
 	text-align:center;
 	height:80rpx;
 	line-height:80rpx;
@@ -238,4 +237,27 @@
 	text-align: justify;
 	margin-bottom: 10rpx;
 	line-height: 35rpx;
+}
+.timeOrder{
+  box-sizing: border-box;
+  padding: 30rpx 4%;
+  text-align: center
+}
+.timeOrder .item{
+  width: 50%;
+  font-size: 24rpx;
+}
+.timeOrder .item .name{
+  color: #222;
+  margin-bottom: 6rpx;
+  position: relative;
+}
+.timeOrder .item .name .arrow{
+  width: 22rpx;
+  height: 12rpx;
+  position: absolute;
+  top: 50%;
+  right: -28rpx;
+  transform: translateY(-50%);
+
 }

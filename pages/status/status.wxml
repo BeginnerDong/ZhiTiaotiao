@@ -1,5 +1,8 @@
 <view wx:if="{{show}}">
 	<view class="status-top">
+    <view class="ReceiveBtn">
+      <view class="btn" bindtap="intoPath" data-path="/pages/statusReceive/statusReceive">领取知条</view>
+    </view>
 		<view class="top-text1">{{web_totalCount?web_totalCount:'0'}}</view>
 		
 		<view class="top-text2" wx:if="{{web_num==1}}">知条余量（个）</view>

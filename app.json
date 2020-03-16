@@ -2,6 +2,7 @@
 	"pages": [
 		"pages/index/index",
 		"pages/status/status",
+    "pages/statusReceive/statusReceive",
 		"pages/store/store",
 		"pages/user/user",
 		"pages/userMessage/userMessage",

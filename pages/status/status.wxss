@@ -9,19 +9,35 @@ page{
 	height: 440rpx;
 	width: 100%;
 	background: #de5d1c;
-  
+  padding: 30rpx 4%;
+  box-sizing: border-box;
+}
+.ReceiveBtn{
+  display: flex;
+  justify-content: flex-end;
+}
+.ReceiveBtn .btn{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  background: #fff;
+  text-align: center;
 }
 .top-text1{
 	color: #fff;
-	font-size: 105rpx;
+	font-size: 90rpx;
+  line-height: 110rpx;
 	text-align: center;
-	padding-top: 90rpx;
+	padding-top:50rpx;
 }
 .top-text2{
 	color: #fff;
 	font-size: 30rpx;
 	text-align: center;
-	margin-top: 40rpx;
+	margin-top: 30rpx;
+  line-height: 40rpx;
 }
 .status-nav{
 	width: 100%;

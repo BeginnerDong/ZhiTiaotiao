@@ -1,0 +1,35 @@
+
+<view>
+  <view class="topBtn">
+    <view class="btn">批量领取</view>
+  </view>
+
+  <view class="receiveList">
+    <view class="item flexRowBetween"  wx:for="{{receiveDta}}" wx:key="index">
+      <view class="L flex">
+        <view class="flexColumn">
+          <view>563.14</view>
+          <view class="text2">知条券</view>
+        </view>
+      </view>
+      <view class="M">
+        <view>海底捞</view>
+        <view class="text2">还剩3天到期</view>
+      </view>
+      <view class="R">
+        <view class="btn" bindtap="receiveOk">立即领取</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 领取弹框 -->
+  <view class="black-bj" wx:if="{{is_receiveOk}}">
+    <view class="receiveOk flexCenter">
+      <view class="colseBtn" bindtap="receiveOk">×</view>
+      <view class="color2">领取成功！</view>
+    </view>
+  </view>
+
+</view>
+
+

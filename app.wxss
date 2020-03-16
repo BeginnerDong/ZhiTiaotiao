@@ -49,6 +49,11 @@ page{
 	align-items:center;
 	justify-content:center;
 }
+.flexColumn{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
 .w710{
 	width:94.8%;
 	padding:0 2.6%;
