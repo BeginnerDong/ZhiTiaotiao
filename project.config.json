@@ -1029,6 +1029,20 @@
 					"id": -1,
 					"name": "pages/userStroeBill/userStroeBill",
 					"pathName": "pages/userStroeBill/userStroeBill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStore/userStore",
+					"pathName": "pages/userStore/userStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/status/status",
+					"pathName": "pages/status/status",
 					"scene": null
 				}
 			]

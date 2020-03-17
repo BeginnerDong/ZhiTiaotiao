@@ -27,14 +27,21 @@ Page({
 			agree_img:[],
 			id_img_back:[],
 			id_img_front:[],
+			province_id:'',
+			city_id:'',
+			country_id:'',
+			level:3,
+			city_no:'',
 		},
 		typeData: [],
-		isFirstLoadAllStandard: ['getTypeData']
+		mainData:[],
+		isFirstLoadAllStandard: ['getTypeData','getMainData']
 	},
 
 	onLoad() {
 		const self = this;
 		api.commonInit(self);
+		self.getMainData();
 		self.getTypeData();
 		self.setData({
 			web_submitData:self.data.submitData,
@@ -61,7 +68,67 @@ Page({
 		})
 	},
 	
-
+	getMainData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			type:4
+		};
+		postData.order = {
+			listorder:'desc'
+		};
+		const callback = (res) => {
+			if(res.info.data.length>0){
+				self.data.mainData.push.apply(self.data.mainData,res.info.data)
+			};
+			self.setData({
+				web_mainData: self.data.mainData
+			});
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+		};
+		api.labelGet(postData, callback);
+	},
+	
+	provinceChange(e){
+		const self = this;
+		self.data.cityIndex = '';
+		self.data.submitData.city_id = '';
+		self.data.submitData.country_id = '';
+		self.data.submitData.city_no = '';
+		self.data.submitData.province_id = self.data.mainData[e.detail.value].id;
+		self.data.provinceIndex = e.detail.value;
+	
+		self.setData({
+			web_city:'',
+			web_country:'',
+			web_province:self.data.mainData[e.detail.value].title,
+			web_provinceIndex:self.data.provinceIndex,
+			
+		})
+	},
+	
+	cityChange(e){
+		const self = this;
+		self.data.submitData.country_id = '';
+		self.data.submitData.city_no = '';
+		self.data.submitData.city_id = self.data.mainData[self.data.provinceIndex].child[e.detail.value].id;
+		self.data.cityIndex = e.detail.value;
+		self.setData({
+			web_city:self.data.mainData[self.data.provinceIndex].child[e.detail.value].title,
+			web_cityIndex:self.data.cityIndex,
+		})
+	},
+	
+	countryChange(e){
+		const self = this;
+		self.data.submitData.country_id = self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].id;
+		self.data.submitData.city_no = self.data.submitData.country_id;
+		self.setData({
+			web_country:self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].title	
+		});
+		self.data.submitData.address = self.data.mainData[self.data.provinceIndex].title+self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].title+self.data.mainData[self.data.provinceIndex].child[self.data.cityIndex].child[e.detail.value].title
+	},
+	
 
 	getTypeData() {
 		const self = this;

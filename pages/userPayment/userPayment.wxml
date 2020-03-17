@@ -47,7 +47,7 @@
 		<view style="position: relative;">
 			<view class="font30" style="line-height:30px;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">恭喜您获得{{web_ztt}}个知条</view>
 			<view class="font30" style="line-height:30px;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">(1知条券=1元，可在知条条店铺消费抵用)</view>
-			<view class="font30" style="line-height:30px;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">进入查看</view>
+			<view class="font30" style="line-height:30px;text-align: center;width: 100%;text-decoration:underline" bindtap="intoSwitch" data-path="/pages/status/status">点击领取</view>
 		</view>
 		
 		<view class="close" bindtap="close" style="margin-top: 15px;" wx:if="{{is_peice}}">

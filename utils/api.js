@@ -121,6 +121,47 @@ class Api extends Base {
 		this.request(allParams);
 	}
 	
+	
+	zttRecordGet(param, callback) {
+		var allParams = {
+			url: 'Common/ZttRecord/get',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	zttRecordUpdate(param, callback) {
+		var allParams = {
+			url: 'Common/ZttRecord/update',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+		
+	batchReceive(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/batchReceive',
+			type: 'post',
+			noToken: true,
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	
 	addBill(param, callback) {
 		var allParams = {
 			url: 'Common/Bill/add',
