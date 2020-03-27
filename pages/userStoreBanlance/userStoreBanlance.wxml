@@ -16,7 +16,7 @@
 <view class="status-top">
 	<view class="top-text1">{{web_currentId==1?(web_userInfoData.balance?web_userInfoData.balance:'0.00'):(web_userInfoData.reward?web_userInfoData.reward:'0.00')}}</view>
 	<view class="top-text2" wx:if="{{web_currentId==1}}">货款余额(￥)</view>
-	<view class="top-text2" wx:if="{{web_currentId==2}}">结算金余额(￥)</view>
+	<view class="top-text2" wx:if="{{web_currentId==2}}">联盟金余额(￥)</view>
   
 	<view class="btn" bindtap="intoPath" data-path="/pages/userStoreCash/userStoreCash?type={{web_currentId}}">提现</view>
 </view>
@@ -25,7 +25,7 @@
        <view   class="{{web_currentId==1?'tab_this':'noBorder'}}" style="width:90rpx">货款</view>
     </view>
     <view class="tab_item" data-id="2"  bindtap="{{web_buttonCanClick?'changeType':''}}" style="display: flex;align-items: center;justify-content: center;">
-        <view class="{{web_currentId==2?'tab_this':'noBorder'}}" style="width:160rpx">联盟金结算</view>
+        <view class="{{web_currentId==2?'tab_this':'noBorder'}}" style="width:160rpx">联盟金</view>
     </view>
 </view>
 

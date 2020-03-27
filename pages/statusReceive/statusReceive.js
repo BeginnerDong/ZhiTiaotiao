@@ -16,6 +16,7 @@ Page({
 			type:3,
 			behavior:2
 		},
+		mainData1:[{}],
 		is_receiveOk:false,
 		isFirstLoadAllStandard: ['getMainData']
 	},
@@ -57,7 +58,8 @@ Page({
 			if (res.info.data.length > 0) {
 				self.data.mainData.push.apply(self.data.mainData, res.info.data);
 				for (var i = 0; i < self.data.mainData.length; i++) {
-					self.data.mainData[i].deadline = api.getBeforeDate(parseInt(self.data.mainData[i].deadline)*1000)
+					self.data.mainData[i].deadline = api.getBeforeDate(parseInt(self.data.mainData[i].deadline)*1000);
+					self.data.mainData[i].create_time = self.data.mainData[i].create_time.substring(0,10)
 				}
 			} else {
 				self.data.isLoadAll = true;
@@ -74,10 +76,8 @@ Page({
 	receiveAll(){
 		const self = this;
 		api.buttonCanClick(self);
+		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
-		postData.data = {
-			step:1
-		};
 		const callback = (res) => {
 			if (res.solely_code==100000) {
 				self.data.is_receiveOk = true;
@@ -96,9 +96,13 @@ Page({
 		const self = this;
 		api.buttonCanClick(self);
 		var index = api.getDataSet(e,'index');
+		const postData = {};
 		postData.tokenFuncName = 'getProjectToken';
 		postData.data = {
 			step:1
+		};
+		postData.searchItem = {
+			id:self.data.mainData[index].id
 		};
 		const callback = (res) => {
 			if (res.solely_code==100000) {

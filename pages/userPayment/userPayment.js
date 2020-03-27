@@ -142,7 +142,8 @@ Page({
 		};
 		postData.data = {
 			shop_no: self.data.user_no,
-			price: self.data.submitData.money
+			price: self.data.submitData.money,
+			behavior:1
 		};
 		if (JSON.stringify(postData.pay) == '{}') {
 			api.buttonCanClick(self, true);

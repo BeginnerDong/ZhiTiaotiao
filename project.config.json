@@ -1043,6 +1043,20 @@
 					"id": -1,
 					"name": "pages/status/status",
 					"pathName": "pages/status/status",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userStore/userStore",
+					"pathName": "pages/userStore/userStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/statusReceive/statusReceive",
+					"pathName": "pages/statusReceive/statusReceive",
 					"scene": null
 				}
 			]

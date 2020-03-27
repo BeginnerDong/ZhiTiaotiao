@@ -119,7 +119,7 @@
 	height:88rpx;
 }
 .w33{
-	width:25%;
+	width:33.3%;
 	text-align:center;
 	height:80rpx;
 	line-height:80rpx;

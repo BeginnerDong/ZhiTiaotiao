@@ -20,6 +20,18 @@
 	<view class="input_before color8">常用邮箱：</view>
 	<input placeholder="请输入您的邮箱（选填）" value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"></input>
 </view>	
+
+<view class="input_list1 font28 flex  w690" style="height:96rpx;">
+	<view class="input_before color8" >店铺分类：</view>
+	<view class="input">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{web_typeData}}" range-key="title">
+        <view class="flex picker_in">
+          <view class="picker">{{web_typeData[web_index].title}}</view>
+          <view class="down flex"><image src="/images/down.png"></image></view>
+        </view>
+      </picker>
+    </view>
+</view>
 <view class="input_list1 font28   w690" style="height: auto;padding: 15px 1%;">
 	<view class="input_before color8">店铺地区：</view>
 	<view class=" font28 flex  w690" style="padding-top:10rpx;">
@@ -54,17 +66,6 @@
 			</view>
 		</view>
 	</view>
-</view>
-<view class="input_list1 font28 flex  w690" style="height:96rpx;">
-	<view class="input_before color8" >店铺分类：</view>
-	<view class="input">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{web_typeData}}" range-key="title">
-        <view class="flex picker_in">
-          <view class="picker">{{web_typeData[web_index].title}}</view>
-          <view class="down flex"><image src="/images/down.png"></image></view>
-        </view>
-      </picker>
-    </view>
 </view>
 <view class="message flex1 w690" style="height: 190rpx;border-bottom: 1px solid #e0e0e0;">
 	<view class="message_left font28 color2">店铺地址：</view>

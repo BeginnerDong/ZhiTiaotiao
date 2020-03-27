@@ -26,9 +26,10 @@
 
 <view class="timeOrder flexRowBetween">
   <view class="item flexColumn"> 
-    <view class="name">起始时间<image class="arrow" src="/images/up.jpg"></image></view>
+   
    
 	<picker mode="date" value="{{web_startTime}}" data-type="startTime" bindchange="bindTimeChange" >
+		 <view class="name">起始时间<image class="arrow" src="/images/up.jpg"></image></view>
 		 <view>{{web_startTime!=""?web_startTime:'请选择'}}</view>
 	</picker>
   </view>
@@ -70,13 +71,15 @@
 <!-- 知条 -->
 <view wx:if="{{web_currentId==2}}">
   <view class="record_tlt flex" style="background:#f5f5f5;">
-		<view class="w50 color2 font30">时间</view>
-		<view class="w50 color2 font30">知条</view>
+		<view class="w33 color2 font30">时间</view>
+		<view class="w33 color2 font30">知条</view>
+		<view class="w33 color2 font30">来源</view>
 	</view>
 	<block   wx:for="{{web_mainData}}" wx:key="id" >
 		<view class="record_list flex" wx:if="{{item.count>0}}">
-			<view class="w50 color6 font26">{{item.create_time}}</view>
-			<view class="w50 color3 font28">{{item.count}}</view>
+			<view class="w33 color6 font26">{{item.create_time}}</view>
+			<view class="w33 color3 font28">{{item.count}}</view>
+			<view class="w33 color3 font28">{{item.trade_info}}</view>
 		</view>
 	</block>
 </view>
@@ -112,9 +115,9 @@
 	
 </view> -->
 
-<view class="reword font24 color1 flex" wx:if="{{web_currentId==3}}">
-	<view class="reword_in color1" bindtap="rule">结算规则</view>
-</view>
+<!-- <view class="reword font24 color1 flex" wx:if="{{web_currentId==3}}">
+	<view class="reword_in color1" bindtap="rule">联盟金规则</view>
+</view> -->
 <!-- <view style="margin-top:30rpx;">
 	<block wx:for="{{web_mainData}}" wx:key="id">
 		<view class="piece_list w690 flex" wx:if="{{item.count>0&&web_currentId==3}}">
@@ -135,7 +138,7 @@
 	</block>
 </view> -->
 
-<view class="mask" wx:if="{{is_rule}}">
+<!-- <view class="mask" wx:if="{{is_rule}}">
     <view class="rule bg1" style="height: 90%;">
         <scroll-view scroll-y style="height:90%">
             <view class="rule_cont">
@@ -153,4 +156,4 @@
         </view>
 		
     </view>
-</view>
+</view> -->

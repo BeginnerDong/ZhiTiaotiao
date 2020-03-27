@@ -14,7 +14,7 @@ Page({
 		time: 2019 - 9 - 9,
 		currentId: 0,
 		searchItem: {
-			status: ['in', [0, 1, -1]],
+			status: ['in', [1]],
 			type: 2,
 			user_no: wx.getStorageSync('storeInfo').user_no,
 			count: ['>', 0],
@@ -26,8 +26,10 @@ Page({
 		endTime: '',
 		todayMoney: '',
 		searchItemTwo: {
-			shop_no: wx.getStorageSync('storeInfo').user_no,
-			user_type: 0
+			
+			user_type: 0,
+			pay_status:1,
+			pay_type:0
 		}
 
 	},
@@ -42,6 +44,7 @@ Page({
 		const self = this;
 		api.commonInit(self);
 		self.data.searchItem.user_no = wx.getStorageSync('storeInfo').user_no;
+		self.data.searchItemTwo.shop_no = wx.getStorageSync('storeInfo').user_no;
 		self.getMainData();
 		self.getUserInfoData();
 		self.rewardParamGet();
@@ -187,7 +190,10 @@ Page({
 				'sum',
 				'price',
 				{
-					shop_no: wx.getStorageSync('storeInfo').user_no
+					shop_no: wx.getStorageSync('storeInfo').user_no,
+					user_type:0,
+					pay_status:1,
+					pay_type:0
 				}
 			],
 		};

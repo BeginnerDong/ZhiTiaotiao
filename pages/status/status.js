@@ -103,7 +103,7 @@ Page({
 		  totalCount:[
 			'sum',
 			'count',
-			{type:3,user_no:wx.getStorageSync('info').user_no}
+			{type:3,user_no:wx.getStorageSync('info').user_no,status:1}
 		  ],  
 		};
 		const callback = (res) => {
